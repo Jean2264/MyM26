@@ -487,7 +487,7 @@
             // 
             pcb_art.Anchor = AnchorStyles.Top;
             pcb_art.BorderStyle = BorderStyle.FixedSingle;
-            pcb_art.Location = new Point(37, 2);
+            pcb_art.Location = new Point(34, 2);
             pcb_art.Name = "pcb_art";
             pcb_art.Size = new Size(151, 128);
             pcb_art.TabIndex = 4;
