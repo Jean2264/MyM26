@@ -1,438 +1,419 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\paiva\\source\\repos\\MyM26\\",
+  "WorkspaceRootPath": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\dal\\cajadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\cajadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\caja\\vcaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\caja\\vcaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\cajanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\cajanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\avisosglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\avisosglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\dal\\articulodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\articulodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\articulos\\varticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\articulos\\varticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\utils\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\actcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\actcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\dal\\empleadodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\empleadodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\dal\\proveedordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\proveedordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\proveedornegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\proveedornegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\dal\\usuariodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\usuariodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\usuariodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\proveedordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\proveedordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\empleadodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\empleadodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\utils\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\catysubdatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\catysubdatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\cajadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\cajadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\articulodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\articulodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\usuarionegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\usuarionegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\usuario\\vuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\vuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\empleadonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\empleadonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\utils\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\utils\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\usuario\\visiblecontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\visiblecontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\usuario\\usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\comun\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\comun\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\comun\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\comun\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\empleado\\vempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\empleado\\vempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\abm.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\catysub\\vcatysub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\catysub\\vcatysub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\dal\\clientedatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\clientedatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\clientedatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\catysubnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\caja\\vcaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\caja\\vcaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\cajanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\cajanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\avisosglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\avisosglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\articulos\\varticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\articulos\\varticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\actcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\actcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\proveedornegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\proveedornegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\usuarionegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\usuarionegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\usuario\\vuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\vuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\empleadonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\empleadonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\usuario\\visiblecontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\visiblecontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\usuario\\usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\comun\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\comun\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\comun\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\comun\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\empleado\\vempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\empleado\\vempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\abm.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\catysub\\vcatysub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\catysub\\vcatysub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\catysubnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\catysubnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\bll\\clientenegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\clientenegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\clientenegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\contrasenia.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\contrasenia.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\contrasenia.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\source\\repos\\MyM26\\ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\cliente\\vcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\cliente\\vcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\cliente\\vcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\entidades\\proveedor\\vproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\proveedor\\vproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\proveedor\\vproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\clienteproveedor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\clienteproveedor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\amuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\amuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\ui\\principal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\principal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\principal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\utils\\gradientflowlayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\gradientflowlayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\gradientflowlayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\utils\\gradientpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\gradientpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\gradientpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\utils\\gradienttablelayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\gradienttablelayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\gradienttablelayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\source\\repos\\mym26\\mym26.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\mym26.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:mym26.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\TargetaUsuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\QueryUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Querys\\QueryUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\QueryUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\Users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Querys\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:1:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:1:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:1:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\ElegirPerfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\AVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\avm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\avm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\avm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\Articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\a\u00F1adirCyP.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\Categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\ClienteProveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:screens\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Querys\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -442,27 +423,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "AMUser.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMUser.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.cs",
               "RelativeDocumentMoniker": "UI\\AMUser.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMUser.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\AMUser.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\AMUser.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-12T03:59:31.941Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "AMUser.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMUser.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.cs",
               "RelativeDocumentMoniker": "UI\\AMUser.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMUser.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.cs",
               "RelativeToolTip": "UI\\AMUser.cs",
               "ViewState": "AgIAAF0AAAAAAAAAAAAEwA8BAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -471,36 +452,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "Categorias.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Categorias.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Categorias.cs",
               "RelativeDocumentMoniker": "UI\\Categorias.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Categorias.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Categorias.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Categorias.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-07T20:09:30.532Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "ArticuloDatos.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\ArticuloDatos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ArticuloDatos.cs",
               "RelativeDocumentMoniker": "DAL\\ArticuloDatos.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\ArticuloDatos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ArticuloDatos.cs",
               "RelativeToolTip": "DAL\\ArticuloDatos.cs",
-              "ViewState": "AgIAAH0CAAAAAAAAAADwv6YCAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAD4EAAAAAAAAAAAswFYDAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-09T06:14:19.204Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "Empleados.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Empleados.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Empleados.cs",
               "RelativeDocumentMoniker": "UI\\Empleados.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Empleados.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Empleados.cs",
               "RelativeToolTip": "UI\\Empleados.cs",
               "ViewState": "AgIAAEsAAAAAAAAAAIAwwFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -510,11 +492,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "ABM.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ABM.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.cs",
               "RelativeDocumentMoniker": "UI\\ABM.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ABM.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.cs",
               "RelativeToolTip": "UI\\ABM.cs",
               "ViewState": "AgIAALkAAAAAAAAAAIAwwNEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -524,11 +506,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "ActCompra.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ActCompra.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ActCompra.cs",
               "RelativeDocumentMoniker": "UI\\ActCompra.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ActCompra.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ActCompra.cs",
               "RelativeToolTip": "UI\\ActCompra.cs",
               "ViewState": "AgIAAFAAAAAAAAAAAIAwwG4AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -537,11 +519,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Caja.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Caja.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs",
               "RelativeDocumentMoniker": "UI\\Caja.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Caja.cs [Design]",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs [Design]",
               "RelativeToolTip": "UI\\Caja.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T05:53:43.152Z",
@@ -550,11 +532,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "Caja.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Caja.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs",
               "RelativeDocumentMoniker": "UI\\Caja.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Caja.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs",
               "RelativeToolTip": "UI\\Caja.cs",
               "ViewState": "AgIAAGcAAAAAAAAAAADgv28AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -568,23 +550,89 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CajaDatos.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\CajaDatos.cs",
-              "RelativeDocumentMoniker": "DAL\\CajaDatos.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\CajaDatos.cs",
-              "RelativeToolTip": "DAL\\CajaDatos.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAowA8AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UsuarioDatos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\UsuarioDatos.cs",
+              "RelativeDocumentMoniker": "DAL\\UsuarioDatos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\UsuarioDatos.cs",
+              "RelativeToolTip": "DAL\\UsuarioDatos.cs",
+              "ViewState": "AgIAAMECAAAAAAAAAAAqwNcCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T04:18:05.982Z"
+              "WhenOpened": "2026-02-04T03:14:44.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProveedorDatos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ProveedorDatos.cs",
+              "RelativeDocumentMoniker": "DAL\\ProveedorDatos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ProveedorDatos.cs",
+              "RelativeToolTip": "DAL\\ProveedorDatos.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAIwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T06:38:47.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmpleadoDatos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\EmpleadoDatos.cs",
+              "RelativeDocumentMoniker": "DAL\\EmpleadoDatos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\EmpleadoDatos.cs",
+              "RelativeToolTip": "DAL\\EmpleadoDatos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T06:40:07.427Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "CatySubDatos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CatySubDatos.cs",
+              "RelativeDocumentMoniker": "DAL\\CatySubDatos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CatySubDatos.cs",
+              "RelativeToolTip": "DAL\\CatySubDatos.cs",
+              "ViewState": "AgIAAIsBAAAAAAAAAAAAAJwBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T01:24:50.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CajaDatos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CajaDatos.cs",
+              "RelativeDocumentMoniker": "DAL\\CajaDatos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CajaDatos.cs",
+              "RelativeToolTip": "DAL\\CajaDatos.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T04:18:05.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ClienteDatos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ClienteDatos.cs",
+              "RelativeDocumentMoniker": "DAL\\ClienteDatos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ClienteDatos.cs",
+              "RelativeToolTip": "DAL\\ClienteDatos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T02:41:38.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "VCaja.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Caja\\VCaja.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Caja\\VCaja.cs",
               "RelativeDocumentMoniker": "Entidades\\Caja\\VCaja.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Caja\\VCaja.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Caja\\VCaja.cs",
               "RelativeToolTip": "Entidades\\Caja\\VCaja.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -592,11 +640,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "ArticuloNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\ArticuloNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ArticuloNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\ArticuloNegocio.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\ArticuloNegocio.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ArticuloNegocio.cs",
               "RelativeToolTip": "BLL\\ArticuloNegocio.cs",
               "ViewState": "AgIAAI8AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -604,11 +652,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "AvisosGlobales.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\AvisosGlobales.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\AvisosGlobales.cs",
               "RelativeDocumentMoniker": "BLL\\AvisosGlobales.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\AvisosGlobales.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\AvisosGlobales.cs",
               "RelativeToolTip": "BLL\\AvisosGlobales.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -616,11 +664,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "CajaNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\CajaNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CajaNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\CajaNegocio.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\CajaNegocio.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CajaNegocio.cs",
               "RelativeToolTip": "BLL\\CajaNegocio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -628,11 +676,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "VArticulo.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Articulos\\VArticulo.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Articulos\\VArticulo.cs",
               "RelativeDocumentMoniker": "Entidades\\Articulos\\VArticulo.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Articulos\\VArticulo.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Articulos\\VArticulo.cs",
               "RelativeToolTip": "Entidades\\Articulos\\VArticulo.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAiwBAAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -640,11 +688,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "TextFile1.txt",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\TextFile1.txt",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\TextFile1.txt",
               "RelativeDocumentMoniker": "UTILS\\TextFile1.txt",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\TextFile1.txt",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\TextFile1.txt",
               "RelativeToolTip": "UTILS\\TextFile1.txt",
               "ViewState": "AgIAACoAAAAAAAAAAAAAACwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
@@ -652,23 +700,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "Articulos.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Articulos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Articulos.cs",
               "RelativeDocumentMoniker": "UI\\Articulos.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Articulos.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Articulos.cs",
               "RelativeToolTip": "UI\\Articulos.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAAkwI8AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T06:43:23.86Z"
+              "WhenOpened": "2026-03-16T06:43:23.86Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "Categorias.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Categorias.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Categorias.cs",
               "RelativeDocumentMoniker": "UI\\Categorias.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Categorias.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Categorias.cs",
               "RelativeToolTip": "UI\\Categorias.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAgwEAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -676,23 +725,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "Compras.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Compras.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Compras.cs",
               "RelativeDocumentMoniker": "UI\\Compras.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Compras.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Compras.cs",
               "RelativeToolTip": "UI\\Compras.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAkwA4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T06:46:37.27Z"
+              "WhenOpened": "2026-03-16T06:46:37.27Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Users.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Users.cs",
               "RelativeDocumentMoniker": "UI\\Users.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Users.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Users.cs",
               "RelativeToolTip": "UI\\Users.cs",
               "ViewState": "AgIAAHwAAAAAAAAAAAAwwJQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -701,11 +751,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "ClienteProveedor.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ClienteProveedor.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.cs",
               "RelativeDocumentMoniker": "UI\\ClienteProveedor.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ClienteProveedor.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.cs",
               "RelativeToolTip": "UI\\ClienteProveedor.cs",
               "ViewState": "AgIAAJUAAAAAAAAAAAAUwLkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -714,59 +764,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "A\u00F1adirCompra.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\A\u00F1adirCompra.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\A\u00F1adirCompra.cs",
               "RelativeDocumentMoniker": "UI\\A\u00F1adirCompra.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\A\u00F1adirCompra.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\A\u00F1adirCompra.cs",
               "RelativeToolTip": "UI\\A\u00F1adirCompra.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAkwCMAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T02:50:18.584Z"
+              "WhenOpened": "2026-03-17T02:50:18.584Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "EmpleadoDatos.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\EmpleadoDatos.cs",
-              "RelativeDocumentMoniker": "DAL\\EmpleadoDatos.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\EmpleadoDatos.cs",
-              "RelativeToolTip": "DAL\\EmpleadoDatos.cs",
-              "ViewState": "AgIAAC0BAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T06:40:07.427Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "TargetaUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaUsuario.cs",
               "RelativeDocumentMoniker": "UI\\TargetaUsuario.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaUsuario.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaUsuario.cs",
               "RelativeToolTip": "UI\\TargetaUsuario.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAcwBUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T03:58:26.784Z"
+              "WhenOpened": "2026-02-02T03:58:26.784Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "ProveedorDatos.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\ProveedorDatos.cs",
-              "RelativeDocumentMoniker": "DAL\\ProveedorDatos.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\ProveedorDatos.cs",
-              "RelativeToolTip": "DAL\\ProveedorDatos.cs",
-              "ViewState": "AgIAAHMBAAAAAAAAAAAUwJcBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T06:38:47.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "ProveedorNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\ProveedorNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ProveedorNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\ProveedorNegocio.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\ProveedorNegocio.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ProveedorNegocio.cs",
               "RelativeToolTip": "BLL\\ProveedorNegocio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -774,11 +802,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "TargetaArticulo.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaArticulo.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaArticulo.cs",
               "RelativeDocumentMoniker": "UI\\TargetaArticulo.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaArticulo.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaArticulo.cs",
               "RelativeToolTip": "UI\\TargetaArticulo.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAEwCkAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -787,23 +815,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "UsuarioDatos.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\UsuarioDatos.cs",
-              "RelativeDocumentMoniker": "DAL\\UsuarioDatos.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\UsuarioDatos.cs",
-              "RelativeToolTip": "DAL\\UsuarioDatos.cs",
-              "ViewState": "AgIAAPoBAAAAAAAAAAAowAYCAADbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T03:14:44.362Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "textoss.txt",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\textoss.txt",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\textoss.txt",
               "RelativeDocumentMoniker": "UTILS\\textoss.txt",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\textoss.txt",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\textoss.txt",
               "RelativeToolTip": "UTILS\\textoss.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAANYAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
@@ -811,11 +827,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "AMEmpleado.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMEmpleado.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMEmpleado.cs",
               "RelativeDocumentMoniker": "UI\\AMEmpleado.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMEmpleado.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMEmpleado.cs",
               "RelativeToolTip": "UI\\AMEmpleado.cs",
               "ViewState": "AgIAABYBAAAAAAAAAAAiwG8BAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -824,11 +840,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "UsuarioNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\UsuarioNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\UsuarioNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\UsuarioNegocio.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\UsuarioNegocio.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\UsuarioNegocio.cs",
               "RelativeToolTip": "BLL\\UsuarioNegocio.cs",
               "ViewState": "AgIAAMMAAAAAAAAAAAAxwMwAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -836,11 +852,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "VUser.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Usuario\\VUser.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VUser.cs",
               "RelativeDocumentMoniker": "Entidades\\Usuario\\VUser.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Usuario\\VUser.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VUser.cs",
               "RelativeToolTip": "Entidades\\Usuario\\VUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -848,23 +864,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "Bajas.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Bajas.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Bajas.cs",
               "RelativeDocumentMoniker": "UI\\Bajas.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Bajas.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Bajas.cs",
               "RelativeToolTip": "UI\\Bajas.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T05:43:34.314Z"
+              "WhenOpened": "2026-03-05T05:43:34.314Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "EmpleadoNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\EmpleadoNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\EmpleadoNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\EmpleadoNegocio.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\EmpleadoNegocio.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\EmpleadoNegocio.cs",
               "RelativeToolTip": "BLL\\EmpleadoNegocio.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAgwAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -872,22 +889,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "Resources.resx",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Properties\\Resources.resx",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "Properties\\Resources.resx",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Properties\\Resources.resx",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Properties\\Resources.resx",
               "RelativeToolTip": "Properties\\Resources.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
               "WhenOpened": "2026-02-08T01:57:37.932Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "Variables.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\Variables.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Variables.cs",
               "RelativeDocumentMoniker": "UTILS\\Variables.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\Variables.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Variables.cs",
               "RelativeToolTip": "UTILS\\Variables.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -895,11 +912,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 54,
               "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Usuario.cs",
               "RelativeDocumentMoniker": "UTILS\\Usuario.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\Usuario.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Usuario.cs",
               "RelativeToolTip": "UTILS\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -907,11 +924,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 56,
               "Title": "UsuarioActivo.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Usuario\\UsuarioActivo.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\UsuarioActivo.cs",
               "RelativeDocumentMoniker": "Entidades\\Usuario\\UsuarioActivo.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Usuario\\UsuarioActivo.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\UsuarioActivo.cs",
               "RelativeToolTip": "Entidades\\Usuario\\UsuarioActivo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -919,11 +936,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 55,
               "Title": "VisibleContrase\u00F1a.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
               "RelativeDocumentMoniker": "Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
               "RelativeToolTip": "Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -931,11 +948,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 57,
               "Title": "Resultado.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Comun\\Resultado.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Resultado.cs",
               "RelativeDocumentMoniker": "Entidades\\Comun\\Resultado.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Comun\\Resultado.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Resultado.cs",
               "RelativeToolTip": "Entidades\\Comun\\Resultado.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -943,11 +960,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "Error.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Comun\\Error.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Error.cs",
               "RelativeDocumentMoniker": "Entidades\\Comun\\Error.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Comun\\Error.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Error.cs",
               "RelativeToolTip": "Entidades\\Comun\\Error.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -955,11 +972,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 59,
               "Title": "VEmpleado.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Empleado\\VEmpleado.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Empleado\\VEmpleado.cs",
               "RelativeDocumentMoniker": "Entidades\\Empleado\\VEmpleado.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Empleado\\VEmpleado.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Empleado\\VEmpleado.cs",
               "RelativeToolTip": "Entidades\\Empleado\\VEmpleado.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -967,11 +984,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 60,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Program.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -979,23 +996,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 61,
               "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Login.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.cs",
               "RelativeDocumentMoniker": "UI\\Login.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Login.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.cs",
               "RelativeToolTip": "UI\\Login.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAmwDYAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T06:32:32.901Z"
+              "WhenOpened": "2026-03-06T06:32:32.901Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 63,
               "Title": "ElegirPerfil.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ElegirPerfil.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ElegirPerfil.cs",
               "RelativeDocumentMoniker": "UI\\ElegirPerfil.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ElegirPerfil.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ElegirPerfil.cs",
               "RelativeToolTip": "UI\\ElegirPerfil.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAmwDkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1004,11 +1022,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 62,
               "Title": "ABM.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ABM.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.Designer.cs",
               "RelativeDocumentMoniker": "UI\\ABM.Designer.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ABM.Designer.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.Designer.cs",
               "RelativeToolTip": "UI\\ABM.Designer.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAmwBYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1016,11 +1034,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 65,
               "Title": "VCatySub.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\CatySub\\VCatySub.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\CatySub\\VCatySub.cs",
               "RelativeDocumentMoniker": "Entidades\\CatySub\\VCatySub.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\CatySub\\VCatySub.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\CatySub\\VCatySub.cs",
               "RelativeToolTip": "Entidades\\CatySub\\VCatySub.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwB4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1028,23 +1046,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "ClienteDatos.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\ClienteDatos.cs",
-              "RelativeDocumentMoniker": "DAL\\ClienteDatos.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\DAL\\ClienteDatos.cs",
-              "RelativeToolTip": "DAL\\ClienteDatos.cs",
-              "ViewState": "AgIAAIYBAAAAAAAAAAAgwKQBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T02:41:38.094Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "CatySubNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\CatySubNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CatySubNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\CatySubNegocio.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\CatySubNegocio.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CatySubNegocio.cs",
               "RelativeToolTip": "BLL\\CatySubNegocio.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwCUAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1052,11 +1058,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "ClienteNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\ClienteNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ClienteNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\ClienteNegocio.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\BLL\\ClienteNegocio.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ClienteNegocio.cs",
               "RelativeToolTip": "BLL\\ClienteNegocio.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAgwGkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1064,11 +1070,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "Contrasenia.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Contrasenia.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.Designer.cs",
               "RelativeDocumentMoniker": "UI\\Contrasenia.Designer.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Contrasenia.Designer.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.Designer.cs",
               "RelativeToolTip": "UI\\Contrasenia.Designer.cs",
               "ViewState": "AgIAAGsAAAAAAAAAAAAEwI0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1076,23 +1082,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "RecuperarUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\RecuperarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\RecuperarUsuario.cs",
               "RelativeDocumentMoniker": "UI\\RecuperarUsuario.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\RecuperarUsuario.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\RecuperarUsuario.cs",
               "RelativeToolTip": "UI\\RecuperarUsuario.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAYwFkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T04:52:10.137Z"
+              "WhenOpened": "2026-03-07T04:52:10.137Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 73,
               "Title": "Correo.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Correo.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Correo.cs",
               "RelativeDocumentMoniker": "UI\\Correo.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Correo.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Correo.cs",
               "RelativeToolTip": "UI\\Correo.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAwwBIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1101,23 +1108,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 72,
               "Title": "Token.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Token.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Token.cs",
               "RelativeDocumentMoniker": "UI\\Token.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Token.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Token.cs",
               "RelativeToolTip": "UI\\Token.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T05:24:38.972Z"
+              "WhenOpened": "2026-03-07T05:24:38.972Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "Contrasenia.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Contrasenia.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.cs",
               "RelativeDocumentMoniker": "UI\\Contrasenia.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Contrasenia.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.cs",
               "RelativeToolTip": "UI\\Contrasenia.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1126,23 +1134,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 75,
               "Title": "a\u00F1adirCyP.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\a\u00F1adirCyP.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\a\u00F1adirCyP.cs",
               "RelativeDocumentMoniker": "UI\\a\u00F1adirCyP.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\a\u00F1adirCyP.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\a\u00F1adirCyP.cs",
               "RelativeToolTip": "UI\\a\u00F1adirCyP.cs",
               "ViewState": "AgIAAEkBAAAAAAAAAAAmwDIBAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T23:22:16.964Z"
+              "WhenOpened": "2026-01-31T23:22:16.964Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 76,
               "Title": "VCliente.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Cliente\\VCliente.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Cliente\\VCliente.cs",
               "RelativeDocumentMoniker": "Entidades\\Cliente\\VCliente.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Cliente\\VCliente.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Cliente\\VCliente.cs",
               "RelativeToolTip": "Entidades\\Cliente\\VCliente.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAA1wB8AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1150,11 +1159,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 77,
               "Title": "VProveedor.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Proveedor\\VProveedor.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Proveedor\\VProveedor.cs",
               "RelativeDocumentMoniker": "Entidades\\Proveedor\\VProveedor.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Entidades\\Proveedor\\VProveedor.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Proveedor\\VProveedor.cs",
               "RelativeToolTip": "Entidades\\Proveedor\\VProveedor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1162,11 +1171,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 78,
               "Title": "Login.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Login.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.Designer.cs",
               "RelativeDocumentMoniker": "UI\\Login.Designer.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Login.Designer.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.Designer.cs",
               "RelativeToolTip": "UI\\Login.Designer.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAvwBYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1174,11 +1183,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 79,
               "Title": "ClienteProveedor.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ClienteProveedor.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.Designer.cs",
               "RelativeDocumentMoniker": "UI\\ClienteProveedor.Designer.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ClienteProveedor.Designer.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.Designer.cs",
               "RelativeToolTip": "UI\\ClienteProveedor.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1186,11 +1195,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 82,
               "Title": "GradientFlowLayoutPanel.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\GradientFlowLayoutPanel.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientFlowLayoutPanel.cs",
               "RelativeDocumentMoniker": "UTILS\\GradientFlowLayoutPanel.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\GradientFlowLayoutPanel.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientFlowLayoutPanel.cs",
               "RelativeToolTip": "UTILS\\GradientFlowLayoutPanel.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1198,11 +1207,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 80,
               "Title": "AMUser.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMUser.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.Designer.cs",
               "RelativeDocumentMoniker": "UI\\AMUser.Designer.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMUser.Designer.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.Designer.cs",
               "RelativeToolTip": "UI\\AMUser.Designer.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAuwBYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1210,11 +1219,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 84,
               "Title": "GradientTableLayoutPanel.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\GradientTableLayoutPanel.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientTableLayoutPanel.cs",
               "RelativeDocumentMoniker": "UTILS\\GradientTableLayoutPanel.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\GradientTableLayoutPanel.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientTableLayoutPanel.cs",
               "RelativeToolTip": "UTILS\\GradientTableLayoutPanel.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1222,22 +1231,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 85,
               "Title": "MyM26",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\MyM26.csproj",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj",
               "RelativeDocumentMoniker": "MyM26.csproj",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\MyM26.csproj",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj",
               "RelativeToolTip": "MyM26.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-12-07T05:44:28.354Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 83,
               "Title": "GradientPanel.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\GradientPanel.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientPanel.cs",
               "RelativeDocumentMoniker": "UTILS\\GradientPanel.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UTILS\\GradientPanel.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientPanel.cs",
               "RelativeToolTip": "UTILS\\GradientPanel.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1245,11 +1254,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 81,
               "Title": "Principal.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Principal.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Principal.Designer.cs",
               "RelativeDocumentMoniker": "UI\\Principal.Designer.cs",
-              "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Principal.Designer.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Principal.Designer.cs",
               "RelativeToolTip": "UI\\Principal.Designer.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwBYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1257,470 +1266,466 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 88,
               "Title": "TargetaUsuario.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
-              "RelativeDocumentMoniker": "screens\\TargetaUsuario.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
-              "RelativeToolTip": "screens\\TargetaUsuario.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T06:35:30.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 89,
               "Title": "QueryUser.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\QueryUser.cs",
-              "RelativeDocumentMoniker": "Querys\\QueryUser.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\QueryUser.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\QueryUser.cs",
-              "RelativeToolTip": "Querys\\QueryUser.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\QueryUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T03:58:56.671Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 90,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs",
-              "RelativeDocumentMoniker": "screens\\Users.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Users.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs",
-              "RelativeToolTip": "screens\\Users.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Users.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T02:46:59.528Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 92,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Conexion.cs",
-              "RelativeDocumentMoniker": "Querys\\Conexion.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\Conexion.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Conexion.cs",
-              "RelativeToolTip": "Querys\\Conexion.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\Conexion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T05:05:02.173Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 94,
               "Title": "ElegirPerfil.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
-              "RelativeDocumentMoniker": "screens\\ElegirPerfil.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
-              "RelativeToolTip": "screens\\ElegirPerfil.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T04:06:12.446Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 95,
               "Title": "AVM.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs",
-              "RelativeDocumentMoniker": "screens\\AVM.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AVM.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs",
-              "RelativeToolTip": "screens\\AVM.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AVM.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T01:26:40.527Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 100,
               "Title": "Articulos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs",
-              "RelativeDocumentMoniker": "screens\\Articulos.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Articulos.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs",
-              "RelativeToolTip": "screens\\Articulos.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Articulos.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T02:07:09.442Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 101,
               "Title": "a\u00F1adirCyP.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
-              "RelativeDocumentMoniker": "screens\\a\u00F1adirCyP.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
-              "RelativeToolTip": "screens\\a\u00F1adirCyP.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T22:49:02.936Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 102,
               "Title": "Categorias.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs",
-              "RelativeDocumentMoniker": "screens\\Categorias.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Categorias.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs",
-              "RelativeToolTip": "screens\\Categorias.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Categorias.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T02:27:42.395Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 104,
               "Title": "ClienteProveedor.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
-              "RelativeDocumentMoniker": "screens\\ClienteProveedor.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
-              "RelativeToolTip": "screens\\ClienteProveedor.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T23:10:48.314Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 107,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Usuario.cs",
-              "RelativeDocumentMoniker": "Querys\\Usuario.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\Usuario.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Usuario.cs",
-              "RelativeToolTip": "Querys\\Usuario.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T05:43:07.715Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "Compras.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Compras.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Compras.cs",
               "RelativeDocumentMoniker": "UI\\Compras.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Compras.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Compras.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Compras.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-16T06:46:13.07Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "Articulos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Articulos.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Articulos.cs",
               "RelativeDocumentMoniker": "UI\\Articulos.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Articulos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Articulos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Articulos.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-16T06:43:13.165Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "a\u00F1adirCyP.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\a\u00F1adirCyP.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\a\u00F1adirCyP.cs",
               "RelativeDocumentMoniker": "UI\\a\u00F1adirCyP.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\a\u00F1adirCyP.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\a\u00F1adirCyP.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\a\u00F1adirCyP.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-31T00:41:12.957Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "Users.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Users.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Users.cs",
               "RelativeDocumentMoniker": "UI\\Users.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Users.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Users.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Users.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-16T06:36:34.962Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "ClienteProveedor.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ClienteProveedor.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.cs",
               "RelativeDocumentMoniker": "UI\\ClienteProveedor.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ClienteProveedor.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\ClienteProveedor.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\ClienteProveedor.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-30T23:14:44.933Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "Empleados.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Empleados.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Empleados.cs",
               "RelativeDocumentMoniker": "UI\\Empleados.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Empleados.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Empleados.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Empleados.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T00:11:51.572Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "A\u00F1adirCompra.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\A\u00F1adirCompra.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\A\u00F1adirCompra.cs",
               "RelativeDocumentMoniker": "UI\\A\u00F1adirCompra.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\A\u00F1adirCompra.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\A\u00F1adirCompra.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\A\u00F1adirCompra.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T02:50:15.195Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "TargetaUsuario.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaUsuario.cs",
               "RelativeDocumentMoniker": "UI\\TargetaUsuario.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaUsuario.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\TargetaUsuario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\TargetaUsuario.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-04T20:56:55.936Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "ABM.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ABM.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.cs",
               "RelativeDocumentMoniker": "UI\\ABM.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ABM.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\ABM.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\ABM.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-14T00:54:21.216Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "Principal.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Principal.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Principal.cs",
               "RelativeDocumentMoniker": "UI\\Principal.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Principal.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Principal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Principal.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-30T23:57:14.947Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "TargetaArticulo.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaArticulo.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaArticulo.cs",
               "RelativeDocumentMoniker": "UI\\TargetaArticulo.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\TargetaArticulo.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\TargetaArticulo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\TargetaArticulo.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-09T06:50:08.169Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "AMEmpleado.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMEmpleado.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMEmpleado.cs",
               "RelativeDocumentMoniker": "UI\\AMEmpleado.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\AMEmpleado.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\AMEmpleado.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\AMEmpleado.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T00:46:33.324Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "Bajas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Bajas.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Bajas.cs",
               "RelativeDocumentMoniker": "UI\\Bajas.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Bajas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Bajas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Bajas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T05:42:28.915Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "Login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Login.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.cs",
               "RelativeDocumentMoniker": "UI\\Login.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Login.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Login.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-06T07:38:59.8Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "RecuperarUsuario.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\RecuperarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\RecuperarUsuario.cs",
               "RelativeDocumentMoniker": "UI\\RecuperarUsuario.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\RecuperarUsuario.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\RecuperarUsuario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\RecuperarUsuario.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-07T04:47:27.849Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "Token.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Token.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Token.cs",
               "RelativeDocumentMoniker": "UI\\Token.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Token.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Token.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Token.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-07T05:23:21.408Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 64,
               "Title": "ElegirPerfil.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ElegirPerfil.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ElegirPerfil.cs",
               "RelativeDocumentMoniker": "UI\\ElegirPerfil.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\ElegirPerfil.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\ElegirPerfil.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\ElegirPerfil.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-08T01:14:13.395Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 71,
               "Title": "Contrasenia.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Contrasenia.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.cs",
               "RelativeDocumentMoniker": "UI\\Contrasenia.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Contrasenia.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Contrasenia.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Contrasenia.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-07T05:25:45.415Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 74,
               "Title": "Correo.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Correo.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Correo.cs",
               "RelativeDocumentMoniker": "UI\\Correo.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\UI\\Correo.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UI\\Correo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\UI\\Correo.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-07T04:55:42.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 87,
               "Title": "TargetaUsuario.cs [Design]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
-              "RelativeDocumentMoniker": "screens\\TargetaUsuario.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs [Design]",
-              "RelativeToolTip": "screens\\TargetaUsuario.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T06:31:35.115Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 86,
               "Title": "Users.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs",
-              "RelativeDocumentMoniker": "screens\\Users.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Users.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\Users.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Users.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T23:30:47.894Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 91,
               "Title": "ElegirPerfil.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
-              "RelativeDocumentMoniker": "screens\\ElegirPerfil.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\ElegirPerfil.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T04:03:32.453Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 93,
               "Title": "AMUser.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs",
-              "RelativeDocumentMoniker": "screens\\AMUser.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AMUser.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\AMUser.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AMUser.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T23:10:05.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 96,
               "Title": "Articulos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs",
-              "RelativeDocumentMoniker": "screens\\Articulos.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Articulos.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\Articulos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Articulos.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T00:34:23.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 97,
               "Title": "AVM.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs",
-              "RelativeDocumentMoniker": "screens\\AVM.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AVM.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\AVM.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AVM.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T01:24:55.761Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 98,
               "Title": "Caja.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Caja.cs",
-              "RelativeDocumentMoniker": "screens\\Caja.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Caja.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Caja.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\Caja.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Caja.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T03:25:58.458Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 99,
               "Title": "Categorias.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs",
-              "RelativeDocumentMoniker": "screens\\Categorias.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Categorias.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\Categorias.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Categorias.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T02:26:13.2Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 103,
               "Title": "a\u00F1adirCyP.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
-              "RelativeDocumentMoniker": "screens\\a\u00F1adirCyP.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\a\u00F1adirCyP.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T20:37:52.485Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 105,
               "Title": "ClienteProveedor.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
-              "RelativeDocumentMoniker": "screens\\ClienteProveedor.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\ClienteProveedor.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T20:17:13.051Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 106,
               "Title": "AMUser.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs",
-              "RelativeDocumentMoniker": "screens\\AMUser.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AMUser.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs [Dise\u00F1o]",
-              "RelativeToolTip": "screens\\AMUser.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AMUser.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T02:28:45.545Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 108,
               "Title": "Principal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Principal.cs",
-              "RelativeDocumentMoniker": "Principal.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Principal.cs",
               "ToolTip": "C:\\Users\\paiva\\source\\repos\\MyM26\\Principal.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Principal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\MyM26\\Principal.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T00:32:41.57Z"
             }

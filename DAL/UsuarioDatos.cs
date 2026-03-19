@@ -32,70 +32,7 @@ namespace MyM26.DAL
         public byte[] Foto { get => _foto; set => _foto = value; }
         public object ImagenHelper { get; private set; }
 
-        /* public void LlenarContenedor(FlowLayoutPanel Contenedor,
-     Action<string> editarCallback, Users usu)
-         {
-             string sqltranq = "Select s.DNI, s.Usuario, t.Tipo, s.perfil from Usuario s inner join TipoUsuario t on s.CodtipoUsuario= t.CodTipoUsuario where s.Estado=1";
-             SqlCommand cmd = new SqlCommand(sqltranq, Decla.cnn);
-
-             try
-             {
-                 Decla.cnn.Open();
-                 cmd.CommandType = CommandType.Text;
-                 SqlDataReader reader = cmd.ExecuteReader();
-
-                 while (reader.Read())
-                 {
-                     _dni = reader["DNI"].ToString();
-                     _nombre = reader["Usuario"].ToString();
-                     _tipo = reader["Tipo"].ToString();
-                     if (reader["perfil"] != DBNull.Value)
-                     {
-                         _foto = (byte[])reader["perfil"];
-                     }
-                     else
-                     {
-                         _foto = null;
-                     }
-
-                     TargetaUsuario btn = new TargetaUsuario();
-
-                     btn.DatoEliminado += () =>
-                     {
-                         usu.llenarUser();
-                     };
-
-                     btn.Dni = _dni;
-                     btn.Nombre = _nombre;
-                     btn.Tipo = _tipo;
-
-                     btn.EditarUsuario += editarCallback;
-                     if (_foto != null)
-                     {
-                         using (var ms = new System.IO.MemoryStream(_foto))
-                         {
-                             btn.Foto = System.Drawing.Image.FromStream(ms);
-                         }
-                     }
-                     else
-                     {
-                         btn.Foto = null; 
-                     }
-                     Contenedor.Controls.Add(btn);
-                 }
-             }
-             catch (Exception ex)
-             {
-                 System.Windows.Forms.MessageBox.Show("Error al llenar el contenedor de usuarios: " + ex.Message.ToString());
-             }
-             finally
-             {
-                 if (Decla.cnn.State == ConnectionState.Open)
-                     Decla.cnn.Close();
-             }
-
-         }
-        */
+     
 
         public void LlenarContenedor(
 FlowLayoutPanel Contenedor,
@@ -749,7 +686,7 @@ int registrosPorPagina)
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-                // Ahora el resultado siempre será un número (0 o superior)
+               
                 usuario.UltimiIdMovimiento = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }

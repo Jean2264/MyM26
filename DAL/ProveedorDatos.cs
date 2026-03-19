@@ -70,23 +70,7 @@ namespace MyM26.DAL
             }
         }
 
-        /* /*int paginaActual,
-int registrosPorPagina)
-        {
-            int offset = (paginaActual - 1) * registrosPorPagina;
-
-            string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.perfil
-                   FROM Usuario s
-                   INNER JOIN TipoUsuario t 
-                   ON s.CodtipoUsuario = t.CodTipoUsuario
-                   WHERE s.Estado = 1
-                   ORDER BY s.Usuario
-                   OFFSET @offset ROWS
-                   FETCH NEXT @limite ROWS ONLY";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);*/
+        
         public static DataTable LLenarDtg(int paginaActual, int registrosPorPagina)
         {
             int offset = (paginaActual - 1) * registrosPorPagina;
@@ -325,7 +309,7 @@ int registrosPorPagina)
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-                // Ahora el resultado siempre será un número (0 o superior)
+               
                 prov.UltimiIdMovimiento = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }

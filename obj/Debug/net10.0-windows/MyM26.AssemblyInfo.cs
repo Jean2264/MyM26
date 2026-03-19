@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyM26")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91823e8cd1ae028cf36f9940645583467d812be9")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyM26")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyM26")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

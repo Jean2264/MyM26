@@ -264,7 +264,7 @@ namespace MyM26.DAL
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-                // Ahora el resultado siempre será un número (0 o superior)
+                
                 empleado.UltimiIdMovimiento = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }

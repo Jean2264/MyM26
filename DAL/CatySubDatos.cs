@@ -213,7 +213,7 @@ namespace MyM26.DAL
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-                // Ahora el resultado siempre será un número (0 o superior)
+              
                 cat.UltimoIdMov = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -410,10 +410,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.CategoriaBox;
-          /*  cmb_Cat.DataSource = Decla.CategoriaBox;
-            cmb_Cat.DisplayMember = "Categoria";
-            cmb_Cat.ValueMember = "CodCategoria";
-            cmb_Cat.SelectedIndex = -1;*/
+         
 
         }
     }

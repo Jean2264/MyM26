@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\paiva\\source\\repos\\MyM26\\MyM26.csproj": {}
+    "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj": {}
   },
   "projects": {
-    "C:\\Users\\paiva\\source\\repos\\MyM26\\MyM26.csproj": {
+    "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\paiva\\source\\repos\\MyM26\\MyM26.csproj",
+        "projectUniqueName": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj",
         "projectName": "MyM26",
-        "projectPath": "C:\\Users\\paiva\\source\\repos\\MyM26\\MyM26.csproj",
+        "projectPath": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj",
         "packagesPath": "C:\\Users\\paiva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\paiva\\source\\repos\\MyM26\\obj\\",
+        "outputPath": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

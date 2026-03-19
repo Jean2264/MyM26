@@ -34,7 +34,7 @@ namespace MyM26.DAL
 
 
         //METODOS PARA LOS COMBOBOX
-        //Metodo que usamos para mostrar la categoria en el Cmb
+       
         public static DataTable MostrarCategoriaBox()
         {
             string consulta = "select CodCategoria, Categoria from Categoria where Estado=1";
@@ -56,10 +56,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.CategoriaBox;
-            /*  cmb_Cat.DataSource = Decla.CategoriaBox;
-              cmb_Cat.DisplayMember = "Categoria";
-              cmb_Cat.ValueMember = "CodCategoria";
-              cmb_Cat.SelectedIndex = -1;*/
+          
 
         }
 
@@ -93,29 +90,7 @@ namespace MyM26.DAL
         }
 
 
-        /* public static DataTable FiltrarEmpl(string dni)
-        {
-
-            string consulta = "select  DNI, Apellido, Nombre, Telefono, Mail, Sector from Empleado WHERE (Nombre LIKE @cuit OR DNI LIKE @cuit) and Estado=1";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@cuit", "%" + dni + "%");
-
-            try
-            {
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                Decla.EmpleadoFil.Clear();
-
-                da.Fill(Decla.EmpleadoFil);
-
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Error al filtrar el proveedor: " + ex.Message.ToString());
-            }
-            return Decla.EmpleadoFil;
-        }*/
-
+       
         public static DataTable FiltrarCompra(string nombre)
         {
             string consulta = @"select h.FechaAlta, cd.Descripcion, cd.Cantidad, cd.PrecioUnitario,
@@ -164,11 +139,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.SubBox;
-            /*  cmb_Cat.DataSource = Decla.CategoriaBox;
-              cmb_Cat.DisplayMember = "Categoria";
-              cmb_Cat.ValueMember = "CodCategoria";
-              cmb_Cat.SelectedIndex = -1;*/
-
+         
         }
 
         //Metodo que usamos para mostrar el proveedor en el Cmb
@@ -193,10 +164,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.ProvBox;
-            /*  cmb_Cat.DataSource = Decla.CategoriaBox;
-              cmb_Cat.DisplayMember = "Categoria";
-              cmb_Cat.ValueMember = "CodCategoria";
-              cmb_Cat.SelectedIndex = -1;*/
+            
 
         }
 
@@ -718,7 +686,7 @@ namespace MyM26.DAL
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-                // Ahora el resultado siempre será un número (0 o superior)
+              
                 art.UltimoIdMov = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }

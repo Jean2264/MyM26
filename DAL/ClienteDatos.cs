@@ -35,7 +35,8 @@ namespace MyM26.DAL
                    FETCH NEXT @limite ROWS ONLY";
            
 
-          //  string consulta = "select  Nombre, Entidad, Cuit, Telefono, Mail from Cliente where Estado=1";
+         
+
             SqlConnection cn = new SqlConnection(Decla.ConnectionString);
             SqlCommand cmd = new SqlCommand(consulta, cn);
 
@@ -362,7 +363,8 @@ namespace MyM26.DAL
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-                // Ahora el resultado siempre será un número (0 o superior)
+                
+
                 cliente.UltimiIdMovimiento = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
