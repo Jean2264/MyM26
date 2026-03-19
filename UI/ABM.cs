@@ -341,7 +341,7 @@ namespace MyM26.screens
                 ar.LlenarArt();
                 dat.AltaHistoricoCompleto(art);
 
-
+                //Hola ola 
             }
 
             if (Modo == "Modificar")
