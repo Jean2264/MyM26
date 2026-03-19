@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="UI\ActCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\AMEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\AñadirCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Bajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Compras.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Contrasenia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Correo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Empleados.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\AMUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Articulos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\ABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\añadirCyP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Caja.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Calcular vuelto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\ClienteProveedor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\ElegirPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\RecuperarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\TargetaArticulo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\TargetaUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Token.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Users.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UTILS\GradientFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UTILS\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="UTILS\GradientTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

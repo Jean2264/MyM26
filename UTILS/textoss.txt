@@ -1,0 +1,278 @@
+﻿  if (!ValidarCampos())
+                    return;
+
+                try
+                {
+
+                    string nuevoUsuario = txt_nombre.Text.Trim();
+                    string nuevaContra = txt_contrasenia.Text.Trim();
+                   
+
+                    bool usuarioCambio = nuevoUsuario != usuarioOriginal;
+                    bool contraCambio = nuevaContra != ContraseniaOriginal;
+
+                    if (usuarioCambio || contraCambio)
+                    {
+                        using (SqlConnection conn = new SqlConnection(Decla.cnn.ConnectionString))
+                        {
+                            conn.Open();
+
+                            //validamos el usuario
+                            if (usuarioCambio)
+                            {
+                                string sqlUser = "SELECT COUNT(*) FROM Usuario WHERE Usuario = @usu AND DNI <> @dni AND Estado = 1";
+                                using (SqlCommand cmd = new SqlCommand(sqlUser, conn))
+                                {
+                                    cmd.Parameters.AddWithValue("@usu", nuevoUsuario);
+                                    cmd.Parameters.AddWithValue("@dni", txt_dni.Text.Trim());
+
+                                    int existe = (int)cmd.ExecuteScalar();
+
+                                    if (existe > 0)
+                                    {
+                                        MessageBox.Show("El nombre de usuario ya existe. Por favor elija otro.",
+                                                        "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        txt_nombre.Focus();
+                                        return;
+                                    }
+                                }
+                            }
+
+                            //validamos la contrasenia
+                            if (contraCambio)
+                            {
+                                string sqlContra = "SELECT COUNT(*) FROM Usuario WHERE Contrasenia = @cont AND DNI <> @dni AND Estado = 1";
+                                using (SqlCommand cmd = new SqlCommand(sqlContra, conn))
+                                {
+                                    cmd.Parameters.AddWithValue("@cont", nuevaContra);
+                                    cmd.Parameters.AddWithValue("@dni", txt_dni.Text.Trim());
+
+                                    int existe = (int)cmd.ExecuteScalar();
+
+                                    if (existe > 0)
+                                    {
+                                        MessageBox.Show("Esta contraseña ya está en uso por otro usuario.\nPor favor ingrese una diferente.",
+                                                        "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                       txt_contrasenia.Focus();
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (ContraseniaOriginal == contra)
+                    {
+                        // No cambió la contraseña
+                        EditUsu();
+                        EditTipo();
+                    }
+                    else
+                    {
+                        // Cambio la contraseña -> verificar que coincidan
+                        if (contra == repitContra)
+                        {
+                            EditUsu();
+                            EditTipo();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Las contraseñas deben coincidir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txt_contrasenia.Focus();
+                            return;
+                        }
+                    }
+
+   public VUsuario(tring usuarioOriginal, string contraseniaoriginal,)
+
+
+
+
+       public List<string> CamposDuplicados()
+        {
+            List<string> duplicados = new List<string>();
+         
+
+
+            string consulta = @"
+        SELECT
+         
+            CASE WHEN EXISTS (SELECT 1 FROM Usuario WHERE Usuario = @Usuario ) THEN 'Sí' ELSE 'No' END AS Usuario_Duplicado;";
+
+            using (SqlConnection conn = new SqlConnection(Decla.cnn.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(consulta, conn))
+            {
+                cmd.Parameters.AddWithValue("@DNI", txt_dni.Text.Trim());
+                cmd.Parameters.AddWithValue("@Usuario", txt_nombre.Text.Trim());
+
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                       
+                        if (reader["Usuario_Duplicado"].ToString() == "Sí") duplicados.Add("Nombre de usuario");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al verificar duplicados:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return duplicados;
+        }
+
+
+
+        ////////////////////////PARA EL LOGIN////////////////////////
+
+         private void button1_Click(object sender, EventArgs e)
+        {
+            string user = txt_usu.Text.Trim().ToLower() ;
+            string pass = txt_contra.Text.Trim().ToLower();
+
+            string consulta = "select s.DNI, s.Perfil, s.Usuario, t.Tipo,  t.Cajas, t.Compras, t.Productos, t.Ventas, t.Usuarios, t.Clientes, "+
+                " t.Proveedores, t.EstadoContable from Usuario s inner join TipoUsuario t on s.CodTipoUsuario = t.CodTipoUsuario where s.Usuario = @user and s.Contrasenia = @pass and s.Estado = 1";
+
+            try
+            {
+                using (SqlCommand comando = new SqlCommand(consulta, Decla.cnn))
+                {
+                    comando.Parameters.AddWithValue("@user", user);
+                    comando.Parameters.AddWithValue("@pass", pass);
+
+                    Decla.cnn.Open();
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                       
+
+                            if (reader.Read())
+                            {
+
+                                UsuarioActivo.Nombre = reader["Usuario"].ToString();
+                                UsuarioActivo.Tipo = reader["Tipo"].ToString();
+                                UsuarioActivo.DNI = reader["DNI"].ToString();
+                                UsuarioActivo.Cajas = Convert.ToBoolean(reader["Cajas"]);
+                                UsuarioActivo.Compras = Convert.ToBoolean(reader["Compras"]);
+                                UsuarioActivo.Productos = Convert.ToBoolean(reader["Productos"]);
+                                UsuarioActivo.Ventas = Convert.ToBoolean(reader["Ventas"]);
+                                UsuarioActivo.Usuarios = Convert.ToBoolean(reader["Usuarios"]);
+                                UsuarioActivo.Clientes = Convert.ToBoolean(reader["Clientes"]);
+                                UsuarioActivo.Proveedores = Convert.ToBoolean(reader["Proveedores"]);
+                                UsuarioActivo.Contable = Convert.ToBoolean(reader["EstadoContable"]);
+                            int ordPerfil = reader.GetOrdinal("Perfil");
+                            if (!reader.IsDBNull(ordPerfil))
+                            {
+                                byte[] perfilBytes = (byte[])reader["Perfil"]; // o reader.GetValue(ordPerfil) cast
+                                UsuarioActivo.PerfilBytes = perfilBytes;
+
+                                // opcional: también convertir ya a Image
+                                UsuarioActivo.PerfilImage = ImagenHelper.BytesToImage(perfilBytes);
+                            }
+                            else
+                            {
+                                UsuarioActivo.PerfilBytes = null;
+                                UsuarioActivo.PerfilImage = null;
+                            }
+
+
+
+                            Administrador fr = new Administrador();
+                                fr.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                lbl_incorrecto.Visible = true;
+                            }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+        }
+
+
+        ///PARA MOVIMIENTO
+
+        contenido de la consulta:
+        TipoMovimiento = "Alta de usuario";
+                DetalleMovimiento = "El usuario " + UsuarioActivo.Nombre +
+                             " (DNI: " + UsuarioActivo.DNI +
+                             ") ha dado de alta a: " + txt_nombre.Text +
+                             " (DNI: " + txt_dni.Text.Trim() + ")";
+
+    //Para el Id
+
+    
+        private void IdMovimientos()
+        {
+            string consulta = "select MAX(IdHistorico) as UltimoId FROM HMovimiento";
+
+            using (SqlConnection conn = new SqlConnection(Decla.cnn.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand(consulta, conn);
+                try
+                {
+                    conn.Open();
+                    object obj = cmd.ExecuteScalar();
+                    if (obj != DBNull.Value)
+                    {
+                        UltimoIdHisto = Convert.ToInt32(obj);
+                    }
+                    else
+                    {
+                        UltimoIdHisto = 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al traer el ultimo Id: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+
+         private void AltaHistorico()
+        {
+            NuevoIdHisto = 1 + UltimoIdHisto;
+            CodHistorico = "MOV" + NuevoIdHisto;
+            string consulta = "Insert into HMovimiento(IdHistorico, CodHistorico, DNI, TipoMovimiento, FechaHora, DetalleMovimiento) " +
+                                               "VALUES(@IdHistorico, @CodHistorico, @DNI, @TipoMovimiento, GETDATE(), @DetalleMovimiento)";
+
+            SqlCommand comd = new SqlCommand(consulta, Decla.cnn);
+
+            comd.Parameters.AddWithValue("@IdHistorico", NuevoIdHisto);
+            comd.Parameters.AddWithValue("@CodHistorico", CodHistorico);
+            comd.Parameters.AddWithValue("@DNI", UsuarioActivo.DNI);
+            comd.Parameters.AddWithValue("@TipoMovimiento", TipoMovimiento);
+            comd.Parameters.AddWithValue("@DetalleMovimiento", DetalleMovimiento);
+            try
+            {
+                Decla.cnn.Open();
+                comd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el movimiento: " + ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+        }

@@ -1,0 +1,343 @@
+﻿create database MyM9
+use MyM9
+
+create table Proveedor
+(
+IdProveedor int not null,
+Cuit varchar(11) unique,
+Empresa varchar(200),
+Nombre varchar(100),
+Telefono varchar(15),
+Mail varchar(200),
+Estado bit default 1 not null,
+primary key(IdProveedor)
+)
+
+create table Categoria
+(
+IdCategoria int not null,
+CodCategoria varchar(10) unique not null,
+Categoria varchar(100),
+Estado bit default 1 not null,
+primary key(IdCategoria)
+)
+
+create table Subcategoria
+(
+IdSubcategoria int not null,
+CodSubcategoria varchar(10) unique not null,
+Subcategoria varchar(100) not null,
+CodCategoria varchar(10),
+Estado bit default 1 not null,
+primary key(IdSubcategoria),
+foreign key (CodCategoria) references Categoria (CodCategoria)
+)
+
+create table Articulo
+(
+IdArticulo int not null,
+CodigoArticulo varchar(10) unique not null,
+CodigoBarra varchar(100) unique ,
+Imagen varbinary(max) null,
+Nombre varchar(100),
+CantMinMayorista int,
+PrecioUnitario decimal(12,2),
+PrecioXMayor decimal(12,2),
+FechaAlta datetime,
+Estado bit default 1 not null,
+CodCategoria varchar(10),
+CodSubcategoria varchar(10),
+Cuit varchar(11),
+primary key(IdArticulo),
+foreign key (CodCategoria) references Categoria (CodCategoria),
+foreign key (CodSubcategoria) references Subcategoria (CodSubcategoria),
+foreign key (Cuit) references Proveedor (Cuit)
+
+)
+--EXEC sp_rename 'Clientes.Telefono', 'NumeroTelefono', 'COLUMN';
+
+
+
+
+create table Stock 
+(
+IdStock int  not null,
+CodStock varchar(10) unique not null,
+Cantidad int,
+Costo decimal(12,2),
+Ganancia decimal(12,2),
+CodigoArticulo varchar(10),
+primary key(IdStock),
+foreign key(CodigoArticulo) references Articulo (CodigoArticulo)
+)
+
+
+create table Empleado
+(
+IdEmpleado int not null,
+DNI varchar(8) unique,
+Apellido varchar(100),
+Nombre varchar(100),
+Telefono varchar(15),
+Mail varchar(200),
+Sector varchar(100),
+Estado bit default 1 not null,
+primary key(IdEmpleado)
+)
+
+create table Cliente
+(
+IdCliente int not null,
+Cuit varchar(11) unique,
+Nombre varchar(100),
+Entidad varchar(100),
+Telefono varchar(25),
+Mail varchar(200),
+Estado bit default 1 not null,
+primary key(IdCliente)
+)
+
+create table TipoUsuario
+(
+IdTipoUsuario int not null,
+CodTipoUsuario varchar(10) unique not null,
+Tipo varchar(100),
+Cajas bit,
+Compras bit,
+Productos bit ,
+Ventas bit,
+Usuarios bit,
+Clientes bit,
+Proveedores bit,
+EstadoContable bit,
+Estado bit default 1,
+primary key(IdTipoUsuario)
+)
+
+create table Usuario
+(
+IdUsuario int not null,
+DNI varchar(8) unique not null,
+Usuario varchar(20) unique,
+Contrasenia varchar(20),
+Telefono varchar(15),
+Mail varchar(200),
+FechaAlta datetime default getdate(),
+Estado bit default 1 not null,
+Perfil varbinary(max),
+TokenRecuperacion varchar(10),
+TokenExpira date,
+CodTipoUsuario varchar(10),
+primary key(IdUsuario),
+foreign key(CodTipoUsuario) references TipoUsuario (CodTipoUsuario)
+)
+
+create table HCompra
+(
+IdHcompra int not null,
+FechaAlta datetime default getdate(),
+CodHCompra varchar(10) unique,
+DNI varchar(8),
+Cuit varchar(11),
+SubTotal decimal(12,2),
+Descuento decimal(12,2),
+Total decimal(12,2),
+primary key(IdHcompra),
+foreign key(DNI) references Usuario(DNI),
+foreign key(Cuit) references Proveedor (Cuit)
+)
+
+create table HCompraDetalle
+(
+IdHCompraDetalle int not null,
+ CodHCDetalle varchar(10) unique not null,
+ CodHCompra varchar(10),
+ CodigoArticulo varchar(10),
+ Descripcion varchar(100),
+ PrecioUnitario decimal(12,2),
+ Cantidad int,
+ PrecioXCantidad decimal(12,2),
+ primary key(IdHCompraDetalle),
+ foreign key (CodHCompra) references HCompra(CodHCompra),
+ foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
+ )
+
+create table HVenta
+(
+IdVenta int not null,
+CodRemito varchar(10) unique not null,
+DNI varchar(8),
+Cuit varchar(11),
+FechaHora datetime default getdate(),
+SubTotal decimal(12,2),
+Descuento decimal(12,2),
+Total decimal(12,2),
+Factura varchar(100),
+FormaPago varchar(100),
+primary key(IdVenta),
+foreign key(DNI) references Usuario (DNI),
+foreign key (Cuit) references Proveedor (Cuit)
+)
+
+create table HVentaDetalle
+(
+IdVentaDetalle int not null,
+CodRDetalle varchar(10) unique not null,
+CodRemito varchar(10),
+CodigoArticulo varchar(10),
+Descripcion varchar(100),
+PrecioUnitario decimal(12,2),
+Cantidad int,
+PrecioXCantidad decimal(12,2),
+primary key (IdVentaDetalle),
+foreign key(CodRemito) references HVenta(CodRemito),
+foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
+)
+
+create table InOutVarios
+(
+IdMovimiento int not null,
+CodMovimiento varchar(10) unique not null,
+Detalle varchar(100),
+Monto decimal(12,2),
+Fecha datetime default getdate(),
+primary key(IdMovimiento)
+)
+
+create table HMovimiento
+(
+IdHistorico int not null,
+CodHistorico varchar(10) unique not null,
+DNI varchar(8),
+TipoMovimiento varchar(100),
+DetalleMovimiento varchar(max),
+FechaHora datetime default getdate(),
+primary key (IdHistorico),
+foreign key(DNI) references Usuario (DNI)
+)
+
+
+
+ public void LlenarContenedor(
+FlowLayoutPanel Contenedor,
+Action<string> editarCallback,
+Users usu,
+int paginaActual,
+int registrosPorPagina)
+        {
+            int offset = (paginaActual - 1) * registrosPorPagina;
+
+            string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.perfil
+                   FROM Usuario s
+                   INNER JOIN TipoUsuario t 
+                   ON s.CodtipoUsuario = t.CodTipoUsuario
+                   WHERE s.Estado = 1
+                   ORDER BY s.Usuario
+                   OFFSET @offset ROWS
+                   FETCH NEXT @limite ROWS ONLY";
+
+            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
+            cmd.Parameters.AddWithValue("@offset", offset);
+            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
+
+            try
+            {
+                Contenedor.Controls.Clear();
+
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    _dni = reader["DNI"].ToString();
+                    _nombre = reader["Usuario"].ToString();
+                    _tipo = reader["Tipo"].ToString();
+
+                    if (reader["perfil"] != DBNull.Value)
+                        _foto = (byte[])reader["perfil"];
+                    else
+                        _foto = null;
+
+                    TargetaUsuario btn = new TargetaUsuario();
+
+                    btn.DatoEliminado += () =>
+                    {
+                        usu.llenarUser();
+                    };
+
+                    btn.Dni = _dni;
+                    btn.Nombre = _nombre;
+                    btn.Tipo = _tipo;
+
+                    btn.EditarUsuario += editarCallback;
+
+                    if (_foto != null)
+                    {
+                        using (var ms = new System.IO.MemoryStream(_foto))
+                        {
+                            btn.Foto = System.Drawing.Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        btn.Foto = null;
+                    }
+
+                    Contenedor.Controls.Add(btn);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al llenar usuarios: " + ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+        }
+
+
+
+          [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string Dni
+        {
+            get { return dni; }
+            set
+            { dni = value; lbl_dni.Text = dni; }
+        }
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string Nombre
+        {
+            get { return nombre; }
+            set
+            {
+                nombre = value;
+                lbl_nombre.Text = value;
+            }
+        }
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Image Foto
+        {
+            get { return pic_usu.Image; }
+            set
+            {
+                pic_usu.Image = value;
+            }
+
+        }
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string Tipo
+        {
+            get { return tipo; }
+            set
+            {
+                tipo = value;
+                lbl_tipo.Text = value;
+            }
+        }
