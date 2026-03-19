@@ -3,348 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\usuariodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\usuariodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\proveedordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\proveedordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\ABM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\empleadodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\empleadodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\ABM.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\catysubdatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\catysubdatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\cajadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\cajadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\articulodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\articulodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\dal\\clientedatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:dal\\clientedatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\caja\\vcaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\caja\\vcaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\cajanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\cajanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\avisosglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\avisosglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\articulos\\varticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\articulos\\varticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\textfile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\actcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\actcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\proveedornegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\proveedornegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\usuarionegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\usuarionegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\usuario\\vuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\vuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\empleadonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\empleadonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\usuario\\visiblecontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\visiblecontrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\usuario\\usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\usuario\\usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\comun\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\comun\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\comun\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\comun\\error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\empleado\\vempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\empleado\\vempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\abm.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\abm.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\catysub\\vcatysub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\catysub\\vcatysub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\catysubnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\catysubnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\bll\\clientenegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:bll\\clientenegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\contrasenia.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\contrasenia.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\cliente\\vcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\cliente\\vcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\entidades\\proveedor\\vproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:entidades\\proveedor\\vproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\clienteproveedor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\clienteproveedor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\amuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\amuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\ui\\principal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:ui\\principal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\gradientflowlayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\gradientflowlayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\gradientpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\gradientpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\utils\\gradienttablelayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:utils\\gradienttablelayoutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|c:\\users\\paiva\\onedrive\\documents\\para_portafolio_ghit\\mym26\\mym26.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{5E308989-73A9-442F-BD8A-E0F2512B6512}|MyM26.csproj|solutionrelative:mym26.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\UsuarioDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\UsuarioDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
@@ -414,6 +86,334 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\source\\repos\\MyM26\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\amuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\AMUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ArticuloDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\ArticuloDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ActCompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\ActCompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ProveedorDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\ProveedorDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\EmpleadoDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\EmpleadoDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CatySubDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\CatySubDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CajaDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\CajaDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ClienteDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\ClienteDatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Caja\\VCaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Caja\\VCaja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ArticuloNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\ArticuloNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\AvisosGlobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\AvisosGlobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CajaNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\CajaNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Articulos\\VArticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Articulos\\VArticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\TextFile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UTILS\\TextFile1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\ClienteProveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\A\u00F1adirCompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\A\u00F1adirCompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaUsuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\TargetaUsuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ProveedorNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\ProveedorNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaArticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\TargetaArticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UTILS\\textoss.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMEmpleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\AMEmpleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\UsuarioNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\UsuarioNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Usuario\\VUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\EmpleadoNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\EmpleadoNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Properties\\Resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Properties\\Resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UTILS\\Variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UTILS\\Usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\UsuarioActivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Usuario\\UsuarioActivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VisibleContrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Usuario\\VisibleContrase\u00F1a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Comun\\Resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Comun\\Error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Empleado\\VEmpleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Empleado\\VEmpleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ElegirPerfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\ElegirPerfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\CatySub\\VCatySub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\CatySub\\VCatySub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CatySubNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\CatySubNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ClienteNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BLL\\ClienteNegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Contrasenia.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\RecuperarUsuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\RecuperarUsuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\a\u00F1adirCyP.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\a\u00F1adirCyP.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Cliente\\VCliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Cliente\\VCliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Proveedor\\VProveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entidades\\Proveedor\\VProveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Login.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\ClienteProveedor.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientFlowLayoutPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UTILS\\GradientFlowLayoutPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\AMUser.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientTableLayoutPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UTILS\\GradientTableLayoutPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MyM26.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UTILS\\GradientPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Principal.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UI\\Principal.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\articulos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\a\u00F1adircyp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\clienteproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\a\u00F1adircompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\targetausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\abm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\targetaarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\amempleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\bajas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\recuperarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\elegirperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\contrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\correo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -423,11 +423,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 27,
               "Title": "AMUser.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.cs",
               "RelativeDocumentMoniker": "UI\\AMUser.cs",
@@ -439,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 28,
               "Title": "AMUser.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.cs",
               "RelativeDocumentMoniker": "UI\\AMUser.cs",
@@ -452,7 +452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 29,
               "Title": "Categorias.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Categorias.cs",
               "RelativeDocumentMoniker": "UI\\Categorias.cs",
@@ -464,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 30,
               "Title": "ArticuloDatos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ArticuloDatos.cs",
               "RelativeDocumentMoniker": "DAL\\ArticuloDatos.cs",
@@ -473,12 +473,11 @@
               "ViewState": "AgIAAD4EAAAAAAAAAAAswFYDAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-09T06:14:19.204Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "Empleados.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Empleados.cs",
               "RelativeDocumentMoniker": "UI\\Empleados.cs",
@@ -492,13 +491,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 1,
               "Title": "ABM.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.cs",
               "RelativeDocumentMoniker": "UI\\ABM.cs",
               "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.cs",
               "RelativeToolTip": "UI\\ABM.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAIAwwNEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAIAwwNEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-14T00:55:15.79Z",
               "IsPinned": true,
@@ -519,20 +518,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Caja.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "Caja.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs",
               "RelativeDocumentMoniker": "UI\\Caja.cs",
-              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs [Design]",
-              "RelativeToolTip": "UI\\Caja.cs [Design]",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs [Dise\u00F1o]",
+              "RelativeToolTip": "UI\\Caja.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T05:53:43.152Z",
               "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 33,
               "Title": "Caja.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Caja.cs",
               "RelativeDocumentMoniker": "UI\\Caja.cs",
@@ -541,8 +540,7 @@
               "ViewState": "AgIAAGcAAAAAAAAAAADgv28AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T03:15:46.196Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -550,20 +548,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ABM.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.Designer.cs",
+              "RelativeDocumentMoniker": "UI\\ABM.Designer.cs",
+              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.Designer.cs",
+              "RelativeToolTip": "UI\\ABM.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T05:24:43.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UsuarioDatos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\UsuarioDatos.cs",
               "RelativeDocumentMoniker": "DAL\\UsuarioDatos.cs",
               "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\UsuarioDatos.cs",
               "RelativeToolTip": "DAL\\UsuarioDatos.cs",
-              "ViewState": "AgIAAMECAAAAAAAAAAAqwNcCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAP4BAAAAAAAAAAAqwG4CAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T03:14:44.362Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 34,
               "Title": "ProveedorDatos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ProveedorDatos.cs",
               "RelativeDocumentMoniker": "DAL\\ProveedorDatos.cs",
@@ -571,12 +582,11 @@
               "RelativeToolTip": "DAL\\ProveedorDatos.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAIwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T06:38:47.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T06:38:47.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 35,
               "Title": "EmpleadoDatos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\EmpleadoDatos.cs",
               "RelativeDocumentMoniker": "DAL\\EmpleadoDatos.cs",
@@ -584,12 +594,11 @@
               "RelativeToolTip": "DAL\\EmpleadoDatos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoBAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T06:40:07.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-16T06:40:07.427Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 36,
               "Title": "CatySubDatos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CatySubDatos.cs",
               "RelativeDocumentMoniker": "DAL\\CatySubDatos.cs",
@@ -597,12 +606,11 @@
               "RelativeToolTip": "DAL\\CatySubDatos.cs",
               "ViewState": "AgIAAIsBAAAAAAAAAAAAAJwBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T01:24:50.436Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T01:24:50.436Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 37,
               "Title": "CajaDatos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\CajaDatos.cs",
               "RelativeDocumentMoniker": "DAL\\CajaDatos.cs",
@@ -610,12 +618,11 @@
               "RelativeToolTip": "DAL\\CajaDatos.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T04:18:05.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T04:18:05.982Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 38,
               "Title": "ClienteDatos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\DAL\\ClienteDatos.cs",
               "RelativeDocumentMoniker": "DAL\\ClienteDatos.cs",
@@ -623,12 +630,11 @@
               "RelativeToolTip": "DAL\\ClienteDatos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T02:41:38.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-31T02:41:38.094Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 39,
               "Title": "VCaja.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Caja\\VCaja.cs",
               "RelativeDocumentMoniker": "Entidades\\Caja\\VCaja.cs",
@@ -640,7 +646,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 40,
               "Title": "ArticuloNegocio.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ArticuloNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\ArticuloNegocio.cs",
@@ -652,7 +658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 41,
               "Title": "AvisosGlobales.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\AvisosGlobales.cs",
               "RelativeDocumentMoniker": "BLL\\AvisosGlobales.cs",
@@ -664,7 +670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 42,
               "Title": "CajaNegocio.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CajaNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\CajaNegocio.cs",
@@ -676,7 +682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 43,
               "Title": "VArticulo.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Articulos\\VArticulo.cs",
               "RelativeDocumentMoniker": "Entidades\\Articulos\\VArticulo.cs",
@@ -688,7 +694,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 44,
               "Title": "TextFile1.txt",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\TextFile1.txt",
               "RelativeDocumentMoniker": "UTILS\\TextFile1.txt",
@@ -700,7 +706,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 45,
               "Title": "Articulos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Articulos.cs",
               "RelativeDocumentMoniker": "UI\\Articulos.cs",
@@ -713,7 +719,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 46,
               "Title": "Categorias.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Categorias.cs",
               "RelativeDocumentMoniker": "UI\\Categorias.cs",
@@ -725,7 +731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 47,
               "Title": "Compras.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Compras.cs",
               "RelativeDocumentMoniker": "UI\\Compras.cs",
@@ -738,7 +744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 48,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Users.cs",
               "RelativeDocumentMoniker": "UI\\Users.cs",
@@ -751,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 49,
               "Title": "ClienteProveedor.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.cs",
               "RelativeDocumentMoniker": "UI\\ClienteProveedor.cs",
@@ -764,7 +770,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 50,
               "Title": "A\u00F1adirCompra.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\A\u00F1adirCompra.cs",
               "RelativeDocumentMoniker": "UI\\A\u00F1adirCompra.cs",
@@ -777,7 +783,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 51,
               "Title": "TargetaUsuario.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaUsuario.cs",
               "RelativeDocumentMoniker": "UI\\TargetaUsuario.cs",
@@ -790,7 +796,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 52,
               "Title": "ProveedorNegocio.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ProveedorNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\ProveedorNegocio.cs",
@@ -802,7 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 53,
               "Title": "TargetaArticulo.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaArticulo.cs",
               "RelativeDocumentMoniker": "UI\\TargetaArticulo.cs",
@@ -815,7 +821,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 54,
               "Title": "textoss.txt",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\textoss.txt",
               "RelativeDocumentMoniker": "UTILS\\textoss.txt",
@@ -827,7 +833,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 55,
               "Title": "AMEmpleado.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMEmpleado.cs",
               "RelativeDocumentMoniker": "UI\\AMEmpleado.cs",
@@ -840,7 +846,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 56,
               "Title": "UsuarioNegocio.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\UsuarioNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\UsuarioNegocio.cs",
@@ -852,7 +858,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 57,
               "Title": "VUser.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VUser.cs",
               "RelativeDocumentMoniker": "Entidades\\Usuario\\VUser.cs",
@@ -864,7 +870,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 58,
               "Title": "Bajas.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Bajas.cs",
               "RelativeDocumentMoniker": "UI\\Bajas.cs",
@@ -877,7 +883,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 59,
               "Title": "EmpleadoNegocio.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\EmpleadoNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\EmpleadoNegocio.cs",
@@ -889,7 +895,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 60,
               "Title": "Resources.resx",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "Properties\\Resources.resx",
@@ -900,7 +906,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 61,
               "Title": "Variables.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Variables.cs",
               "RelativeDocumentMoniker": "UTILS\\Variables.cs",
@@ -912,7 +918,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 62,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\Usuario.cs",
               "RelativeDocumentMoniker": "UTILS\\Usuario.cs",
@@ -924,7 +930,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 63,
               "Title": "UsuarioActivo.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\UsuarioActivo.cs",
               "RelativeDocumentMoniker": "Entidades\\Usuario\\UsuarioActivo.cs",
@@ -936,7 +942,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 64,
               "Title": "VisibleContrase\u00F1a.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
               "RelativeDocumentMoniker": "Entidades\\Usuario\\VisibleContrase\u00F1a.cs",
@@ -948,7 +954,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 65,
               "Title": "Resultado.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Resultado.cs",
               "RelativeDocumentMoniker": "Entidades\\Comun\\Resultado.cs",
@@ -960,7 +966,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 66,
               "Title": "Error.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Comun\\Error.cs",
               "RelativeDocumentMoniker": "Entidades\\Comun\\Error.cs",
@@ -972,7 +978,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 67,
               "Title": "VEmpleado.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Empleado\\VEmpleado.cs",
               "RelativeDocumentMoniker": "Entidades\\Empleado\\VEmpleado.cs",
@@ -984,7 +990,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 68,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -996,7 +1002,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 69,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.cs",
               "RelativeDocumentMoniker": "UI\\Login.cs",
@@ -1009,7 +1015,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 70,
               "Title": "ElegirPerfil.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ElegirPerfil.cs",
               "RelativeDocumentMoniker": "UI\\ElegirPerfil.cs",
@@ -1022,19 +1028,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "ABM.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.Designer.cs",
-              "RelativeDocumentMoniker": "UI\\ABM.Designer.cs",
-              "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.Designer.cs",
-              "RelativeToolTip": "UI\\ABM.Designer.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAmwBYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T05:24:43.547Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 71,
               "Title": "VCatySub.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\CatySub\\VCatySub.cs",
               "RelativeDocumentMoniker": "Entidades\\CatySub\\VCatySub.cs",
@@ -1046,7 +1040,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 72,
               "Title": "CatySubNegocio.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\CatySubNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\CatySubNegocio.cs",
@@ -1058,7 +1052,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 73,
               "Title": "ClienteNegocio.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\BLL\\ClienteNegocio.cs",
               "RelativeDocumentMoniker": "BLL\\ClienteNegocio.cs",
@@ -1070,7 +1064,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 74,
               "Title": "Contrasenia.Designer.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.Designer.cs",
               "RelativeDocumentMoniker": "UI\\Contrasenia.Designer.cs",
@@ -1082,7 +1076,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 75,
               "Title": "RecuperarUsuario.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\RecuperarUsuario.cs",
               "RelativeDocumentMoniker": "UI\\RecuperarUsuario.cs",
@@ -1095,7 +1089,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 76,
               "Title": "Correo.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Correo.cs",
               "RelativeDocumentMoniker": "UI\\Correo.cs",
@@ -1108,7 +1102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 77,
               "Title": "Token.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Token.cs",
               "RelativeDocumentMoniker": "UI\\Token.cs",
@@ -1121,7 +1115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 78,
               "Title": "Contrasenia.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.cs",
               "RelativeDocumentMoniker": "UI\\Contrasenia.cs",
@@ -1134,7 +1128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 79,
               "Title": "a\u00F1adirCyP.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\a\u00F1adirCyP.cs",
               "RelativeDocumentMoniker": "UI\\a\u00F1adirCyP.cs",
@@ -1147,7 +1141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 80,
               "Title": "VCliente.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Cliente\\VCliente.cs",
               "RelativeDocumentMoniker": "Entidades\\Cliente\\VCliente.cs",
@@ -1159,7 +1153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 81,
               "Title": "VProveedor.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\Entidades\\Proveedor\\VProveedor.cs",
               "RelativeDocumentMoniker": "Entidades\\Proveedor\\VProveedor.cs",
@@ -1171,7 +1165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 82,
               "Title": "Login.Designer.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.Designer.cs",
               "RelativeDocumentMoniker": "UI\\Login.Designer.cs",
@@ -1183,7 +1177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 83,
               "Title": "ClienteProveedor.Designer.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.Designer.cs",
               "RelativeDocumentMoniker": "UI\\ClienteProveedor.Designer.cs",
@@ -1195,7 +1189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 84,
               "Title": "GradientFlowLayoutPanel.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientFlowLayoutPanel.cs",
               "RelativeDocumentMoniker": "UTILS\\GradientFlowLayoutPanel.cs",
@@ -1207,7 +1201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 85,
               "Title": "AMUser.Designer.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMUser.Designer.cs",
               "RelativeDocumentMoniker": "UI\\AMUser.Designer.cs",
@@ -1219,7 +1213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 86,
               "Title": "GradientTableLayoutPanel.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientTableLayoutPanel.cs",
               "RelativeDocumentMoniker": "UTILS\\GradientTableLayoutPanel.cs",
@@ -1231,8 +1225,8 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
-              "Title": "MyM26",
+              "DocumentIndex": 87,
+              "Title": "MyM26.csproj",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj",
               "RelativeDocumentMoniker": "MyM26.csproj",
               "ToolTip": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\MyM26.csproj",
@@ -1242,7 +1236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 88,
               "Title": "GradientPanel.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UTILS\\GradientPanel.cs",
               "RelativeDocumentMoniker": "UTILS\\GradientPanel.cs",
@@ -1254,7 +1248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 89,
               "Title": "Principal.Designer.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Principal.Designer.cs",
               "RelativeDocumentMoniker": "UI\\Principal.Designer.cs",
@@ -1266,7 +1260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 6,
               "Title": "TargetaUsuario.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
@@ -1277,7 +1271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 7,
               "Title": "QueryUser.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\QueryUser.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\QueryUser.cs",
@@ -1289,7 +1283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 8,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Users.cs",
@@ -1300,7 +1294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 10,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Conexion.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\Conexion.cs",
@@ -1312,7 +1306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 12,
               "Title": "ElegirPerfil.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
@@ -1323,7 +1317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 13,
               "Title": "AVM.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AVM.cs",
@@ -1334,7 +1328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 18,
               "Title": "Articulos.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Articulos.cs",
@@ -1345,7 +1339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 19,
               "Title": "a\u00F1adirCyP.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
@@ -1356,7 +1350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 20,
               "Title": "Categorias.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Categorias.cs",
@@ -1367,7 +1361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 22,
               "Title": "ClienteProveedor.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
@@ -1378,7 +1372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 25,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Querys\\Usuario.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Querys\\Usuario.cs",
@@ -1390,7 +1384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 90,
               "Title": "Compras.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Compras.cs",
               "RelativeDocumentMoniker": "UI\\Compras.cs",
@@ -1401,7 +1395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 91,
               "Title": "Articulos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Articulos.cs",
               "RelativeDocumentMoniker": "UI\\Articulos.cs",
@@ -1412,7 +1406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 92,
               "Title": "a\u00F1adirCyP.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\a\u00F1adirCyP.cs",
               "RelativeDocumentMoniker": "UI\\a\u00F1adirCyP.cs",
@@ -1423,7 +1417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 93,
               "Title": "Users.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Users.cs",
               "RelativeDocumentMoniker": "UI\\Users.cs",
@@ -1434,7 +1428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 94,
               "Title": "ClienteProveedor.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ClienteProveedor.cs",
               "RelativeDocumentMoniker": "UI\\ClienteProveedor.cs",
@@ -1445,7 +1439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 95,
               "Title": "Empleados.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Empleados.cs",
               "RelativeDocumentMoniker": "UI\\Empleados.cs",
@@ -1456,7 +1450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 96,
               "Title": "A\u00F1adirCompra.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\A\u00F1adirCompra.cs",
               "RelativeDocumentMoniker": "UI\\A\u00F1adirCompra.cs",
@@ -1467,7 +1461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 97,
               "Title": "TargetaUsuario.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaUsuario.cs",
               "RelativeDocumentMoniker": "UI\\TargetaUsuario.cs",
@@ -1478,7 +1472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 98,
               "Title": "ABM.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ABM.cs",
               "RelativeDocumentMoniker": "UI\\ABM.cs",
@@ -1489,7 +1483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 99,
               "Title": "Principal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Principal.cs",
               "RelativeDocumentMoniker": "UI\\Principal.cs",
@@ -1500,7 +1494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 100,
               "Title": "TargetaArticulo.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\TargetaArticulo.cs",
               "RelativeDocumentMoniker": "UI\\TargetaArticulo.cs",
@@ -1511,7 +1505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 101,
               "Title": "AMEmpleado.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\AMEmpleado.cs",
               "RelativeDocumentMoniker": "UI\\AMEmpleado.cs",
@@ -1522,7 +1516,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 102,
               "Title": "Bajas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Bajas.cs",
               "RelativeDocumentMoniker": "UI\\Bajas.cs",
@@ -1533,7 +1527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 103,
               "Title": "Login.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Login.cs",
               "RelativeDocumentMoniker": "UI\\Login.cs",
@@ -1544,7 +1538,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 104,
               "Title": "RecuperarUsuario.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\RecuperarUsuario.cs",
               "RelativeDocumentMoniker": "UI\\RecuperarUsuario.cs",
@@ -1555,7 +1549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 105,
               "Title": "Token.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Token.cs",
               "RelativeDocumentMoniker": "UI\\Token.cs",
@@ -1566,7 +1560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 106,
               "Title": "ElegirPerfil.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\ElegirPerfil.cs",
               "RelativeDocumentMoniker": "UI\\ElegirPerfil.cs",
@@ -1577,7 +1571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 107,
               "Title": "Contrasenia.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Contrasenia.cs",
               "RelativeDocumentMoniker": "UI\\Contrasenia.cs",
@@ -1588,7 +1582,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 108,
               "Title": "Correo.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\OneDrive\\Documents\\Para_Portafolio_Ghit\\MyM26\\UI\\Correo.cs",
               "RelativeDocumentMoniker": "UI\\Correo.cs",
@@ -1599,7 +1593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 5,
               "Title": "TargetaUsuario.cs [Design]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\TargetaUsuario.cs",
@@ -1610,7 +1604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 4,
               "Title": "Users.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Users.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Users.cs",
@@ -1621,7 +1615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 9,
               "Title": "ElegirPerfil.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ElegirPerfil.cs",
@@ -1632,7 +1626,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 11,
               "Title": "AMUser.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AMUser.cs",
@@ -1643,7 +1637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 14,
               "Title": "Articulos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Articulos.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Articulos.cs",
@@ -1654,7 +1648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 15,
               "Title": "AVM.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AVM.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AVM.cs",
@@ -1665,7 +1659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 16,
               "Title": "Caja.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Caja.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Caja.cs",
@@ -1676,7 +1670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 17,
               "Title": "Categorias.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\Categorias.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\Categorias.cs",
@@ -1687,7 +1681,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 21,
               "Title": "a\u00F1adirCyP.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\a\u00F1adirCyP.cs",
@@ -1698,7 +1692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 23,
               "Title": "ClienteProveedor.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\ClienteProveedor.cs",
@@ -1709,7 +1703,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 24,
               "Title": "AMUser.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\screens\\AMUser.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\screens\\AMUser.cs",
@@ -1720,7 +1714,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 108,
+              "DocumentIndex": 26,
               "Title": "Principal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paiva\\source\\repos\\MyM26\\Principal.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\MyM26\\Principal.cs",
