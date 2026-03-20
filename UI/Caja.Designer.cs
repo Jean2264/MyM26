@@ -43,6 +43,7 @@
             btn_cancelarVenta = new Button();
             btn_confiVenta = new Button();
             panel5 = new Panel();
+            btn_cerrar_vuelto = new Button();
             btn_vuelto = new Button();
             txt_vuelto = new TextBox();
             btn_mostrar_vuelto = new Button();
@@ -150,6 +151,7 @@
             btn_reem_desc.Text = "Reemplazar descuento";
             btn_reem_desc.UseVisualStyleBackColor = false;
             btn_reem_desc.Visible = false;
+            btn_reem_desc.Click += btn_reem_desc_Click;
             // 
             // txt_desc
             // 
@@ -192,6 +194,7 @@
             button2.TabIndex = 2;
             button2.Text = "Eliminar articulo";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -247,6 +250,7 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(btn_cerrar_vuelto);
             panel5.Controls.Add(btn_vuelto);
             panel5.Controls.Add(txt_vuelto);
             panel5.Controls.Add(btn_mostrar_vuelto);
@@ -255,6 +259,22 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(223, 145);
             panel5.TabIndex = 4;
+            // 
+            // btn_cerrar_vuelto
+            // 
+            btn_cerrar_vuelto.BackColor = Color.FromArgb(10, 90, 153);
+            btn_cerrar_vuelto.Dock = DockStyle.Top;
+            btn_cerrar_vuelto.FlatStyle = FlatStyle.Flat;
+            btn_cerrar_vuelto.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btn_cerrar_vuelto.ForeColor = Color.White;
+            btn_cerrar_vuelto.Location = new Point(0, 108);
+            btn_cerrar_vuelto.Name = "btn_cerrar_vuelto";
+            btn_cerrar_vuelto.Size = new Size(223, 36);
+            btn_cerrar_vuelto.TabIndex = 3;
+            btn_cerrar_vuelto.Text = "Cerrar vuelto";
+            btn_cerrar_vuelto.UseVisualStyleBackColor = false;
+            btn_cerrar_vuelto.Visible = false;
+            btn_cerrar_vuelto.Click += btn_cerrar_vuelto_Click;
             // 
             // btn_vuelto
             // 
@@ -270,6 +290,7 @@
             btn_vuelto.Text = "Calcular";
             btn_vuelto.UseVisualStyleBackColor = false;
             btn_vuelto.Visible = false;
+            btn_vuelto.Click += btn_vuelto_Click;
             // 
             // txt_vuelto
             // 
@@ -296,6 +317,7 @@
             btn_mostrar_vuelto.TabIndex = 0;
             btn_mostrar_vuelto.Text = "Calcular vuelto";
             btn_mostrar_vuelto.UseVisualStyleBackColor = false;
+            btn_mostrar_vuelto.Click += btn_mostrar_vuelto_Click;
             // 
             // tableLayoutPanel4
             // 
@@ -495,34 +517,40 @@
             // 
             // txt_subtotal
             // 
+            txt_subtotal.BackColor = Color.White;
             txt_subtotal.BorderStyle = BorderStyle.FixedSingle;
             txt_subtotal.Dock = DockStyle.Bottom;
             txt_subtotal.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
             txt_subtotal.Location = new Point(0, 134);
             txt_subtotal.Multiline = true;
             txt_subtotal.Name = "txt_subtotal";
+            txt_subtotal.ReadOnly = true;
             txt_subtotal.Size = new Size(217, 36);
             txt_subtotal.TabIndex = 3;
             // 
             // txt_descuento
             // 
+            txt_descuento.BackColor = Color.White;
             txt_descuento.BorderStyle = BorderStyle.FixedSingle;
             txt_descuento.Dock = DockStyle.Bottom;
             txt_descuento.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
             txt_descuento.Location = new Point(0, 170);
             txt_descuento.Multiline = true;
             txt_descuento.Name = "txt_descuento";
+            txt_descuento.ReadOnly = true;
             txt_descuento.Size = new Size(217, 36);
             txt_descuento.TabIndex = 2;
             // 
             // txt_total
             // 
+            txt_total.BackColor = Color.White;
             txt_total.BorderStyle = BorderStyle.FixedSingle;
             txt_total.Dock = DockStyle.Bottom;
             txt_total.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
             txt_total.Location = new Point(0, 206);
             txt_total.Multiline = true;
             txt_total.Name = "txt_total";
+            txt_total.ReadOnly = true;
             txt_total.Size = new Size(217, 36);
             txt_total.TabIndex = 1;
             // 
@@ -573,31 +601,37 @@
             // 
             Nombre.HeaderText = "Nombre";
             Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
             // 
             // PrecioUnit
             // 
             PrecioUnit.HeaderText = "PrecioUnit";
             PrecioUnit.Name = "PrecioUnit";
+            PrecioUnit.ReadOnly = true;
             // 
             // PrecioMayor
             // 
             PrecioMayor.HeaderText = "PrecioMayor";
             PrecioMayor.Name = "PrecioMayor";
+            PrecioMayor.ReadOnly = true;
             // 
             // CantMinMayor
             // 
             CantMinMayor.HeaderText = "CantMinMayor";
             CantMinMayor.Name = "CantMinMayor";
+            CantMinMayor.ReadOnly = true;
             // 
             // Cantidad
             // 
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             // 
             // Subtotal
             // 
             Subtotal.HeaderText = "Subtotal";
             Subtotal.Name = "Subtotal";
+            Subtotal.ReadOnly = true;
             // 
             // Caja
             // 
@@ -663,9 +697,11 @@
         private TextBox txt_total;
         private Button btn_mostrar_vuelto;
         private Panel panel5;
-        private Button btn_vuelto;
+        
         private TextBox txt_vuelto;
+        private Button btn_vuelto;
         private PictureBox pcb_art;
+        private Button btn_cerrar_vuelto;
         private DataGridViewTextBoxColumn CodigoBarra;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn PrecioUnit;

@@ -15,19 +15,26 @@ namespace MyM26.screens
 {
     public partial class Caja : UserControl
     {
+        decimal Descuento;
+        decimal Total;
         public Caja()
         {
             InitializeComponent();
             Conexion.Conectar();
             dtg_caja.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.Load += new EventHandler(Caja_Load);
-            // En el constructor:
-            this.Enter += (s, e) => {
+            
+            this.Enter += (s, e) =>
+            {
                 dtg_caja.Focus();
                 if (dtg_caja.CurrentCell == null && dtg_caja.Rows.Count > 0)
                     dtg_caja.CurrentCell = dtg_caja.Rows[0].Cells[0];
             };
             cmbs();
+            CalcularTotalGeneral();
+            button2.Enabled = false;
+            button3.Enabled = false;
+
         }
 
         private void btn_desc_Click(object sender, EventArgs e)
@@ -43,12 +50,18 @@ namespace MyM26.screens
 
         private void btn_añadir_desc_Click(object sender, EventArgs e)
         {
-
+            Descuento += Convert.ToDecimal(txt_desc.Text);
+            CalcularTotalGeneral();
+            txt_desc.Visible = false;
+            txt_desc.Text = "";
+            btn_añadir_desc.Visible = false;
+            btn_reem_desc.Visible = false;
         }
 
         private void dtg_caja_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            button2.Enabled = true;
+            button3.Enabled = true;
         }
 
         private void dtg_caja_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -173,7 +186,7 @@ namespace MyM26.screens
             }
 
             ActualizarSubtotal(row);
-            CalcularTotalGeneral(); // <--- Suma todos los subtotales del grid
+            CalcularTotalGeneral(); // Suma todos los subtotales del grid
         }
 
         public void ActualizarSubtotal(DataGridViewRow row)
@@ -183,7 +196,7 @@ namespace MyM26.screens
             decimal pUnit = Convert.ToDecimal(row.Cells["PrecioUnit"].Value);
             decimal pMayor = Convert.ToDecimal(row.Cells["PrecioMayor"].Value);
 
-            if (cant >= minMayor && minMayor!=0)
+            if (cant >= minMayor && minMayor != 0)
                 row.Cells["Subtotal"].Value = cant * pMayor;
             else
                 row.Cells["Subtotal"].Value = cant * pUnit;
@@ -208,15 +221,19 @@ namespace MyM26.screens
 
         private void CalcularTotalGeneral()
         {
-            decimal total = 0;
+            decimal subtotal = 0;
             foreach (DataGridViewRow row in dtg_caja.Rows)
             {
                 if (row.Cells["Subtotal"].Value != null)
                 {
-                    total += Convert.ToDecimal(row.Cells["Subtotal"].Value);
+                    subtotal += Convert.ToDecimal(row.Cells["Subtotal"].Value);
                 }
             }
-            txt_subtotal.Text = "Subtotal: "+total.ToString("N2"); // "N2" para 2 decimales
+            txt_subtotal.Text = "Subtotal: " + subtotal.ToString("N2"); // "N2" para 2 decimales
+            txt_descuento.Text = "Descuento: " + Descuento.ToString("N2");
+            Total = (subtotal - Descuento);
+            txt_total.Text = "Total: " + Total.ToString("N2");
+
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -232,6 +249,83 @@ namespace MyM26.screens
             {
                 dtg_caja.CurrentCell = dtg_caja.Rows[0].Cells[0];
                 dtg_caja.BeginEdit(true);
+            }
+        }
+
+        private void btn_reem_desc_Click(object sender, EventArgs e)
+        {
+            Descuento = Convert.ToDecimal(txt_desc.Text);
+            CalcularTotalGeneral();
+
+            txt_desc.Visible = false;
+            txt_desc.Text = "";
+            btn_añadir_desc.Visible = false;
+            btn_reem_desc.Visible = false;
+        }
+
+        private void btn_vuelto_Click(object sender, EventArgs e)
+        {
+            decimal billete = Convert.ToDecimal(txt_vuelto.Text);
+            decimal vuelto = billete - Total;
+
+            txt_vuelto.Text = "Vuelto: " + vuelto.ToString("N2");
+
+            btn_vuelto.Visible = false;
+            btn_cerrar_vuelto.Visible = true;
+            panel5.Controls.SetChildIndex(btn_mostrar_vuelto, 3);
+            panel5.Controls.SetChildIndex(txt_vuelto, 1);
+            panel5.Controls.SetChildIndex(btn_vuelto, 2);
+            panel5.Controls.SetChildIndex(btn_cerrar_vuelto, 0);
+        }
+
+        private void btn_mostrar_vuelto_Click(object sender, EventArgs e)
+        {
+
+            btn_vuelto.Visible = true;
+            txt_vuelto.Visible = true;
+        }
+
+        private void btn_cerrar_vuelto_Click(object sender, EventArgs e)
+        {
+
+            btn_vuelto.Visible = false;
+            txt_vuelto.Text = "";
+            txt_vuelto.Visible = false;
+            btn_cerrar_vuelto.Visible = false;
+            panel5.Controls.SetChildIndex(btn_mostrar_vuelto, 2);
+            panel5.Controls.SetChildIndex(txt_vuelto, 1);
+            panel5.Controls.SetChildIndex(btn_vuelto, 0);
+            panel5.Controls.SetChildIndex(btn_cerrar_vuelto, 3);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dtg_caja.CurrentRow != null) // Verifica que haya una fila seleccionada
+            {
+                // Pregunta al usuario si está seguro
+                DialogResult resultado = MessageBox.Show(
+                    "¿Desea eliminar el producto seleccionado?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    // Elimina la fila seleccionada del DataGridView
+                    dtg_caja.Rows.Remove(dtg_caja.CurrentRow);
+
+                    CalcularTotalGeneral();
+
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila para eliminar.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
