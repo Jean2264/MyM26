@@ -38,7 +38,6 @@
             txt_desc = new TextBox();
             btn_desc = new Button();
             button2 = new Button();
-            button3 = new Button();
             panel2 = new Panel();
             btn_cancelarVenta = new Button();
             btn_confiVenta = new Button();
@@ -47,6 +46,9 @@
             btn_vuelto = new Button();
             txt_vuelto = new TextBox();
             btn_mostrar_vuelto = new Button();
+            panel6 = new Panel();
+            numericUpDown1 = new NumericUpDown();
+            button3 = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
             btn_buscar = new Button();
             txt_buscar = new TextBox();
@@ -74,10 +76,13 @@
             CantMinMayor = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -97,9 +102,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.Controls.Add(panel1, 2, 0);
             tableLayoutPanel1.Controls.Add(button2, 1, 0);
-            tableLayoutPanel1.Controls.Add(button3, 0, 0);
             tableLayoutPanel1.Controls.Add(panel2, 4, 0);
             tableLayoutPanel1.Controls.Add(panel5, 3, 0);
+            tableLayoutPanel1.Controls.Add(panel6, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
             tableLayoutPanel1.Location = new Point(0, 547);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -195,20 +200,6 @@
             button2.Text = "Eliminar articulo";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(220, 120, 20);
-            button3.Dock = DockStyle.Top;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(3, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(223, 36);
-            button3.TabIndex = 3;
-            button3.Text = "Modificar articulo";
-            button3.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -318,6 +309,40 @@
             btn_mostrar_vuelto.Text = "Calcular vuelto";
             btn_mostrar_vuelto.UseVisualStyleBackColor = false;
             btn_mostrar_vuelto.Click += btn_mostrar_vuelto_Click;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(button1);
+            panel6.Controls.Add(numericUpDown1);
+            panel6.Controls.Add(button3);
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new Point(3, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(223, 145);
+            panel6.TabIndex = 5;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Dock = DockStyle.Top;
+            numericUpDown1.Location = new Point(0, 36);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(223, 23);
+            numericUpDown1.TabIndex = 6;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(220, 120, 20);
+            button3.Dock = DockStyle.Top;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(0, 0);
+            button3.Name = "button3";
+            button3.Size = new Size(223, 36);
+            button3.TabIndex = 3;
+            button3.Text = "Restar articulo";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // tableLayoutPanel4
             // 
@@ -633,6 +658,22 @@
             Subtotal.Name = "Subtotal";
             Subtotal.ReadOnly = true;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(190, 43, 80);
+            button1.Dock = DockStyle.Top;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(0, 59);
+            button1.Name = "button1";
+            button1.Size = new Size(223, 36);
+            button1.TabIndex = 7;
+            button1.Text = "Restar";
+            button1.UseVisualStyleBackColor = false;
+            button1.Visible = false;
+            button1.Click += button1_Click;
+            // 
             // Caja
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -649,6 +690,8 @@
             panel2.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -709,5 +752,8 @@
         private DataGridViewTextBoxColumn CantMinMayor;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Subtotal;
+        private Panel panel6;
+        private NumericUpDown numericUpDown1;
+        private Button button1;
     }
 }

@@ -23,7 +23,7 @@ namespace MyM26.screens
             Conexion.Conectar();
             dtg_caja.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.Load += new EventHandler(Caja_Load);
-            
+
             this.Enter += (s, e) =>
             {
                 dtg_caja.Focus();
@@ -34,6 +34,8 @@ namespace MyM26.screens
             CalcularTotalGeneral();
             button2.Enabled = false;
             button3.Enabled = false;
+            numericUpDown1.Visible = false;
+            button1.Visible = false;
 
         }
 
@@ -327,6 +329,20 @@ namespace MyM26.screens
                 MessageBox.Show("Seleccione una fila para eliminar.",
                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            numericUpDown1.Visible = true;
+            button1.Visible = true;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
