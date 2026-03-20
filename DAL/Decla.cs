@@ -46,5 +46,8 @@ namespace MyM26.DAL
         //Para Compras
         public static DataTable CompraTab = new DataTable();
         public static DataTable CompraFil = new DataTable();
+
+        //Para caja
+        public static DataTable ClienteCaja = new DataTable();
     }
 }

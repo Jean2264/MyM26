@@ -57,5 +57,29 @@ namespace MyM26.DAL
             }
             return cj;
         }
+
+        public static DataTable ClienteCaja()
+        {
+            string consulta = @"SELECT Cuit, Nombre + '-'+ Entidad AS NombreCompleto FROM Cliente WHERE Estado=1;";
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            Decla.ClienteCaja.Clear();
+            try
+            {
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Decla.ClienteCaja.Load(reader);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al traer la info del cliente. "+ ex);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
+            return Decla.ClienteCaja;
+        }
     }
 }

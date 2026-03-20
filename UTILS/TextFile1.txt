@@ -94,8 +94,12 @@ Entidad varchar(100),
 Telefono varchar(25),
 Mail varchar(200),
 Estado bit default 1 not null,
+esGenerico bit default 0 not null
 primary key(IdCliente)
 )
+
+INSERT INTO Cliente (IdCliente, Cuit, Nombre, Entidad, Telefono, Mail, Estado, esGenerico)
+VALUES (8, '00000000000', 'Consumidor Final', '1111111111', 'null@gmail.com', 1, 1);
 
 create table TipoUsuario
 (

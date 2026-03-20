@@ -29,7 +29,7 @@ namespace MyM26.DAL
             int offset = (paginaActual - 1) * registrosPorPagina;
              string consulta = @"SELECT Nombre, Entidad, Cuit, Telefono, Mail
                    FROM Cliente
-                   WHERE Estado = 1
+                  WHERE Estado = 1 AND EsGenerico = 0
                    ORDER BY Nombre
                    OFFSET @offset ROWS
                    FETCH NEXT @limite ROWS ONLY";
@@ -293,7 +293,7 @@ namespace MyM26.DAL
         public static DataTable FiltrarCliente( string cuit)
         {
 
-            string consulta = "select Nombre, Entidad, Cuit, Telefono, Mail from Cliente WHERE (Nombre LIKE @cuit OR Cuit LIKE @cuit) and Estado=1";
+            string consulta = "select Nombre, Entidad, Cuit, Telefono, Mail from Cliente WHERE (Nombre LIKE @cuit OR Cuit LIKE @cuit) and Estado=1 AND EsGenerico=0";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@cuit", "%" + cuit + "%");
 

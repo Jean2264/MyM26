@@ -27,6 +27,7 @@ namespace MyM26.screens
                 if (dtg_caja.CurrentCell == null && dtg_caja.Rows.Count > 0)
                     dtg_caja.CurrentCell = dtg_caja.Rows[0].Cells[0];
             };
+            cmbs();
         }
 
         private void btn_desc_Click(object sender, EventArgs e)
@@ -104,7 +105,36 @@ namespace MyM26.screens
             }
         }
 
+        private void cmbs()
+        {
+            //Tipo de comprobante
+            cmb_comprobante.Items.Add("Remito");
+            cmb_comprobante.Items.Add("Presupuesto");
+            cmb_comprobante.SelectedItem = "Remito";
 
+            //Tipo de factura
+            cmb_factura.Items.Add("FA");
+            cmb_factura.Items.Add("FB");
+            cmb_factura.Items.Add("FC");
+            cmb_factura.Items.Add("FE");
+            cmb_factura.Items.Add("FM");
+            cmb_factura.SelectedItem = "FC";
+
+            //Forma de pago
+            cmb_pago.Items.Add("Efectivo");
+            cmb_pago.Items.Add("Credito");
+            cmb_pago.Items.Add("Debito");
+            cmb_pago.Items.Add("QR");
+            cmb_pago.Items.Add("Transferencia");
+            cmb_pago.SelectedItem = "Efectivo";
+
+            //cliente
+            cmb_cliente.DataSource = CajaDatos.ClienteCaja();
+            cmb_cliente.DisplayMember = "NombreCompleto";
+            cmb_cliente.ValueMember = "Cuit";
+            cmb_cliente.SelectedValue = "00000000000";
+
+        }
         public void SumarCantidadExistente(DataGridViewRow fila)
         {
             int CantActual = Convert.ToInt32(fila.Cells["Cantidad"].Value);
