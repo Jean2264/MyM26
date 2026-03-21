@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using MyM26.Entidades.Caja;
+using MyM26.UI;
 
 namespace MyM26.screens
 {
@@ -81,8 +82,6 @@ namespace MyM26.screens
                     {
                         SumarCantidadExistente(fila);
 
-                        // !!! IMPORTANTE: Si es duplicado, limpiamos la celda actual y no saltamos de fila
-                        // para que el usuario pueda volver a escanear ahí mismo.
                         BeginInvoke(new MethodInvoker(() =>
                         {
                             dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
@@ -336,7 +335,7 @@ namespace MyM26.screens
         {
             btn_restar.Visible = true;
             numeric_restar.Visible = true;
-            
+
 
         }
 
@@ -381,7 +380,68 @@ namespace MyM26.screens
             button3.Enabled = false;
             btn_desc.Enabled = false;
             button2.Enabled = false;
-           
+
+         
+
+        }
+
+        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            string filtro= txt_buscar.Text;
+            BuscarArt ar = new BuscarArt(filtro);
+            ar.StartPosition = FormStartPosition.CenterParent;
+            if(ar.ShowDialog()== DialogResult.OK)
+            {
+                string cb = ar.cb;
+                 string nombre= ar.nombre;
+                 decimal PU=ar.PU;
+                 decimal PM=ar.PM;
+                 int CM=ar.CM;
+                 int stock=ar.stock;
+                 byte[] imagen=ar.imagen;
+
+                 
+                /* var row = dtg_caja.Rows[index];
+            row.Cells["Nombre"].Value = cj.Nombre;
+            row.Cells["PrecioUnit"].Value = cj.PrecioUnitario;
+            row.Cells["PrecioMayor"].Value = cj.PrecioMayorista;
+            row.Cells["CantMinMayor"].Value = cj.CantidadMinimaMayor;
+            row.Cells["Cantidad"].Value = 1;
+            row.Tag = cj.StockDisponible; // Guardamos el stock real para comparar luego
+
+            if (cj.Imagen != null)
+            {
+                using (MemoryStream ms = new MemoryStream(cj.Imagen))
+                {
+                    pcb_art.Image = Image.FromStream(ms);
+                    pcb_art.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+
+            ActualizarSubtotal(row);
+            CalcularTotalGeneral(); // Suma todos los subtotales del grid*/
+                dtg_caja.Rows.Add(cb, nombre, PU, PM, cb, 1, PU);
+                if(imagen!= null)
+                {
+                    using (MemoryStream ms = new MemoryStream(imagen))
+                    {
+                        pcb_art.Image = Image.FromStream(ms);
+                        pcb_art.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                }
+               
+            }
+
         }
     }
 }

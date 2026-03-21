@@ -10,7 +10,7 @@ using MyM26.Entidades.Caja;
 
 namespace MyM26.DAL
 {
-   public class CajaDatos
+    public class CajaDatos
     {
         public VCaja TraerArt(string cb)
         {
@@ -24,16 +24,16 @@ namespace MyM26.DAL
             {
                 Decla.cnn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
+                while (reader.Read())
                 {
                     cj = new VCaja();
-                    
-                        cj.Nombre= reader["Nombre"].ToString();
-                        cj.CantidadMinimaMayor= Convert.ToInt32(reader["CantMinMayorista"]);
-                        cj.PrecioUnitario= Convert.ToDecimal(reader["PrecioUnitario"]);
-                        cj.PrecioMayorista= Convert.ToDecimal(reader["PrecioXMayor"]);
-                        cj.StockDisponible = Convert.ToInt32(reader["Cantidad"]);
-                   
+
+                    cj.Nombre = reader["Nombre"].ToString();
+                    cj.CantidadMinimaMayor = Convert.ToInt32(reader["CantMinMayorista"]);
+                    cj.PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]);
+                    cj.PrecioMayorista = Convert.ToDecimal(reader["PrecioXMayor"]);
+                    cj.StockDisponible = Convert.ToInt32(reader["Cantidad"]);
+
                     if (reader["Imagen"] != DBNull.Value)
                     {
                         cj.Imagen = (byte[])reader["Imagen"];
@@ -43,7 +43,7 @@ namespace MyM26.DAL
                         cj.Imagen = null;
                     }
 
-                    
+
                 }
             }
             catch (Exception ex)
@@ -69,9 +69,9 @@ namespace MyM26.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 Decla.ClienteCaja.Load(reader);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al traer la info del cliente. "+ ex);
+                MessageBox.Show("Error al traer la info del cliente. " + ex);
             }
             finally
             {
@@ -81,5 +81,55 @@ namespace MyM26.DAL
 
             return Decla.ClienteCaja;
         }
+
+        public VCaja ArtCajaBuscar(string filtro)
+        {
+            VCaja cj = null;
+            string consulta = @"SELECT a.CodigoBarra, a.Nombre, a.CantMinMayorista, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad From 
+                     Articulo a INNER JOIN Stock s on a.CodigoArticulo= s.CodigoArticulo WHERE (a.CodigoBarra LIKE @filtro OR a.Nombre LIKE @filtro) AND Estado=1";
+
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+
+            try
+            {
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    cj = new VCaja();
+
+                    cj.Nombre = reader["Nombre"].ToString();
+                    cj.CantidadMinimaMayor = Convert.ToInt32(reader["CantMinMayorista"]);
+                    cj.PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]);
+                    cj.PrecioMayorista = Convert.ToDecimal(reader["PrecioXMayor"]);
+                    cj.StockDisponible = Convert.ToInt32(reader["Cantidad"]);
+                    cj.CodigoBarra = reader["CodigoBarra"].ToString();
+
+                    if (reader["Imagen"] != DBNull.Value)
+                    {
+                        cj.Imagen = (byte[])reader["Imagen"];
+                    }
+                    else
+                    {
+                        cj.Imagen = null;
+                    }
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un problema al extarear la informacion del poroducto: " + ex);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+            return cj;
+        }
+
     }
 }

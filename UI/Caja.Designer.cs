@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caja));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             btn_añadir_desc = new Button();
@@ -47,6 +47,8 @@
             txt_vuelto = new TextBox();
             btn_mostrar_vuelto = new Button();
             panel6 = new Panel();
+            btn_restar = new Button();
+            numeric_restar = new NumericUpDown();
             button3 = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
             btn_buscar = new Button();
@@ -75,13 +77,12 @@
             CantMinMayor = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
-            numeric_restar = new NumericUpDown();
-            btn_restar = new Button();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numeric_restar).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -89,7 +90,6 @@
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_art).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtg_caja).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numeric_restar).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -321,6 +321,30 @@
             panel6.Size = new Size(223, 145);
             panel6.TabIndex = 5;
             // 
+            // btn_restar
+            // 
+            btn_restar.BackColor = Color.FromArgb(190, 43, 80);
+            btn_restar.Dock = DockStyle.Top;
+            btn_restar.FlatAppearance.BorderColor = Color.FromArgb(190, 43, 80);
+            btn_restar.FlatStyle = FlatStyle.Flat;
+            btn_restar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btn_restar.ForeColor = Color.White;
+            btn_restar.Location = new Point(0, 59);
+            btn_restar.Name = "btn_restar";
+            btn_restar.Size = new Size(223, 36);
+            btn_restar.TabIndex = 5;
+            btn_restar.Text = "Restar";
+            btn_restar.UseVisualStyleBackColor = false;
+            btn_restar.Click += btn_restar_Click;
+            // 
+            // numeric_restar
+            // 
+            numeric_restar.Dock = DockStyle.Top;
+            numeric_restar.Location = new Point(0, 36);
+            numeric_restar.Name = "numeric_restar";
+            numeric_restar.Size = new Size(223, 23);
+            numeric_restar.TabIndex = 4;
+            // 
             // button3
             // 
             button3.BackColor = Color.FromArgb(220, 120, 20);
@@ -352,6 +376,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Size = new Size(1148, 38);
             tableLayoutPanel4.TabIndex = 3;
+            tableLayoutPanel4.Paint += tableLayoutPanel4_Paint;
             // 
             // btn_buscar
             // 
@@ -365,6 +390,7 @@
             btn_buscar.Size = new Size(23, 32);
             btn_buscar.TabIndex = 7;
             btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
             // 
             // txt_buscar
             // 
@@ -374,6 +400,7 @@
             txt_buscar.Name = "txt_buscar";
             txt_buscar.Size = new Size(223, 32);
             txt_buscar.TabIndex = 8;
+            txt_buscar.TextChanged += txt_buscar_TextChanged;
             // 
             // tableLayoutPanel2
             // 
@@ -577,14 +604,14 @@
             dtg_caja.AllowUserToResizeRows = false;
             dtg_caja.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtg_caja.BackgroundColor = Color.White;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(61, 100, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dtg_caja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(61, 100, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtg_caja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtg_caja.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtg_caja.Columns.AddRange(new DataGridViewColumn[] { CodigoBarra, Nombre, PrecioUnit, PrecioMayor, CantMinMayor, Cantidad, Subtotal });
             dtg_caja.Dock = DockStyle.Fill;
@@ -594,14 +621,14 @@
             dtg_caja.Location = new Point(4, 4);
             dtg_caja.MultiSelect = false;
             dtg_caja.Name = "dtg_caja";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 125, 255);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dtg_caja.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 125, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dtg_caja.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dtg_caja.RowHeadersVisible = false;
             dtg_caja.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dtg_caja.Size = new Size(910, 501);
@@ -650,30 +677,6 @@
             Subtotal.Name = "Subtotal";
             Subtotal.ReadOnly = true;
             // 
-            // numeric_restar
-            // 
-            numeric_restar.Dock = DockStyle.Top;
-            numeric_restar.Location = new Point(0, 36);
-            numeric_restar.Name = "numeric_restar";
-            numeric_restar.Size = new Size(223, 23);
-            numeric_restar.TabIndex = 4;
-            // 
-            // btn_restar
-            // 
-            btn_restar.BackColor = Color.FromArgb(190, 43, 80);
-            btn_restar.Dock = DockStyle.Top;
-            btn_restar.FlatAppearance.BorderColor = Color.FromArgb(190, 43, 80);
-            btn_restar.FlatStyle = FlatStyle.Flat;
-            btn_restar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btn_restar.ForeColor = Color.White;
-            btn_restar.Location = new Point(0, 59);
-            btn_restar.Name = "btn_restar";
-            btn_restar.Size = new Size(223, 36);
-            btn_restar.TabIndex = 5;
-            btn_restar.Text = "Restar";
-            btn_restar.UseVisualStyleBackColor = false;
-            btn_restar.Click += btn_restar_Click;
-            // 
             // Caja
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -691,6 +694,7 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numeric_restar).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -701,7 +705,6 @@
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_art).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtg_caja).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numeric_restar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

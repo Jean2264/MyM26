@@ -16,5 +16,11 @@ namespace MyM26.BLL
             CajaDatos dt = new CajaDatos();
             return dt.TraerArt(cb);
         }
+
+        public VCaja BuscarAer(string filtro)
+        {
+            CajaDatos dt= new CajaDatos();
+            return dt.ArtCajaBuscar(filtro);
+        }
     }
 }
