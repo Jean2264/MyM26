@@ -34,8 +34,8 @@ namespace MyM26.screens
             CalcularTotalGeneral();
             button2.Enabled = false;
             button3.Enabled = false;
-            numericUpDown1.Visible = false;
-            button1.Visible = false;
+            numeric_restar.Visible = false;
+            btn_restar.Visible = false;
 
         }
 
@@ -334,15 +334,54 @@ namespace MyM26.screens
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            numericUpDown1.Visible = true;
-            button1.Visible = true;
+            btn_restar.Visible = true;
+            numeric_restar.Visible = true;
+            
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_restar_Click(object sender, EventArgs e)
+        {
+            if (dtg_caja.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor seleccione un articulo");
+                return;
+            }
+
+            int cantidadActual = Convert.ToInt32(dtg_caja.CurrentRow.Cells["Cantidad"].Value);
+            int cantidadRestar = (int)numeric_restar.Value;
+
+            if (cantidadRestar <= 0)
+            {
+                MessageBox.Show("Ingrese una cantidad válida");
+                return;
+            }
+
+            if (cantidadRestar >= cantidadActual)
+            {
+                dtg_caja.Rows.Remove(dtg_caja.CurrentRow);
+                pcb_art.Image = null;
+            }
+            else
+            {
+                int cantidadNueva = cantidadActual - cantidadRestar;
+                dtg_caja.CurrentRow.Cells["Cantidad"].Value = cantidadNueva;
+            }
+
+            CalcularTotalGeneral();
+
+            numeric_restar.Value = 0;
+            numeric_restar.Visible = false;
+            btn_restar.Visible = false;
+            button3.Enabled = false;
+            btn_desc.Enabled = false;
+            button2.Enabled = false;
+           
         }
     }
 }
