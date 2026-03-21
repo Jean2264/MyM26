@@ -15,14 +15,16 @@ namespace MyM26.UI
     public partial class BuscarArt : Form
     {
         public string caj;
-
+        public string cd;
         public string cb;
         public string nombre;
         public decimal PU;
         public decimal PM;
         public int CM;
         public int stock;
+        public int stockkk;
         public byte[] imagen;
+        public byte[] img;
         public BuscarArt(string caja)
         {
             InitializeComponent();
@@ -46,7 +48,7 @@ namespace MyM26.UI
 
                 dtg_caja.Rows.Add(cj.CodigoBarra, cj.Nombre, cj.PrecioUnitario, cj.PrecioMayorista, cj.CantidadMinimaMayor, cj.StockDisponible);
 
-                
+                img = cj.Imagen;
             }
 
         }
@@ -58,9 +60,9 @@ namespace MyM26.UI
             if (cj != null)
             {
 
-                dtg_caja.Rows.Add(cj.CodigoBarra, cj.Nombre, cj.PrecioUnitario, cj.PrecioMayorista, cj.CantidadMinimaMayor, cj.StockDisponible);
+                dtg_caja.Rows.Add(cj.CodigoBarra,cj.codigoArticulo, cj.Nombre, cj.PrecioUnitario, cj.PrecioMayorista, cj.CantidadMinimaMayor, cj.StockDisponible);
 
-              
+                img = cj.Imagen;
 
             }
         }
@@ -77,13 +79,18 @@ namespace MyM26.UI
 
         private void dtg_caja_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            cb = dtg_caja.CurrentRow.Cells["Cantidad"].Value.ToString();
+            cb = dtg_caja.CurrentRow.Cells["CodigoBarra"].Value.ToString();
             nombre = dtg_caja.CurrentRow.Cells["Nombre"].Value.ToString() ;
-            PU = Convert.ToDecimal(dtg_caja.CurrentRow.Cells["PrecioUnit"]);
-            PM = Convert.ToDecimal(dtg_caja.CurrentRow.Cells["PrecioMayor"]);
-            CM = Convert.ToInt32(dtg_caja.CurrentRow.Cells["CantMinMayor"]);
-            stock = Convert.ToInt32(cj.StockDisponible);
-            imagen = cj.Imagen;
+            PU = Convert.ToDecimal(dtg_caja.CurrentRow.Cells["PrecioUnit"].Value);
+            PM = Convert.ToDecimal(dtg_caja.CurrentRow.Cells["PrecioMayor"].Value);
+            CM = Convert.ToInt32(dtg_caja.CurrentRow.Cells["CantMinMayor"].Value);
+            stock = Convert.ToInt32(dtg_caja.CurrentRow.Cells["Cantidad"].Value);
+            cd = dtg_caja.CurrentRow.Cells["CodigoArticulo"].Value.ToString();
+            imagen = img;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+            
         }
     }
 }

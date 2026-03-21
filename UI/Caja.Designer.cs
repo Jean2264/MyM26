@@ -47,6 +47,7 @@
             txt_vuelto = new TextBox();
             btn_mostrar_vuelto = new Button();
             panel6 = new Panel();
+            btn_sumar = new Button();
             btn_restar = new Button();
             numeric_restar = new NumericUpDown();
             button3 = new Button();
@@ -71,6 +72,7 @@
             txt_total = new TextBox();
             dtg_caja = new DataGridView();
             CodigoBarra = new DataGridViewTextBoxColumn();
+            CodigoArticulo = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             PrecioUnit = new DataGridViewTextBoxColumn();
             PrecioMayor = new DataGridViewTextBoxColumn();
@@ -312,6 +314,7 @@
             // 
             // panel6
             // 
+            panel6.Controls.Add(btn_sumar);
             panel6.Controls.Add(btn_restar);
             panel6.Controls.Add(numeric_restar);
             panel6.Controls.Add(button3);
@@ -321,11 +324,28 @@
             panel6.Size = new Size(223, 145);
             panel6.TabIndex = 5;
             // 
+            // btn_sumar
+            // 
+            btn_sumar.BackColor = Color.FromArgb(90, 43, 80);
+            btn_sumar.Dock = DockStyle.Top;
+            btn_sumar.FlatAppearance.BorderColor = Color.White;
+            btn_sumar.FlatStyle = FlatStyle.Flat;
+            btn_sumar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btn_sumar.ForeColor = Color.White;
+            btn_sumar.Location = new Point(0, 95);
+            btn_sumar.Name = "btn_sumar";
+            btn_sumar.Size = new Size(223, 36);
+            btn_sumar.TabIndex = 6;
+            btn_sumar.Text = "Sumar";
+            btn_sumar.UseVisualStyleBackColor = false;
+            btn_sumar.Visible = false;
+            btn_sumar.Click += btn_sumar_Click;
+            // 
             // btn_restar
             // 
             btn_restar.BackColor = Color.FromArgb(190, 43, 80);
             btn_restar.Dock = DockStyle.Top;
-            btn_restar.FlatAppearance.BorderColor = Color.FromArgb(190, 43, 80);
+            btn_restar.FlatAppearance.BorderColor = Color.White;
             btn_restar.FlatStyle = FlatStyle.Flat;
             btn_restar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             btn_restar.ForeColor = Color.White;
@@ -356,7 +376,7 @@
             button3.Name = "button3";
             button3.Size = new Size(223, 36);
             button3.TabIndex = 3;
-            button3.Text = "Restar articulo";
+            button3.Text = "Modificar articulo";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
@@ -613,7 +633,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dtg_caja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtg_caja.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtg_caja.Columns.AddRange(new DataGridViewColumn[] { CodigoBarra, Nombre, PrecioUnit, PrecioMayor, CantMinMayor, Cantidad, Subtotal });
+            dtg_caja.Columns.AddRange(new DataGridViewColumn[] { CodigoBarra, CodigoArticulo, Nombre, PrecioUnit, PrecioMayor, CantMinMayor, Cantidad, Subtotal });
             dtg_caja.Dock = DockStyle.Fill;
             dtg_caja.EditMode = DataGridViewEditMode.EditOnEnter;
             dtg_caja.EnableHeadersVisualStyles = false;
@@ -640,6 +660,13 @@
             // 
             CodigoBarra.HeaderText = "CodigoBarra";
             CodigoBarra.Name = "CodigoBarra";
+            // 
+            // CodigoArticulo
+            // 
+            CodigoArticulo.HeaderText = "CodigoArticulo";
+            CodigoArticulo.Name = "CodigoArticulo";
+            CodigoArticulo.ReadOnly = true;
+            CodigoArticulo.Visible = false;
             // 
             // Nombre
             // 
@@ -748,15 +775,17 @@
         private Button btn_vuelto;
         private PictureBox pcb_art;
         private Button btn_cerrar_vuelto;
+        private Panel panel6;
+        private Button btn_sumar;
+        private Button btn_restar;
+        private NumericUpDown numeric_restar;
         private DataGridViewTextBoxColumn CodigoBarra;
+        private DataGridViewTextBoxColumn CodigoArticulo;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn PrecioUnit;
         private DataGridViewTextBoxColumn PrecioMayor;
         private DataGridViewTextBoxColumn CantMinMayor;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Subtotal;
-        private Panel panel6;
-        private Button btn_restar;
-        private NumericUpDown numeric_restar;
     }
 }

@@ -32,15 +32,17 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btn_salir = new Button();
+            btn_buscar = new Button();
+            txt_buscar = new TextBox();
             dtg_caja = new DataGridView();
             CodigoBarra = new DataGridViewTextBoxColumn();
+            CodigoArticulo = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             PrecioUnit = new DataGridViewTextBoxColumn();
             PrecioMayor = new DataGridViewTextBoxColumn();
             CantMinMayor = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
-            btn_buscar = new Button();
-            txt_buscar = new TextBox();
+            Subtotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtg_caja).BeginInit();
             SuspendLayout();
             // 
@@ -57,6 +59,27 @@
             btn_salir.UseVisualStyleBackColor = true;
             btn_salir.Click += btn_salir_Click;
             // 
+            // btn_buscar
+            // 
+            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
+            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.FlatStyle = FlatStyle.Flat;
+            btn_buscar.Location = new Point(236, 27);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(30, 32);
+            btn_buscar.TabIndex = 33;
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
+            // 
+            // txt_buscar
+            // 
+            txt_buscar.Location = new Point(7, 27);
+            txt_buscar.Multiline = true;
+            txt_buscar.Name = "txt_buscar";
+            txt_buscar.Size = new Size(223, 32);
+            txt_buscar.TabIndex = 34;
+            // 
             // dtg_caja
             // 
             dtg_caja.AllowUserToResizeColumns = false;
@@ -72,7 +95,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dtg_caja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtg_caja.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtg_caja.Columns.AddRange(new DataGridViewColumn[] { CodigoBarra, Nombre, PrecioUnit, PrecioMayor, CantMinMayor, Cantidad });
+            dtg_caja.Columns.AddRange(new DataGridViewColumn[] { CodigoBarra, CodigoArticulo, Nombre, PrecioUnit, PrecioMayor, CantMinMayor, Cantidad, Subtotal });
             dtg_caja.EditMode = DataGridViewEditMode.EditOnEnter;
             dtg_caja.EnableHeadersVisualStyles = false;
             dtg_caja.ImeMode = ImeMode.On;
@@ -90,7 +113,7 @@
             dtg_caja.RowHeadersVisible = false;
             dtg_caja.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dtg_caja.Size = new Size(796, 386);
-            dtg_caja.TabIndex = 32;
+            dtg_caja.TabIndex = 35;
             dtg_caja.CellContentClick += dtg_caja_CellContentClick;
             dtg_caja.CellContentDoubleClick += dtg_caja_CellContentDoubleClick;
             // 
@@ -98,6 +121,13 @@
             // 
             CodigoBarra.HeaderText = "CodigoBarra";
             CodigoBarra.Name = "CodigoBarra";
+            // 
+            // CodigoArticulo
+            // 
+            CodigoArticulo.HeaderText = "CodigoArticulo";
+            CodigoArticulo.Name = "CodigoArticulo";
+            CodigoArticulo.ReadOnly = true;
+            CodigoArticulo.Visible = false;
             // 
             // Nombre
             // 
@@ -125,30 +155,15 @@
             // 
             // Cantidad
             // 
-            Cantidad.HeaderText = "Stock";
+            Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
             Cantidad.ReadOnly = true;
             // 
-            // btn_buscar
+            // Subtotal
             // 
-            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
-            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_buscar.FlatAppearance.BorderSize = 0;
-            btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(236, 27);
-            btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(30, 32);
-            btn_buscar.TabIndex = 33;
-            btn_buscar.UseVisualStyleBackColor = true;
-            btn_buscar.Click += btn_buscar_Click;
-            // 
-            // txt_buscar
-            // 
-            txt_buscar.Location = new Point(7, 27);
-            txt_buscar.Multiline = true;
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(223, 32);
-            txt_buscar.TabIndex = 34;
+            Subtotal.HeaderText = "Subtotal";
+            Subtotal.Name = "Subtotal";
+            Subtotal.ReadOnly = true;
             // 
             // BuscarArt
             // 
@@ -158,9 +173,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(dtg_caja);
             Controls.Add(btn_buscar);
             Controls.Add(txt_buscar);
-            Controls.Add(dtg_caja);
             Controls.Add(btn_salir);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
@@ -175,14 +190,16 @@
         #endregion
 
         private Button btn_salir;
-        private DataGridView dtg_caja;
         private Button btn_buscar;
         private TextBox txt_buscar;
+        private DataGridView dtg_caja;
         private DataGridViewTextBoxColumn CodigoBarra;
+        private DataGridViewTextBoxColumn CodigoArticulo;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn PrecioUnit;
         private DataGridViewTextBoxColumn PrecioMayor;
         private DataGridViewTextBoxColumn CantMinMayor;
         private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn Subtotal;
     }
 }

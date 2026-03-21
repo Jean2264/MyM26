@@ -103,7 +103,7 @@ namespace MyM26.screens
                     return;
                 }
 
-                // Paso 3: Validar Stock (usamos StockDisponible que viene de tu entidad)
+                // Paso 3: Validar Stock 
                 if (cj.StockDisponible <= 0)
                 {
                     MessageBox.Show("No hay stock disponible");
@@ -115,7 +115,7 @@ namespace MyM26.screens
                 LlenarFila(e.RowIndex, cj);
 
                 // Paso 5: Saltar a la siguiente línea
-                IrSiguienteFila(); // Corregí el nombre a Siguiente
+                IrSiguienteFila(); 
             }
         }
 
@@ -174,6 +174,7 @@ namespace MyM26.screens
             row.Cells["PrecioUnit"].Value = cj.PrecioUnitario;
             row.Cells["PrecioMayor"].Value = cj.PrecioMayorista;
             row.Cells["CantMinMayor"].Value = cj.CantidadMinimaMayor;
+            row.Cells["CodigoArticulo"].Value = cj.codigoArticulo;
             row.Cells["Cantidad"].Value = 1;
             row.Tag = cj.StockDisponible; // Guardamos el stock real para comparar luego
 
@@ -333,6 +334,7 @@ namespace MyM26.screens
 
         private void button3_Click(object sender, EventArgs e)
         {
+            btn_sumar.Visible = true;
             btn_restar.Visible = true;
             numeric_restar.Visible = true;
 
@@ -377,11 +379,12 @@ namespace MyM26.screens
             numeric_restar.Value = 0;
             numeric_restar.Visible = false;
             btn_restar.Visible = false;
+            btn_sumar.Visible = false;
             button3.Enabled = false;
             btn_desc.Enabled = false;
             button2.Enabled = false;
 
-         
+
 
         }
 
@@ -397,50 +400,85 @@ namespace MyM26.screens
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            string filtro= txt_buscar.Text;
+            string filtro = txt_buscar.Text;
             BuscarArt ar = new BuscarArt(filtro);
             ar.StartPosition = FormStartPosition.CenterParent;
-            if(ar.ShowDialog()== DialogResult.OK)
+            if (ar.ShowDialog() == DialogResult.OK)
             {
                 string cb = ar.cb;
-                 string nombre= ar.nombre;
-                 decimal PU=ar.PU;
-                 decimal PM=ar.PM;
-                 int CM=ar.CM;
-                 int stock=ar.stock;
-                 byte[] imagen=ar.imagen;
+                string nombre = ar.nombre;
+                decimal PU = ar.PU;
+                decimal PM = ar.PM;
+                int CM = ar.CM;
+                int stock = ar.stock;
+                string cd= ar.cd;
+                byte[] imagen = ar.imagen;
 
-                 
-                /* var row = dtg_caja.Rows[index];
-            row.Cells["Nombre"].Value = cj.Nombre;
-            row.Cells["PrecioUnit"].Value = cj.PrecioUnitario;
-            row.Cells["PrecioMayor"].Value = cj.PrecioMayorista;
-            row.Cells["CantMinMayor"].Value = cj.CantidadMinimaMayor;
-            row.Cells["Cantidad"].Value = 1;
-            row.Tag = cj.StockDisponible; // Guardamos el stock real para comparar luego
-
-            if (cj.Imagen != null)
-            {
-                using (MemoryStream ms = new MemoryStream(cj.Imagen))
+                foreach (DataGridViewRow fila in dtg_caja.Rows)
                 {
-                    pcb_art.Image = Image.FromStream(ms);
-                    pcb_art.SizeMode = PictureBoxSizeMode.Zoom;
-                }
-            }
-
-            ActualizarSubtotal(row);
-            CalcularTotalGeneral(); // Suma todos los subtotales del grid*/
-                dtg_caja.Rows.Add(cb, nombre, PU, PM, cb, 1, PU);
-                if(imagen!= null)
-                {
-                    using (MemoryStream ms = new MemoryStream(imagen))
+                    if (!fila.IsNewRow && fila.Cells[0].Value?.ToString() == cb)
                     {
-                        pcb_art.Image = Image.FromStream(ms);
-                        pcb_art.SizeMode = PictureBoxSizeMode.Zoom;
+                        SumarCantidadExistente(fila);
+                        return;
                     }
                 }
-               
+
+                VCaja cj = new VCaja()
+                {
+                    codigoArticulo= cd,
+                    CodigoBarra = cb,
+                    Nombre = nombre,
+                    PrecioUnitario = PU,
+                    PrecioMayorista = PM,
+                    CantidadMinimaMayor = CM,
+                    StockDisponible = stock,
+                    Imagen = imagen
+                };
+
+                int index = dtg_caja.Rows.Add();
+                LlenarFila(index, cj);
+                MessageBox.Show(cd);
+
             }
+
+        }
+
+        private void btn_sumar_Click(object sender, EventArgs e)
+        {
+
+            if (dtg_caja.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor seleccione un articulo");
+                return;
+            }
+
+            int cantidadActual = Convert.ToInt32(dtg_caja.CurrentRow.Cells["Cantidad"].Value);
+            int cantidadSumar = (int)numeric_restar.Value;
+
+            if (cantidadSumar <= 0)
+            {
+                MessageBox.Show("Ingrese una cantidad válida");
+                return;
+            }
+            int stockDisponible = Convert.ToInt32(dtg_caja.CurrentRow.Tag);
+
+            if(cantidadActual+ cantidadSumar > stockDisponible)
+            {
+                MessageBox.Show($"Stock insuficiente. Solo hay {stockDisponible} unidades disponibles.");
+                return;
+            }
+            int cantidadNueva = cantidadActual + cantidadSumar;
+                dtg_caja.CurrentRow.Cells["Cantidad"].Value = cantidadNueva;
+            ActualizarSubtotal(dtg_caja.CurrentRow);
+            CalcularTotalGeneral();
+
+            numeric_restar.Value = 0;
+            numeric_restar.Visible = false;
+            btn_restar.Visible = false;
+            btn_sumar.Visible = false;
+            button3.Enabled = false;
+            btn_desc.Enabled = false;
+            button2.Enabled = false;
 
         }
     }

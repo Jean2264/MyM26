@@ -15,7 +15,7 @@ namespace MyM26.DAL
         public VCaja TraerArt(string cb)
         {
             VCaja cj = null;
-            string consulta = @"SELECT a.Nombre, a.CantMinMayorista, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad From 
+            string consulta = @"SELECT a.CodigoArticulo, a.Nombre, a.CantMinMayorista, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad From 
                      Articulo a INNER JOIN Stock s on a.CodigoArticulo= s.CodigoArticulo WHERE a.CodigoBarra=@cb";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@cb", cb);
@@ -33,6 +33,7 @@ namespace MyM26.DAL
                     cj.PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]);
                     cj.PrecioMayorista = Convert.ToDecimal(reader["PrecioXMayor"]);
                     cj.StockDisponible = Convert.ToInt32(reader["Cantidad"]);
+                    cj.codigoArticulo = reader["CodigoArticulo"].ToString();
 
                     if (reader["Imagen"] != DBNull.Value)
                     {
@@ -85,7 +86,7 @@ namespace MyM26.DAL
         public VCaja ArtCajaBuscar(string filtro)
         {
             VCaja cj = null;
-            string consulta = @"SELECT a.CodigoBarra, a.Nombre, a.CantMinMayorista, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad From 
+            string consulta = @"SELECT a.CodigoArticulo, a.CodigoBarra, a.Nombre, a.CantMinMayorista, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad From 
                      Articulo a INNER JOIN Stock s on a.CodigoArticulo= s.CodigoArticulo WHERE (a.CodigoBarra LIKE @filtro OR a.Nombre LIKE @filtro) AND Estado=1";
 
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
@@ -105,6 +106,7 @@ namespace MyM26.DAL
                     cj.PrecioMayorista = Convert.ToDecimal(reader["PrecioXMayor"]);
                     cj.StockDisponible = Convert.ToInt32(reader["Cantidad"]);
                     cj.CodigoBarra = reader["CodigoBarra"].ToString();
+                    cj.codigoArticulo = reader["CodigoArticulo"].ToString();
 
                     if (reader["Imagen"] != DBNull.Value)
                     {
