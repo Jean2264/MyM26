@@ -26,37 +26,14 @@ namespace MyM26.Entidades.Caja
         ///////////////PARA VENTA/////////////////////
         ///
 
-        //Para HVenta
-        /*create table HVenta
-(
-IdVenta int not null,
-CodRemito varchar(10) unique not null,
-DNI varchar(8),
-Cuit varchar(11),
-FechaHora datetime default getdate(),
-SubTotal decimal(12,2),
-Descuento decimal(12,2),
-Total decimal(12,2),
-Factura varchar(100),
-FormaPago varchar(100),
-primary key(IdVenta),
-foreign key(DNI) references Usuario (DNI),
-foreign key (Cuit) references Proveedor (Cuit)
-)
+        
 
-create table HVentaDetalle
-(
-IdVentaDetalle int not null,
-CodRDetalle varchar(10) unique not null,
-CodRemito varchar(10),
-CodigoArticulo varchar(10),
-Descripcion varchar(100),
-PrecioUnitario decimal(12,2),
-Cantidad int,
-PrecioXCantidad decimal(12,2),
-primary key (IdVentaDetalle),
-foreign key(CodRemito) references HVenta(CodRemito),
-foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
-)*/
+
+
+        //Para movimientos
+        public int UltimiIdMovimiento { get; set; }
+        public int NuevoIdMovimiento { get; set; }
+        public string TipoMovimiento { get; set; }
+        public string DetalleMovimiento { get; set; }
     }
 }

@@ -226,6 +226,7 @@
             btn_cancelarVenta.TabIndex = 1;
             btn_cancelarVenta.Text = "Cancelar venta";
             btn_cancelarVenta.UseVisualStyleBackColor = false;
+            btn_cancelarVenta.Click += btn_cancelarVenta_Click;
             // 
             // btn_confiVenta
             // 
@@ -240,6 +241,7 @@
             btn_confiVenta.TabIndex = 0;
             btn_confiVenta.Text = "Confirmar venta";
             btn_confiVenta.UseVisualStyleBackColor = false;
+            btn_confiVenta.Click += btn_confiVenta_Click;
             // 
             // panel5
             // 

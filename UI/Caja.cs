@@ -17,6 +17,7 @@ namespace MyM26.screens
     public partial class Caja : UserControl
     {
         decimal Descuento;
+        decimal subtotal = 0;
         decimal Total;
         public Caja()
         {
@@ -115,7 +116,7 @@ namespace MyM26.screens
                 LlenarFila(e.RowIndex, cj);
 
                 // Paso 5: Saltar a la siguiente línea
-                IrSiguienteFila(); 
+                IrSiguienteFila();
             }
         }
 
@@ -223,7 +224,7 @@ namespace MyM26.screens
 
         private void CalcularTotalGeneral()
         {
-            decimal subtotal = 0;
+
             foreach (DataGridViewRow row in dtg_caja.Rows)
             {
                 if (row.Cells["Subtotal"].Value != null)
@@ -411,7 +412,7 @@ namespace MyM26.screens
                 decimal PM = ar.PM;
                 int CM = ar.CM;
                 int stock = ar.stock;
-                string cd= ar.cd;
+                string cd = ar.cd;
                 byte[] imagen = ar.imagen;
 
                 foreach (DataGridViewRow fila in dtg_caja.Rows)
@@ -425,7 +426,7 @@ namespace MyM26.screens
 
                 VCaja cj = new VCaja()
                 {
-                    codigoArticulo= cd,
+                    codigoArticulo = cd,
                     CodigoBarra = cb,
                     Nombre = nombre,
                     PrecioUnitario = PU,
@@ -462,13 +463,13 @@ namespace MyM26.screens
             }
             int stockDisponible = Convert.ToInt32(dtg_caja.CurrentRow.Tag);
 
-            if(cantidadActual+ cantidadSumar > stockDisponible)
+            if (cantidadActual + cantidadSumar > stockDisponible)
             {
                 MessageBox.Show($"Stock insuficiente. Solo hay {stockDisponible} unidades disponibles.");
                 return;
             }
             int cantidadNueva = cantidadActual + cantidadSumar;
-                dtg_caja.CurrentRow.Cells["Cantidad"].Value = cantidadNueva;
+            dtg_caja.CurrentRow.Cells["Cantidad"].Value = cantidadNueva;
             ActualizarSubtotal(dtg_caja.CurrentRow);
             CalcularTotalGeneral();
 
@@ -480,6 +481,76 @@ namespace MyM26.screens
             btn_desc.Enabled = false;
             button2.Enabled = false;
 
+        }
+
+        private void btn_confiVenta_Click(object sender, EventArgs e)
+        {
+            CalcularTotalGeneral();
+            //Armamos HVenta
+
+            if(dtg_caja.Rows== null)
+            {
+                MessageBox.Show("Por favor agrega al menos un articulo a la grid");
+                return;
+            }
+            HVenta venta = new HVenta();
+            venta.Total = Total;
+            venta.Descuento = Descuento;
+            venta.SubtotalV = subtotal;
+            venta.FormaPago = cmb_pago.Text;
+            venta.Factura = cmb_factura.Text;
+            venta.TipoComprobante = cmb_comprobante.Text;
+            venta.Cuit = cmb_cliente.SelectedValue?.ToString(); ;
+
+            //Armamos Detalle
+            List<HVentaDetalle> listaDetalle = new List<HVentaDetalle>();
+
+            foreach (DataGridViewRow row in dtg_caja.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                HVentaDetalle det = new HVentaDetalle();
+                det.CodigoArticulo = row.Cells["CodigoArticulo"].Value.ToString();
+                det.Descripcion = row.Cells["Nombre"].Value.ToString();
+                det.PU = Convert.ToDecimal(row.Cells["PrecioUnit"].Value);
+                det.CantidadV = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                det.PXC = det.CantidadV * det.PU;
+
+                listaDetalle.Add(det);
+
+            }
+
+            CajaDatos dt = new CajaDatos();
+            dt.altacompletoVenta(venta, listaDetalle);
+            ResetCampos();
+        }
+
+
+
+
+        public void ResetCampos()
+        {
+            subtotal = 0;    
+            Total = 0;      
+            Descuento = 0;    
+
+            cmb_comprobante.SelectedItem = "Remito";
+            cmb_factura.SelectedItem = "FC";
+            cmb_pago.SelectedItem = "Efectivo";
+            cmb_cliente.SelectedValue = "00000000000";
+
+            txt_buscar.Clear();
+            txt_desc.Clear();
+            pcb_art.Image = null;
+
+            dtg_caja.Rows.Clear();
+
+            CalcularTotalGeneral();
+        }
+
+        private void btn_cancelarVenta_Click(object sender, EventArgs e)
+        {
+            ResetCampos();
         }
     }
 }
