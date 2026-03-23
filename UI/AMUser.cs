@@ -28,8 +28,8 @@ namespace MyM26.screens
         public string UsuOriginal;
         public string ContraOriginal;
 
-      
-      
+
+
         public AMUser(Users usu)
         {
             InitializeComponent();
@@ -149,7 +149,7 @@ namespace MyM26.screens
 
         private void btn_AM_Click(object sender, EventArgs e, Users usu)
         {
-            
+
         }
         private byte[] ImagenABytes(Image imagen)
         {
@@ -332,7 +332,7 @@ namespace MyM26.screens
         public List<string> CamposDuplicados()
         {
             List<string> duplicados = new List<string>();
-         
+
 
 
             string consulta = @"
@@ -343,7 +343,7 @@ namespace MyM26.screens
             using (SqlConnection conn = new SqlConnection(Decla.cnn.ConnectionString))
             using (SqlCommand cmd = new SqlCommand(consulta, conn))
             {
-              
+
                 cmd.Parameters.AddWithValue("@Usuario", txt_nombre.Text.Trim());
 
 
@@ -353,7 +353,7 @@ namespace MyM26.screens
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                       
+
                         if (reader["Usuario_Duplicado"].ToString() == "Sí") duplicados.Add("Nombre de usuario");
 
                     }
@@ -397,13 +397,13 @@ namespace MyM26.screens
                 int EstadoDNI = VerificarDNI(dni);
 
                 //Existe DNI
-                if(EstadoDNI==1)
+                if (EstadoDNI == 1)
                 {
                     MessageBox.Show("Ya existe un usuario activo con ese DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if(EstadoDNI==0)
+                if (EstadoDNI == 0)
                 {
                     DialogResult r = MessageBox.Show(
                         "El usuario existe pero está dado de baja.\n¿Desea reactivarlo?",
@@ -426,9 +426,9 @@ namespace MyM26.screens
                 }
                 var duplicados = CamposDuplicados();
 
-              
 
-         
+
+
                 if (duplicados.Count > 0)
                 {
                     string mensaje = "¡Ya existen datos duplicados en los siguientes campos:\n" +
@@ -456,7 +456,7 @@ namespace MyM26.screens
                     usu?.llenarUser();
                     this.Close();
                 }
-                    
+
             }
             else if (Modo == "Modificar")
             {
@@ -482,9 +482,9 @@ namespace MyM26.screens
                 usuario.Empleados = empleados.Checked;
                 usuario.Foto = ImagenABytes(pic_usu.Image);
 
-                
+
                 usuario.TipoMovimiento = "modificación de usuario";
-                usuario.DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc  +
+                usuario.DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
                                 " (DNI: " + UsuarioActivo.Datos.DNIAc +
                                 " ) ha modificado la información de: " + txt_nombre.Text +
                                 " ( DNI: " + txt_dni.Text.Trim() + ")";
@@ -530,12 +530,12 @@ namespace MyM26.screens
                 Clientes = Clientes.Checked,
                 Usuarios = Usuarios.Checked,
                 Contabilidad = Contable.Checked,
-                TipoMovimiento= "Alta de usuario",
-              
+                TipoMovimiento = "Alta de usuario",
+
                 DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
                                 " (DNI: " + UsuarioActivo.Datos.DNIAc +
                                 ") ha dado de alta a: " + txt_nombre.Text +
-                                " (DNI: " + txt_dni.Text.Trim() + ")"   
+                                " (DNI: " + txt_dni.Text.Trim() + ")"
 
 
 
@@ -547,6 +547,9 @@ namespace MyM26.screens
             return usuario;
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

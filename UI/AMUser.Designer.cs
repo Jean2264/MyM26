@@ -55,6 +55,7 @@
             btn_buscar = new Button();
             pic_usu = new PictureBox();
             panel3 = new Panel();
+            empleados = new CheckBox();
             Usuarios = new CheckBox();
             Contable = new CheckBox();
             Proveedores = new CheckBox();
@@ -65,7 +66,6 @@
             cajas = new CheckBox();
             btn_AM = new Button();
             errorProvider1 = new ErrorProvider(components);
-            empleados = new CheckBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_usu).BeginInit();
@@ -298,6 +298,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(346, 365);
             panel2.TabIndex = 17;
+            panel2.Paint += panel2_Paint;
             // 
             // cmb_tipo
             // 
@@ -363,6 +364,18 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(346, 121);
             panel3.TabIndex = 18;
+            // 
+            // empleados
+            // 
+            empleados.AutoSize = true;
+            empleados.FlatStyle = FlatStyle.Flat;
+            empleados.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            empleados.Location = new Point(6, 93);
+            empleados.Name = "empleados";
+            empleados.Size = new Size(81, 19);
+            empleados.TabIndex = 25;
+            empleados.Text = "Empleados";
+            empleados.UseVisualStyleBackColor = true;
             // 
             // Usuarios
             // 
@@ -477,18 +490,6 @@
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
-            // 
-            // empleados
-            // 
-            empleados.AutoSize = true;
-            empleados.FlatStyle = FlatStyle.Flat;
-            empleados.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            empleados.Location = new Point(6, 93);
-            empleados.Name = "empleados";
-            empleados.Size = new Size(81, 19);
-            empleados.TabIndex = 25;
-            empleados.Text = "Empleados";
-            empleados.UseVisualStyleBackColor = true;
             // 
             // AMUser
             // 
