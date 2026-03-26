@@ -656,6 +656,7 @@
             dtg_caja.Size = new Size(910, 501);
             dtg_caja.TabIndex = 31;
             dtg_caja.CellContentClick += dtg_caja_CellContentClick;
+            dtg_caja.CellContentDoubleClick += dtg_caja_CellContentDoubleClick;
             dtg_caja.CellEndEdit += dtg_caja_CellEndEdit;
             // 
             // CodigoBarra

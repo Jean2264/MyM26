@@ -210,6 +210,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.Desktop;
             label1.Location = new Point(33, 45);
             label1.Name = "label1";
             label1.Size = new Size(286, 37);
@@ -254,6 +255,7 @@
             Controls.Add(btn_salir);
             Controls.Add(btn_mini);
             DoubleBuffered = true;
+            ForeColor = SystemColors.InactiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;

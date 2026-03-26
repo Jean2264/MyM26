@@ -64,61 +64,62 @@ namespace MyM26.screens
 
         private void dtg_caja_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            button2.Enabled = true;
-            button3.Enabled = true;
+           
         }
 
         private void dtg_caja_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // Solo actuamos si es la columna del código (índice 0)
-            if (e.ColumnIndex == 0)
+
+            if (e.ColumnIndex != 0) return;
+
+        
+            var cellValue = dtg_caja.Rows[e.RowIndex].Cells[0].Value;
+            string codigoEscaneado = cellValue?.ToString();
+
+            if (string.IsNullOrWhiteSpace(codigoEscaneado)) return;
+
+          
+            if (dtg_caja.Rows[e.RowIndex].Cells["Nombre"].Value != null &&
+                !string.IsNullOrEmpty(dtg_caja.Rows[e.RowIndex].Cells["Nombre"].Value.ToString()))
             {
-                string codigoEscaneado = dtg_caja.Rows[e.RowIndex].Cells[0].Value?.ToString();
-                if (string.IsNullOrEmpty(codigoEscaneado)) return;
-
-                // Paso 1: Verificar duplicados
-                foreach (DataGridViewRow fila in dtg_caja.Rows)
-                {
-                    if (!fila.IsNewRow && fila.Index != e.RowIndex && fila.Cells[0].Value?.ToString() == codigoEscaneado)
-                    {
-                        SumarCantidadExistente(fila);
-
-                        BeginInvoke(new MethodInvoker(() =>
-                        {
-                            dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
-                            dtg_caja.CurrentCell = dtg_caja.Rows[e.RowIndex].Cells[0];
-                        }));
-                        return;
-                        CalcularTotalGeneral();
-                    }
-                }
-
-                // Paso 2: Buscar en la DB
-                CajaNegocio neg = new CajaNegocio();
-                VCaja cj = neg.tomarInfo(codigoEscaneado);
-
-                if (cj == null)
-                {
-                    MessageBox.Show("Artículo no encontrado");
-                    dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
-                    return;
-                }
-
-                // Paso 3: Validar Stock 
-                if (cj.StockDisponible <= 0)
-                {
-                    MessageBox.Show("No hay stock disponible");
-                    dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
-                    return;
-                }
-
-                // Paso 4: Cargar datos
-                LlenarFila(e.RowIndex, cj);
-
-                // Paso 5: Saltar a la siguiente línea
-                IrSiguienteFila();
+                return;
             }
+
+        
+            foreach (DataGridViewRow fila in dtg_caja.Rows)
+            {
+                if (!fila.IsNewRow && fila.Index != e.RowIndex && fila.Cells[0].Value?.ToString() == codigoEscaneado)
+                {
+                    SumarCantidadExistente(fila);
+                    BeginInvoke(new MethodInvoker(() => {
+                        if (dtg_caja.Rows.Count > e.RowIndex) 
+                            dtg_caja.Rows.RemoveAt(e.RowIndex);
+                    }));
+                    CalcularTotalGeneral();
+                    return;
+                }
+            }
+
+           
+            CajaNegocio neg = new CajaNegocio();
+            VCaja cj = neg.tomarInfo(codigoEscaneado);
+
+            if (cj == null)
+            {
+                MessageBox.Show("Articulo no encontrado");
+                // Limpiamos y usamos BeginInvoke para re-seleccionar la celda actual
+                BeginInvoke(new MethodInvoker(() => {
+                    dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
+                    dtg_caja.CurrentCell = dtg_caja.Rows[e.RowIndex].Cells[0];
+                    dtg_caja.BeginEdit(true);
+                }));
+                return; 
+            }
+
+            LlenarFila(e.RowIndex, cj);
+            IrSiguienteFila();
         }
+        
 
         private void cmbs()
         {
@@ -153,7 +154,7 @@ namespace MyM26.screens
         public void SumarCantidadExistente(DataGridViewRow fila)
         {
             int CantActual = Convert.ToInt32(fila.Cells["Cantidad"].Value);
-            int StockMax = Convert.ToInt32(fila.Tag);//guardamos el stock en el tag al buscar
+            int StockMax = Convert.ToInt32(fila.Tag);
 
             if (CantActual + 1 > StockMax)
             {
@@ -163,8 +164,10 @@ namespace MyM26.screens
             else
             {
                 fila.Cells["Cantidad"].Value = CantActual + 1;
+
                 ActualizarSubtotal(fila);
                 CalcularTotalGeneral();
+                dtg_caja.RefreshEdit();
             }
         }
 
@@ -177,7 +180,7 @@ namespace MyM26.screens
             row.Cells["CantMinMayor"].Value = cj.CantidadMinimaMayor;
             row.Cells["CodigoArticulo"].Value = cj.codigoArticulo;
             row.Cells["Cantidad"].Value = 1;
-            row.Tag = cj.StockDisponible; // Guardamos el stock real para comparar luego
+            row.Tag = cj.StockDisponible; 
 
             if (cj.Imagen != null)
             {
@@ -189,7 +192,7 @@ namespace MyM26.screens
             }
 
             ActualizarSubtotal(row);
-            CalcularTotalGeneral(); // Suma todos los subtotales del grid
+            CalcularTotalGeneral();
         }
 
         public void ActualizarSubtotal(DataGridViewRow row)
@@ -209,7 +212,7 @@ namespace MyM26.screens
             BeginInvoke(new MethodInvoker(() =>
             {
                 int filaActual = dtg_caja.CurrentCell.RowIndex;
-                // Si hay una fila abajo, vamos a ella, sino, el Enter creará una
+               
                 if (filaActual < dtg_caja.RowCount - 1)
                 {
                     dtg_caja.CurrentCell = dtg_caja.Rows[filaActual + 1].Cells[0];
@@ -224,19 +227,24 @@ namespace MyM26.screens
 
         private void CalcularTotalGeneral()
         {
+            subtotal = 0;
 
             foreach (DataGridViewRow row in dtg_caja.Rows)
             {
-                if (row.Cells["Subtotal"].Value != null)
+                if (!row.IsNewRow && row.Cells["Subtotal"].Value != null && row.Cells["Cantidad"].Value != null)
                 {
-                    subtotal += Convert.ToDecimal(row.Cells["Subtotal"].Value);
+                    decimal valorSubtotal = 0;
+                    if (decimal.TryParse(row.Cells["Subtotal"].Value.ToString(), out valorSubtotal))
+                    {
+                        subtotal += valorSubtotal;
+                    }
                 }
             }
-            txt_subtotal.Text = "Subtotal: " + subtotal.ToString("N2"); // "N2" para 2 decimales
+
+            txt_subtotal.Text = "Subtotal: " + subtotal.ToString("N2");
             txt_descuento.Text = "Descuento: " + Descuento.ToString("N2");
             Total = (subtotal - Descuento);
             txt_total.Text = "Total: " + Total.ToString("N2");
-
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -245,7 +253,7 @@ namespace MyM26.screens
         }
         private void Caja_Load(object sender, EventArgs e)
         {
-            // Forzamos el foco al DataGridView
+        
             dtg_caja.Focus();
 
             if (dtg_caja.Rows.Count > 0)
@@ -304,9 +312,9 @@ namespace MyM26.screens
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dtg_caja.CurrentRow != null) // Verifica que haya una fila seleccionada
+            if (dtg_caja.CurrentRow != null) 
             {
-                // Pregunta al usuario si está seguro
+
                 DialogResult resultado = MessageBox.Show(
                     "¿Desea eliminar el producto seleccionado?",
                     "Confirmar eliminación",
@@ -465,7 +473,7 @@ namespace MyM26.screens
 
             if (cantidadActual + cantidadSumar > stockDisponible)
             {
-                MessageBox.Show($"Stock insuficiente. Solo hay {stockDisponible} unidades disponibles.");
+                MessageBox.Show($"SUMA---Stock insuficiente. Solo hay {stockDisponible} unidades disponibles.");
                 return;
             }
             int cantidadNueva = cantidadActual + cantidadSumar;
@@ -483,12 +491,17 @@ namespace MyM26.screens
 
         }
 
+        //
+        //
+        //
+        //
+        //
         private void btn_confiVenta_Click(object sender, EventArgs e)
         {
             CalcularTotalGeneral();
             //Armamos HVenta
 
-            if(dtg_caja.Rows== null)
+            if (dtg_caja.Rows == null)
             {
                 MessageBox.Show("Por favor agrega al menos un articulo a la grid");
                 return;
@@ -509,17 +522,19 @@ namespace MyM26.screens
             {
                 if (row.IsNewRow) continue;
 
-                HVentaDetalle det = new HVentaDetalle();
-                det.CodigoArticulo = row.Cells["CodigoArticulo"].Value.ToString();
-                det.Descripcion = row.Cells["Nombre"].Value.ToString();
-                det.PU = Convert.ToDecimal(row.Cells["PrecioUnit"].Value);
-                det.CantidadV = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                det.PXC = det.CantidadV * det.PU;
 
-                listaDetalle.Add(det);
+                if (row.Cells["CodigoArticulo"].Value != null)
+                {
+                    HVentaDetalle det = new HVentaDetalle();
+                    det.CodigoArticulo = row.Cells["CodigoArticulo"].Value.ToString();
+                    det.Descripcion = row.Cells["Nombre"].Value?.ToString() ?? "";
+                    det.PU = Convert.ToDecimal(row.Cells["PrecioUnit"].Value ?? 0);
+                    det.CantidadV = Convert.ToInt32(row.Cells["Cantidad"].Value ?? 0);
+                    det.PXC = Convert.ToDecimal(row.Cells["Subtotal"].Value ?? 0);
 
+                    listaDetalle.Add(det);
+                }
             }
-
             CajaDatos dt = new CajaDatos();
             dt.altacompletoVenta(venta, listaDetalle);
             ResetCampos();
@@ -530,9 +545,9 @@ namespace MyM26.screens
 
         public void ResetCampos()
         {
-            subtotal = 0;    
-            Total = 0;      
-            Descuento = 0;    
+            subtotal = 0;
+            Total = 0;
+            Descuento = 0;
 
             cmb_comprobante.SelectedItem = "Remito";
             cmb_factura.SelectedItem = "FC";
@@ -551,6 +566,12 @@ namespace MyM26.screens
         private void btn_cancelarVenta_Click(object sender, EventArgs e)
         {
             ResetCampos();
+        }
+
+        private void dtg_caja_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button2.Enabled = true;
+            button3.Enabled = true;
         }
     }
 }

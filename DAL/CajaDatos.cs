@@ -213,6 +213,17 @@ namespace MyM26.DAL
             cmd.ExecuteNonQuery();
         }
 
+        public void ModiStockCaja(HVentaDetalle det, SqlTransaction trans)
+        {
+            string consulta = @"UPDATE Stock SET Cantidad= Cantidad -@cant WHERE CodigoArticulo=@cd AND Cantidad >= @cant";
+
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
+
+            cmd.Parameters.AddWithValue("@cd", det.CodigoArticulo);
+            cmd.Parameters.AddWithValue("@cant", det.CantidadV);
+            cmd.ExecuteNonQuery();
+        }
+
         //Alta completo de venta
         public void altacompletoVenta(HVenta venta, List<HVentaDetalle> detalles)
         {
@@ -237,6 +248,7 @@ namespace MyM26.DAL
                         det.CodRemito = venta.CodRemito;
 
                         AltaDetalle(det, ultimoIdDetalle, codRDetalle, trans);
+                        ModiStockCaja(det, trans);
                     }
 
                     trans.Commit();

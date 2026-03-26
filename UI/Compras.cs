@@ -67,7 +67,7 @@ namespace MyM26.UI
             {
                 btn_siguente.Enabled = false;
             }
-            else if(paginaActual < totalRegistros)
+            else if (paginaActual < totalRegistros)
             {
                 btn_siguente.Enabled = true;
             }
@@ -164,6 +164,11 @@ namespace MyM26.UI
             {
                 e.Handled = true;
             }
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

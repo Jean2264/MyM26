@@ -76,6 +76,9 @@
     <Compile Update="UI\Users.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UI\Ventas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UTILS\GradientFlowLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>

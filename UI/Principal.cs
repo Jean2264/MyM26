@@ -188,6 +188,8 @@ namespace MyM26
 
         private void btn_ventas_Click(object sender, EventArgs e)
         {
+            Ventas cj = new Ventas();
+            MostrarUserControl(cj);
             ActivarBoton(btn_ventas);
         }
 
