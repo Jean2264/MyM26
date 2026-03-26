@@ -50,5 +50,10 @@ namespace MyM26.DAL
         //Para caja
         public static DataTable ClienteCaja = new DataTable();
         public static DataTable ArtCaja = new DataTable();
+
+        //Para Venta y Detalle
+       public static DataTable VentaTab = new DataTable();
+        public static DataTable VentaDetTab = new DataTable();
+
     }
 }

@@ -76,6 +76,9 @@
     <Compile Update="UI\Users.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UI\VentaDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Ventas.cs">
       <SubType>UserControl</SubType>
     </Compile>

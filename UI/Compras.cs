@@ -63,7 +63,7 @@ namespace MyM26.UI
 
 
 
-            if (paginaActual == totalRegistros)
+            if (paginaActual == TotalPaginas)
             {
                 btn_siguente.Enabled = false;
             }

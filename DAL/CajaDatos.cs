@@ -265,5 +265,97 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
         }
+
+       
+
+        public static DataTable MostrarVenta(int paginaActual, int registrosPorPagina)
+        {
+            int offset = (paginaActual - 1) * registrosPorPagina;
+            string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago FROM HVenta
+                                ORDER BY FechaHora DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            cmd.Parameters.AddWithValue("@offset", offset);
+            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
+            Decla.VentaTab.Clear();
+
+            try
+            {
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Decla.VentaTab.Load(reader);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al intentar traer las ventas: "+ex);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+            return Decla.VentaTab;
+        }
+
+        public int TotalVenta()
+        {
+            int total=0;
+            string sql = "SELECT COUNT(*) FROM HVenta";
+            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
+            try
+            {
+                Decla.cnn.Open();
+                total = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+            return total;
+        }
+
+        /*create table HVentaDetalle
+(
+IdVentaDetalle int not null,
+CodRDetalle varchar(10) unique not null,
+CodRemito varchar(10),
+CodigoArticulo varchar(10),
+Descripcion varchar(100),
+PrecioUnitario decimal(12,2),
+Cantidad int,
+PrecioXCantidad decimal(12,2),
+primary key (IdVentaDetalle),
+foreign key(CodRemito) references HVenta(CodRemito),
+foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
+)*/
+        public static DataTable MostrarVentaDetalle(string cd)
+        {
+            string consulta = @"SELECT Descripcion,CodRDetalle, Cantidad, PrecioXCantidad FROM HVentaDetalle WHERE CodRemito=@cd";
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            cmd.Parameters.AddWithValue("@cd", cd);
+            Decla.VentaDetTab.Clear();
+
+            try
+            {
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Decla.VentaDetTab.Load(reader);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+            return Decla.VentaDetTab;
+
+        }
     }
 }

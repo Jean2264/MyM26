@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using MyM26.Entidades;
 using MyM26.DAL;
+using System.Drawing.Printing;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -64,7 +65,7 @@ namespace MyM26.screens
 
         private void dtg_caja_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
 
         private void dtg_caja_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -72,27 +73,28 @@ namespace MyM26.screens
 
             if (e.ColumnIndex != 0) return;
 
-        
+
             var cellValue = dtg_caja.Rows[e.RowIndex].Cells[0].Value;
             string codigoEscaneado = cellValue?.ToString();
 
             if (string.IsNullOrWhiteSpace(codigoEscaneado)) return;
 
-          
+
             if (dtg_caja.Rows[e.RowIndex].Cells["Nombre"].Value != null &&
                 !string.IsNullOrEmpty(dtg_caja.Rows[e.RowIndex].Cells["Nombre"].Value.ToString()))
             {
                 return;
             }
 
-        
+
             foreach (DataGridViewRow fila in dtg_caja.Rows)
             {
                 if (!fila.IsNewRow && fila.Index != e.RowIndex && fila.Cells[0].Value?.ToString() == codigoEscaneado)
                 {
                     SumarCantidadExistente(fila);
-                    BeginInvoke(new MethodInvoker(() => {
-                        if (dtg_caja.Rows.Count > e.RowIndex) 
+                    BeginInvoke(new MethodInvoker(() =>
+                    {
+                        if (dtg_caja.Rows.Count > e.RowIndex)
                             dtg_caja.Rows.RemoveAt(e.RowIndex);
                     }));
                     CalcularTotalGeneral();
@@ -100,7 +102,7 @@ namespace MyM26.screens
                 }
             }
 
-           
+
             CajaNegocio neg = new CajaNegocio();
             VCaja cj = neg.tomarInfo(codigoEscaneado);
 
@@ -108,18 +110,19 @@ namespace MyM26.screens
             {
                 MessageBox.Show("Articulo no encontrado");
                 // Limpiamos y usamos BeginInvoke para re-seleccionar la celda actual
-                BeginInvoke(new MethodInvoker(() => {
+                BeginInvoke(new MethodInvoker(() =>
+                {
                     dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
                     dtg_caja.CurrentCell = dtg_caja.Rows[e.RowIndex].Cells[0];
                     dtg_caja.BeginEdit(true);
                 }));
-                return; 
+                return;
             }
 
             LlenarFila(e.RowIndex, cj);
             IrSiguienteFila();
         }
-        
+
 
         private void cmbs()
         {
@@ -180,7 +183,7 @@ namespace MyM26.screens
             row.Cells["CantMinMayor"].Value = cj.CantidadMinimaMayor;
             row.Cells["CodigoArticulo"].Value = cj.codigoArticulo;
             row.Cells["Cantidad"].Value = 1;
-            row.Tag = cj.StockDisponible; 
+            row.Tag = cj.StockDisponible;
 
             if (cj.Imagen != null)
             {
@@ -212,7 +215,7 @@ namespace MyM26.screens
             BeginInvoke(new MethodInvoker(() =>
             {
                 int filaActual = dtg_caja.CurrentCell.RowIndex;
-               
+
                 if (filaActual < dtg_caja.RowCount - 1)
                 {
                     dtg_caja.CurrentCell = dtg_caja.Rows[filaActual + 1].Cells[0];
@@ -253,7 +256,7 @@ namespace MyM26.screens
         }
         private void Caja_Load(object sender, EventArgs e)
         {
-        
+
             dtg_caja.Focus();
 
             if (dtg_caja.Rows.Count > 0)
@@ -312,7 +315,7 @@ namespace MyM26.screens
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dtg_caja.CurrentRow != null) 
+            if (dtg_caja.CurrentRow != null)
             {
 
                 DialogResult resultado = MessageBox.Show(
@@ -537,6 +540,22 @@ namespace MyM26.screens
             }
             CajaDatos dt = new CajaDatos();
             dt.altacompletoVenta(venta, listaDetalle);
+
+            // Configuramos el guardado en PDF
+            pdComprobante.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+            pdComprobante.PrinterSettings.PrintToFile = true;
+
+            // Definimos la ruta (puedes usar una carpeta fija o el escritorio)
+            string rutaEscritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string nombreArchivo = $"Compr_HV{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+            pdComprobante.PrinterSettings.PrintFileName = System.IO.Path.Combine(rutaEscritorio, nombreArchivo);
+
+            // Evitamos que salga el cartel de "Imprimiendo..."
+            pdComprobante.PrintController = new StandardPrintController();
+
+            pdComprobante.Print();
+
+            MessageBox.Show($"Comprobante guardado en el escritorio como: {nombreArchivo}");
             ResetCampos();
         }
 
@@ -572,6 +591,66 @@ namespace MyM26.screens
         {
             button2.Enabled = true;
             button3.Enabled = true;
+        }
+   
+        private void pdComprobante_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Font Titulo = new Font("Arial", 12, FontStyle.Bold);
+            Font fontTexto = new Font("Arial", 10, FontStyle.Regular);
+            Font fontNegrita = new Font("Arial", 10, FontStyle.Bold);
+
+            int y = 20; //coordenada vertical inicial
+            int ancho = 100; //Acho aprox de comprobante termica
+
+            /*g.DrawString("COMPROBANTE DE VENTA", fontTitulo, Brushes.Black, new RectangleF(0, y, ancho, 20), new StringFormat { Alignment = StringAlignment.Center });
+              y += 30;*/
+            // 2. Información de Cabecera
+            g.DrawString($"Fecha: {DateTime.Now.ToString("dd/MM/yyyy HH:mm")}", fontTexto, Brushes.Black, 10, y);
+            y += 20;
+           // g.DrawString($"Nº Ticket: HV{venta.ID}", fontTexto, Brushes.Black, 10, y); // Asumiendo que tienes el ID
+            //y += 20;
+            g.DrawString($"Tipo comprobante: {cmb_comprobante.Text}", fontTexto, Brushes.Black, 10, y);
+            y += 30;
+
+            g.DrawString("--------------------------------------------------", fontTexto, Brushes.Black, 10, y);
+
+
+            // 3. Encabezado de Columnas
+            g.DrawString("Producto", fontNegrita, Brushes.Black, 10, y);
+            g.DrawString("Cant.", fontNegrita, Brushes.Black, 100, y);
+            g.DrawString("Subtotal", fontNegrita, Brushes.Black, 100, y);
+            y += 20;
+
+
+
+            // 4. Detalle de Productos 
+            foreach (DataGridViewRow row in dtg_caja.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                string nombre = row.Cells["Nombre"].Value?.ToString() ?? "";
+                string cant = row.Cells["Cantidad"].Value?.ToString() ?? "0";
+                string sub = Convert.ToDecimal(row.Cells["Subtotal"].Value).ToString("C2");
+
+                g.DrawString(nombre, fontTexto, Brushes.Black, 10, y);
+                g.DrawString(cant, fontTexto, Brushes.Black, 100, y);
+                g.DrawString(sub, fontTexto, Brushes.Black, 100, y);
+                y += 20;
+            }
+
+            // 5. Totales
+            y += 10;
+            g.DrawString("--------------------------------------------------", fontTexto, Brushes.Black, 10, y);
+            y += 20;
+            g.DrawString("SUBTOTAL:", fontNegrita, Brushes.Black, 100, y);
+            g.DrawString(subtotal.ToString("C2"), fontTexto, Brushes.Black, 100, y);
+            y += 20;
+            g.DrawString("TOTAL:", Titulo, Brushes.Black, 100, y);
+            g.DrawString(Total.ToString("C2"), Titulo, Brushes.Black, 100, y);
+
+            y += 40;
+            g.DrawString("Gracias por su compra!", fontTexto, Brushes.Black, new RectangleF(0, y, ancho, 20), new StringFormat { Alignment = StringAlignment.Center });
         }
     }
 }

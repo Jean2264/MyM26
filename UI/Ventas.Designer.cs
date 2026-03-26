@@ -75,6 +75,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(1148, 625);
             dataGridView1.TabIndex = 10;
+            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
             // 
             // tableLayoutPanel1
             // 
@@ -189,6 +190,7 @@
             Controls.Add(tableLayoutPanel2);
             Name = "Ventas";
             Size = new Size(1148, 698);
+            Load += Ventas_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

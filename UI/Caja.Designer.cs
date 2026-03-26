@@ -79,6 +79,8 @@
             CantMinMayor = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
+            pdComprobante = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -707,6 +709,20 @@
             Subtotal.Name = "Subtotal";
             Subtotal.ReadOnly = true;
             // 
+            // pdComprobante
+            // 
+            pdComprobante.PrintPage += pdComprobante_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
             // Caja
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -790,5 +806,7 @@
         private DataGridViewTextBoxColumn CantMinMayor;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Subtotal;
+        private System.Drawing.Printing.PrintDocument pdComprobante;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }

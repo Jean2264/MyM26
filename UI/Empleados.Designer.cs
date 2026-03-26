@@ -202,6 +202,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
             tableLayoutPanel2.Size = new Size(1148, 44);
             tableLayoutPanel2.TabIndex = 4;
+            tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
             // btn_anterior
             // 

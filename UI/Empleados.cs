@@ -248,5 +248,10 @@ namespace MyM26.UI
                 e = null;
             }
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
