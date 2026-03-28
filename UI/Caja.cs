@@ -597,62 +597,7 @@ namespace MyM26.screens
             button2.Enabled = true;
             button3.Enabled = true;
         }
-        /*Graphics g = e.Graphics;
-    Font fontTitulo = new Font("Arial", 12, FontStyle.Bold);
-    Font fontTexto = new Font("Arial", 10, FontStyle.Regular);
-    Font fontNegrita = new Font("Arial", 10, FontStyle.Bold);
     
-    int y = 20; // Coordenada vertical inicial
-    int ancho = 250; // Ancho aproximado de una ticketera térmica
-
-    // 1. Logo (Si tienes uno) y Título
-    g.DrawString("TICKET DE VENTA", fontTitulo, Brushes.Black, new RectangleF(0, y, ancho, 20), new StringFormat { Alignment = StringAlignment.Center });
-    y += 30;
-
-    // 2. Información de Cabecera
-    g.DrawString($"Fecha: {DateTime.Now.ToString("dd/MM/yyyy HH:mm")}", fontTexto, Brushes.Black, 10, y);
-    y += 20;
-    g.DrawString($"Nº Ticket: HV{venta.ID}", fontTexto, Brushes.Black, 10, y); // Asumiendo que tienes el ID
-    y += 20;
-    g.DrawString($"Tipo Ticket: {cmb_comprobante.Text}", fontTexto, Brushes.Black, 10, y);
-    y += 30;
-
-    g.DrawString("--------------------------------------------------", fontTexto, Brushes.Black, 10, y);
-    y += 15;
-
-    // 3. Encabezado de Columnas
-    g.DrawString("Producto", fontNegrita, Brushes.Black, 10, y);
-    g.DrawString("Cant.", fontNegrita, Brushes.Black, 150, y);
-    g.DrawString("Subtotal", fontNegrita, Brushes.Black, 200, y);
-    y += 20;
-
-    // 4. Detalle de Productos (Recorremos el Grid)
-    foreach (DataGridViewRow row in dtg_caja.Rows)
-    {
-        if (row.IsNewRow) continue;
-
-        string nombre = row.Cells["Nombre"].Value?.ToString() ?? "";
-        string cant = row.Cells["Cantidad"].Value?.ToString() ?? "0";
-        string sub = Convert.ToDecimal(row.Cells["Subtotal"].Value).ToString("C2");
-
-        g.DrawString(nombre, fontTexto, Brushes.Black, 10, y);
-        g.DrawString(cant, fontTexto, Brushes.Black, 160, y);
-        g.DrawString(sub, fontTexto, Brushes.Black, 200, y);
-        y += 20;
-    }
-
-    // 5. Totales
-    y += 10;
-    g.DrawString("--------------------------------------------------", fontTexto, Brushes.Black, 10, y);
-    y += 20;
-    g.DrawString("SUBTOTAL:", fontNegrita, Brushes.Black, 120, y);
-    g.DrawString(subtotal.ToString("C2"), fontTexto, Brushes.Black, 200, y);
-    y += 20;
-    g.DrawString("TOTAL:", fontTitulo, Brushes.Black, 120, y);
-    g.DrawString(Total.ToString("C2"), fontTitulo, Brushes.Black, 200, y);
-
-    y += 40;
-    g.DrawString("Gracias por su compra!", fontTexto, Brushes.Black, new RectangleF(0, y, ancho, 20), new StringFormat { Alignment = StringAlignment.Center });*/
         private void pdComprobante_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -678,8 +623,8 @@ namespace MyM26.screens
 
             // 3. Encabezado de Columnas
             g.DrawString("Producto", fontNegrita, Brushes.Black, 5, y);
-            g.DrawString("Cant.", fontNegrita, Brushes.Black, 130, y); // Bajamos de 150 a 130
-            g.DrawString("Total", fontNegrita, Brushes.Black, 190, y); // Bajamos de 200 a 190
+            g.DrawString("Cant.", fontNegrita, Brushes.Black, 130, y); 
+            g.DrawString("Total", fontNegrita, Brushes.Black, 190, y); 
             y += 20;
 
 
