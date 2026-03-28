@@ -553,9 +553,8 @@ namespace MyM26.screens
             // Evitamos que salga el cartel de "Imprimiendo..."
             pdComprobante.PrintController = new StandardPrintController();
 
-            PaperSize tamanoTicket = new PaperSize("CustomTicket", 300, 1000);
-
-            pdComprobante.DefaultPageSettings.PaperSize = tamanoTicket;
+            PaperSize size = new PaperSize("Ticket", 300, 800);
+            pdComprobante.DefaultPageSettings.PaperSize = size;
             pdComprobante.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
 
             pdComprobante.Print();
@@ -605,7 +604,7 @@ namespace MyM26.screens
             Font fontTexto = new Font("Arial", 10, FontStyle.Regular);
             Font fontNegrita = new Font("Arial", 10, FontStyle.Bold);
 
-            int y = 20; //coordenada vertical inicial
+            int y = 30; //coordenada vertical inicial
             int ancho = 100; //Acho aprox de comprobante termica
 
             /*g.DrawString("COMPROBANTE DE VENTA", fontTitulo, Brushes.Black, new RectangleF(0, y, ancho, 20), new StringFormat { Alignment = StringAlignment.Center });
@@ -623,8 +622,8 @@ namespace MyM26.screens
 
             // 3. Encabezado de Columnas
             g.DrawString("Producto", fontNegrita, Brushes.Black, 5, y);
-            g.DrawString("Cant.", fontNegrita, Brushes.Black, 130, y); 
-            g.DrawString("Total", fontNegrita, Brushes.Black, 190, y); 
+            g.DrawString("Cant.", fontNegrita, Brushes.Black, 100, y); 
+            g.DrawString("Total", fontNegrita, Brushes.Black, 100, y); 
             y += 20;
 
 
@@ -639,8 +638,8 @@ namespace MyM26.screens
                 string sub = Convert.ToDecimal(row.Cells["Subtotal"].Value).ToString("C2");
 
                 g.DrawString(nombre, fontTexto, Brushes.Black, 5, y);
-                g.DrawString(cant, fontTexto, Brushes.Black, 140, y);
-                g.DrawString(sub, fontTexto, Brushes.Black, 190, y);
+                g.DrawString(cant, fontTexto, Brushes.Black, 100, y);
+                g.DrawString(sub, fontTexto, Brushes.Black, 100, y);
             }
 
             // 5. Totales
