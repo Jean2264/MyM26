@@ -1,15 +1,17 @@
-﻿using MyM26.BLL;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using MyM26.Entidades;
-using MyM26.DAL;
-using System.Drawing.Printing;
 using System.Drawing;
-using System.Text;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using Rectangle = iTextSharp.text.Rectangle;
+using MyM26.BLL;
+using MyM26.DAL;
+using MyM26.Entidades;
 using MyM26.Entidades.Caja;
 using MyM26.UI;
 
@@ -20,6 +22,9 @@ namespace MyM26.screens
         decimal Descuento;
         decimal subtotal = 0;
         decimal Total;
+        string codRemi;
+        int alto;
+        int cantidadProductos;
         public Caja()
         {
             InitializeComponent();
@@ -55,6 +60,11 @@ namespace MyM26.screens
 
         private void btn_añadir_desc_Click(object sender, EventArgs e)
         {
+            if(txt_desc.Text == "")
+            {
+                MessageBox.Show("Ingrese un valor de descuento válido.");
+                return;
+            }
             Descuento += Convert.ToDecimal(txt_desc.Text);
             CalcularTotalGeneral();
             txt_desc.Visible = false;
@@ -106,18 +116,21 @@ namespace MyM26.screens
             CajaNegocio neg = new CajaNegocio();
             VCaja cj = neg.tomarInfo(codigoEscaneado);
 
-            if (cj == null)
+            if (cj == null) { return; }
+
+          
+            if (cj.StockDisponible <= 0)
             {
-                MessageBox.Show("Articulo no encontrado");
-                // Limpiamos y usamos BeginInvoke para re-seleccionar la celda actual
-                BeginInvoke(new MethodInvoker(() =>
-                {
+                MessageBox.Show($"El artículo '{cj.Nombre}' no tiene stock disponible (Stock: 0).",
+                                "Sin Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+               
+                BeginInvoke(new MethodInvoker(() => {
                     dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
-                    dtg_caja.CurrentCell = dtg_caja.Rows[e.RowIndex].Cells[0];
-                    dtg_caja.BeginEdit(true);
                 }));
-                return;
+                return; 
             }
+            // ---------------------------------
 
             LlenarFila(e.RowIndex, cj);
             IrSiguienteFila();
@@ -189,7 +202,7 @@ namespace MyM26.screens
             {
                 using (MemoryStream ms = new MemoryStream(cj.Imagen))
                 {
-                    pcb_art.Image = Image.FromStream(ms);
+                    pcb_art.Image =  System.Drawing.Image.FromStream(ms);
                     pcb_art.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
@@ -446,7 +459,11 @@ namespace MyM26.screens
                     StockDisponible = stock,
                     Imagen = imagen
                 };
-
+                if (stock <= 0) 
+                {
+                    MessageBox.Show("No se puede añadir el producto porque no tiene stock disponible.");
+                    return;
+                }
                 int index = dtg_caja.Rows.Add();
                 LlenarFila(index, cj);
                 MessageBox.Show(cd);
@@ -538,29 +555,53 @@ namespace MyM26.screens
                     listaDetalle.Add(det);
                 }
             }
-            CajaDatos dt = new CajaDatos();
-            dt.altacompletoVenta(venta, listaDetalle);
+            if (cmb_comprobante.Text == "Presupuesto")
+            {
+                
+                codRemi = "PRES-" + DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            // Configuramos el guardado en PDF
-            pdComprobante.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-            pdComprobante.PrinterSettings.PrintToFile = true;
+                int cantidadProductos = dtg_caja.Rows
+                    .Cast<DataGridViewRow>()
+                    .Count(r => !r.IsNewRow);
 
-            // Definimos la ruta (puedes usar una carpeta fija o el escritorio)
-            string rutaEscritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string nombreArchivo = $"Compr_HV{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
-            pdComprobante.PrinterSettings.PrintFileName = System.IO.Path.Combine(rutaEscritorio, nombreArchivo);
+                alto =
+                    100 +
+                    80 +
+                    (cantidadProductos * 16) +
+                    80 +
+                    40;
 
-            // Evitamos que salga el cartel de "Imprimiendo..."
-            pdComprobante.PrintController = new StandardPrintController();
+                GenerarTicketPDF();
 
-            PaperSize size = new PaperSize("Ticket", 300, 800);
-            pdComprobante.DefaultPageSettings.PaperSize = size;
-            pdComprobante.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
+                MessageBox.Show($"Presupuesto generado correctamente");
+                ResetCampos();
+                return;
+            }
+            else if(cmb_comprobante.Text == "Remito")
+            {
+                CajaDatos dt = new CajaDatos();
+                dt.altacompletoVenta(venta, listaDetalle);
+                codRemi = venta.CodRemito;
 
-            pdComprobante.Print();
 
-            MessageBox.Show($"Comprobante guardado en el escritorio como: {nombreArchivo}");
-            ResetCampos();
+
+                cantidadProductos = dtg_caja.Rows
+             .Cast<DataGridViewRow>()
+             .Count(r => !r.IsNewRow);
+
+                alto =
+               100 +                        // logo
+               80 +                         // cabecera
+               (cantidadProductos * 16) +   // productos
+               80 +                         // totales
+               40;
+                // IMPRIMIR
+                GenerarTicketPDF();
+
+                MessageBox.Show($"Comprobante guardado");
+                ResetCampos();
+            }
+          
         }
 
 
@@ -596,64 +637,242 @@ namespace MyM26.screens
             button2.Enabled = true;
             button3.Enabled = true;
         }
-    
-        private void pdComprobante_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+
+        /*  private void pdComprobante_PrintPage(object sender, PrintPageEventArgs e)
+          {
+              Graphics g = e.Graphics;
+
+              Font titulo = new Font("Arial", 11, FontStyle.Bold);
+              Font texto = new Font("Arial", 8, FontStyle.Regular);
+              Font negrita = new Font("Arial", 8, FontStyle.Bold);
+
+              int anchoTicket = e.PageBounds.Width;
+
+              int y = 10;
+
+              int colProducto = 10;
+              int colCant = 160;
+              int colTotal = 210;
+
+              StringFormat centro = new StringFormat { Alignment = StringAlignment.Center };
+
+              // LOGO
+              try
+              {
+                  Image logo = Properties.Resources.logo;
+                  int logoX = (anchoTicket - 100) / 2;
+                  g.DrawImage(logo, logoX, y, 100, 100);
+                  y += 105;
+              }
+              catch { }
+
+              // TITULOS
+              g.DrawString("M&M", titulo, Brushes.Black, new RectangleF(0, y, anchoTicket, 20), centro);
+              y += 20;
+
+              g.DrawString("COMPROBANTE DE VENTA", titulo, Brushes.Black, new RectangleF(0, y, anchoTicket, 20), centro);
+              y += 25;
+
+              // DATOS
+              g.DrawString($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}", texto, Brushes.Black, 10, y);
+              y += 15;
+
+              g.DrawString($"Tipo: {cmb_comprobante.Text}", texto, Brushes.Black, 10, y);
+              y += 15;
+
+              g.DrawString($"N°: {codRemi}", texto, Brushes.Black, 10, y);
+              y += 15;
+
+              // LINEA
+              g.DrawLine(Pens.Black, 10, y, anchoTicket - 10, y);
+              y += 10;
+
+              // ENCABEZADOS
+              g.DrawString("Producto", negrita, Brushes.Black, colProducto, y);
+              g.DrawString("Cant.", negrita, Brushes.Black, colCant, y);
+              g.DrawString("Total", negrita, Brushes.Black, colTotal, y);
+              y += 18;
+
+              // PRODUCTOS
+              foreach (DataGridViewRow row in dtg_caja.Rows)
+              {
+                  if (row.IsNewRow) continue;
+
+                  string nombre = row.Cells["Nombre"].Value?.ToString() ?? "";
+                  if (string.IsNullOrEmpty(nombre)) continue;
+
+                  string cant = row.Cells["Cantidad"].Value?.ToString() ?? "0";
+                  decimal totalLinea = Convert.ToDecimal(row.Cells["Subtotal"].Value ?? 0);
+
+                  if (nombre.Length > 22)
+                      nombre = nombre.Substring(0, 20) + "..";
+
+                  g.DrawString(nombre, texto, Brushes.Black, colProducto, y);
+                  g.DrawString(cant, texto, Brushes.Black, colCant, y);
+                  g.DrawString(totalLinea.ToString("C2"), texto, Brushes.Black, colTotal, y);
+
+                  y += 15;
+              }
+
+              y += 5;
+
+              // LINEA
+              g.DrawLine(Pens.Black, 10, y, anchoTicket - 10, y);
+              y += 15;
+
+              // TOTALES
+              g.DrawString("SUBTOTAL:", negrita, Brushes.Black, colProducto, y);
+              g.DrawString(subtotal.ToString("C2"), texto, Brushes.Black, colTotal, y);
+              y += 18;
+
+              g.DrawString("TOTAL:", titulo, Brushes.Black, colProducto, y);
+              g.DrawString(Total.ToString("C2"), titulo, Brushes.Black, colTotal, y);
+              y += 30;
+
+              // PIE
+              g.DrawString("Gracias por su compra!", negrita, Brushes.Black,
+                  new RectangleF(0, y, anchoTicket, 20), centro);
+
+              e.HasMorePages = false;
+          }*/
+
+        private void GenerarTicketPDF()
         {
-            Graphics g = e.Graphics;
-            Font Titulo = new Font("Arial", 12, FontStyle.Bold);
-            Font fontTexto = new Font("Arial", 10, FontStyle.Regular);
-            Font fontNegrita = new Font("Arial", 10, FontStyle.Bold);
+            string rutaCarpeta = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                "Tickets");
 
-            int y = 30; //coordenada vertical inicial
-            int ancho = 100; //Acho aprox de comprobante termica
+            if (!Directory.Exists(rutaCarpeta))
+                Directory.CreateDirectory(rutaCarpeta);
 
-            /*g.DrawString("COMPROBANTE DE VENTA", fontTitulo, Brushes.Black, new RectangleF(0, y, ancho, 20), new StringFormat { Alignment = StringAlignment.Center });
-              y += 30;*/
-            // 2. Información de Cabecera
-            g.DrawString($"Fecha: {DateTime.Now.ToString("dd/MM/yyyy HH:mm")}", fontTexto, Brushes.Black, 10, y);
-            y += 20;
-           // g.DrawString($"Nº Ticket: HV{venta.ID}", fontTexto, Brushes.Black, 10, y); // Asumiendo que tienes el ID
-            //y += 20;
-            g.DrawString($"Tipo comprobante: {cmb_comprobante.Text}", fontTexto, Brushes.Black, 10, y);
-            y += 30;
+            string archivo = Path.Combine(rutaCarpeta, codRemi + ".pdf");
 
-            g.DrawString("--------------------------------------------------", fontTexto, Brushes.Black, 10, y);
+            var pageSize = new iTextSharp.text.Rectangle(210, alto);
+            Document doc = new Document(pageSize, 5, 5, 5, 5);
 
-
-            // 3. Encabezado de Columnas
-            g.DrawString("Producto", fontNegrita, Brushes.Black, 5, y);
-            g.DrawString("Cant.", fontNegrita, Brushes.Black, 100, y); 
-            g.DrawString("Total", fontNegrita, Brushes.Black, 100, y); 
-            y += 20;
-
-
-
-            // 4. Detalle de Productos 
-            foreach (DataGridViewRow row in dtg_caja.Rows)
+            try
             {
-                if (row.IsNewRow) continue;
+                PdfWriter.GetInstance(doc, new FileStream(archivo, FileMode.Create));
+                doc.Open();
 
-                string nombre = row.Cells["Nombre"].Value?.ToString() ?? "";
-                string cant = row.Cells["Cantidad"].Value?.ToString() ?? "0";
-                string sub = Convert.ToDecimal(row.Cells["Subtotal"].Value).ToString("C2");
 
-                g.DrawString(nombre, fontTexto, Brushes.Black, 5, y);
-                g.DrawString(cant, fontTexto, Brushes.Black, 100, y);
-                g.DrawString(sub, fontTexto, Brushes.Black, 100, y);
+                var fontNormal = FontFactory.GetFont(FontFactory.HELVETICA, 8);
+                var fontBold = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 9);
+                var fontTotal = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    Properties.Resources.logo.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    var logo = iTextSharp.text.Image.GetInstance(ms.ToArray());
+
+                    logo.ScaleToFit(90f, 90f);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.SpacingAfter = 5f;
+
+                    doc.Add(logo);
+                }
+
+
+                Paragraph titulo = new Paragraph("COMPROBANTE DE VENTA\n",
+                    fontBold);
+                titulo.Alignment = Element.ALIGN_CENTER;
+                doc.Add(titulo);
+
+
+                doc.Add(new Paragraph($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}", fontNormal));
+                doc.Add(new Paragraph($"N°: {codRemi}", fontNormal));
+                doc.Add(new Paragraph($"Tipo: {cmb_comprobante.Text}\n", fontNormal));
+
+
+                doc.Add(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator()));
+
+
+                PdfPTable tabla = new PdfPTable(3);
+                tabla.WidthPercentage = 100;
+                tabla.SetWidths(new float[] { 75f, 25f, 50f });
+
+
+                PdfPCell h1 = new PdfPCell(new Phrase("Producto", fontBold));
+                PdfPCell h2 = new PdfPCell(new Phrase("Cant.", fontBold));
+                PdfPCell h3 = new PdfPCell(new Phrase("Total", fontBold));
+
+                h1.Border = Rectangle.NO_BORDER;
+                h2.Border = Rectangle.NO_BORDER;
+                h3.Border = Rectangle.NO_BORDER;
+
+                h2.HorizontalAlignment = Element.ALIGN_CENTER;
+                h3.HorizontalAlignment = Element.ALIGN_RIGHT;
+
+                tabla.AddCell(h1);
+                tabla.AddCell(h2);
+                tabla.AddCell(h3);
+
+
+                foreach (DataGridViewRow row in dtg_caja.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    string nom = row.Cells["Nombre"].Value?.ToString() ?? "";
+                    string cant = row.Cells["Cantidad"].Value?.ToString() ?? "0";
+                    decimal subt = Convert.ToDecimal(row.Cells["Subtotal"].Value ?? 0);
+
+                    PdfPCell c1 = new PdfPCell(new Phrase(nom, fontNormal));
+                    PdfPCell c2 = new PdfPCell(new Phrase(cant, fontNormal));
+                    PdfPCell c3 = new PdfPCell(new Phrase("$ " + subt.ToString("N2"), fontNormal));
+
+                    c1.Border = 0;
+                    c2.Border = 0;
+                    c3.Border = 0;
+
+                    c2.HorizontalAlignment = Element.ALIGN_CENTER;
+                    c3.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    c3.NoWrap = true;
+
+                    tabla.AddCell(c1);
+                    tabla.AddCell(c2);
+                    tabla.AddCell(c3);
+                }
+
+                doc.Add(tabla);
+
+
+                doc.Add(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator()));
+
+                PdfPTable totales = new PdfPTable(2);
+                totales.WidthPercentage = 100;
+                totales.SetWidths(new float[] { 60f, 40f });
+
+                totales.AddCell(new PdfPCell(new Phrase("SUBTOTAL:", fontBold)) { Border = 0 });
+                totales.AddCell(new PdfPCell(new Phrase("$ " + subtotal.ToString("N2"), fontNormal))
+                {
+                    Border = 0,
+                    HorizontalAlignment = Element.ALIGN_RIGHT
+                });
+
+                totales.AddCell(new PdfPCell(new Phrase("TOTAL:", fontTotal)) { Border = 0 });
+                totales.AddCell(new PdfPCell(new Phrase("$ " + Total.ToString("N2"), fontTotal))
+                {
+                    Border = 0,
+                    HorizontalAlignment = Element.ALIGN_RIGHT
+                });
+
+                doc.Add(totales);
+
+
+                doc.Add(new Paragraph("\nGracias por su compra!",
+                    fontBold)
+                { Alignment = Element.ALIGN_CENTER });
+
             }
-
-            // 5. Totales
-            y += 10;
-            g.DrawString("--------------------------------------------------", fontTexto, Brushes.Black, 10, y);
-            y += 20;
-            g.DrawString("SUBTOTAL:", fontNegrita, Brushes.Black, 120, y);
-            g.DrawString(subtotal.ToString("C2"), fontTexto, Brushes.Black, 200, y);
-            y += 20;
-            g.DrawString("TOTAL:", Titulo, Brushes.Black, 120, y);
-            g.DrawString(Total.ToString("C2"), Titulo, Brushes.Black, 200, y);
-
-            y += 40;
-            g.DrawString("Gracias por su compra!", fontTexto, Brushes.Black, new RectangleF(0, y, ancho, 20), new StringFormat { Alignment = StringAlignment.Center });
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                doc.Close();
+            }
         }
     }
 }

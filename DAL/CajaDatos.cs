@@ -11,10 +11,11 @@ using MyM26.Entidades.Caja;
 
 namespace MyM26.DAL
 {
-    
+   
     public class CajaDatos
     {
         string codR;
+     
         public VCaja TraerArt(string cb)
         {
             VCaja cj = null;

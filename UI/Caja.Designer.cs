@@ -709,10 +709,7 @@
             Subtotal.Name = "Subtotal";
             Subtotal.ReadOnly = true;
             // 
-            // pdComprobante
-            // 
-            pdComprobante.PrintPage += pdComprobante_PrintPage;
-            // 
+           
             // printPreviewDialog1
             // 
             printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
