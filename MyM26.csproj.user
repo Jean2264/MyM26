@@ -19,6 +19,9 @@
     <Compile Update="UI\Compras.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UI\Contable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UI\Contrasenia.cs">
       <SubType>UserControl</SubType>
     </Compile>

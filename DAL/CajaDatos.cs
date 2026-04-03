@@ -358,5 +358,45 @@ foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
             return Decla.VentaDetTab;
 
         }
+
+
+        public static DataTable FiltroVenta(int paginaActual, int registrosPorPagina, DateTime fecha)
+        {
+            int offset = (paginaActual - 1) * registrosPorPagina;
+
+   
+            string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago 
+                        FROM HVenta
+                        WHERE CAST(FechaHora AS DATE) = @fecha
+                        ORDER BY FechaHora DESC 
+                        OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY"; 
+
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            cmd.Parameters.AddWithValue("@offset", offset);
+            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
+            cmd.Parameters.AddWithValue("@fecha", fecha.Date);
+
+            Decla.VentaFil.Clear();
+
+            try
+            {
+                if (Decla.cnn.State != ConnectionState.Open) Decla.cnn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Decla.VentaFil.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar traer las ventas: " + ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+            return Decla.VentaFil;
+        }
     }
 }

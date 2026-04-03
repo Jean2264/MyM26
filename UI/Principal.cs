@@ -176,6 +176,8 @@ namespace MyM26
 
         private void btn_contables_Click(object sender, EventArgs e)
         {
+            Contable cj = new Contable();
+            MostrarUserControl(cj);
             ActivarBoton(btn_contables);
         }
 

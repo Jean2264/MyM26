@@ -53,7 +53,12 @@ namespace MyM26.DAL
 
         //Para Venta y Detalle
        public static DataTable VentaTab = new DataTable();
+        public static DataTable VentaFil = new DataTable();
         public static DataTable VentaDetTab = new DataTable();
+
+
+        //Para Estado Contable
+        public static DataTable GananciaXMes = new DataTable();
 
     }
 }

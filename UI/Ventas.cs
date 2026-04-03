@@ -26,11 +26,15 @@ namespace MyM26.UI
 
         private void Ventas_Load(object sender, EventArgs e)
         {
+            llenarDTG();
+        }
+
+        private void llenarDTG()
+        {
             Decla.VentaTab = CajaDatos.MostrarVenta(paginaActual, registrosPorPagina);
             dataGridView1.DataSource = Decla.VentaTab;
             CalcularTotalPaginasVentas();
         }
-
         private void CalcularTotalPaginasVentas()
         {
             CajaDatos cj = new CajaDatos();
@@ -64,6 +68,19 @@ namespace MyM26.UI
             VentaDetalle vd = new VentaDetalle(cod);
             vd.StartPosition = FormStartPosition.CenterParent;
             vd.ShowDialog();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechaSeleccionada = dateTimePicker1.Value.Date;
+            Decla.VentaFil = CajaDatos.FiltroVenta(paginaActual, registrosPorPagina, fechaSeleccionada);
+            dataGridView1.DataSource = Decla.VentaFil;
+            CalcularTotalPaginasVentas();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            llenarDTG();
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
             dataGridView1 = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
             dateTimePicker1 = new DateTimePicker();
@@ -38,6 +39,7 @@
             btn_siguente = new Button();
             lbl_paginas = new Label();
             label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -82,11 +84,12 @@
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 39F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 472F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 465F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 136F));
             tableLayoutPanel1.Controls.Add(dateTimePicker1, 0, 0);
+            tableLayoutPanel1.Controls.Add(button1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -101,6 +104,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(328, 23);
             dateTimePicker1.TabIndex = 7;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // tableLayoutPanel2
             // 
@@ -180,6 +184,22 @@
             label1.TabIndex = 3;
             label1.Text = "\r\nlabel1";
             // 
+            // button1
+            // 
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Dock = DockStyle.Fill;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(346, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(26, 23);
+            button1.TabIndex = 8;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Ventas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -209,5 +229,6 @@
         private Button btn_siguente;
         private Label lbl_paginas;
         private Label label1;
+        private Button button1;
     }
 }
