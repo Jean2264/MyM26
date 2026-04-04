@@ -60,5 +60,7 @@ namespace MyM26.DAL
         //Para Estado Contable
         public static DataTable GananciaXMes = new DataTable();
 
+        public static DataTable VentaSemanaTb = new DataTable();
+        public static DataTable TVentaSemanaTb = new DataTable();
     }
 }

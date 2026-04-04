@@ -38,5 +38,86 @@ namespace MyM26.DAL
 
             return dt;
         }
+
+        //chart1
+        public static DataTable ObtenerCantidadVentasPorMes()
+        {
+            string consulta = @"SELECT MONTH(FechaHora) as Mes, COUNT(*) as CantVenta
+                                                FROM HVenta     
+                                                WHERE YEAR(FechaHora)= YEAR(GETDATE())  
+                                                GROUP BY MONTH(FechaHora) ORDER BY Mes";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn))
+                {
+                    if (Decla.cnn.State != ConnectionState.Open) Decla.cnn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener estadísticas: " + ex.Message);
+            }
+            finally { Decla.cnn.Close(); }
+
+            return dt;
+        }
+
+        public static DataTable ObtenerVentasSemana()
+        {
+            string consulta = @"
+        SELECT 
+            ((DAY(FechaHora)-1)/7)+1 AS SemanaMes,
+            COUNT(*) as CantidadVentas
+        FROM HVenta 
+        WHERE MONTH(FechaHora) = MONTH(GETDATE())
+        AND YEAR(FechaHora) = YEAR(GETDATE())
+        GROUP BY ((DAY(FechaHora)-1)/7)+1
+        ORDER BY SemanaMes";
+
+            DataTable dt = new DataTable();
+
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn))
+            {
+                if (Decla.cnn.State != ConnectionState.Open)
+                    Decla.cnn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+
+            Decla.cnn.Close();
+            return dt;
+        }
+
+        public static DataTable ObtenerTotalVentasSemana()
+        {
+            string consulta = @"
+        SELECT 
+            ((DAY(FechaHora)-1)/7)+1 AS SemanaMes,
+            SUM(Total) as TotalVentas
+        FROM HVenta
+        WHERE MONTH(FechaHora) = MONTH(GETDATE())
+        AND YEAR(FechaHora) = YEAR(GETDATE())
+        GROUP BY ((DAY(FechaHora)-1)/7)+1
+        ORDER BY SemanaMes";
+
+            DataTable dt = new DataTable();
+
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn))
+            {
+                if (Decla.cnn.State != ConnectionState.Open)
+                    Decla.cnn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+
+            Decla.cnn.Close();
+            return dt;
+        }
     }
 }
