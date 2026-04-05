@@ -62,5 +62,12 @@ namespace MyM26.DAL
 
         public static DataTable VentaSemanaTb = new DataTable();
         public static DataTable TVentaSemanaTb = new DataTable();
+
+
+        //Para contable---Movimiento
+        public static DataTable MovTab = new DataTable();
+
+        //Para contable---salida
+        public static DataTable SalTab = new DataTable();
     }
 }

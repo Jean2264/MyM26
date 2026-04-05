@@ -14,6 +14,8 @@ using MyM26.DAL;
 using MyM26.Entidades;
 using MyM26.Entidades.Caja;
 using MyM26.UI;
+using MyM26.Querys;
+using MyM26.Entidades.Usuario;
 
 namespace MyM26.screens
 {
@@ -533,7 +535,9 @@ namespace MyM26.screens
             venta.FormaPago = cmb_pago.Text;
             venta.Factura = cmb_factura.Text;
             venta.TipoComprobante = cmb_comprobante.Text;
-            venta.Cuit = cmb_cliente.SelectedValue?.ToString(); ;
+            venta.Cuit = cmb_cliente.SelectedValue?.ToString();
+            venta.TipoMovimiento = "Alta venta";
+            venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc+ " (DNI:  "+UsuarioActivo.Datos.DNIAc +") "+" a generado una venta por un total de"+ Total.ToString("N2");
 
             //Armamos Detalle
             List<HVentaDetalle> listaDetalle = new List<HVentaDetalle>();
@@ -572,7 +576,8 @@ namespace MyM26.screens
                     40;
 
                 GenerarTicketPDF();
-
+                CajaDatos dt= new CajaDatos();
+                dt.AltaHistoricoCompleto(venta);
                 MessageBox.Show($"Presupuesto generado correctamente");
                 ResetCampos();
                 return;
@@ -581,6 +586,9 @@ namespace MyM26.screens
             {
                 CajaDatos dt = new CajaDatos();
                 dt.altacompletoVenta(venta, listaDetalle);
+                venta.TipoMovimiento = "Alta remito";
+                venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc + " (DNI:  " + UsuarioActivo.Datos.DNIAc + ") " + " a generado un remito por un total de" + Total.ToString("N2");
+                dt.AltaHistoricoCompleto(venta);
                 codRemi = venta.CodRemito;
 
 

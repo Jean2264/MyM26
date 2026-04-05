@@ -119,5 +119,38 @@ namespace MyM26.DAL
             Decla.cnn.Close();
             return dt;
         }
+
+        public static DataTable HMovimientos()
+        {
+            string consulta = "Select CodHistorico, DNI, TipoMovimiento, DetalleMovimiento, FechaHora from HMovimiento";
+            using (SqlCommand cmd= new SqlCommand(consulta, Decla.cnn))
+            {
+                if (Decla.cnn.State != ConnectionState.Open)
+                    Decla.cnn.Open();
+                
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(Decla.MovTab);
+               
+            }
+            Decla.cnn.Close();
+            return Decla.MovTab;
+        }
+
+
+        public static DataTable Salidas()
+        {
+            string consulta = "SELECT CodMovimiento, Detalle, Monto, Fecha FROM InOutVarios";
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn))
+            {
+                if (Decla.cnn.State != ConnectionState.Open)
+                    Decla.cnn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(Decla.SalTab);
+
+            }
+            Decla.cnn.Close();
+            return Decla.SalTab;
+        }
     }
 }

@@ -38,5 +38,12 @@ primary key(IdVenta),
 foreign key(DNI) references Usuario (DNI),
 foreign key (Cuit) references Proveedor (Cuit)
 )*/
+
+
+        //PARA MOVIMIENTO
+        public int UltimoIdMov { get; set; }
+        public int NuevoIdMov { get; set; }
+        public string TipoMovimiento { get; set; }
+        public string DetalleMovimiento { get; set; }
     }
 }

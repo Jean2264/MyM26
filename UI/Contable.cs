@@ -84,14 +84,13 @@ namespace MyM26.UI
 
             var area = chart.ChartAreas[0];
 
-            area.AxisX.Minimum = 1;
-            area.AxisX.Maximum = maxSemanas + 1;
-            area.AxisX.Interval = 1;
+            area.AxisX.Minimum = 0.5;
+            area.AxisX.Maximum = maxSemanas + 0.5;
 
             area.AxisX.MajorGrid.Enabled = false;
             area.AxisY.MajorGrid.LineColor = Color.LightGray;
+            area.AxisX.IsMarginVisible = true;
 
-      
             area.AxisY.Interval = 1;
             area.AxisY.Minimum = 0;
             chart.Invalidate();
@@ -161,7 +160,7 @@ namespace MyM26.UI
 
             area.AxisX.MajorGrid.Enabled = false;
             area.AxisY.MajorGrid.LineColor = Color.LightGray;
-
+          
             chart.Invalidate();
         }
 
@@ -354,6 +353,18 @@ namespace MyM26.UI
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void MostrarMov()
+        {
+            Decla.MovTab = ContableDatos.HMovimientos();
+            dataGridView1.DataSource = Decla.MovTab;
+        }
+
+        public void MostrarSal()
+        {
+            Decla.SalTab = ContableDatos.Salidas();
+            dataGridView1.DataSource = Decla.SalTab;
         }
     }
 }

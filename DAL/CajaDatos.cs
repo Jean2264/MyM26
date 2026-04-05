@@ -1,13 +1,14 @@
-﻿using System;
-using System.Data.SqlClient;
-using System.Data;
-using MyM26.BLL;
-using MyM26.Entidades.Comun;
+﻿using MyM26.BLL;
 using MyM26.Entidades;
-using MyM26.Entidades.Usuario;
-using System.Collections.Generic;
-using System.Text;
+using MyM26.Entidades.Articulos;
 using MyM26.Entidades.Caja;
+using MyM26.Entidades.Comun;
+using MyM26.Entidades.Usuario;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
 
 namespace MyM26.DAL
 {
@@ -397,6 +398,80 @@ foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
                     Decla.cnn.Close();
             }
             return Decla.VentaFil;
+        }
+
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        public void IdMovimientos(HVenta hv, SqlTransaction trans)
+        {
+
+            string consulta = "SELECT ISNULL(MAX(IdHistorico), 0) FROM HMovimiento";
+
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
+            {
+
+                hv.UltimoIdMov = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public void AltaHistorico(HVenta hv, SqlTransaction trans)
+        {
+            int proximoId = hv.UltimoIdMov + 1;
+            string codHistorico = "MOV" + proximoId;
+
+            string consulta = "INSERT INTO HMovimiento(IdHistorico, CodHistorico, DNI, TipoMovimiento, FechaHora, DetalleMovimiento) " +
+                              "VALUES(@IdHistorico, @CodHistorico, @DNI, @TipoMovimiento, GETDATE(), @DetalleMovimiento)";
+
+            using (SqlCommand comd = new SqlCommand(consulta, Decla.cnn, trans))
+            {
+                comd.Parameters.AddWithValue("@IdHistorico", proximoId);
+                comd.Parameters.AddWithValue("@CodHistorico", codHistorico);
+
+
+                comd.Parameters.AddWithValue("@DNI", UsuarioActivo.Datos.DNIAc);
+
+                comd.Parameters.AddWithValue("@TipoMovimiento", hv.TipoMovimiento);
+                comd.Parameters.AddWithValue("@DetalleMovimiento", hv.DetalleMovimiento);
+
+                comd.ExecuteNonQuery();
+            }
+        }
+
+        public void AltaHistoricoCompleto(HVenta hv)
+        {
+            try
+            {
+                Decla.cnn.Open();
+                SqlTransaction trans = Decla.cnn.BeginTransaction();
+
+                try
+                {
+                    IdMovimientos(hv, trans);
+                    AltaHistorico(hv, trans);
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("Error al registrar el movimiento: " + ex.Message.ToString());
+                }
+
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+
+            }
+
         }
     }
 }
