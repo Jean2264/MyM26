@@ -161,6 +161,8 @@ namespace MyM26.DAL
         }
         public static DataTable LLenarDtgEmpleado(int paginaActual, int registrosPorPagina)
         {
+            if (paginaActual < 1)
+                paginaActual = 1;
             int offset = (paginaActual - 1) * registrosPorPagina;
             string consulta = "select  DNI, Apellido, Nombre, Telefono, Mail, Sector from Empleado where Estado=1 ORDER BY Apellido OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
             SqlConnection cn = new SqlConnection(Decla.ConnectionString);

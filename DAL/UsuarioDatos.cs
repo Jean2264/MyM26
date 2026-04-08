@@ -41,6 +41,9 @@ Users usu,
 int paginaActual,
 int registrosPorPagina)
         {
+
+            if (paginaActual < 1)
+                paginaActual = 1;
             int offset = (paginaActual - 1) * registrosPorPagina;
 
             string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.perfil

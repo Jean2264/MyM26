@@ -13,6 +13,10 @@ namespace MyM26.UI
 {
     public partial class Contable : UserControl
     {
+        int paginaActual;
+        int registrosPorPagina = 10;
+        int TotalPaginas = 0;
+        string modo;
         public Contable()
         {
             InitializeComponent();
@@ -27,6 +31,14 @@ namespace MyM26.UI
             DataTable datos = ContableDatos.ObtenerVentasPorMes();
             MostrarResumenVenta(datos);
             ActualizarGraficoVentas(datos);
+            modo = "mov";
+            MostrarMov();
+            CalcularTotalPaginasMovimientos();
+            btn_movi.BackColor = Color.FromArgb(10, 40, 150);
+            btn_sal.BackColor = Color.FromArgb(10, 70, 150);
+
+            cmb_export.Items.Add("Exportar a Excel");
+            cmb_export.Items.Add("Exportar a PDF");
         }
 
 
@@ -160,7 +172,7 @@ namespace MyM26.UI
 
             area.AxisX.MajorGrid.Enabled = false;
             area.AxisY.MajorGrid.LineColor = Color.LightGray;
-          
+
             chart.Invalidate();
         }
 
@@ -247,8 +259,8 @@ namespace MyM26.UI
         }
 
 
-    
-     
+
+
         //cahrt3
         public void MostrarResumenVenta(DataTable dato)
         {
@@ -342,7 +354,7 @@ namespace MyM26.UI
         }
 
 
-     
+
 
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -357,14 +369,119 @@ namespace MyM26.UI
 
         public void MostrarMov()
         {
-            Decla.MovTab = ContableDatos.HMovimientos();
+            Decla.MovTab = ContableDatos.HMovimientos(paginaActual, registrosPorPagina);
             dataGridView1.DataSource = Decla.MovTab;
         }
 
+        private void CalcularTotalPaginasMovimientos()
+        {
+            ContableDatos db = new ContableDatos();
+            int totalRegistros = db.ObtenerTotalMovimiento();
+            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
+
+            label1.Text = $"Total de movimientos: {totalRegistros}";
+            if (dataGridView1.Rows.Count == 0 || (dataGridView1.AllowUserToAddRows && dataGridView1.Rows.Count == 1))
+            {
+                lbl_paginas.Text = $"Página 0/0";
+            }
+            else
+            {
+                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+            }
+        }
         public void MostrarSal()
         {
-            Decla.SalTab = ContableDatos.Salidas();
+            Decla.SalTab = ContableDatos.Salidas(paginaActual, registrosPorPagina);
             dataGridView1.DataSource = Decla.SalTab;
+        }
+
+
+        private void CalcularTotalPaginasSalidas()
+        {
+            ContableDatos db = new ContableDatos();
+            int totalRegistros = db.ObtenerTotalSalidas();
+            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
+
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
+            label1.Text = $"Total de salidas: {totalRegistros}";
+            if (dataGridView1.Rows.Count == 0 || (dataGridView1.AllowUserToAddRows && dataGridView1.Rows.Count == 1))
+            {
+                lbl_paginas.Text = $"Página 0/0";
+            }
+            else
+            {
+                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+            }
+        }
+
+        private void btn_movi_Click(object sender, EventArgs e)
+        {
+            modo = "mov";
+            MostrarMov();
+            CalcularTotalPaginasMovimientos();
+            btn_movi.BackColor = Color.FromArgb(10, 40, 150);
+            btn_sal.BackColor = Color.FromArgb(10, 70, 150);
+        }
+
+        private void btn_sal_Click(object sender, EventArgs e)
+        {
+            modo = "sal";
+            MostrarSal();
+            CalcularTotalPaginasSalidas();
+            btn_sal.BackColor = Color.FromArgb(10, 40, 150);
+            btn_movi.BackColor = Color.FromArgb(10, 70, 150);
+        }
+
+        private void btn_siguente_Click(object sender, EventArgs e)
+        {
+            if (modo == "mov")
+            {
+                if (paginaActual < TotalPaginas)
+                {
+                    paginaActual++;
+                    MostrarMov();
+                    CalcularTotalPaginasMovimientos();
+                }
+            }
+            else if (modo == "sal")
+            {
+                if (paginaActual < TotalPaginas)
+                {
+                    paginaActual++;
+                    MostrarSal();
+                    CalcularTotalPaginasSalidas();
+                }
+            }
+        }
+
+        private void btn_anterior_Click(object sender, EventArgs e)
+        {
+            if (modo == "mov")
+            {
+                if (paginaActual > 1)
+                {
+                    paginaActual--;
+                    MostrarMov();
+                    CalcularTotalPaginasMovimientos();
+                }
+            }
+            else if (modo == "sal")
+            {
+                if (paginaActual > 1)
+                {
+                    paginaActual--;
+                    MostrarSal();
+                    CalcularTotalPaginasSalidas();
+                }
+            }
+        }
+
+        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

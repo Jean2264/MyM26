@@ -104,6 +104,8 @@ namespace MyM26.DAL
         //Treamos info de la categoria
         public static DataTable TraerCat(int PaginaActual, int RegistrosPorPagina)
         {
+            if (PaginaActual < 1)
+                PaginaActual = 1;
 
             int offset = (PaginaActual - 1) * RegistrosPorPagina;
             string consulta = "select CodCategoria, Categoria from Categoria where Estado=1 ORDER BY  Categoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
@@ -330,6 +332,8 @@ namespace MyM26.DAL
         //Treamos info de la Subcategoria
         public static DataTable TraerSubcat(int PaginaActual, int RegistrosPorPagina)
         {
+            if (PaginaActual < 1)
+                PaginaActual = 1;
 
             int offset = (PaginaActual - 1) * RegistrosPorPagina;
             string consulta = "select CodSubcategoria, Subcategoria from Subcategoria where Estado=1 ORDER BY  Subcategoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";

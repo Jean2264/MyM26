@@ -67,12 +67,7 @@ namespace MyM26.screens
         }
         public void LlenarArt()
         {
-            /* flowLayoutPanel1.Controls.Clear();
-            UsuarioDatos db = new UsuarioDatos();
-
-
-
-            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario, this, paginaActual, registrosPorPagina);*/
+           
 
             flowLayoutPanel1.Controls.Clear();
             ArticuloDatos db = new ArticuloDatos();
@@ -135,33 +130,28 @@ namespace MyM26.screens
             totalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
             lbl_paginas.Text = $"Página {paginaActual} / {totalPaginas}";
             label1.Text = $"Total de articulos: " + totalRegistros.ToString();
-            if (paginaActual == totalPaginas)
-            {
-                btn_siguente.Enabled = false;
-            }
-            else if (paginaActual < totalRegistros)
-            {
-                btn_siguente.Enabled = true;
-            }
+            btn_siguente.Enabled = paginaActual < totalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
 
         }
 
         private void btn_anterior_Click(object sender, EventArgs e)
         {
-            ArticuloDatos dt = new ArticuloDatos();
+           
             if (paginaActual > 1)
             {
                 paginaActual--;
-                dt.LlenarContenedor(flowLayoutPanel1, AbrirEdicionArt, AbrirVista, this, paginaActual, registrosPorPagina);
+                LlenarArt();
             }
         }
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
-            ArticuloDatos dt = new ArticuloDatos();
-            paginaActual++;
-
-            dt.LlenarContenedor(flowLayoutPanel1, AbrirEdicionArt, AbrirVista, this, paginaActual, registrosPorPagina);
+          if(paginaActual< totalPaginas)
+            {
+                paginaActual++;
+                LlenarArt();
+            }
         }
 
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)

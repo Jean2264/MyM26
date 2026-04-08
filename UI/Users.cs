@@ -120,19 +120,27 @@ namespace MyM26.screens
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
-            UsuarioDatos db = new UsuarioDatos();
-            paginaActual++;
 
-            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario, this, paginaActual, registrosPorPagina);
+            /*if (paginaActual < TotalPaginas)
+            {
+                paginaActual++;
+                llenar();
+            }
+*/
+           if(paginaActual < TotalPaginas)
+            {
+                paginaActual++;
+                llenarUser();
+            }
         }
 
         private void btn_anterior_Click(object sender, EventArgs e)
         {
-            UsuarioDatos db = new UsuarioDatos();
+           
             if (paginaActual > 1)
             {
                 paginaActual--;
-                db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario, this, paginaActual, registrosPorPagina);
+               llenarUser();
             }
         }
 
@@ -143,14 +151,8 @@ namespace MyM26.screens
             TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
             lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
             label1.Text = $"Total de usuarios: " + totalRegistros.ToString();
-            if (paginaActual == TotalPaginas)
-            {
-                btn_siguente.Enabled = false;
-            }
-            else if (paginaActual< totalRegistros)
-            {
-                btn_siguente.Enabled = true;
-            }
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
 
         }
 

@@ -62,6 +62,8 @@ namespace MyM26.DAL
 
         public static DataTable MostrarCompra(int paginaActual, int registrosPorPagina)
         {
+            if (paginaActual < 1)
+                paginaActual = 1;
             int offset = (paginaActual - 1) * registrosPorPagina;
             string consulta = @"select h.FechaAlta, cd.Descripcion, cd.Cantidad, cd.PrecioUnitario,
                                     cd.PrecioXCantidad, h.DNI, h.Cuit from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra ORDER BY FechaAlta DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
@@ -177,6 +179,8 @@ namespace MyM26.DAL
             Articulos arts, int paginaActual,
             int registroPorPagina)
         {
+            if (paginaActual < 1)
+                paginaActual = 1;
             int offset = (paginaActual - 1) * registroPorPagina;
             string consulta = @"SELECT a.CodigoArticulo, a.Nombre, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad FROM Articulo a 
                  INNER JOIN Stock s ON a.CodigoArticulo= s.CodigoArticulo WHERE a.Estado=1 ORDER BY a.Nombre OFFSET @offset ROWS

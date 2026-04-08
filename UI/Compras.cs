@@ -13,7 +13,7 @@ namespace MyM26.UI
     public partial class Compras : UserControl
     {
         int paginaActual = 1;
-        int registrosPorPagina = 37;
+        int registrosPorPagina = 20;
         int TotalPaginas = 0;
         public Compras()
         {
@@ -61,16 +61,12 @@ namespace MyM26.UI
             int totalRegistros = db.ObtenerTotalCompras();
             TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
 
+           
+
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
 
 
-            if (paginaActual == TotalPaginas)
-            {
-                btn_siguente.Enabled = false;
-            }
-            else if (paginaActual < totalRegistros)
-            {
-                btn_siguente.Enabled = true;
-            }
             label1.Text = $"Total de clientes: {totalRegistros}";
             if (dataGridView1.Rows.Count == 0 || (dataGridView1.AllowUserToAddRows && dataGridView1.Rows.Count == 1))
             {
@@ -84,8 +80,11 @@ namespace MyM26.UI
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
-            paginaActual++;
-            ArticuloDatos.MostrarCompra(paginaActual, registrosPorPagina);
+            if (paginaActual < TotalPaginas)
+            {
+                paginaActual++;
+                llenar();
+            }
 
         }
 
@@ -94,7 +93,7 @@ namespace MyM26.UI
             if (paginaActual > 1)
             {
                 paginaActual--;
-                ArticuloDatos.MostrarCompra(paginaActual, registrosPorPagina);
+                llenar();
             }
         }
 

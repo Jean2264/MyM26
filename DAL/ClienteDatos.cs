@@ -26,6 +26,8 @@ namespace MyM26.DAL
         public string Entidad { get => _entidad; set => _entidad = value; }
         public static DataTable LLenarDtg(int paginaActual, int registrosPorPagina)
         {
+            if (paginaActual < 1)
+                paginaActual = 1;
             int offset = (paginaActual - 1) * registrosPorPagina;
              string consulta = @"SELECT Nombre, Entidad, Cuit, Telefono, Mail
                    FROM Cliente

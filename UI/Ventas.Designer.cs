@@ -34,12 +34,12 @@
             dataGridView1 = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
             dateTimePicker1 = new DateTimePicker();
+            button1 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             btn_anterior = new Button();
             btn_siguente = new Button();
             lbl_paginas = new Label();
             label1 = new Label();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -106,6 +106,22 @@
             dateTimePicker1.TabIndex = 7;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
+            // button1
+            // 
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Dock = DockStyle.Fill;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(346, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(26, 23);
+            button1.TabIndex = 8;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 7;
@@ -146,6 +162,7 @@
             btn_anterior.TabIndex = 0;
             btn_anterior.Text = "Anterior";
             btn_anterior.UseVisualStyleBackColor = false;
+            btn_anterior.Click += btn_anterior_Click;
             // 
             // btn_siguente
             // 
@@ -163,6 +180,7 @@
             btn_siguente.TabIndex = 1;
             btn_siguente.Text = "Siguente";
             btn_siguente.UseVisualStyleBackColor = false;
+            btn_siguente.Click += btn_siguente_Click;
             // 
             // lbl_paginas
             // 
@@ -183,22 +201,6 @@
             label1.Size = new Size(37, 36);
             label1.TabIndex = 3;
             label1.Text = "\r\nlabel1";
-            // 
-            // button1
-            // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Dock = DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(346, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(26, 23);
-            button1.TabIndex = 8;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // Ventas
             // 

@@ -159,14 +159,8 @@ namespace MyM26.screens
             int totalRegistros = db.ObtenerTotalClientes();
             TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
             lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-            if (paginaActual == TotalPaginas)
-            {
-                btn_siguente.Enabled = false;
-            }
-            else if (paginaActual< totalRegistros)
-            {
-                btn_siguente.Enabled = true;
-            }
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
             label1.Text = $"Total de clientes: {totalRegistros}";
         }
 
@@ -176,14 +170,9 @@ namespace MyM26.screens
             int totalRegistros = db.ObtenerTotalProveedor();
             TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
             lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-            if (paginaActual == TotalPaginas)
-            {
-                btn_siguente.Enabled = false;
-            }
-            else if (paginaActual < totalRegistros)
-            {
-                btn_siguente.Enabled = true;
-            }
+           
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
             label1.Text = $"Total de proveedores: {totalRegistros}";
         }
         public void LlenarDtgProveedores()
@@ -232,18 +221,6 @@ namespace MyM26.screens
 
         }
 
-        /*   public void eliminar()
-        {
-            string dni = lbl_dni.Text.Trim();
-            DialogResult resultado = MessageBox.Show("¿Esta seguro de eliminar a este usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultado != DialogResult.Yes)
-                return;
-            UsuarioNegocio un = new UsuarioNegocio();
-            VUser usuario= un.eliminarUser(dni);
-           usr.llenarUser();
-        }*/
-
         public void ElimianrCliente()
         {
             if (dataGridView1.CurrentRow != null)
@@ -259,21 +236,7 @@ namespace MyM26.screens
             ClienteNegocio cn = new ClienteNegocio();
             VCliente cliente = cn.eliminarCliente(cda2);
 
-            /*if(empleado==null) empleado = new VEmpleado { DNI = cda2 };
-
-                if (UsuarioActivo.Datos == null)
-                {
-                    MessageBox.Show("Sesión expirada");
-                    return;
-            }
-
-            empleado.TipoMovimiento = "Baja de empleado";
-            empleado.DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
-                            " (DNI: " + UsuarioActivo.Datos.DNIAc +
-                            " ) ha dado de baja a: " + nombre +
-                            " ( DNI: " + cda2 + ")";
-            EmpleadoDatos datos = new EmpleadoDatos();  
-            datos.AltaHistoricoCompleto(empleado);*/
+          
             if (cliente == null) cliente = new VCliente { Cuit = cda2 };
             if (UsuarioActivo.Datos == null)
             {
@@ -400,9 +363,19 @@ namespace MyM26.screens
             if (Modal == "Clientes")
             {
 
-                paginaActual++;
-                ClienteDatos.LLenarDtg(paginaActual, registrosPorPagina);
-
+               if(paginaActual < TotalPaginas)
+                {
+                    paginaActual++;
+                    LlenarDtgClientes();
+                }
+               else if(Modal== "Proveedor")
+               {
+                   if(paginaActual < TotalPaginas)
+                   {
+                       paginaActual++;
+                       LlenarDtgProveedores();
+                   }
+               }
 
             }
         }
@@ -414,7 +387,15 @@ namespace MyM26.screens
                 if (paginaActual > 1)
                 {
                     paginaActual--;
-                    ClienteDatos.LLenarDtg(paginaActual, registrosPorPagina);
+                    LlenarDtgClientes();
+                }
+            }
+            else if (Modal == "Proveedor")
+            {
+                if (paginaActual > 1)
+                {
+                    paginaActual--;
+                    LlenarDtgProveedores();
                 }
             }
         }

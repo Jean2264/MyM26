@@ -43,14 +43,8 @@ namespace MyM26.UI
 
 
 
-            if (paginaActual == TotalPaginas)
-            {
-                btn_siguente.Enabled = false;
-            }
-            else if (paginaActual < totalRegistros)
-            {
-                btn_siguente.Enabled = true;
-            }
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
             label1.Text = $"Total de ventas: {totalRegistros}";
             if (dataGridView1.Rows.Count == 0 || (dataGridView1.AllowUserToAddRows && dataGridView1.Rows.Count == 1))
             {
@@ -81,6 +75,24 @@ namespace MyM26.UI
         private void button1_Click(object sender, EventArgs e)
         {
             llenarDTG();
+        }
+
+        private void btn_siguente_Click(object sender, EventArgs e)
+        {
+            if (paginaActual < TotalPaginas)
+            {
+                paginaActual++;
+                llenarDTG();
+            }
+        }
+
+        private void btn_anterior_Click(object sender, EventArgs e)
+        {
+            if(paginaActual>1)
+            {
+                paginaActual--;
+                llenarDTG();
+            }
         }
     }
 }

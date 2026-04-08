@@ -272,6 +272,8 @@ namespace MyM26.DAL
 
         public static DataTable MostrarVenta(int paginaActual, int registrosPorPagina)
         {
+            if (paginaActual < 1)
+                paginaActual = 1;
             int offset = (paginaActual - 1) * registrosPorPagina;
             string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago FROM HVenta
                                 ORDER BY FechaHora DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
@@ -363,8 +365,10 @@ foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
 
         public static DataTable FiltroVenta(int paginaActual, int registrosPorPagina, DateTime fecha)
         {
-            int offset = (paginaActual - 1) * registrosPorPagina;
 
+            if (paginaActual < 1)
+                paginaActual = 1;
+            int offset = (paginaActual - 1) * registrosPorPagina;
    
             string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago 
                         FROM HVenta

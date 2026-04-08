@@ -85,6 +85,15 @@
             tableLayoutPanel8 = new TableLayoutPanel();
             btn_sal = new Button();
             btn_movi = new Button();
+            tableLayoutPanel10 = new TableLayoutPanel();
+            button1 = new Button();
+            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
+            comboBox1 = new ComboBox();
+            label2 = new Label();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            cmb_export = new ComboBox();
+            label3 = new Label();
             panel5 = new Panel();
             dataGridView1 = new DataGridView();
             tableLayoutPanel9 = new TableLayoutPanel();
@@ -129,6 +138,8 @@
             panel9.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
+            tableLayoutPanel10.SuspendLayout();
+            tableLayoutPanel11.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel9.SuspendLayout();
@@ -664,8 +675,8 @@
             tableLayoutPanel7.Location = new Point(0, 0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 15.3297682F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 84.6702347F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 20.6477737F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 79.35223F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel7.Size = new Size(1099, 494);
             tableLayoutPanel7.TabIndex = 0;
@@ -677,15 +688,18 @@
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel8.Controls.Add(btn_sal, 1, 0);
             tableLayoutPanel8.Controls.Add(btn_movi, 0, 0);
+            tableLayoutPanel8.Controls.Add(tableLayoutPanel10, 0, 1);
+            tableLayoutPanel8.Controls.Add(tableLayoutPanel11, 1, 1);
             tableLayoutPanel8.Dock = DockStyle.Fill;
             tableLayoutPanel8.Location = new Point(3, 3);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 58F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel8.Size = new Size(1093, 69);
+            tableLayoutPanel8.Size = new Size(1093, 96);
             tableLayoutPanel8.TabIndex = 0;
+            tableLayoutPanel8.Paint += tableLayoutPanel8_Paint;
             // 
             // btn_sal
             // 
@@ -701,10 +715,11 @@
             btn_sal.ForeColor = Color.White;
             btn_sal.Location = new Point(549, 3);
             btn_sal.Name = "btn_sal";
-            btn_sal.Size = new Size(541, 41);
+            btn_sal.Size = new Size(541, 32);
             btn_sal.TabIndex = 1;
             btn_sal.Text = "Ver salidas";
             btn_sal.UseVisualStyleBackColor = false;
+            btn_sal.Click += btn_sal_Click;
             // 
             // btn_movi
             // 
@@ -720,19 +735,132 @@
             btn_movi.ForeColor = Color.White;
             btn_movi.Location = new Point(3, 3);
             btn_movi.Name = "btn_movi";
-            btn_movi.Size = new Size(540, 41);
+            btn_movi.Size = new Size(540, 32);
             btn_movi.TabIndex = 0;
             btn_movi.Text = "Ver movimientos";
             btn_movi.UseVisualStyleBackColor = false;
+            btn_movi.Click += btn_movi_Click;
+            // 
+            // tableLayoutPanel10
+            // 
+            tableLayoutPanel10.ColumnCount = 4;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel10.Controls.Add(button1, 3, 1);
+            tableLayoutPanel10.Controls.Add(dateTimePicker2, 2, 1);
+            tableLayoutPanel10.Controls.Add(dateTimePicker1, 1, 1);
+            tableLayoutPanel10.Controls.Add(comboBox1, 0, 1);
+            tableLayoutPanel10.Controls.Add(label2, 0, 0);
+            tableLayoutPanel10.Dock = DockStyle.Fill;
+            tableLayoutPanel10.Location = new Point(3, 41);
+            tableLayoutPanel10.Name = "tableLayoutPanel10";
+            tableLayoutPanel10.RowCount = 2;
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
+            tableLayoutPanel10.Size = new Size(540, 52);
+            tableLayoutPanel10.TabIndex = 2;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(10, 50, 180);
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Dock = DockStyle.Fill;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(408, 22);
+            button1.Name = "button1";
+            button1.Size = new Size(129, 27);
+            button1.TabIndex = 3;
+            button1.Text = "Filtrar";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Dock = DockStyle.Fill;
+            dateTimePicker2.Location = new Point(273, 22);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(129, 23);
+            dateTimePicker2.TabIndex = 2;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Dock = DockStyle.Fill;
+            dateTimePicker1.Location = new Point(138, 22);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(129, 23);
+            dateTimePicker1.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            comboBox1.Dock = DockStyle.Fill;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(3, 22);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(129, 23);
+            comboBox1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(64, 64, 64);
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(129, 19);
+            label2.TabIndex = 4;
+            label2.Text = "Opciones de filtrado";
+            // 
+            // tableLayoutPanel11
+            // 
+            tableLayoutPanel11.ColumnCount = 3;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.239296F));
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34.760704F));
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 143F));
+            tableLayoutPanel11.Controls.Add(cmb_export, 2, 1);
+            tableLayoutPanel11.Controls.Add(label3, 2, 0);
+            tableLayoutPanel11.Dock = DockStyle.Fill;
+            tableLayoutPanel11.Location = new Point(549, 41);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 2;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.Size = new Size(541, 52);
+            tableLayoutPanel11.TabIndex = 3;
+            // 
+            // cmb_export
+            // 
+            cmb_export.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_export.FormattingEnabled = true;
+            cmb_export.Location = new Point(400, 24);
+            cmb_export.Name = "cmb_export";
+            cmb_export.Size = new Size(138, 23);
+            cmb_export.TabIndex = 4;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label3.ForeColor = Color.FromArgb(64, 64, 64);
+            label3.Location = new Point(400, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(137, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Opciones para exportar";
             // 
             // panel5
             // 
             panel5.Controls.Add(dataGridView1);
             panel5.Controls.Add(tableLayoutPanel9);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(3, 78);
+            panel5.Location = new Point(3, 105);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1093, 413);
+            panel5.Size = new Size(1093, 386);
             panel5.TabIndex = 1;
             // 
             // dataGridView1
@@ -765,7 +893,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(1093, 369);
+            dataGridView1.Size = new Size(1093, 342);
             dataGridView1.TabIndex = 7;
             // 
             // tableLayoutPanel9
@@ -783,7 +911,7 @@
             tableLayoutPanel9.Controls.Add(label1, 5, 0);
             tableLayoutPanel9.Dock = DockStyle.Bottom;
             tableLayoutPanel9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tableLayoutPanel9.Location = new Point(0, 369);
+            tableLayoutPanel9.Location = new Point(0, 342);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -807,6 +935,7 @@
             btn_anterior.TabIndex = 0;
             btn_anterior.Text = "Anterior";
             btn_anterior.UseVisualStyleBackColor = false;
+            btn_anterior.Click += btn_anterior_Click;
             // 
             // btn_siguente
             // 
@@ -824,6 +953,7 @@
             btn_siguente.TabIndex = 1;
             btn_siguente.Text = "Siguente";
             btn_siguente.UseVisualStyleBackColor = false;
+            btn_siguente.Click += btn_siguente_Click;
             // 
             // lbl_paginas
             // 
@@ -1105,6 +1235,10 @@
             panel9.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel10.PerformLayout();
+            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel11.PerformLayout();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel9.ResumeLayout(false);
@@ -1189,5 +1323,14 @@
         private Label lbl_paginas;
         private Label label1;
         private DataGridView dataGridView1;
+        private TableLayoutPanel tableLayoutPanel10;
+        private ComboBox comboBox1;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker2;
+        private Button button1;
+        private TableLayoutPanel tableLayoutPanel11;
+        private ComboBox cmb_export;
+        private Label label2;
+        private Label label3;
     }
 }

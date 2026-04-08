@@ -120,37 +120,123 @@ namespace MyM26.DAL
             return dt;
         }
 
-        public static DataTable HMovimientos()
+
+        //Para Movimientos
+        public static DataTable HMovimientos(int paginaActual, int registrosPorPagina)
         {
-            string consulta = "Select CodHistorico, DNI, TipoMovimiento, DetalleMovimiento, FechaHora from HMovimiento";
-            using (SqlCommand cmd= new SqlCommand(consulta, Decla.cnn))
+            if (paginaActual < 1)
+                paginaActual = 1;
+            int offset = (paginaActual - 1) * registrosPorPagina;
+           
+            string consulta = "Select CodHistorico, DNI, TipoMovimiento, DetalleMovimiento, FechaHora from HMovimiento ORDER BY FechaHora DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            
+                cmd.Parameters.AddWithValue("@offset", offset);
+                cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
+            Decla.MovTab.Clear();
+            try
             {
-                if (Decla.cnn.State != ConnectionState.Open)
-                    Decla.cnn.Open();
-                
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(Decla.MovTab);
-               
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Decla.MovTab.Load(reader);
             }
-            Decla.cnn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
             return Decla.MovTab;
+        }
+       
+        public int ObtenerTotalMovimiento()
+        {
+            int total = 0;
+
+
+            string sql = "SELECT COUNT(*) FROM HMovimiento";
+
+            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
+
+            try
+            {
+                Decla.cnn.Open();
+                total = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
+            return total;
+        }
+
+        //Para Salidas
+        public static DataTable Salidas(int paginaActual, int registrosPorPagina)
+        {
+            if (paginaActual < 1)
+                paginaActual = 1;
+            int offset = (paginaActual - 1) * registrosPorPagina;
+            string consulta = "SELECT CodMovimiento, Detalle, Monto, Fecha FROM InOutVarios ORDER BY Fecha DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            
+                cmd.Parameters.AddWithValue("@offset", offset);
+                cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
+            try
+            {
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Decla.SalTab.Load(reader);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
+
+            return Decla.SalTab;
         }
 
 
-        public static DataTable Salidas()
+        public int ObtenerTotalSalidas()
         {
-            string consulta = "SELECT CodMovimiento, Detalle, Monto, Fecha FROM InOutVarios";
-            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn))
+            int total = 0;
+
+
+            string sql = "SELECT COUNT(*) FROM InOutVarios";
+
+            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
+
+            try
             {
-                if (Decla.cnn.State != ConnectionState.Open)
-                    Decla.cnn.Open();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(Decla.SalTab);
-
+                Decla.cnn.Open();
+                total = (int)cmd.ExecuteScalar();
             }
-            Decla.cnn.Close();
-            return Decla.SalTab;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
+            return total;
         }
     }
 }
