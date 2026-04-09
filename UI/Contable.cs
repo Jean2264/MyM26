@@ -39,6 +39,16 @@ namespace MyM26.UI
 
             cmb_export.Items.Add("Exportar a Excel");
             cmb_export.Items.Add("Exportar a PDF");
+
+            cmb_filtrar.Items.Add("Todos");
+            cmb_filtrar.Items.Add("Usuario");
+            cmb_filtrar.Items.Add("Articulo");
+            cmb_filtrar.Items.Add("Venta");
+            cmb_filtrar.Items.Add("Compra");
+            cmb_filtrar.Items.Add("Cliente");
+            cmb_filtrar.Items.Add("Proveedor");
+            cmb_filtrar.Items.Add("Empleado");
+            cmb_filtrar.SelectedIndex = -1;
         }
 
 

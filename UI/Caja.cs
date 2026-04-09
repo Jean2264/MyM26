@@ -536,8 +536,18 @@ namespace MyM26.screens
             venta.Factura = cmb_factura.Text;
             venta.TipoComprobante = cmb_comprobante.Text;
             venta.Cuit = cmb_cliente.SelectedValue?.ToString();
+            venta.Monto = Total;
             venta.TipoMovimiento = "Alta venta";
             venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc+ " (DNI:  "+UsuarioActivo.Datos.DNIAc +") "+" a generado una venta por un total de"+ Total.ToString("N2");
+
+            if(cmb_comprobante.SelectedItem=="Remito")
+            {
+                venta.Detalle = "Remito";
+            }
+            else if(cmb_comprobante.SelectedItem == "Presupuesto")
+            {
+                venta.Detalle = "Presupuesto";
+            }
 
             //Armamos Detalle
             List<HVentaDetalle> listaDetalle = new List<HVentaDetalle>();
@@ -579,6 +589,7 @@ namespace MyM26.screens
                 CajaDatos dt= new CajaDatos();
                 dt.AltaHistoricoCompleto(venta);
                 MessageBox.Show($"Presupuesto generado correctamente");
+                dt.ALtaCompletoIntOutVarios(venta);
                 ResetCampos();
                 return;
             }

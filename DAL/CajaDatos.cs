@@ -477,5 +477,74 @@ foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
             }
 
         }
+
+
+        //para IntoutVarios
+
+        /*create table InOutVarios
+(
+IdMovimiento int not null,
+CodMovimiento varchar(10) unique not null,
+Detalle varchar(100),
+Monto decimal(12,2),
+Fecha datetime default getdate(),
+primary key(IdMovimiento)
+)*/
+
+        public void IdIntOutVarios(HVenta hv, SqlTransaction trans)
+        {
+            string consulta = @"Select ISNULL(MAX(IdMovimientos), 0) as UltimoId from IntOutVarios";
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
+
+            { 
+                hv.UltimoIdIntOut = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public void AltaIntOutVarios(HVenta hv, SqlTransaction trans)
+        {
+
+           hv.NuevoIdIntOut = hv.UltimoIdIntOut + 1;
+            hv.CodMovimiento = "MOVV" + hv.NuevoIdIntOut;
+
+            string consulta = @"INSERT INTO IntOutVarios(IdMovimiento, CodMovimiento, Detalle, Monto, Fecha) 
+                                VALUES(@IdMovimiento, @CodMovimiento, @Detalle, @Monto, GETDATE())";
+
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
+            cmd.Parameters.AddWithValue("@IdMovimiento", hv.NuevoIdIntOut);
+            cmd.Parameters.AddWithValue("@CodMovimiento", hv.CodMovimiento);
+            cmd.Parameters.AddWithValue("@Detalle", hv.Detalle);
+            cmd.Parameters.AddWithValue("@Monto", hv.Monto);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void ALtaCompletoIntOutVarios(HVenta hv)
+        { 
+            try
+            {
+                Decla.cnn.Open();
+                SqlTransaction trans= Decla.cnn.BeginTransaction();
+
+                try
+                {
+                    IdIntOutVarios(hv, trans);
+                    AltaIntOutVarios(hv, trans);
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("Error al registrar el movimiento2: " + ex.Message.ToString());
+                }
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+
+            }
+        }
+
     }
 }

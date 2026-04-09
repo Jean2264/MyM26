@@ -45,5 +45,25 @@ foreign key (Cuit) references Proveedor (Cuit)
         public int NuevoIdMov { get; set; }
         public string TipoMovimiento { get; set; }
         public string DetalleMovimiento { get; set; }
-    }
+
+
+        //Para intoutvarios
+
+        /*create table InOutVarios
+(
+IdMovimiento int not null,
+CodMovimiento varchar(10) unique not null,
+Detalle varchar(100),
+Monto decimal(12,2),
+Fecha datetime default getdate(),
+primary key(IdMovimiento)
+)*/
+
+        public int UltimoIdIntOut { get; set; }
+        public int NuevoIdIntOut { get; set; }
+        public string CodMovimiento { get; set; }
+        public string Detalle { get; set; }
+        public decimal Monto { get; set; }
+        public DateTime Fecha { get; set; }
+        }
 }
