@@ -99,7 +99,7 @@ primary key(IdCliente)
 )
 
 INSERT INTO Cliente (IdCliente, Cuit, Nombre, Entidad, Telefono, Mail, Estado, esGenerico)
-VALUES (8, '00000000000', 'Consumidor Final', '1111111111', 'null@gmail.com', 1, 1);
+VALUES (1, '00000000000', 'Consumidor Final', '1111111111', NULL, 'null@gmail.com', 1, 1);
 
 create table TipoUsuario
 (
@@ -111,6 +111,7 @@ Compras bit,
 Productos bit ,
 Ventas bit,
 Usuarios bit,
+Empleados bit, 
 Clientes bit,
 Proveedores bit,
 EstadoContable bit,
@@ -135,6 +136,21 @@ CodTipoUsuario varchar(10),
 primary key(IdUsuario),
 foreign key(CodTipoUsuario) references TipoUsuario (CodTipoUsuario)
 )
+
+
+
+-- 1. Crear el tipo de usuario ADMIN (si no existe)
+INSERT INTO dbo.TipoUsuario 
+    (IdTipoUsuario, CodTipoUsuario, Tipo, Cajas, Compras, Productos, Ventas, Empleados, Usuarios, Clientes, Proveedores, EstadoContable, Estado)
+VALUES 
+    (1, 'CTU1', 'Administrador', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) 
+
+-- 2. Crear el usuario admin
+INSERT INTO dbo.Usuario 
+    (IdUsuario, DNI, Usuario, Contrasenia, Telefono, Mail, FechaAlta, Estado, CodTipoUsuario)
+VALUES 
+    (1, '95237175', 'Jean2005', 'Jean2005', 1157240315, 'apaivajean263@gmail.com', GETDATE(), 1, 'CTU1')
+
 
 create table HCompra
 (
