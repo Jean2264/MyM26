@@ -76,6 +76,9 @@ namespace MyM26
             }
             else
             {
+                // Obtenemos el area de trabajo del monitor actual excluyendo a la barra de tareas
+                this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
                 this.WindowState = FormWindowState.Maximized;
                 btn_maxi.BackgroundImage = Properties.Resources.maxi;
                 btn_maxi.BackgroundImageLayout = ImageLayout.Stretch;
