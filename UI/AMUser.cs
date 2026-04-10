@@ -116,6 +116,7 @@ namespace MyM26.screens
             Proveedores.Checked = usuario.Proveedores;
             Usuarios.Checked = usuario.Usuarios;
             Contable.Checked = usuario.Contabilidad;
+            empleados.Checked = usuario.Empleados;
             if (usuario.Foto != null)
             {
                 using (MemoryStream ms = new MemoryStream(usuario.Foto))
@@ -210,6 +211,7 @@ namespace MyM26.screens
                 Proveedores.Checked = true;
                 Clientes.Checked = true;
                 Usuarios.Checked = true;
+                empleados.Checked = true;
                 Contable.Checked = true;
 
             }
@@ -221,6 +223,7 @@ namespace MyM26.screens
                 compras.Checked = false;
                 Proveedores.Checked = false;
                 Clientes.Checked = false;
+                empleados.Checked = false;
                 Usuarios.Checked = false;
                 Contable.Checked = false;
             }
@@ -473,6 +476,7 @@ namespace MyM26.screens
 
                 usuario.Cajas = cajas.Checked;
                 usuario.Ventas = Ventas.Checked;
+                usuario.Empleados = empleados.Checked;
                 usuario.Articulos = articulos.Checked;
                 usuario.Compras = compras.Checked;
                 usuario.Proveedores = Proveedores.Checked;
@@ -528,6 +532,7 @@ namespace MyM26.screens
                 Compras = compras.Checked,
                 Proveedores = Proveedores.Checked,
                 Clientes = Clientes.Checked,
+                Empleados = empleados.Checked,
                 Usuarios = Usuarios.Checked,
                 Contabilidad = Contable.Checked,
                 TipoMovimiento = "Alta de usuario",

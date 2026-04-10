@@ -53,6 +53,9 @@ namespace MyM26.UI
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
+            Login log = new Login();
+                log.Show();
+                log.Location = this.Location;
             this.Close();
         }
 
