@@ -507,7 +507,7 @@ namespace MyM26.screens
             numeric_restar.Visible = false;
             btn_restar.Visible = false;
             btn_sumar.Visible = false;
-            button3.Enabled = false;
+            
             btn_desc.Enabled = false;
             button2.Enabled = false;
 
