@@ -124,7 +124,7 @@ namespace MyM26.screens
                 txt_nombre.BackColor = Color.LightGray;
                 txt_cuit.ReadOnly = true;
                 txt_nombre.ReadOnly = true;
-
+                this.Width = 416;
                 label_title.Text = "Editar Proveedor";
                 btn_alta_modi.Text = "Editar Proveedor";
                 txt_entidad.Visible = true;
@@ -143,10 +143,13 @@ namespace MyM26.screens
                 lbl_EM_EN.Text = "Entidad";
                 cmb_entidad.Visible = true;
                 txt_entidad.Visible = false;
-                this.Height = 442;
-                panel2.Width = 344;
-                panel2.Height = 214;
-                panel3.Location = new Point(8, 252);
+               
+                this.Width = 416;
+
+                this.Height = 590;
+
+                panel2.Height = 284;
+                panel3.Location = new Point(8, 335);
 
                 foreach (Control ctrl in this.Controls)
                 {
@@ -168,10 +171,10 @@ namespace MyM26.screens
                 cmb_entidad.Visible = false;
                 txt_entidad.Visible = true;
                 txt_entidad.Visible = true;
-                this.Height = 442;
-                panel2.Width = 344;
-                panel2.Height = 214;
-                panel3.Location = new Point(8, 252);
+                this.Height = 590;
+               
+                panel2.Height = 284;
+                panel3.Location = new Point(8, 335);
                 foreach (Control ctrl in this.Controls)
                 {
                     if (ctrl is TextBox)
