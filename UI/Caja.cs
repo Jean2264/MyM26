@@ -62,17 +62,51 @@ namespace MyM26.screens
 
         private void btn_añadir_desc_Click(object sender, EventArgs e)
         {
-            if(txt_desc.Text == "")
+            /* if(txt_desc.Text == "")
+             {
+                 MessageBox.Show("Ingrese un valor de descuento válido.");
+                 return;
+             }
+             decimal DesCAcum= Convert.ToDecimal(txt_desc.Text);
+             Descuento += DesCAcum;
+             CalcularTotalGeneral();
+             txt_desc.Visible = false;
+             txt_desc.Text = "";
+             btn_añadir_desc.Visible = false;
+             btn_reem_desc.Visible = false;*/
+
+          
+            if (string.IsNullOrWhiteSpace(txt_desc.Text))
             {
                 MessageBox.Show("Ingrese un valor de descuento válido.");
                 return;
             }
-            Descuento += Convert.ToDecimal(txt_desc.Text);
-            CalcularTotalGeneral();
-            txt_desc.Visible = false;
-            txt_desc.Text = "";
-            btn_añadir_desc.Visible = false;
-            btn_reem_desc.Visible = false;
+
+          
+            if (decimal.TryParse(txt_desc.Text, out decimal DesCAcum))
+            {
+            
+                Descuento += DesCAcum;
+                if(Descuento> subtotal)
+                {
+                    MessageBox.Show("El descuento no puede ser mayor al sbtotal\nPor favor, revisa el descuento ingesado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                CalcularTotalGeneral();
+
+             
+                txt_desc.Clear(); 
+                txt_desc.Visible = false;
+                btn_añadir_desc.Visible = false;
+                btn_reem_desc.Visible = false;
+
+                
+                Console.WriteLine($"Descuento sumado: {DesCAcum}. Total Descuento: {Descuento}");
+            }
+            else
+            {
+                MessageBox.Show("El formato del descuento no es correcto.");
+            }
         }
 
         private void dtg_caja_CellContentClick(object sender, DataGridViewCellEventArgs e)
