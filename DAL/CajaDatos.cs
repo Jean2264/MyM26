@@ -493,7 +493,7 @@ primary key(IdMovimiento)
 
         public void IdIntOutVarios(HVenta hv, SqlTransaction trans)
         {
-            string consulta = @"Select ISNULL(MAX(IdMovimientos), 0) as UltimoId from IntOutVarios";
+            string consulta = @"Select ISNULL(MAX(IdMovimiento), 0) as UltimoId from InOutVarios";
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
 
             { 
@@ -507,7 +507,7 @@ primary key(IdMovimiento)
            hv.NuevoIdIntOut = hv.UltimoIdIntOut + 1;
             hv.CodMovimiento = "MOVV" + hv.NuevoIdIntOut;
 
-            string consulta = @"INSERT INTO IntOutVarios(IdMovimiento, CodMovimiento, Detalle, Monto, Fecha) 
+            string consulta = @"INSERT INTO InOutVarios(IdMovimiento, CodMovimiento, Detalle, Monto, Fecha) 
                                 VALUES(@IdMovimiento, @CodMovimiento, @Detalle, @Monto, GETDATE())";
 
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
@@ -535,7 +535,7 @@ primary key(IdMovimiento)
                 catch (Exception ex)
                 {
                     trans.Rollback();
-                    MessageBox.Show("Error al registrar el movimiento2: " + ex.Message.ToString());
+                    MessageBox.Show("Error al registrar el movimiento: " + ex.Message.ToString());
                 }
             }
             finally

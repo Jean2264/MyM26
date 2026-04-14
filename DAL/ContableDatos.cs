@@ -191,6 +191,7 @@ namespace MyM26.DAL
             
                 cmd.Parameters.AddWithValue("@offset", offset);
                 cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
+            Decla.SalTab.Clear();
             try
             {
                 Decla.cnn.Open();
@@ -237,6 +238,41 @@ namespace MyM26.DAL
             }
 
             return total;
+        }
+
+        //Para filtrar movimientos
+        public static DataTable FiltrarMvimiento(string categoria, DateTime? desde, DateTime? hasta) // string texto,
+        {
+            string consulta = @"SELECT CodHistorico, DNI, TipoMovimiento, DetalleMovimiento, FechaHora FROM HMovimiento
+                                WHERE 1=1
+                                AND (@categoria= 'Todos' OR TipoMovimiento LIKE '%' + @categoria +'%') 
+                                
+                                AND(@desde IS NULL OR FechaHora >= @desde) 
+                                AND(@hasta IS NULL OR FechaHora >= @hasta)  ORDER BY FechaHora DESC";
+            // AND (@texto= '' OR DetalleMovimiento LIKE '%' + @texto + '%' OR DNI LIKE '%' + @texto + '%' )
+            SqlCommand cmd = new SqlCommand(consulta,Decla.cnn);
+            cmd.Parameters.AddWithValue("@categoria", categoria);
+           // cmd.Parameters.AddWithValue("@texto", texto ?? "");
+            cmd.Parameters.AddWithValue("@desde", (object)desde ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@hasta", (object)hasta ?? DBNull.Value);
+            Decla.MovFil.Clear();
+            try
+            {
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Decla.MovFil.Load(reader);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if(Decla.cnn.State==ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
+            return Decla.MovFil;
         }
     }
 }

@@ -66,6 +66,7 @@ namespace MyM26.DAL
 
         //Para contable---Movimiento
         public static DataTable MovTab = new DataTable();
+        public static DataTable MovFil = new DataTable();
 
         //Para contable---salida
         public static DataTable SalTab = new DataTable();

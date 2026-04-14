@@ -197,7 +197,7 @@ Factura varchar(100),
 FormaPago varchar(100),
 primary key(IdVenta),
 foreign key(DNI) references Usuario (DNI),
-foreign key (Cuit) references Proveedor (Cuit)
+foreign key (Cuit) references Cliente (Cuit)
 )
 
 create table HVentaDetalle

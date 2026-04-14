@@ -39,6 +39,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contable));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -82,25 +83,29 @@
             label9 = new Label();
             panel9 = new Panel();
             tableLayoutPanel7 = new TableLayoutPanel();
-            tableLayoutPanel8 = new TableLayoutPanel();
-            btn_sal = new Button();
-            btn_movi = new Button();
-            tableLayoutPanel10 = new TableLayoutPanel();
-            button1 = new Button();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
-            cmb_filtrar = new ComboBox();
-            label2 = new Label();
-            tableLayoutPanel11 = new TableLayoutPanel();
-            label3 = new Label();
-            cmb_export = new ComboBox();
-            panel5 = new Panel();
-            dataGridView1 = new DataGridView();
             tableLayoutPanel9 = new TableLayoutPanel();
             btn_anterior = new Button();
             btn_siguente = new Button();
             lbl_paginas = new Label();
             label1 = new Label();
+            dataGridView1 = new DataGridView();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            btn_sal = new Button();
+            btn_movi = new Button();
+            tableLayoutPanel10 = new TableLayoutPanel();
+            cmb_filtrar = new ComboBox();
+            Tdesde = new DateTimePicker();
+            Thasta = new DateTimePicker();
+            button1 = new Button();
+            label2 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label8 = new Label();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            label3 = new Label();
+            cmb_export = new ComboBox();
+            panel5 = new Panel();
+            btn1_reinicirDTG = new Button();
             panel3 = new Panel();
             label6 = new Label();
             panel12 = new Panel();
@@ -137,12 +142,12 @@
             panel7.SuspendLayout();
             panel9.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            tableLayoutPanel9.SuspendLayout();
             panel3.SuspendLayout();
             panel12.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
@@ -685,18 +690,137 @@
             tableLayoutPanel7.ColumnCount = 1;
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.Controls.Add(tableLayoutPanel9, 0, 3);
+            tableLayoutPanel7.Controls.Add(dataGridView1, 0, 2);
             tableLayoutPanel7.Controls.Add(tableLayoutPanel8, 0, 0);
             tableLayoutPanel7.Controls.Add(panel5, 0, 1);
             tableLayoutPanel7.Dock = DockStyle.Fill;
             tableLayoutPanel7.Location = new Point(0, 0);
             tableLayoutPanel7.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 2;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 20.6477737F));
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 79.35223F));
+            tableLayoutPanel7.RowCount = 4;
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 77.25118F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 22.7488155F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 382F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             tableLayoutPanel7.Size = new Size(1256, 659);
             tableLayoutPanel7.TabIndex = 0;
+            // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.ColumnCount = 6;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 142F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 342F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 186F));
+            tableLayoutPanel9.Controls.Add(btn_anterior, 1, 0);
+            tableLayoutPanel9.Controls.Add(btn_siguente, 3, 0);
+            tableLayoutPanel9.Controls.Add(lbl_paginas, 2, 0);
+            tableLayoutPanel9.Controls.Add(label1, 5, 0);
+            tableLayoutPanel9.Dock = DockStyle.Fill;
+            tableLayoutPanel9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tableLayoutPanel9.Location = new Point(3, 600);
+            tableLayoutPanel9.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.RowCount = 2;
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
+            tableLayoutPanel9.Size = new Size(1250, 55);
+            tableLayoutPanel9.TabIndex = 8;
+            // 
+            // btn_anterior
+            // 
+            btn_anterior.BackColor = Color.FromArgb(0, 150, 30);
+            btn_anterior.BackgroundImageLayout = ImageLayout.None;
+            btn_anterior.Dock = DockStyle.Fill;
+            btn_anterior.FlatAppearance.BorderSize = 0;
+            btn_anterior.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 170, 70);
+            btn_anterior.FlatStyle = FlatStyle.Flat;
+            btn_anterior.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btn_anterior.ForeColor = Color.White;
+            btn_anterior.Location = new Point(339, 4);
+            btn_anterior.Margin = new Padding(3, 4, 3, 4);
+            btn_anterior.Name = "btn_anterior";
+            btn_anterior.Size = new Size(116, 39);
+            btn_anterior.TabIndex = 0;
+            btn_anterior.Text = "Anterior";
+            btn_anterior.UseVisualStyleBackColor = false;
+            // 
+            // btn_siguente
+            // 
+            btn_siguente.BackColor = Color.FromArgb(0, 150, 30);
+            btn_siguente.BackgroundImageLayout = ImageLayout.None;
+            btn_siguente.Dock = DockStyle.Fill;
+            btn_siguente.FlatAppearance.BorderSize = 0;
+            btn_siguente.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 170, 70);
+            btn_siguente.FlatStyle = FlatStyle.Flat;
+            btn_siguente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btn_siguente.ForeColor = Color.White;
+            btn_siguente.Location = new Point(603, 4);
+            btn_siguente.Margin = new Padding(3, 4, 3, 4);
+            btn_siguente.Name = "btn_siguente";
+            btn_siguente.Size = new Size(116, 39);
+            btn_siguente.TabIndex = 1;
+            btn_siguente.Text = "Siguente";
+            btn_siguente.UseVisualStyleBackColor = false;
+            // 
+            // lbl_paginas
+            // 
+            lbl_paginas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            lbl_paginas.AutoSize = true;
+            lbl_paginas.Location = new Point(505, 0);
+            lbl_paginas.Name = "lbl_paginas";
+            lbl_paginas.Size = new Size(48, 47);
+            lbl_paginas.TabIndex = 2;
+            lbl_paginas.Text = "\r\nlabel1";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Location = new Point(1067, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 47);
+            label1.TabIndex = 3;
+            label1.Text = "\r\nlabel1";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(61, 100, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ImeMode = ImeMode.On;
+            dataGridView1.Location = new Point(3, 218);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 125, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1250, 374);
+            dataGridView1.TabIndex = 7;
             // 
             // tableLayoutPanel8
             // 
@@ -713,9 +837,9 @@
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 77F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 101F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel8.Size = new Size(1250, 128);
+            tableLayoutPanel8.Size = new Size(1250, 158);
             tableLayoutPanel8.TabIndex = 0;
             tableLayoutPanel8.Paint += tableLayoutPanel8_Paint;
             // 
@@ -734,7 +858,7 @@
             btn_sal.Location = new Point(629, 4);
             btn_sal.Margin = new Padding(3, 4, 3, 4);
             btn_sal.Name = "btn_sal";
-            btn_sal.Size = new Size(618, 43);
+            btn_sal.Size = new Size(618, 49);
             btn_sal.TabIndex = 1;
             btn_sal.Text = "Ver salidas";
             btn_sal.UseVisualStyleBackColor = false;
@@ -755,7 +879,7 @@
             btn_movi.Location = new Point(3, 4);
             btn_movi.Margin = new Padding(3, 4, 3, 4);
             btn_movi.Name = "btn_movi";
-            btn_movi.Size = new Size(620, 43);
+            btn_movi.Size = new Size(620, 49);
             btn_movi.TabIndex = 0;
             btn_movi.Text = "Ver movimientos";
             btn_movi.UseVisualStyleBackColor = false;
@@ -768,20 +892,59 @@
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.7096767F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.032259F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel10.Controls.Add(button1, 3, 1);
-            tableLayoutPanel10.Controls.Add(dateTimePicker2, 2, 1);
-            tableLayoutPanel10.Controls.Add(dateTimePicker1, 1, 1);
-            tableLayoutPanel10.Controls.Add(cmb_filtrar, 0, 1);
+            tableLayoutPanel10.Controls.Add(cmb_filtrar, 0, 2);
+            tableLayoutPanel10.Controls.Add(Tdesde, 1, 2);
+            tableLayoutPanel10.Controls.Add(Thasta, 2, 2);
+            tableLayoutPanel10.Controls.Add(button1, 3, 2);
             tableLayoutPanel10.Controls.Add(label2, 0, 0);
+            tableLayoutPanel10.Controls.Add(label4, 1, 1);
+            tableLayoutPanel10.Controls.Add(label5, 2, 1);
+            tableLayoutPanel10.Controls.Add(label8, 0, 1);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(3, 55);
+            tableLayoutPanel10.Location = new Point(3, 61);
             tableLayoutPanel10.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
-            tableLayoutPanel10.RowCount = 2;
+            tableLayoutPanel10.RowCount = 3;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
-            tableLayoutPanel10.Size = new Size(620, 69);
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
+            tableLayoutPanel10.Size = new Size(620, 93);
             tableLayoutPanel10.TabIndex = 2;
+            tableLayoutPanel10.Paint += tableLayoutPanel10_Paint;
+            // 
+            // cmb_filtrar
+            // 
+            cmb_filtrar.Dock = DockStyle.Fill;
+            cmb_filtrar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_filtrar.FormattingEnabled = true;
+            cmb_filtrar.Location = new Point(3, 56);
+            cmb_filtrar.Margin = new Padding(3, 4, 3, 4);
+            cmb_filtrar.Name = "cmb_filtrar";
+            cmb_filtrar.Size = new Size(162, 28);
+            cmb_filtrar.TabIndex = 0;
+            // 
+            // Tdesde
+            // 
+            Tdesde.Checked = false;
+            Tdesde.Dock = DockStyle.Fill;
+            Tdesde.Location = new Point(171, 56);
+            Tdesde.Margin = new Padding(3, 4, 3, 4);
+            Tdesde.Name = "Tdesde";
+            Tdesde.ShowCheckBox = true;
+            Tdesde.Size = new Size(141, 27);
+            Tdesde.TabIndex = 1;
+            Tdesde.ValueChanged += Tdesde_ValueChanged;
+            // 
+            // Thasta
+            // 
+            Thasta.Checked = false;
+            Thasta.Dock = DockStyle.Fill;
+            Thasta.Location = new Point(318, 56);
+            Thasta.Margin = new Padding(3, 4, 3, 4);
+            Thasta.Name = "Thasta";
+            Thasta.ShowCheckBox = true;
+            Thasta.Size = new Size(143, 27);
+            Thasta.TabIndex = 2;
             // 
             // button1
             // 
@@ -792,41 +955,14 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(467, 29);
+            button1.Location = new Point(467, 56);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(150, 36);
+            button1.Size = new Size(150, 33);
             button1.TabIndex = 3;
             button1.Text = "Filtrar";
             button1.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Dock = DockStyle.Fill;
-            dateTimePicker2.Location = new Point(318, 29);
-            dateTimePicker2.Margin = new Padding(3, 4, 3, 4);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(143, 27);
-            dateTimePicker2.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Dock = DockStyle.Fill;
-            dateTimePicker1.Location = new Point(171, 29);
-            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(141, 27);
-            dateTimePicker1.TabIndex = 1;
-            // 
-            // cmb_filtrar
-            // 
-            cmb_filtrar.Dock = DockStyle.Fill;
-            cmb_filtrar.FormattingEnabled = true;
-            cmb_filtrar.Location = new Point(3, 29);
-            cmb_filtrar.Margin = new Padding(3, 4, 3, 4);
-            cmb_filtrar.Name = "cmb_filtrar";
-            cmb_filtrar.Size = new Size(162, 28);
-            cmb_filtrar.TabIndex = 0;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -839,7 +975,47 @@
             label2.Name = "label2";
             label2.Size = new Size(162, 20);
             label2.TabIndex = 4;
-            label2.Text = "Opciones de filtrado";
+            label2.Text = "Opciones de filtrado:";
+            label2.Click += label2_Click;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label4.ForeColor = Color.FromArgb(64, 64, 64);
+            label4.Location = new Point(171, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(141, 20);
+            label4.TabIndex = 5;
+            label4.Text = "desde";
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label5.ForeColor = Color.FromArgb(64, 64, 64);
+            label5.Location = new Point(318, 29);
+            label5.Name = "label5";
+            label5.Size = new Size(143, 20);
+            label5.TabIndex = 6;
+            label5.Text = "hasta";
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label8.ForeColor = Color.FromArgb(64, 64, 64);
+            label8.Location = new Point(3, 29);
+            label8.Name = "label8";
+            label8.Size = new Size(162, 20);
+            label8.TabIndex = 7;
+            label8.Text = "categoria";
             // 
             // tableLayoutPanel11
             // 
@@ -848,16 +1024,17 @@
             tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34.760704F));
             tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 233F));
             tableLayoutPanel11.Controls.Add(label3, 2, 0);
-            tableLayoutPanel11.Controls.Add(cmb_export, 2, 1);
+            tableLayoutPanel11.Controls.Add(cmb_export, 2, 2);
             tableLayoutPanel11.Dock = DockStyle.Fill;
-            tableLayoutPanel11.Location = new Point(629, 55);
+            tableLayoutPanel11.Location = new Point(629, 61);
             tableLayoutPanel11.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel11.Name = "tableLayoutPanel11";
-            tableLayoutPanel11.RowCount = 2;
+            tableLayoutPanel11.RowCount = 3;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.Size = new Size(618, 69);
+            tableLayoutPanel11.Size = new Size(618, 93);
             tableLayoutPanel11.TabIndex = 3;
             // 
             // label3
@@ -868,16 +1045,16 @@
             label3.ForeColor = Color.FromArgb(64, 64, 64);
             label3.Location = new Point(387, 0);
             label3.Name = "label3";
-            label3.Size = new Size(172, 20);
+            label3.Size = new Size(177, 20);
             label3.TabIndex = 5;
-            label3.Text = "Opciones para exportar";
+            label3.Text = "Opciones para exportar:";
             // 
             // cmb_export
             // 
             cmb_export.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cmb_export.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_export.FormattingEnabled = true;
-            cmb_export.Location = new Point(387, 32);
+            cmb_export.Location = new Point(387, 51);
             cmb_export.Margin = new Padding(3, 4, 3, 4);
             cmb_export.Name = "cmb_export";
             cmb_export.Size = new Size(228, 28);
@@ -885,131 +1062,29 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(dataGridView1);
-            panel5.Controls.Add(tableLayoutPanel9);
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(btn1_reinicirDTG);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(3, 140);
+            panel5.Location = new Point(3, 170);
             panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1250, 515);
+            panel5.Size = new Size(1250, 40);
             panel5.TabIndex = 1;
+            panel5.Paint += panel5_Paint;
             // 
-            // dataGridView1
+            // btn1_reinicirDTG
             // 
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(61, 100, 255);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ImeMode = ImeMode.On;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 125, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1250, 456);
-            dataGridView1.TabIndex = 7;
-            // 
-            // tableLayoutPanel9
-            // 
-            tableLayoutPanel9.ColumnCount = 6;
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 142F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 342F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 186F));
-            tableLayoutPanel9.Controls.Add(btn_anterior, 1, 0);
-            tableLayoutPanel9.Controls.Add(btn_siguente, 3, 0);
-            tableLayoutPanel9.Controls.Add(lbl_paginas, 2, 0);
-            tableLayoutPanel9.Controls.Add(label1, 5, 0);
-            tableLayoutPanel9.Dock = DockStyle.Bottom;
-            tableLayoutPanel9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tableLayoutPanel9.Location = new Point(0, 456);
-            tableLayoutPanel9.Margin = new Padding(3, 4, 3, 4);
-            tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.RowCount = 2;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 11F));
-            tableLayoutPanel9.Size = new Size(1250, 59);
-            tableLayoutPanel9.TabIndex = 5;
-            // 
-            // btn_anterior
-            // 
-            btn_anterior.BackColor = Color.FromArgb(0, 150, 30);
-            btn_anterior.BackgroundImageLayout = ImageLayout.None;
-            btn_anterior.Dock = DockStyle.Fill;
-            btn_anterior.FlatAppearance.BorderSize = 0;
-            btn_anterior.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 170, 70);
-            btn_anterior.FlatStyle = FlatStyle.Flat;
-            btn_anterior.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btn_anterior.ForeColor = Color.White;
-            btn_anterior.Location = new Point(339, 4);
-            btn_anterior.Margin = new Padding(3, 4, 3, 4);
-            btn_anterior.Name = "btn_anterior";
-            btn_anterior.Size = new Size(116, 40);
-            btn_anterior.TabIndex = 0;
-            btn_anterior.Text = "Anterior";
-            btn_anterior.UseVisualStyleBackColor = false;
-            btn_anterior.Click += btn_anterior_Click;
-            // 
-            // btn_siguente
-            // 
-            btn_siguente.BackColor = Color.FromArgb(0, 150, 30);
-            btn_siguente.BackgroundImageLayout = ImageLayout.None;
-            btn_siguente.Dock = DockStyle.Fill;
-            btn_siguente.FlatAppearance.BorderSize = 0;
-            btn_siguente.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 170, 70);
-            btn_siguente.FlatStyle = FlatStyle.Flat;
-            btn_siguente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            btn_siguente.ForeColor = Color.White;
-            btn_siguente.Location = new Point(603, 4);
-            btn_siguente.Margin = new Padding(3, 4, 3, 4);
-            btn_siguente.Name = "btn_siguente";
-            btn_siguente.Size = new Size(116, 40);
-            btn_siguente.TabIndex = 1;
-            btn_siguente.Text = "Siguente";
-            btn_siguente.UseVisualStyleBackColor = false;
-            btn_siguente.Click += btn_siguente_Click;
-            // 
-            // lbl_paginas
-            // 
-            lbl_paginas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            lbl_paginas.AutoSize = true;
-            lbl_paginas.Location = new Point(505, 0);
-            lbl_paginas.Name = "lbl_paginas";
-            lbl_paginas.Size = new Size(48, 48);
-            lbl_paginas.TabIndex = 2;
-            lbl_paginas.Text = "\r\nlabel1";
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            label1.AutoSize = true;
-            label1.Location = new Point(1067, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(48, 48);
-            label1.TabIndex = 3;
-            label1.Text = "\r\nlabel1";
+            btn1_reinicirDTG.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn1_reinicirDTG.BackgroundImage = (Image)resources.GetObject("btn1_reinicirDTG.BackgroundImage");
+            btn1_reinicirDTG.BackgroundImageLayout = ImageLayout.Stretch;
+            btn1_reinicirDTG.FlatAppearance.BorderSize = 0;
+            btn1_reinicirDTG.FlatStyle = FlatStyle.Flat;
+            btn1_reinicirDTG.Location = new Point(1204, 3);
+            btn1_reinicirDTG.Name = "btn1_reinicirDTG";
+            btn1_reinicirDTG.Size = new Size(40, 36);
+            btn1_reinicirDTG.TabIndex = 0;
+            btn1_reinicirDTG.UseVisualStyleBackColor = true;
+            btn1_reinicirDTG.Click += btn1_reinicirDTG_Click;
             // 
             // panel3
             // 
@@ -1276,15 +1351,15 @@
             panel7.PerformLayout();
             panel9.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel9.ResumeLayout(false);
+            tableLayoutPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel10.ResumeLayout(false);
             tableLayoutPanel10.PerformLayout();
             tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel11.PerformLayout();
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            tableLayoutPanel9.ResumeLayout(false);
-            tableLayoutPanel9.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel12.ResumeLayout(false);
@@ -1359,20 +1434,24 @@
         private Button btn_movi;
         private Button btn_sal;
         private Panel panel5;
-        private TableLayoutPanel tableLayoutPanel9;
-        private Button btn_anterior;
-        private Button btn_siguente;
-        private Label lbl_paginas;
-        private Label label1;
         private DataGridView dataGridView1;
         private TableLayoutPanel tableLayoutPanel10;
         private ComboBox cmb_filtrar;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker Tdesde;
+        private DateTimePicker Thasta;
         private Button button1;
         private TableLayoutPanel tableLayoutPanel11;
         private ComboBox cmb_export;
         private Label label2;
         private Label label3;
+        private Label label5;
+        private Label label4;
+        private Label label8;
+        private TableLayoutPanel tableLayoutPanel9;
+        private Button btn_anterior;
+        private Button btn_siguente;
+        private Label lbl_paginas;
+        private Label label1;
+        private Button btn1_reinicirDTG;
     }
 }

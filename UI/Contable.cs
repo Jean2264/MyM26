@@ -13,8 +13,8 @@ namespace MyM26.UI
 {
     public partial class Contable : UserControl
     {
-        int paginaActual;
-        int registrosPorPagina = 10;
+        int paginaActual = 1;
+        int registrosPorPagina = 20;
         int TotalPaginas = 0;
         string modo;
         public Contable()
@@ -49,6 +49,9 @@ namespace MyM26.UI
             cmb_filtrar.Items.Add("Proveedor");
             cmb_filtrar.Items.Add("Empleado");
             cmb_filtrar.SelectedIndex = -1;
+
+            Tdesde.Checked = false;
+            Thasta.Checked = false;
         }
 
 
@@ -378,11 +381,26 @@ namespace MyM26.UI
         }
 
         public void MostrarMov()
+
         {
+            dataGridView1.DataSource = null;
             Decla.MovTab = ContableDatos.HMovimientos(paginaActual, registrosPorPagina);
             dataGridView1.DataSource = Decla.MovTab;
+            CalcularTotalPaginasMovimientos();
         }
 
+
+        /* private void CalcularTotalPaginasProv()
+        {
+            ProveedorDatos db = new ProveedorDatos();
+            int totalRegistros = db.ObtenerTotalProveedor();
+            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
+            lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+           
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
+            label1.Text = $"Total de proveedores: {totalRegistros}";
+        }*/
         private void CalcularTotalPaginasMovimientos()
         {
             ContableDatos db = new ContableDatos();
@@ -403,8 +421,10 @@ namespace MyM26.UI
         }
         public void MostrarSal()
         {
+            dataGridView1.DataSource = null;
             Decla.SalTab = ContableDatos.Salidas(paginaActual, registrosPorPagina);
             dataGridView1.DataSource = Decla.SalTab;
+            CalcularTotalPaginasSalidas();
         }
 
 
@@ -447,13 +467,32 @@ namespace MyM26.UI
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
+
+            /*  if (Modal == "Clientes")
+            {
+
+               if(paginaActual < TotalPaginas)
+                {
+                    paginaActual++;
+                    LlenarDtgClientes();
+                }
+               else if(Modal== "Proveedor")
+               {
+                   if(paginaActual < TotalPaginas)
+                   {
+                       paginaActual++;
+                       LlenarDtgProveedores();
+                   }
+               }
+
+            }*/
             if (modo == "mov")
             {
                 if (paginaActual < TotalPaginas)
                 {
                     paginaActual++;
                     MostrarMov();
-                    CalcularTotalPaginasMovimientos();
+
                 }
             }
             else if (modo == "sal")
@@ -462,7 +501,7 @@ namespace MyM26.UI
                 {
                     paginaActual++;
                     MostrarSal();
-                    CalcularTotalPaginasSalidas();
+
                 }
             }
         }
@@ -475,7 +514,7 @@ namespace MyM26.UI
                 {
                     paginaActual--;
                     MostrarMov();
-                    CalcularTotalPaginasMovimientos();
+
                 }
             }
             else if (modo == "sal")
@@ -484,7 +523,7 @@ namespace MyM26.UI
                 {
                     paginaActual--;
                     MostrarSal();
-                    CalcularTotalPaginasSalidas();
+
                 }
             }
         }
@@ -492,6 +531,57 @@ namespace MyM26.UI
         private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (modo == "mov")
+            {
+                string categoria = cmb_filtrar.Text;
+                DateTime? desde = Tdesde.Checked ? Tdesde.Value.Date : (DateTime?)null;
+                DateTime? hasta = Thasta.Checked ? Thasta.Value.Date.AddDays(1).AddSeconds(-1) : (DateTime?)null;
+
+                //validamos antes de llamar al DAL
+                if (desde != null && hasta != null && desde > hasta)
+                {
+                    MessageBox.Show("La fecha Desde no puede mayor que hasta");
+                    return;
+                }
+                DataTable dt = ContableDatos.FiltrarMvimiento(categoria, desde, hasta);
+                dataGridView1.DataSource = dt;
+            }
+        }
+
+        private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Tdesde_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn1_reinicirDTG_Click(object sender, EventArgs e)
+        {
+            if(modo== "mov")
+            {
+                MostrarMov();
+            }
+            else if(modo=="sal")
+            {
+                MostrarSal();
+            }
         }
     }
 }
