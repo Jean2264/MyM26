@@ -39,17 +39,24 @@ namespace MyM26.UI
 
             cmb_export.Items.Add("Exportar a Excel");
             cmb_export.Items.Add("Exportar a PDF");
-
-            cmb_filtrar.Items.Add("Todos");
-            cmb_filtrar.Items.Add("Usuario");
-            cmb_filtrar.Items.Add("Articulo");
-            cmb_filtrar.Items.Add("Venta");
-            cmb_filtrar.Items.Add("Compra");
-            cmb_filtrar.Items.Add("Cliente");
-            cmb_filtrar.Items.Add("Proveedor");
-            cmb_filtrar.Items.Add("Empleado");
-            cmb_filtrar.SelectedIndex = -1;
-
+            if (modo=="mov")
+            {
+                cmb_filtrar.Items.Add("Todos");
+                cmb_filtrar.Items.Add("Usuario");
+                cmb_filtrar.Items.Add("Articulo");
+                cmb_filtrar.Items.Add("Venta");
+                cmb_filtrar.Items.Add("Compra");
+                cmb_filtrar.Items.Add("Cliente");
+                cmb_filtrar.Items.Add("Proveedor");
+                cmb_filtrar.Items.Add("Empleado");
+                cmb_filtrar.SelectedIndex = -1;
+            }
+            else if(modo== "sal")
+            {
+                cmb_filtrar.Items.Add("Remito");
+                cmb_filtrar.Items.Add("Presupuesto");
+                cmb_filtrar.SelectedIndex = -1;
+            }
             Tdesde.Checked = false;
             Thasta.Checked = false;
         }
@@ -449,6 +456,16 @@ namespace MyM26.UI
 
         private void btn_movi_Click(object sender, EventArgs e)
         {
+            cmb_filtrar.Items.Clear();
+            cmb_filtrar.Items.Add("Todos");
+            cmb_filtrar.Items.Add("Usuario");
+            cmb_filtrar.Items.Add("Articulo");
+            cmb_filtrar.Items.Add("Venta");
+            cmb_filtrar.Items.Add("Compra");
+            cmb_filtrar.Items.Add("Cliente");
+            cmb_filtrar.Items.Add("Proveedor");
+            cmb_filtrar.Items.Add("Empleado");
+            cmb_filtrar.SelectedIndex = -1;
             modo = "mov";
             MostrarMov();
             CalcularTotalPaginasMovimientos();
@@ -458,7 +475,15 @@ namespace MyM26.UI
 
         private void btn_sal_Click(object sender, EventArgs e)
         {
+            cmb_filtrar.Items.Clear();
             modo = "sal";
+            if(modo=="sal")
+            {
+                cmb_filtrar.Items.Add("Todos");
+                cmb_filtrar.Items.Add("Remito");
+                cmb_filtrar.Items.Add("Presupuesto");
+                cmb_filtrar.SelectedIndex = -1;
+            }
             MostrarSal();
             CalcularTotalPaginasSalidas();
             btn_sal.BackColor = Color.FromArgb(10, 40, 150);
@@ -535,11 +560,12 @@ namespace MyM26.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string categoria = cmb_filtrar.Text;
+            DateTime? desde = Tdesde.Checked ? Tdesde.Value.Date : (DateTime?)null;
+            DateTime? hasta = Thasta.Checked ? Thasta.Value.Date.AddDays(1).AddSeconds(-1) : (DateTime?)null;
             if (modo == "mov")
             {
-                string categoria = cmb_filtrar.Text;
-                DateTime? desde = Tdesde.Checked ? Tdesde.Value.Date : (DateTime?)null;
-                DateTime? hasta = Thasta.Checked ? Thasta.Value.Date.AddDays(1).AddSeconds(-1) : (DateTime?)null;
+               
 
                 //validamos antes de llamar al DAL
                 if (desde != null && hasta != null && desde > hasta)
@@ -549,6 +575,20 @@ namespace MyM26.UI
                 }
                 DataTable dt = ContableDatos.FiltrarMvimiento(categoria, desde, hasta);
                 dataGridView1.DataSource = dt;
+            }
+            else if(modo =="sal")
+            {
+              
+
+                //validamos antes de llamar al DAL
+                if (desde != null && hasta != null && desde > hasta)
+                {
+                    MessageBox.Show("La fecha Desde no puede mayor que hasta");
+                    return;
+                }
+
+                DataTable dt2= ContableDatos.FiltrarSalidas(categoria, desde, hasta);
+                dataGridView1.DataSource = dt2;
             }
         }
 
@@ -577,10 +617,16 @@ namespace MyM26.UI
             if(modo== "mov")
             {
                 MostrarMov();
+                cmb_filtrar.SelectedIndex = -1;
+                Tdesde.Checked=false;
+                Thasta.Checked=false;
             }
             else if(modo=="sal")
             {
                 MostrarSal();
+                cmb_filtrar.SelectedIndex = -1;
+                Tdesde.Checked = false;
+                Thasta.Checked = false;
             }
         }
     }

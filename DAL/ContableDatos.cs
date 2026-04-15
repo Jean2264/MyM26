@@ -250,9 +250,9 @@ namespace MyM26.DAL
                                 AND(@desde IS NULL OR FechaHora >= @desde) 
                                 AND(@hasta IS NULL OR FechaHora >= @hasta)  ORDER BY FechaHora DESC";
             // AND (@texto= '' OR DetalleMovimiento LIKE '%' + @texto + '%' OR DNI LIKE '%' + @texto + '%' )
-            SqlCommand cmd = new SqlCommand(consulta,Decla.cnn);
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@categoria", categoria);
-           // cmd.Parameters.AddWithValue("@texto", texto ?? "");
+            // cmd.Parameters.AddWithValue("@texto", texto ?? "");
             cmd.Parameters.AddWithValue("@desde", (object)desde ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@hasta", (object)hasta ?? DBNull.Value);
             Decla.MovFil.Clear();
@@ -262,17 +262,50 @@ namespace MyM26.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 Decla.MovFil.Load(reader);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             finally
             {
-                if(Decla.cnn.State==ConnectionState.Open)
+                if (Decla.cnn.State == ConnectionState.Open)
                     Decla.cnn.Close();
             }
 
             return Decla.MovFil;
+        }
+        //Para filtrar  salidas
+
+       
+        public static DataTable FiltrarSalidas(string categoria, DateTime? desde, DateTime? hasta) //string textto,
+        {
+            string consulta = @"SELECT CodMovimiento, Detalle, Monto, Fecha FROM InOutVarios 
+                                 WHERE 1=1 
+                                    AND(@categoria= 'Todos' OR Detalle LIKE '%'+ @categoria + '%') 
+                                    AND(@desde IS NULL OR Fecha >=@desde) 
+                                     AND(@hasta IS NULL OR Fecha >=@hasta) ORDER BY Fecha DESC";
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            cmd.Parameters.AddWithValue("@categoria", categoria);
+            // cmd.Parameters.AddWithValue("@texto", texto ?? "");
+            cmd.Parameters.AddWithValue("@desde", (object)desde ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@hasta", (object)hasta ?? DBNull.Value);
+            Decla.SalFil.Clear();
+
+            try
+            {
+                Decla.cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Decla.SalFil.Load(reader);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error en salida"+ex.Message);
+            }
+            finally {
+                if(Decla.cnn.State== ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+            return Decla.SalFil;
         }
     }
 }

@@ -159,37 +159,62 @@ namespace MyM26.screens
         private void btn_buscar_Click_1(object sender, EventArgs e)
         {
 
-            using (OpenFileDialog abrir = new OpenFileDialog())
+            /* using (OpenFileDialog abrir = new OpenFileDialog())
+             {
+                 abrir.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.webp";
+                 abrir.Title = "Seleccionar imagen del producto";
+
+                 if (abrir.ShowDialog() == DialogResult.OK)
+                 {
+                     try
+                     {
+                         // Leemos el archivo a un arreglo de bytes primero. 
+                         // Esto evita que la "compu chica" bloquee el archivo.
+                         byte[] datosImagen = System.IO.File.ReadAllBytes(abrir.FileName);
+
+                         using (var ms = new System.IO.MemoryStream(datosImagen))
+                         {
+                             // Cargamos desde memoria
+                             Image imgOriginal = Image.FromStream(ms);
+
+                             // Asignamos al BackgroundImage como hiciste vos (que te funcionó mejor)
+                             pic_art.Image = new Bitmap(imgOriginal);
+                             pic_art.BackgroundImageLayout = ImageLayout.Stretch;
+                         }
+                     }
+                     catch (Exception ex)
+                     {
+                         MessageBox.Show("No se pudo procesar esta imagen específica.\n" +
+                                         "Intenta abrirla con Paint y guardarla como PNG.\n\n" +
+                                         "Error técnico: " + ex.Message,
+                                         "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     }
+                 }
+             }*/
+
+            /*  OpenFileDialog abrir = new OpenFileDialog();
+            abrir.Title = "Seleccione una imagen";
+            abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (abrir.ShowDialog() == DialogResult.OK)
             {
-                abrir.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.webp";
-                abrir.Title = "Seleccionar imagen del producto";
+                //pic_usu_Buscar.Image = Image.FromFile(abrir.FileName);
+                pic_usu_Buscar.BackgroundImage = Image.FromFile(abrir.FileName);
+                pic_usu_Buscar.SizeMode = PictureBoxSizeMode.StretchImage;
+            }*/
 
-                if (abrir.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // Leemos el archivo a un arreglo de bytes primero. 
-                        // Esto evita que la "compu chica" bloquee el archivo.
-                        byte[] datosImagen = System.IO.File.ReadAllBytes(abrir.FileName);
+            OpenFileDialog abrir = new OpenFileDialog();
+            abrir.Title = "Seleccione una imagen";
+            abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png";
 
-                        using (var ms = new System.IO.MemoryStream(datosImagen))
-                        {
-                            // Cargamos desde memoria
-                            Image imgOriginal = Image.FromStream(ms);
-
-                            // Asignamos al BackgroundImage como hiciste vos (que te funcionó mejor)
-                            pic_art.BackgroundImage = new Bitmap(imgOriginal);
-                            pic_art.BackgroundImageLayout = ImageLayout.Stretch;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("No se pudo procesar esta imagen específica.\n" +
-                                        "Intenta abrirla con Paint y guardarla como PNG.\n\n" +
-                                        "Error técnico: " + ex.Message,
-                                        "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
+            if(abrir.ShowDialog() == DialogResult.OK) 
+             
+            
+            { 
+                pic_art.Image= Image.FromFile(abrir.FileName);
+                pic_art.BackgroundImage  = null;
+                pic_art.SizeMode = PictureBoxSizeMode.StretchImage;
+            
             }
         }
 

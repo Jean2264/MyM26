@@ -70,5 +70,6 @@ namespace MyM26.DAL
 
         //Para contable---salida
         public static DataTable SalTab = new DataTable();
+        public static DataTable SalFil = new DataTable();
     }
 }

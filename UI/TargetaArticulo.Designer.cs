@@ -42,12 +42,12 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(39, 14);
+            pictureBox1.Location = new Point(50, 19);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(134, 94);
+            pictureBox1.Size = new Size(153, 125);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -56,9 +56,9 @@
             lbl_nombre.AutoSize = true;
             lbl_nombre.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lbl_nombre.ForeColor = Color.FromArgb(64, 64, 64);
-            lbl_nombre.Location = new Point(8, 111);
+            lbl_nombre.Location = new Point(9, 148);
             lbl_nombre.Name = "lbl_nombre";
-            lbl_nombre.Size = new Size(58, 17);
+            lbl_nombre.Size = new Size(73, 23);
             lbl_nombre.TabIndex = 1;
             lbl_nombre.Text = "Nombre";
             // 
@@ -67,9 +67,9 @@
             lbl_precio.AutoSize = true;
             lbl_precio.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lbl_precio.ForeColor = Color.FromArgb(64, 64, 64);
-            lbl_precio.Location = new Point(8, 149);
+            lbl_precio.Location = new Point(9, 199);
             lbl_precio.Name = "lbl_precio";
-            lbl_precio.Size = new Size(33, 17);
+            lbl_precio.Size = new Size(43, 23);
             lbl_precio.TabIndex = 2;
             lbl_precio.Text = "P/U:";
             // 
@@ -86,9 +86,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(75, 199);
+            button1.Location = new Point(86, 265);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(58, 23);
+            button1.Size = new Size(66, 31);
             button1.TabIndex = 3;
             button1.Text = "Editar articulo";
             button1.UseVisualStyleBackColor = false;
@@ -107,9 +108,10 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(142, 199);
+            button2.Location = new Point(162, 265);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(58, 23);
+            button2.Size = new Size(87, 31);
             button2.TabIndex = 4;
             button2.Text = "Eliminar articulo";
             button2.UseVisualStyleBackColor = false;
@@ -120,9 +122,9 @@
             lbl_stock.AutoSize = true;
             lbl_stock.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lbl_stock.ForeColor = Color.FromArgb(64, 64, 64);
-            lbl_stock.Location = new Point(8, 130);
+            lbl_stock.Location = new Point(9, 173);
             lbl_stock.Name = "lbl_stock";
-            lbl_stock.Size = new Size(41, 17);
+            lbl_stock.Size = new Size(52, 23);
             lbl_stock.TabIndex = 5;
             lbl_stock.Text = "Stock";
             // 
@@ -131,9 +133,9 @@
             lbl_pxm.AutoSize = true;
             lbl_pxm.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lbl_pxm.ForeColor = Color.FromArgb(64, 64, 64);
-            lbl_pxm.Location = new Point(8, 170);
+            lbl_pxm.Location = new Point(9, 227);
             lbl_pxm.Name = "lbl_pxm";
-            lbl_pxm.Size = new Size(36, 17);
+            lbl_pxm.Size = new Size(47, 23);
             lbl_pxm.TabIndex = 6;
             lbl_pxm.Text = "P/M:";
             // 
@@ -150,9 +152,10 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(8, 199);
+            button3.Location = new Point(9, 265);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(58, 23);
+            button3.Size = new Size(66, 31);
             button3.TabIndex = 7;
             button3.Text = "Ver articulo";
             button3.UseVisualStyleBackColor = false;
@@ -160,7 +163,7 @@
             // 
             // TargetaArticulo
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
@@ -174,8 +177,11 @@
             Controls.Add(lbl_nombre);
             Controls.Add(pictureBox1);
             DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(252, 316);
+            MinimumSize = new Size(252, 316);
             Name = "TargetaArticulo";
-            Size = new Size(207, 237);
+            Size = new Size(252, 316);
             Load += TargetaArticulo_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

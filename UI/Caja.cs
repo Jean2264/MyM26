@@ -61,20 +61,8 @@ namespace MyM26.screens
         }
 
         private void btn_añadir_desc_Click(object sender, EventArgs e)
-        {
-            /* if(txt_desc.Text == "")
-             {
-                 MessageBox.Show("Ingrese un valor de descuento válido.");
-                 return;
-             }
-             decimal DesCAcum= Convert.ToDecimal(txt_desc.Text);
-             Descuento += DesCAcum;
-             CalcularTotalGeneral();
-             txt_desc.Visible = false;
-             txt_desc.Text = "";
-             btn_añadir_desc.Visible = false;
-             btn_reem_desc.Visible = false;*/
-
+        { 
+           
           
             if (string.IsNullOrWhiteSpace(txt_desc.Text))
             {
@@ -90,6 +78,8 @@ namespace MyM26.screens
                 if(Descuento> subtotal)
                 {
                     MessageBox.Show("El descuento no puede ser mayor al sbtotal\nPor favor, revisa el descuento ingesado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Descuento -= DesCAcum;
+                    txt_desc.Clear();
                     return;
                 }
                 CalcularTotalGeneral();
@@ -317,7 +307,14 @@ namespace MyM26.screens
 
         private void btn_reem_desc_Click(object sender, EventArgs e)
         {
+            
             Descuento = Convert.ToDecimal(txt_desc.Text);
+            if (Descuento > subtotal)
+            {
+                MessageBox.Show("El descuento no puede ser mayor al sbtotal\nPor favor, revisa el descuento ingesado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_desc.Clear();
+                return;
+            }
             CalcularTotalGeneral();
 
             txt_desc.Visible = false;
