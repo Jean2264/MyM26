@@ -1,0 +1,547 @@
+﻿
+
+/////////////////////////PRIMER PASO////////////////   
+   using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Threading;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Net;
+using System.Windows.Forms;
+using PS_VS15.clases;
+
+namespace PS_VS15.pantallas
+{
+    public partial class RecuperarContraseña : Form
+    {
+       
+
+        public RecuperarContraseña()
+        {
+            InitializeComponent();
+            Conexion.Conectar();
+          
+           
+        }
+
+        private void RecuperarContraseña_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_validar_Click(object sender, EventArgs e)
+        {
+            /*  string correo = txt8.Text;
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                errorProvider1.SetError(txt8, "El correo no puede quedar vacío.");
+                TodoOk = false;
+            }
+            else if (!Regex.IsMatch(correo, patron))
+            {
+                errorProvider1.SetError(txt8, "El correo ingresado no es válido.");
+                TodoOk = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txt8, "");
+            }*/
+            string correo = txt_correo.Text;
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                errorProvider1.SetError(txt_correo, "El correo no puede quedar vacío.");
+                return;
+            }
+            else if (!Regex.IsMatch(correo, patron))
+            {
+                errorProvider1.SetError(txt_correo, "El correo ingresado no es válido.");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txt_correo, "");
+            }
+            
+          if (!ValidarUsuario(txt_correo.Text))
+            {
+                MessageBox.Show("No existe un usuario administrador con ese correo.");
+                return;
+
+            }
+            GuardarToken(txt_correo.Text);
+            MessageBox.Show("Se ha enviado un token de recuperación a su correo.");
+
+            validarToken tc = new validarToken();
+            tc.StartPosition = FormStartPosition.CenterParent;
+            tc.co = txt_correo.Text.Trim();
+            tc.Show();
+            this.Hide();
+        }
+        /*Console.ForegroundColor = ConsoleColor.Blue;
+Console.WriteLine("Bienvenido al mejor programa para enviar emails!");
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("A quien quieres enviar un email?");
+Console.ForegroundColor = ConsoleColor.White;
+string to=Console.ReadLine();
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("Cual es el asunto?");
+Console.ForegroundColor = ConsoleColor.White;
+string emailSubject = Console.ReadLine();
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("Que quieres decirle?");
+Console.ForegroundColor = ConsoleColor.White;
+string emailBody=Console.ReadLine();
+
+MailAddress addressFrom = new MailAddress("marowarthYT@gmail.com", "MarowarthYT");
+MailAddress addressTo = new MailAddress(to);
+MailMessage message = new MailMessage(addressFrom, addressTo);
+message.Subject = emailSubject;
+message.IsBodyHtml = true;
+message.Body = emailBody;
+SmtpClient client = new SmtpClient("smtp.gmail.com");
+client.Port = 587;
+client.EnableSsl = true;
+client.UseDefaultCredentials = false;
+client.Credentials =
+new NetworkCredential("marowarthYT@gmail.com", "mipass");
+try
+{
+    client.Send(message);
+}
+catch (Exception ex)
+{
+    System.Diagnostics.Trace.TraceInformation("Exception caught in CreateTestMessage2(): {0}",
+        ex.ToString());
+    Console.WriteLine("Exception caught in CreateTestMessage2(): {0}",
+        ex.ToString());
+}*/
+        private bool ValidarUsuario(string correo)
+        {
+            using (SqlConnection conn = new SqlConnection(Decla.cnn.ConnectionString))
+            {
+                conn.Open();
+                string consulta = @"
+                                SELECT COUNT(*) 
+                                FROM Usuario s 
+                                INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario 
+                                WHERE s.Mail = @Mail 
+                                AND t.Tipo = 'Administrador' 
+                                AND s.Estado = 1";
+
+                SqlCommand cmd = new SqlCommand(consulta, conn);
+                cmd.Parameters.AddWithValue("@Mail", correo);
+                int count =Convert.ToInt32( cmd.ExecuteScalar());
+                return count > 0;
+            }
+        }
+
+        private string GenerarToken(int longitud = 8)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, longitud).Select(s => s[random.Next(s.Length)]).ToArray());
+
+        }
+
+        private void GuardarToken(string correo)
+        {
+            string token = GenerarToken();
+            DateTime expira = DateTime.Now.AddMinutes(10);
+
+            using (SqlConnection cn = new SqlConnection(Decla.cnn.ConnectionString))
+            {
+                cn.Open();
+                /*@"UPDATE Usuario 
+                             SET TokenRecuperacion=@token, TokenExpira=@expira 
+                             WHERE Correo=@correo AND TipoUsuario='Administrador'";
+*/
+                string consulta = @"UPDATE  s
+                                   SET s.TokenRecuperacion = @token,
+                                   s.TokenExpira = @expira
+                                   FROM Usuario s
+                                   INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario
+                                   WHERE s.Mail = @correo
+                                   AND t.Tipo = 'Administrador'";
+                SqlCommand comando = new SqlCommand(consulta, cn);
+                comando.Parameters.AddWithValue("@token", token);
+                comando.Parameters.AddWithValue("@expira", expira);
+                comando.Parameters.AddWithValue("@correo", correo);
+                comando.ExecuteNonQuery();
+            }
+            EnviarCorreo(correo, token);
+        }
+
+        private void EnviarCorreo(string destino, string token)
+        {
+            MailMessage mail = new MailMessage("primesystemsoport25@gmail.com", destino);
+            mail.Subject = "Recuperación de contraseña";
+            mail.Body = $"Tu Token de recuperación es: {token}\n" +
+                "Este Token expira en 10 minutos y solo puede usarse una sola vez.";
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.Port = 587;
+            smtp.Credentials = new NetworkCredential("primesystemsoport25@gmail.com", "huus luox wcyv bvxr");
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
+        }
+
+        private void txt_correo_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+        }
+
+        private void txt_correo_KeyDown(object sender, KeyEventArgs e)
+        {
+          
+
+            bool isAltGr = e.Control && e.Alt;
+
+            if((e.Control && e.KeyCode== Keys.C)||
+                
+                (e.Control && e.KeyCode== Keys.V) ||
+                (e.Control && e.KeyCode== Keys.X) ||
+                (e.Control && e.KeyCode== Keys.Insert) ||
+                (e.Shift && e.KeyCode== Keys.Insert ||
+                (e.Shift && e.KeyCode== Keys.Delete) ||
+                (e.KeyCode == Keys.LWin || 
+                e.KeyCode== Keys.RWin)))
+                {
+
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void txt_correo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            char c = e.KeyChar;
+            if(!char.IsLetterOrDigit(c) && c != '@' && c != '.' && !char.IsControl(c))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_correo_MouseDown(object sender, MouseEventArgs e)
+        {
+            /*if (e.Button == MouseButtons.Right)
+            {
+                // cancela el clic derecho
+                e = null;
+                MessageBox.Show("Función deshabilitada.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
+            if(e.Button == MouseButtons.Right)
+            {
+                e = null;
+                MessageBox.Show("Función deshabilitada.", "Aviso",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    }
+}
+
+
+/////////////////SEGUNDO PASO////////////////
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using PS_VS15.clases;
+
+namespace PS_VS15.pantallas
+{
+    public partial class validarToken : Form
+    {
+        public string co;
+        private string user;
+        public validarToken()
+        {
+            InitializeComponent();
+            Conexion.Conectar();
+        }
+
+        private void validarToken_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool ValidarToken(string correo, string tokenIngresado)
+        {
+            using (SqlConnection conn = new SqlConnection(Decla.cnn.ConnectionString))
+            {
+                conn.Open();
+                string query = @"
+                            SELECT s.TokenRecuperacion, s.TokenExpira, s.Usuario 
+                            FROM Usuario s
+                            INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario
+                            WHERE s.Mail = @correo
+                            AND t.Tipo = 'Administrador'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@correo", correo);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    string tokenDb = reader["TokenRecuperacion"].ToString();
+                    DateTime expira = Convert.ToDateTime(reader["TokenExpira"]);
+                    user = reader["Usuario"].ToString();
+
+                    if (tokenDb == tokenIngresado && DateTime.Now <= expira)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void btn_validar_Click(object sender, EventArgs e)
+        {
+            if(ValidarToken(co, txt_token.Text))
+            {
+                MessageBox.Show("Token válido. Ahora puede cambiar su contraseña.");
+                CambiarPass cp = new CambiarPass();
+                cp.StartPosition = FormStartPosition.CenterParent;
+                cp.usuario = user;
+                cp.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Token inválido o expirado.");
+
+            }
+        }
+
+        private void txt_token_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+        }
+
+        private void txt_token_KeyDown(object sender, KeyEventArgs e)
+        {
+            /*  // Bloquear combinaciones comunes de copiar/pegar/cortar
+            if ((e.Control && e.KeyCode == Keys.C) ||
+                (e.Control && e.KeyCode == Keys.V) ||
+                (e.Control && e.KeyCode == Keys.X) ||
+                (e.Shift && e.KeyCode == Keys.Insert) ||
+                (e.Control && e.KeyCode == Keys.Insert) ||
+                (e.Shift && e.KeyCode == Keys.Delete))
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+            // Bloquear teclas de Windows
+            if (e.KeyCode == Keys.LWin || e.KeyCode == Keys.RWin)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+            // Detectar AltGr (Ctrl + Alt) + Q
+            if (e.Control && e.Alt && e.KeyCode == Keys.Q)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }*/
+            bool isAltGr = e.Control && e.Alt;
+            if ((e.Control && e.KeyCode == Keys.C) ||
+                (e.Control && e.KeyCode == Keys.V) ||
+                (e.Control && e.KeyCode == Keys.X) ||
+                (e.Shift && e.KeyCode == Keys.Insert) ||
+                (e.Control && e.KeyCode == Keys.Insert) ||
+                (e.Shift && e.KeyCode == Keys.Delete) ||
+                 (e.KeyCode == Keys.LWin) ||
+                 (e.KeyCode== Keys.RWin) ||
+                 (e.Control && e.Alt && e.KeyCode== Keys.Q))
+                {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+
+            }
+        }
+
+        private void txt_token_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                e = null;
+                MessageBox.Show("Función deshabilitada.", "Aviso",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txt_token_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // bloquea cualquier símbolo
+            }
+        }
+    }
+}
+
+
+////////////////TERCER PASO////////////////
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using PS_VS15.clases;
+
+namespace PS_VS15.pantallas
+{
+    public partial class CambiarPass : Form
+    {
+        public string usuario;
+        public CambiarPass()
+        {
+            InitializeComponent();
+            Conexion.Conectar();
+        }
+
+        private void CambiarPass_Load(object sender, EventArgs e)
+        {
+            lbl_user.Text = usuario;
+        }
+
+        private void btn_validar_Click(object sender, EventArgs e)
+        {
+          
+            errorProvider1.SetError(txt_pass, "");
+            errorProvider1.SetError(txt_repet, "");
+
+           
+            if (string.IsNullOrWhiteSpace(txt_pass.Text))
+            {
+                errorProvider1.SetError(txt_pass, "La contraseña no puede estar vacía.");
+                return;
+            }
+            if (txt_pass.Text.Length < 8 || txt_pass.Text.Length > 20)
+            {
+                errorProvider1.SetError(txt_pass, "La contraseña debe tener entre 8 y 20 caracteres.");
+                return;
+            }
+            if (txt_pass.Text != txt_repet.Text)
+            {
+                errorProvider1.SetError(txt_repet, "Las contraseñas no coinciden.");
+                return;
+            }
+
+           
+            string consulta = @"UPDATE Usuario SET Contrasenia=@pass WHERE Usuario=@user AND Estado=1";
+
+            try
+            {
+                using (SqlConnection cnn = new SqlConnection(Decla.cnn.ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(consulta, cnn))
+                {
+                    cmd.Parameters.Add("@pass", SqlDbType.VarChar, 20).Value = txt_repet.Text.ToLower();
+                    cmd.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = usuario;
+
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Contraseña actualizada con éxito ", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Login lg = new Login();
+                lg.StartPosition = FormStartPosition.CenterScreen;
+                lg.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar la contraseña: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txt_pass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // bloquea cualquier símbolo
+            }
+        }
+
+        private void txt_pass_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool isAltGr = e.Control && e.Alt;
+
+            // Bloquear combinaciones comunes de copiar/pegar/cortar
+            if ((e.Control && e.KeyCode == Keys.C) ||
+                (e.Control && e.KeyCode == Keys.V) ||
+                (e.Control && e.KeyCode == Keys.X) ||
+                (e.Shift && e.KeyCode == Keys.Insert) ||
+                (e.Control && e.KeyCode == Keys.Insert) ||
+                (e.Shift && e.KeyCode == Keys.Delete))
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+            // Bloquear teclas de Windows
+            if (e.KeyCode == Keys.LWin || e.KeyCode == Keys.RWin)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+            // Detectar AltGr (Ctrl + Alt) + Q
+            if (e.Control && e.Alt && e.KeyCode == Keys.Q)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void txt_pass_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+        }
+
+        private void txt_pass_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                // cancela el clic derecho
+                e = null;
+                MessageBox.Show("Función deshabilitada.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    }
+}
