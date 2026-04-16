@@ -170,10 +170,12 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(81, 327);
+            label4.Enabled = false;
+            label4.Font = new Font("Segoe UI", 7.8F);
+            label4.ForeColor = Color.DimGray;
+            label4.Location = new Point(86, 358);
             label4.Name = "label4";
-            label4.Size = new Size(97, 23);
+            label4.Size = new Size(74, 17);
             label4.TabIndex = 9;
             label4.Text = "Contraseña";
             // 
@@ -181,10 +183,13 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(79, 207);
+            label2.Enabled = false;
+            label2.FlatStyle = FlatStyle.Flat;
+            label2.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.DimGray;
+            label2.Location = new Point(83, 238);
             label2.Name = "label2";
-            label2.Size = new Size(118, 23);
+            label2.Size = new Size(91, 17);
             label2.TabIndex = 6;
             label2.Text = "Usuario o DNI";
             // 
@@ -196,8 +201,10 @@
             txt_contra.Size = new Size(204, 27);
             txt_contra.TabIndex = 7;
             txt_contra.DragEnter += txt_user_DragEnter;
+            txt_contra.Enter += txt_contra_Enter;
             txt_contra.KeyDown += txt_contra_KeyDown;
             txt_contra.KeyPress += txt_user_KeyPress;
+            txt_contra.Leave += txt_contra_Leave;
             txt_contra.MouseDown += txt_user_MouseDown;
             // 
             // txt_user
@@ -207,10 +214,14 @@
             txt_user.Name = "txt_user";
             txt_user.Size = new Size(204, 27);
             txt_user.TabIndex = 6;
+            txt_user.TextChanged += txt_user_TextChanged;
             txt_user.DragEnter += txt_user_DragEnter;
+            txt_user.Enter += txt_user_Enter;
             txt_user.KeyDown += txt_user_KeyDown;
             txt_user.KeyPress += txt_user_KeyPress;
+            txt_user.Leave += txt_user_Leave;
             txt_user.MouseDown += txt_user_MouseDown;
+            txt_user.MouseEnter += txt_user_MouseEnter;
             // 
             // label1
             // 

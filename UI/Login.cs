@@ -225,5 +225,59 @@ namespace MyM26.UI
             recuperar.Show();
             this.Hide();
         }
+
+        private void txt_user_MouseEnter(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void txt_user_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_user_Enter(object sender, EventArgs e)
+        {
+            //Segoe UI Semibold, 9.75pt, style=Bold  
+            //79, 207
+            label2.Location = new Point(79, 210);
+            label2.Enabled = true;
+            label2.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            label2.ForeColor = Color.Black;
+
+        }
+
+        private void txt_user_Leave(object sender, EventArgs e)
+        {
+            if (txt_user.Text == "")
+            { //Segoe UI, 7.8pt
+                label2.Location = new Point(83, 238);
+
+                label2.Font = new Font("Segoe UI", 8);
+                label2.ForeColor = Color.FromArgb(64, 64, 64);
+                label2.Enabled = false;
+            }
+        }
+
+        private void txt_contra_Enter(object sender, EventArgs e)
+        {
+            label4.Location = new Point(81, 330);
+            label4.Enabled = true;
+            label4.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            label4.ForeColor = Color.Black;
+        }
+
+        private void txt_contra_Leave(object sender, EventArgs e)
+        {
+            if (txt_contra.Text == "")
+            {
+                label4.Location = new Point(86, 358);
+                label4.Font = new Font("Segoe UI", 8);
+                label4.ForeColor = Color.DimGray;
+                label4.ForeColor = Color.FromArgb(64, 64, 64);
+                label4.Enabled = false;
+            }
+        }
     }
 }

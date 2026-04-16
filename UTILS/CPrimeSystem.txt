@@ -131,6 +131,8 @@ catch (Exception ex)
     Console.WriteLine("Exception caught in CreateTestMessage2(): {0}",
         ex.ToString());
 }*/
+
+
         private bool ValidarUsuario(string correo)
         {
             using (SqlConnection conn = new SqlConnection(Decla.cnn.ConnectionString))

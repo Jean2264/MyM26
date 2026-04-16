@@ -619,10 +619,9 @@ namespace MyM26.screens
                 GenerarTicketPDF();
                 CajaDatos dt= new CajaDatos();
                 dt.AltaHistoricoCompleto(venta);
-                venta.Detalle = "Presupuesto";
-                venta.Monto = 00;
+              
                 MessageBox.Show($"Presupuesto generado correctamente");
-                dt.ALtaCompletoIntOutVarios(venta);
+               
                 ResetCampos();
                 return;
             }

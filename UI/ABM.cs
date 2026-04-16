@@ -270,6 +270,10 @@ namespace MyM26.screens
             decimal.TryParse(txt_P_P.Text, out decimal costo);
             decimal.TryParse(txt_D_P.Text, out decimal desc);
             decimal.TryParse(txt_P_U.Text, out decimal precioUnit);
+
+            decimal costoParcial = (costo - desc);
+            decimal Total = costoParcial * (int)numeric_C_U.Value;
+
             cb = txt_cb.Text;
             VArticulo ar = new VArticulo
             {
@@ -289,7 +293,8 @@ namespace MyM26.screens
                 Costo = costo,
                 Descuento = desc,
                 PrecioXMayor = pm,
-
+                Detalle = "Compra" ,
+                Monto =Total,
                 Ganancia = (precioUnit - costo),
                 Cantidad = (int)numeric_C_U.Value,
                 CantMinMayor = (int)numeric_C_M.Value
@@ -389,6 +394,7 @@ namespace MyM26.screens
                 limparCampos();
                 ar.LlenarArt();
                 dat.AltaHistoricoCompleto(art);
+                dat.ALtaCompletoIntOutVarios(art);
 
                 //Hola ola 
             }

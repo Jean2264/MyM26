@@ -1,4 +1,5 @@
 ﻿using MyM26.Entidades.Articulos;
+using MyM26.Entidades.Caja;
 using MyM26.Entidades.Empleado;
 using MyM26.Entidades.Usuario;
 using MyM26.Querys;
@@ -1096,6 +1097,64 @@ WHERE a.CodigoBarra = @codBarra ";
             }
 
             return total;
+        }
+
+
+        //PARA INOUTVARIOS
+
+        public void IdIntOutVarios(VArticulo hv, SqlTransaction trans)
+        {
+            string consulta = @"Select ISNULL(MAX(IdMovimiento), 0) as UltimoId from InOutVarios";
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
+
+            {
+                hv.UltimoIdIntOut = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public void AltaIntOutVarios(VArticulo hv, SqlTransaction trans)
+        {
+
+            hv.NuevoIdIntOut = hv.UltimoIdIntOut + 1;
+            hv.CodMovimiento = "MOVV" + hv.NuevoIdIntOut;
+
+            string consulta = @"INSERT INTO InOutVarios(IdMovimiento, CodMovimiento, Detalle, Monto, Fecha) 
+                                VALUES(@IdMovimiento, @CodMovimiento, @Detalle, @Monto, GETDATE())";
+
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
+            cmd.Parameters.AddWithValue("@IdMovimiento", hv.NuevoIdIntOut);
+            cmd.Parameters.AddWithValue("@CodMovimiento", hv.CodMovimiento);
+            cmd.Parameters.AddWithValue("@Detalle", hv.Detalle);
+            cmd.Parameters.AddWithValue("@Monto", hv.Monto);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void ALtaCompletoIntOutVarios(VArticulo hv)
+        {
+            try
+            {
+                Decla.cnn.Open();
+                SqlTransaction trans = Decla.cnn.BeginTransaction();
+
+                try
+                {
+                    IdIntOutVarios(hv, trans);
+                    AltaIntOutVarios(hv, trans);
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("Error al registrar el movimiento: " + ex.Message.ToString());
+                }
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+
+            }
         }
 
     }

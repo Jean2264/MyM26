@@ -60,6 +60,15 @@ namespace MyM26.Entidades.Articulos
         public int NuevoIdMov { get; set; }
         public string TipoMovimiento { get; set; }
         public string DetalleMovimiento { get; set; }
-        
-}
+
+        //PARA INOUTVARIOS
+
+        public int UltimoIdIntOut { get; set; }
+        public int NuevoIdIntOut { get; set; }
+        public string CodMovimiento { get; set; }
+        public string Detalle { get; set; }
+        public decimal Monto { get; set; }
+        public DateTime Fecha { get; set; }
+
+    }
 }
