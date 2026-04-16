@@ -551,6 +551,12 @@ namespace MyM26.screens
         //
         private void btn_confiVenta_Click(object sender, EventArgs e)
         {
+
+            if(dtg_caja.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay productos en la venta.");
+                return;
+            }
             CalcularTotalGeneral();
             //Armamos HVenta
 
@@ -571,14 +577,7 @@ namespace MyM26.screens
             venta.TipoMovimiento = "Alta venta";
             venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc+ " (DNI:  "+UsuarioActivo.Datos.DNIAc +") "+" a generado una venta por un total de"+ Total.ToString("N2");
 
-          /*  if(cmb_comprobante.SelectedItem=="Remito")
-            {
-                venta.Detalle = "Remito";
-            }
-            else if(cmb_comprobante.SelectedItem == "Presupuesto")
-            {
-                venta.Detalle = "Presupuesto";
-            }*/
+        
 
             //Armamos Detalle
             List<HVentaDetalle> listaDetalle = new List<HVentaDetalle>();

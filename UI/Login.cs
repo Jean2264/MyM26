@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using MyM26.Entidades.Usuario;
 using MyM26.Entidades.Comun;
 using MyM26.DAL;
+using System.Net.Mail;
+using System.Net;
 using MyM26.BLL;
 using System.Drawing;
 using System.Text;
@@ -61,14 +63,12 @@ namespace MyM26.UI
 
         private void button2_MouseEnter(object sender, EventArgs e)
         {
-            button2.Size = tamañoHover;
-            button2.Location = new Point(button2.Location.X - 1, button2.Location.Y - 1);
+           
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-            button2.Size = tamañoOriginal;
-            button2.Location = new Point(button2.Location.X + 1, button2.Location.Y + 1);
+           
 
         }
 
@@ -278,6 +278,11 @@ namespace MyM26.UI
                 label4.ForeColor = Color.FromArgb(64, 64, 64);
                 label4.Enabled = false;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

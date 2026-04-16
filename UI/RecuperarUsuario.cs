@@ -35,8 +35,7 @@ namespace MyM26.UI
 
         private void RecuperarUsuario_Load(object sender, EventArgs e)
         {
-            Correo uc = new Correo();
-            MostrarUserControl(uc);
+            MostrarPaso1();
         }
 
 
@@ -54,8 +53,8 @@ namespace MyM26.UI
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Login log = new Login();
-                log.Show();
-                log.Location = this.Location;
+            log.Show();
+            log.Location = this.Location;
             this.Close();
         }
 
@@ -90,7 +89,21 @@ namespace MyM26.UI
         private void MostrarPaso3()
         {
             Contrasenia uc3 = new Contrasenia();
-          MostrarUserControl(uc3);
+            uc3.ContraseniaValidado += (
+                s, e) =>
+            {
+                // Cuando el UC avisa, volvemos al login
+                Login log = new Login();
+                log.Show();
+                log.Location = this.Location;
+                this.Close();
+            };
+            MostrarUserControl(uc3);
+        }
+
+        private void panelprincipal_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

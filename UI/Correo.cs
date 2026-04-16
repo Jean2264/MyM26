@@ -1,20 +1,22 @@
-﻿using System;
+﻿using MyM26.BLL;
+using MyM26.DAL;
+using MyM26.Entidades.Comun;
+using MyM26.Entidades.Usuario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using MyM26.Entidades.Usuario;
-using MyM26.Entidades.Comun;
-using MyM26.DAL;
-using MyM26.BLL;
 using System.Drawing;
-using System.Net.Mail;
 using System.Net;
-using System.Text;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.Net.Mail;
+using MyM26.Entidades;
+using MyM26.Entidades.Usuario;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MyM26.UI
 {
@@ -83,7 +85,7 @@ namespace MyM26.UI
             return new string(Enumerable.Repeat(chars, 8).Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        private void GuardarToken(string correo)
+        private async Task<bool> GuardarToken(string correo)
         {
             string token = GenerarToken();
             DateTime expira = DateTime.Now.AddMinutes(10);
@@ -104,57 +106,77 @@ namespace MyM26.UI
                 comando.Parameters.AddWithValue("@correo", correo);
                 comando.ExecuteNonQuery();
             }
-            /*  private void GuardarToken(string correo)
-             
-            
-            {
-                string token = GenerarToken();
-                DateTime expira = DateTime.Now.AddMinutes(10);
 
-                using (SqlConnection cn = new SqlConnection(Decla.cnn.ConnectionString))
-                {
-                    cn.Open();
-                    /*@"UPDATE Usuario 
-                                 SET TokenRecuperacion=@token, TokenExpira=@expira 
-                                 WHERE Correo=@correo AND TipoUsuario='Administrador'";
-
-            string consulta = @"UPDATE  s
-                                       SET s.TokenRecuperacion = @token,
-                                       s.TokenExpira = @expira
-                                       FROM Usuario s
-                                       INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario
-                                       WHERE s.Mail = @correo
-                                       AND t.Tipo = 'Administrador'";
-            SqlCommand comando = new SqlCommand(consulta, cn);
-            comando.Parameters.AddWithValue("@token", token);
-                    comando.Parameters.AddWithValue("@expira", expira);
-                    comando.Parameters.AddWithValue("@correo", correo);
-                    comando.ExecuteNonQuery();
-                }
-                EnviarCorreo(correo, token);
-        }*/
+          return  await EnviarCorreo(correo, token);
         }
 
-        /*private void EnviarCorreo(string destino, string token)
+
+
+
+        public static async Task<bool> EnviarCorreo(string destino, String token)
         {
-            MailMessage mail = new MailMessage("primesystemsoport25@gmail.com", destino);
-            mail.Subject = "Recuperación de contraseña";
-            mail.Body = $"Tu Token de recuperación es: {token}\n" +
-                "Este Token expira en 10 minutos y solo puede usarse una sola vez.";
+            try
+            {
+                MailMessage mes = new MailMessage();
+                mes.From = new MailAddress("soportesjpd@gmail.com", "Soportesjpd");
+                mes.To.Add(destino);
+                mes.Subject = "Token de seguridad para recuperación de contraseña";
+                mes.Body = $@"
+                              <div style='font-family: Arial;'>
+                                  <h2>Recuperación de contraseña</h2>
+                                  <p>Tu código de verificación es:</p>
+                                  <h1 style='color:#da1e1e;'>{token}</h1>
+                                  <p>Este código expira en <b>10 minutos</b>.</p>
+                              </div>";
+                mes.IsBodyHtml = true;
 
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-            smtp.Port = 587;
-            smtp.Credentials = new NetworkCredential("primesystemsoport25@gmail.com", "huus luox wcyv bvxr");
-            smtp.EnableSsl = true;
-            */
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential("soportesjpd@gmail.com", "kidu iami vkvw ulwg");
 
-        private void EnviarCorreo(string destino, String token)
+                smtp.EnableSsl = true;
+
+                await smtp.SendMailAsync(mes);
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+
+        }
+
+        private async void btn_verifi_Click(object sender, EventArgs e)
         {
+            btn_verifi.Enabled = false; // Evitar múltiples clics
+            if (!ValidarUser(txt_correo.Text))
+            {
+                MessageBox.Show("Correo no registrado o no es un administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            //Cuenta: soportesjpd@gmail.com
-           //APP pass:  oyo vtvh teaf nrza
-            MailAddress mail = new MailAddress("soportesjpd@gmail.com", destino);
-            
+          bool enviado = await GuardarToken(txt_correo.Text);
+            if(enviado)
+            {
+                MessageBox.Show("Token enviado al correo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                RecUser.correo = txt_correo.Text;
+                //disparo el evento para que el padre sepa que el correo fue validado y pueda mostrar el siguiente paso
+                CorreoValidado?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                MessageBox.Show("Error al enviar el correo. Intenta nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btn_verifi.Enabled = true; // Rehabilitar el botón para intentar de nuevo
+            }
+
+          
+
+          
+           
+           
         }
     }
 }

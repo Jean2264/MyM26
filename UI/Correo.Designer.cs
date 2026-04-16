@@ -69,6 +69,7 @@
             btn_verifi.TabIndex = 2;
             btn_verifi.Text = "Verificar correo";
             btn_verifi.UseVisualStyleBackColor = true;
+            btn_verifi.Click += btn_verifi_Click;
             // 
             // Correo
             // 

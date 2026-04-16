@@ -41,9 +41,10 @@
             panel3.BackColor = Color.Transparent;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Location = new Point(84, 468);
+            panel3.Location = new Point(96, 624);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(399, 46);
+            panel3.Size = new Size(456, 61);
             panel3.TabIndex = 10;
             // 
             // panel2
@@ -51,9 +52,10 @@
             panel2.BackColor = Color.Transparent;
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(111, 166);
+            panel2.Location = new Point(127, 221);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(309, 312);
+            panel2.Size = new Size(353, 416);
             panel2.TabIndex = 9;
             // 
             // btn_salir
@@ -65,10 +67,11 @@
             btn_salir.FlatAppearance.MouseDownBackColor = Color.FromArgb(215, 10, 60);
             btn_salir.FlatAppearance.MouseOverBackColor = Color.FromArgb(215, 10, 60);
             btn_salir.FlatStyle = FlatStyle.Flat;
-            btn_salir.Location = new Point(1113, 1);
+            btn_salir.Location = new Point(1272, 1);
+            btn_salir.Margin = new Padding(3, 4, 3, 4);
             btn_salir.Name = "btn_salir";
             btn_salir.RightToLeft = RightToLeft.No;
-            btn_salir.Size = new Size(20, 32);
+            btn_salir.Size = new Size(23, 43);
             btn_salir.TabIndex = 8;
             btn_salir.UseVisualStyleBackColor = false;
             btn_salir.Click += btn_salir_Click;
@@ -82,9 +85,10 @@
             btn_mini.FlatAppearance.MouseDownBackColor = Color.FromArgb(90, 82, 160);
             btn_mini.FlatAppearance.MouseOverBackColor = Color.FromArgb(90, 82, 160);
             btn_mini.FlatStyle = FlatStyle.Flat;
-            btn_mini.Location = new Point(1088, 1);
+            btn_mini.Location = new Point(1243, 1);
+            btn_mini.Margin = new Padding(3, 4, 3, 4);
             btn_mini.Name = "btn_mini";
-            btn_mini.Size = new Size(20, 32);
+            btn_mini.Size = new Size(23, 43);
             btn_mini.TabIndex = 7;
             btn_mini.UseVisualStyleBackColor = false;
             btn_mini.Click += btn_mini_Click;
@@ -93,19 +97,21 @@
             // 
             panelprincipal.BackColor = Color.Transparent;
             panelprincipal.BackgroundImageLayout = ImageLayout.Stretch;
-            panelprincipal.Location = new Point(638, 104);
+            panelprincipal.Location = new Point(729, 139);
+            panelprincipal.Margin = new Padding(3, 4, 3, 4);
             panelprincipal.Name = "panelprincipal";
-            panelprincipal.Size = new Size(342, 509);
+            panelprincipal.Size = new Size(391, 679);
             panelprincipal.TabIndex = 11;
+            panelprincipal.Paint += panelprincipal_Paint;
             // 
             // RecuperarUsuario
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(115, 109, 244);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1148, 698);
+            ClientSize = new Size(1312, 931);
             Controls.Add(panelprincipal);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -113,6 +119,7 @@
             Controls.Add(btn_mini);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "RecuperarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RecuperarUsuario";

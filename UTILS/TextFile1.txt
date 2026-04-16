@@ -131,7 +131,7 @@ FechaAlta datetime default getdate(),
 Estado bit default 1 not null,
 Perfil varbinary(max),
 TokenRecuperacion varchar(10),
-TokenExpira date,
+TokenExpira datetime,
 CodTipoUsuario varchar(10),
 primary key(IdUsuario),
 foreign key(CodTipoUsuario) references TipoUsuario (CodTipoUsuario)

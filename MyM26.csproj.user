@@ -67,6 +67,9 @@
     <Compile Update="UI\RecuperarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\registroDeUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\TargetaArticulo.cs">
       <SubType>UserControl</SubType>
     </Compile>
