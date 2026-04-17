@@ -3,6 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using ClosedXML.Excel;
+using System.IO;
+
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -14,7 +21,7 @@ namespace MyM26.UI
     public partial class Contable : UserControl
     {
         int paginaActual = 1;
-        int registrosPorPagina = 20;
+        int registrosPorPagina = 50;
         int TotalPaginas = 0;
         string modo;
         public Contable()
@@ -39,7 +46,7 @@ namespace MyM26.UI
 
             cmb_export.Items.Add("Exportar a Excel");
             cmb_export.Items.Add("Exportar a PDF");
-            if (modo=="mov")
+            if (modo == "mov")
             {
                 cmb_filtrar.Items.Add("Todos");
                 cmb_filtrar.Items.Add("Usuario");
@@ -51,7 +58,7 @@ namespace MyM26.UI
                 cmb_filtrar.Items.Add("Empleado");
                 cmb_filtrar.SelectedIndex = -1;
             }
-            else if(modo== "sal")
+            else if (modo == "sal")
             {
                 cmb_filtrar.Items.Add("Remito");
                 cmb_filtrar.Items.Add("Presupuesto");
@@ -477,7 +484,7 @@ namespace MyM26.UI
         {
             cmb_filtrar.Items.Clear();
             modo = "sal";
-            if(modo=="sal")
+            if (modo == "sal")
             {
                 cmb_filtrar.Items.Add("Todos");
                 cmb_filtrar.Items.Add("Remito");
@@ -565,7 +572,7 @@ namespace MyM26.UI
             DateTime? hasta = Thasta.Checked ? Thasta.Value.Date.AddDays(1).AddSeconds(-1) : (DateTime?)null;
             if (modo == "mov")
             {
-               
+
 
                 //validamos antes de llamar al DAL
                 if (desde != null && hasta != null && desde > hasta)
@@ -576,9 +583,9 @@ namespace MyM26.UI
                 DataTable dt = ContableDatos.FiltrarMvimiento(categoria, desde, hasta);
                 dataGridView1.DataSource = dt;
             }
-            else if(modo =="sal")
+            else if (modo == "sal")
             {
-              
+
 
                 //validamos antes de llamar al DAL
                 if (desde != null && hasta != null && desde > hasta)
@@ -587,7 +594,7 @@ namespace MyM26.UI
                     return;
                 }
 
-                DataTable dt2= ContableDatos.FiltrarSalidas(categoria, desde, hasta);
+                DataTable dt2 = ContableDatos.FiltrarSalidas(categoria, desde, hasta);
                 dataGridView1.DataSource = dt2;
             }
         }
@@ -614,19 +621,120 @@ namespace MyM26.UI
 
         private void btn1_reinicirDTG_Click(object sender, EventArgs e)
         {
-            if(modo== "mov")
+            if (modo == "mov")
             {
                 MostrarMov();
                 cmb_filtrar.SelectedIndex = -1;
-                Tdesde.Checked=false;
-                Thasta.Checked=false;
+                Tdesde.Checked = false;
+                Thasta.Checked = false;
             }
-            else if(modo=="sal")
+            else if (modo == "sal")
             {
                 MostrarSal();
                 cmb_filtrar.SelectedIndex = -1;
                 Tdesde.Checked = false;
                 Thasta.Checked = false;
+            }
+        }
+
+        /////////////////////EXPORTACIONES////////////////////
+        ///
+
+
+
+        //Exportar a Excel
+
+        private void ExportarExcel(DataGridView dtg)
+        {
+            SaveFileDialog sfg = new SaveFileDialog();
+
+            sfg.Filter = "Excel (*.xlsx)|*.xlsx";
+
+            if (sfg.ShowDialog() == DialogResult.OK)
+            {
+                using (var wb = new XLWorkbook())
+                {
+                    var ws = wb.Worksheets.Add("Datos");
+
+                    // Agregar encabezados
+
+                    for (int i = 0; i < dtg.Columns.Count; i++)
+                    {
+                        ws.Cell(1, i + 1).Value = dtg.Columns[i].HeaderText;
+                    }
+
+                    // Agregar filas
+
+                    //filas visibles
+                    int filaExcel = 2; // Empezamos en la fila 2 porque la 1 es para los encabezados
+
+                    foreach (DataGridViewRow rew in dtg.Rows)
+                    {
+                        if (!rew.IsNewRow && rew.Visible)
+                        {
+                            for (int j = 0; j < dtg.Columns.Count; j++)
+                            {
+                                ws.Cell(filaExcel, j + 1).Value = rew.Cells[j].Value?.ToString() ?? "";
+                            }
+                            filaExcel++;
+                        }
+                    }
+                    wb.SaveAs(sfg.FileName);
+                }
+
+                MessageBox.Show("Datos exportados exitosamente", "Exportación a Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        //Exportar a PDF
+
+        private void ExportarPDF(DataGridView dtg)
+        {
+            SaveFileDialog sfg = new SaveFileDialog();
+            sfg.Filter = "PDF (*.pdf)|*.pdf";
+
+            if (sfg.ShowDialog() == DialogResult.OK)
+            {
+                using (PdfWriter writer = new PdfWriter(sfg.FileName))
+                using (PdfDocument pdf = new PdfDocument(writer))
+                using (Document doc = new Document(pdf))
+                {
+                    Table table = new Table(dtg.Columns.Count);
+
+                    // Agregar encabezados
+                    foreach (DataGridViewColumn col in dtg.Columns)
+                    {
+                        table.AddHeaderCell(col.HeaderText);
+                    }
+
+                    // Agregar filas
+                    foreach (DataGridViewRow row in dtg.Rows)
+                    {
+                        if (!row.IsNewRow && row.Visible)
+                        {
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                table.AddCell(cell.Value?.ToString() ?? "");
+                            }
+                        }
+                    }
+                    doc.Add(table);
+                }
+                MessageBox.Show("Datos exportados exitosamente", "Exportación a PDF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void cmb_export_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string opcion = cmb_export.SelectedItem.ToString();
+
+            if (opcion == "Exportar a Excel")
+            {
+                ExportarExcel(dataGridView1);
+            }
+            else if (opcion == "Exportar a PDF")
+            {
+                ExportarPDF(dataGridView1);
             }
         }
     }

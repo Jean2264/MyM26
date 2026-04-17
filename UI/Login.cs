@@ -63,12 +63,12 @@ namespace MyM26.UI
 
         private void button2_MouseEnter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-           
+
 
         }
 
@@ -283,6 +283,19 @@ namespace MyM26.UI
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_QA_Click(object sender, EventArgs e)
+        {
+
+          DialogResult= MessageBox.Show("¿Estás seguro de que deseas restablecer la configuración de primera ejecución? Esto hará que la aplicación se comporte como si fuera la primera vez que se ejecuta, solicitando el registro de un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if(DialogResult == DialogResult.No)
+                return;
+            Properties.Settings.Default.PrimeraEjecucion = true;
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show("Se ha restablecido la configuración de primera ejecución. La próxima vez que inicies la aplicación, se te pedirá registrar un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

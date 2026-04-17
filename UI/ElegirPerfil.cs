@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using ImageMagick;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -44,16 +47,43 @@ namespace MyM26.screens
 
         }
 
+
+        //funcion para cargar y detectar si es de tipo .webp
+        public Image cargarImagen(string path)
+        {
+            //para prevenir errores pasamos la extension  a minuscula
+            string ext = Path.GetExtension(path).ToLower();
+
+            //si es .webp, lo convertimos a un formato compatible .png
+            if(ext ==".webp")
+            {
+                using (MagickImage img = new MagickImage(path))
+                {
+                   img.Format = MagickFormat.Png; // Convertir a PNG
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        img.Write(ms);
+                        ms.Position = 0; // Reiniciar el stream para leer desde el principio
+                        return Image.FromStream(ms);
+                    }
+                }
+            }
+            else
+            {
+                //si no es .webp, lo cargamos normalmente
+                return Image.FromFile(path);
+            }
+        }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             OpenFileDialog abrir = new OpenFileDialog();
             abrir.Title = "Seleccione una imagen";
-            abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
+            abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.webp";
 
             if (abrir.ShowDialog() == DialogResult.OK)
             {
-                //pic_usu_Buscar.Image = Image.FromFile(abrir.FileName);
-                pic_usu_Buscar.BackgroundImage = Image.FromFile(abrir.FileName);
+                
+                pic_usu_Buscar.BackgroundImage = cargarImagen(abrir.FileName);
                 pic_usu_Buscar.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }

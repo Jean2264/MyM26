@@ -54,6 +54,7 @@
             button2 = new Button();
             label1 = new Label();
             errorProvider1 = new ErrorProvider(components);
+            btn_QA = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_usu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
@@ -75,6 +76,7 @@
             btn_salir.Size = new Size(23, 43);
             btn_salir.TabIndex = 4;
             btn_salir.UseVisualStyleBackColor = false;
+            btn_salir.Click += btn_salir_Click;
             // 
             // btn_mini
             // 
@@ -91,6 +93,7 @@
             btn_mini.Size = new Size(23, 43);
             btn_mini.TabIndex = 3;
             btn_mini.UseVisualStyleBackColor = false;
+            btn_mini.Click += btn_mini_Click;
             // 
             // panel3
             // 
@@ -370,6 +373,16 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // btn_QA
+            // 
+            btn_QA.Location = new Point(198, 794);
+            btn_QA.Name = "btn_QA";
+            btn_QA.Size = new Size(217, 47);
+            btn_QA.TabIndex = 10;
+            btn_QA.Text = "Boton QA";
+            btn_QA.UseVisualStyleBackColor = true;
+            btn_QA.Click += btn_QA_Click;
+            // 
             // registroDeUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -377,6 +390,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1312, 931);
+            Controls.Add(btn_QA);
             Controls.Add(panel1);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -419,5 +433,6 @@
         private Label label8;
         private TextBox txt_dni;
         private ErrorProvider errorProvider1;
+        private Button btn_QA;
     }
 }

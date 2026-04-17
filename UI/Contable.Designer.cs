@@ -1059,6 +1059,7 @@
             cmb_export.Name = "cmb_export";
             cmb_export.Size = new Size(228, 28);
             cmb_export.TabIndex = 4;
+            cmb_export.SelectionChangeCommitted += cmb_export_SelectionChangeCommitted;
             // 
             // panel5
             // 

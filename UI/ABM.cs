@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using ImageMagick;
 using System.Data;
 using System.Drawing;
 using MyM26.Entidades.Comun;
@@ -156,65 +158,46 @@ namespace MyM26.screens
             cmb_prov.ValueMember = "Cuit";
             cmb_prov.SelectedIndex = -1;
         }
+
+        //flujo de cargar de imagen: WEBP -> MagickImage -> PNG (en memoria) -> Image -> picturbox
+
+        //funcion para cargar imagen desde el boton buscar, convierte a PNG en memoria si es WEBP
+
+        private Image CargarImagen(string path) //path es el archivo seleccionado por el usuario
+        {
+            //para prevenir errores verificamos si la extecion cargada esta en mayuscaulas lo convertimos a minuscula
+            string ext = Path.GetExtension(path).ToLower();
+           if(ext== ".webp")
+            {
+                //cargamos la imagen con magickimage ya que el si soporta .webp
+                using (MagickImage img = new MagickImage(path))
+                {
+                    img.Format = MagickFormat.Png; // Convertimos a PNG en memoria
+                    using (MemoryStream ms= new MemoryStream())
+                    {
+                        img.Write(ms); // Escribimos la imagen convertida al MemoryStream
+                       ms.Position = 0; // Volvemos al inicio del stream
+                        return Image.FromStream(ms); // Cargamos la imagen desde el stream para usarla en el PictureBox
+                    }
+                }
+            }
+           else
+            {
+                return Image.FromFile(path);
+            }
+        }
+
         private void btn_buscar_Click_1(object sender, EventArgs e)
         {
-
-            /* using (OpenFileDialog abrir = new OpenFileDialog())
-             {
-                 abrir.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.webp";
-                 abrir.Title = "Seleccionar imagen del producto";
-
-                 if (abrir.ShowDialog() == DialogResult.OK)
-                 {
-                     try
-                     {
-                         // Leemos el archivo a un arreglo de bytes primero. 
-                         // Esto evita que la "compu chica" bloquee el archivo.
-                         byte[] datosImagen = System.IO.File.ReadAllBytes(abrir.FileName);
-
-                         using (var ms = new System.IO.MemoryStream(datosImagen))
-                         {
-                             // Cargamos desde memoria
-                             Image imgOriginal = Image.FromStream(ms);
-
-                             // Asignamos al BackgroundImage como hiciste vos (que te funcionó mejor)
-                             pic_art.Image = new Bitmap(imgOriginal);
-                             pic_art.BackgroundImageLayout = ImageLayout.Stretch;
-                         }
-                     }
-                     catch (Exception ex)
-                     {
-                         MessageBox.Show("No se pudo procesar esta imagen específica.\n" +
-                                         "Intenta abrirla con Paint y guardarla como PNG.\n\n" +
-                                         "Error técnico: " + ex.Message,
-                                         "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                     }
-                 }
-             }*/
-
-            /*  OpenFileDialog abrir = new OpenFileDialog();
+            OpenFileDialog abrir = new OpenFileDialog();    
             abrir.Title = "Seleccione una imagen";
-            abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
+            abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.webp";
 
-            if (abrir.ShowDialog() == DialogResult.OK)
+            if(abrir.ShowDialog() == DialogResult.OK)
             {
-                //pic_usu_Buscar.Image = Image.FromFile(abrir.FileName);
-                pic_usu_Buscar.BackgroundImage = Image.FromFile(abrir.FileName);
-                pic_usu_Buscar.SizeMode = PictureBoxSizeMode.StretchImage;
-            }*/
-
-            OpenFileDialog abrir = new OpenFileDialog();
-            abrir.Title = "Seleccione una imagen";
-            abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png";
-
-            if(abrir.ShowDialog() == DialogResult.OK) 
-             
-            
-            { 
-                pic_art.Image= Image.FromFile(abrir.FileName);
-                pic_art.BackgroundImage  = null;
+                pic_art.Image = CargarImagen(abrir.FileName);
+                pic_art.BackgroundImage = null;
                 pic_art.SizeMode = PictureBoxSizeMode.StretchImage;
-            
             }
         }
 
@@ -557,7 +540,7 @@ namespace MyM26.screens
 
         private void txt_nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
             {
                 e.Handled = true;
             }
@@ -565,7 +548,7 @@ namespace MyM26.screens
 
         private void txt_nombre_KeyDown(object sender, KeyEventArgs e)
         {
-            bool isALtgr = e.Control && e.Alt;
+            // Bloquear copiar/pegar/cortar
             if ((e.Control && e.KeyCode == Keys.C) ||
                 (e.Control && e.KeyCode == Keys.V) ||
                 (e.Control && e.KeyCode == Keys.X) ||
@@ -577,7 +560,7 @@ namespace MyM26.screens
                 e.Handled = true;
             }
 
-            //bloquear ALtGr + Q
+            // Bloquear AltGr + Q
             if (e.Control && e.Alt && e.KeyCode == Keys.Q)
             {
                 e.SuppressKeyPress = true;

@@ -258,7 +258,7 @@ int registrosPorPagina)
                     AltaTipoUsuario(usuario, trans);
                     AltaUsuario(usuario, trans);
                     trans.Commit();
-                    MessageBox.Show("Usuario dado de alta con exito");
+                    MessageBox.Show("Usuario registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -708,7 +708,7 @@ int registrosPorPagina)
                 comd.Parameters.AddWithValue("@CodHistorico", codHistorico);
 
                 
-                comd.Parameters.AddWithValue("@DNI", UsuarioActivo.Datos.DNIAc);
+                comd.Parameters.AddWithValue("@DNI", usuario.Dni);
 
                 comd.Parameters.AddWithValue("@TipoMovimiento", usuario.TipoMovimiento);
                 comd.Parameters.AddWithValue("@DetalleMovimiento", usuario.DetalleMovimiento);

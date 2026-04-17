@@ -45,6 +45,7 @@
             panel2 = new Panel();
             panel3 = new Panel();
             errorProvider1 = new ErrorProvider(components);
+            btn_QA = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_ver).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
@@ -261,6 +262,16 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // btn_QA
+            // 
+            btn_QA.Location = new Point(262, 781);
+            btn_QA.Name = "btn_QA";
+            btn_QA.Size = new Size(217, 47);
+            btn_QA.TabIndex = 7;
+            btn_QA.Text = "Boton QA";
+            btn_QA.UseVisualStyleBackColor = true;
+            btn_QA.Click += btn_QA_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -269,6 +280,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1312, 931);
+            Controls.Add(btn_QA);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -308,5 +320,6 @@
         private Panel panel3;
         private ErrorProvider errorProvider1;
         private Label lbl_error;
+        private Button btn_QA;
     }
 }

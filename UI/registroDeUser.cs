@@ -120,12 +120,12 @@ namespace MyM26.UI
                 Contabilidad = true,
                 TipoMovimiento = "Alta de usuario",
 
-                DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
-                                " (DNI: " + UsuarioActivo.Datos.DNIAc +
-                                ") ha dado de alta a: " + txt_nombre.Text +
-                                " (DNI: " + txt_dni.Text.Trim() + ")"
+                /* DetalleMovimiento = "el usuario " +
+                                 " (DNI: " + UsuarioActivo.Datos.DNIAc +
+                                 ") ha dado de alta a: " + txt_nombre.Text +
+                                 " (DNI: " + txt_dni.Text.Trim() + ")"*/
 
-
+                DetalleMovimiento = $"El usuario (DNI: {txt_dni.Text.Trim()}) se ha registrado al sistema como primer usuario"
 
             };
 
@@ -167,11 +167,16 @@ namespace MyM26.UI
 
             usuarioDatos.AltacompletoUsuario(usuario);
             usuarioDatos.AltaHistoricoCompleto(usuario);
-            MessageBox.Show("Usuario registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+            //una vez que el registro fue dado avisamos que ya no es la primera ejecucion y se redirige al login
+            Properties.Settings.Default.PrimeraEjecucion = false;
+            Properties.Settings.Default.Save();
             Login login = new Login();
             login.StartPosition = FormStartPosition.CenterScreen;
             login.Show();
-            this.Close();
+            this.Hide();
         }
 
         //Validaciines de campos
@@ -276,6 +281,38 @@ namespace MyM26.UI
             }
         }
 
-       
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres salir? Se perderán los datos ingresados.", "Confirmar cambio QA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else            {
+                result = DialogResult.None;
+            }
+
+        }
+
+        private void btn_mini_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btn_QA_Click(object sender, EventArgs e)
+        {
+            DialogResult result= MessageBox.Show("¿Estás seguro de que deseas restablecer la configuración de primera ejecución? Esto hará que la aplicación se comporte como si ya no fuera la primera vez  que se ejecuta, solicitando el registro de un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                Properties.Settings.Default.PrimeraEjecucion = false;
+                Properties.Settings.Default.Save();
+                Application.Exit();
+            }
+            else
+            {
+                result = DialogResult.None;
+            }
+
+        }
     }
 }

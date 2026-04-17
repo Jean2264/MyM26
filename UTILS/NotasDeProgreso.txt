@@ -1,0 +1,7 @@
+﻿Bueno, hasta ahora ya esta todo terminado de manera obviamente de manera parcial.
+Cosas que faltan revisar:
+*En el AMUser, que en el cmb de Tipo de usuario que segun que rol se eliga lo vaya habilitando o deshabilitando los checkbox de permisos.
+
+*Revisar validaciones en los campos de toda la app.
+
+*HAAAAAA, falta la exportacion a excel/pdf de los reportes. -----Ya esta terminado-----------
