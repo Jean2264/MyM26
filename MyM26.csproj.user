@@ -31,6 +31,9 @@
     <Compile Update="UI\Empleados.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UI\Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>

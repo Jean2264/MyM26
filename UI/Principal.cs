@@ -173,7 +173,9 @@ namespace MyM26
 
         private void btn_principal_Click(object sender, EventArgs e)
         {
-            panelprincipal.Visible = false;
+            Home cj = new Home();
+            MostrarUserControl (cj);
+           
             ActivarBoton(btn_principal);
         }
 
