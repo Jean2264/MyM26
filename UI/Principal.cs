@@ -138,6 +138,16 @@ namespace MyM26
                 btn_compras.Enabled = _usuarioActual.ComprasAc;
                 btn_contables.Enabled =     _usuarioActual.ContableAc;
                 button2.Enabled = _usuarioActual.EmpleadosAc;
+
+            if(tipo== "Administrador")
+            {
+                btn_principal.Enabled = true;
+            }
+            else if( tipo != "Administrador")
+            {
+                btn_principal.Enabled = false;
+            }
+
         }
 
         private void button6_Click_1(object sender, EventArgs e)
