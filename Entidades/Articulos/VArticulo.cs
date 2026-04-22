@@ -70,5 +70,11 @@ namespace MyM26.Entidades.Articulos
         public decimal Monto { get; set; }
         public DateTime Fecha { get; set; }
 
+
+        //PARA VERIFICACION DE CANTIDAD DE CATEGORIA Y PROVEEDOR
+        public int CantCategoria { get; set; }
+        public int CantSub {  get; set; }
+        public int CantProveedor { get; set; }
+
     }
 }

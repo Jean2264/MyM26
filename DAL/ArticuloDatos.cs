@@ -1157,6 +1157,89 @@ WHERE a.CodigoBarra = @codBarra ";
             }
         }
 
+
+        //Verificacion de cantidad de proveedor y categorias para alta de Articulos
+
+        //para categoria
+        public void CantCat(VArticulo art, SqlTransaction trans)
+        {
+            string consulta = @"SELECT COUNT(*) as CantCat FROM Categoria WHERE Estado=1";
+
+            using(SqlCommand cmd= new SqlCommand(consulta,Decla.cnn, trans))
+            {
+                object obj = cmd.ExecuteScalar();
+                if (obj == DBNull.Value)
+                {
+                    art.CantCategoria = 0;
+                }
+                else
+                    art.CantCategoria = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        //para sub
+        public void CantSub(VArticulo art, SqlTransaction trans)
+        {
+            string consulta = @"SELECT COUNT(*) as CantSub FROM Subcategoria WHERE Estado=1";
+
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
+            {
+                object obj = cmd.ExecuteScalar();
+                if (obj == DBNull.Value)
+                {
+                    art.CantSub = 0;
+                }
+                else
+                    art.CantSub = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+
+        //para prov
+         public void CantProv(VArticulo art, SqlTransaction trans)
+        {
+            string consulta = @"SELECT COUNT(*) as CantProv FROM Proveedor WHERE Estado=1";
+
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
+            {
+                object obj = cmd.ExecuteScalar();
+                if (obj == DBNull.Value)
+                {
+                    art.CantProveedor = 0;
+                }
+                else
+                    art.CantProveedor = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+
+        public void CantCompleto(VArticulo art)
+        {
+            try
+            {
+                Decla.cnn.Open();
+                SqlTransaction trans = Decla.cnn.BeginTransaction();
+                try
+                {
+                    CantCat(art, trans);
+                    CantSub(art, trans);
+                    CantProv(art, trans);
+
+                    trans.Commit();
+                }
+                catch(Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("No se pudieron traer las cantidades. " + ex.Message);
+                }
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+        }
+
     }
     }
 

@@ -1,5 +1,6 @@
 ﻿using MyM26.BLL;
 using MyM26.DAL;
+using MyM26.Entidades.Articulos;
 using MyM26.UI;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,10 @@ namespace MyM26.screens
         {
             InitializeComponent();
             Conexion.Conectar();
+            
             LlenarArt();
             CalcularTotalPaginas();
+            calculoCantidad();
 
         }
 
@@ -107,6 +110,23 @@ namespace MyM26.screens
             }
         }
 
+
+        public void calculoCantidad()
+        {
+            VArticulo art = new VArticulo();
+            ArticuloDatos dt = new ArticuloDatos();
+            dt.CantCompleto(art);
+
+            if(art.CantCategoria==0 && art.CantSub==0 && art.CantProveedor==0)
+            {
+                MessageBox.Show("Para dar de alta a un articulo, al menos debe haber dado de alta una Categoria, Subcategoria y un Proveedor");
+                btn_buscar.Enabled = false;
+                btn_añadir.Enabled = false;
+                btn_anterior.Enabled = false;
+                btn_siguente.Enabled = false;
+                return;
+            }
+        }
         public void AbrirVista(string cod)
         {
             ArticuloNegocio neg = new ArticuloNegocio();
