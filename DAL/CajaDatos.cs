@@ -12,11 +12,11 @@ using System.Text;
 
 namespace MyM26.DAL
 {
-   
+
     public class CajaDatos
     {
         string codR;
-     
+
         public VCaja TraerArt(string cb)
         {
             VCaja cj = null;
@@ -203,7 +203,7 @@ namespace MyM26.DAL
         {
             string consulta = @"insert into HVentaDetalle(IdVentaDetalle, CodRDetalle, CodRemito, CodigoArticulo, Descripcion, PrecioUnitario, Cantidad, PrecioXCantidad)
                         values(@IdVentaDetalle, @CodRDetalle, @CodRemito, @CodigoArticulo, @Descripcion, @PrecioUnitario, @Cantidad, @PrecioXCantidad)";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn,trans);
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
             cmd.Parameters.AddWithValue("@IdVentaDetalle", idDetalle);
             cmd.Parameters.AddWithValue("@CodRDetalle", CodRDetalle);
             cmd.Parameters.AddWithValue("@CodRemito", det.CodRemito);
@@ -268,7 +268,7 @@ namespace MyM26.DAL
             }
         }
 
-       
+
 
         public static DataTable MostrarVenta(int paginaActual, int registrosPorPagina)
         {
@@ -288,9 +288,9 @@ namespace MyM26.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 Decla.VentaTab.Load(reader);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al intentar traer las ventas: "+ex);
+                MessageBox.Show("Error al intentar traer las ventas: " + ex);
             }
             finally
             {
@@ -302,7 +302,7 @@ namespace MyM26.DAL
 
         public int TotalVenta()
         {
-            int total=0;
+            int total = 0;
             string sql = "SELECT COUNT(*) FROM HVenta";
             SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
             try
@@ -349,7 +349,7 @@ foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
                 SqlDataReader reader = cmd.ExecuteReader();
                 Decla.VentaDetTab.Load(reader);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -369,12 +369,12 @@ foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
             if (paginaActual < 1)
                 paginaActual = 1;
             int offset = (paginaActual - 1) * registrosPorPagina;
-   
+
             string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago 
                         FROM HVenta
                         WHERE CAST(FechaHora AS DATE) = @fecha
                         ORDER BY FechaHora DESC 
-                        OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY"; 
+                        OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
 
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@offset", offset);
@@ -496,7 +496,7 @@ primary key(IdMovimiento)
             string consulta = @"Select ISNULL(MAX(IdMovimiento), 0) as UltimoId from InOutVarios";
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
 
-            { 
+            {
                 hv.UltimoIdIntOut = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -504,7 +504,7 @@ primary key(IdMovimiento)
         public void AltaIntOutVarios(HVenta hv, SqlTransaction trans)
         {
 
-           hv.NuevoIdIntOut = hv.UltimoIdIntOut + 1;
+            hv.NuevoIdIntOut = hv.UltimoIdIntOut + 1;
             hv.CodMovimiento = "MOVV" + hv.NuevoIdIntOut;
 
             string consulta = @"INSERT INTO InOutVarios(IdMovimiento, CodMovimiento, Detalle, Monto, Fecha) 
@@ -519,11 +519,11 @@ primary key(IdMovimiento)
         }
 
         public void ALtaCompletoIntOutVarios(HVenta hv)
-        { 
+        {
             try
             {
                 Decla.cnn.Open();
-                SqlTransaction trans= Decla.cnn.BeginTransaction();
+                SqlTransaction trans = Decla.cnn.BeginTransaction();
 
                 try
                 {
@@ -546,5 +546,37 @@ primary key(IdMovimiento)
             }
         }
 
+        public void cantArt(VCaja vc)
+        {
+            string consulta = "SELECT COUNT(*) FROM Articulo WHERE Estado=1";
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            try
+            {
+                Decla.cnn.Open();
+                object obj = cmd.ExecuteScalar();
+                if (obj == DBNull.Value)
+                {
+                    vc.cantArt = 0;
+
+                }
+                else
+                {
+                    vc.cantArt = Convert.ToInt32(obj);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al obtener la cantidad de artículos: " + ex.Message.ToString());
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
+
+        }
     }
 }

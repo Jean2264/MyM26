@@ -21,12 +21,12 @@ namespace MyM26.Entidades.Caja
         public int Cantidad { get; set; }
         public decimal Subtotal => Cantidad >= CantidadMinimaMayor ? Cantidad * PrecioMayorista : Cantidad * PrecioUnitario;
 
-
+        public int cantArt { get; set; }
 
         ///////////////PARA VENTA/////////////////////
         ///
 
-        
+
 
 
 

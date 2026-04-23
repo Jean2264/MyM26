@@ -303,8 +303,30 @@ namespace MyM26.screens
                 dtg_caja.CurrentCell = dtg_caja.Rows[0].Cells[0];
                 dtg_caja.BeginEdit(true);
             }
+
+            Cant();
         }
 
+
+        public void Cant()
+        {
+            VCaja cv = new VCaja();
+            CajaDatos dt= new CajaDatos();
+
+            dt.cantArt(cv);
+            if(cv.cantArt==0)
+            {
+                MessageBox.Show("Para poder hacer una venta, debe tener por lo menos un articulo activo.");
+                btn_buscar.Enabled = false;
+                btn_confiVenta.Enabled = false;
+                btn_cancelarVenta.Enabled=false;
+                btn_mostrar_vuelto.Enabled = false;
+                btn_desc.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                return;
+            }
+        }
         private void btn_reem_desc_Click(object sender, EventArgs e)
         {
             
