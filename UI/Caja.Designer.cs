@@ -54,6 +54,7 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             btn_buscar = new Button();
             txt_buscar = new TextBox();
+            btn_modo = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel3 = new Panel();
@@ -222,6 +223,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(258, 193);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
             // btn_cancelarVenta
             // 
@@ -406,13 +408,15 @@
             // 
             // tableLayoutPanel4
             // 
-            tableLayoutPanel4.ColumnCount = 4;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9940872F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.60278F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.0698051F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.ColumnCount = 5;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.4898548F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.65358567F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.5142059F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3423538F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 49F));
             tableLayoutPanel4.Controls.Add(btn_buscar, 1, 0);
             tableLayoutPanel4.Controls.Add(txt_buscar, 0, 0);
+            tableLayoutPanel4.Controls.Add(btn_modo, 4, 0);
             tableLayoutPanel4.Dock = DockStyle.Top;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
@@ -430,24 +434,40 @@
             btn_buscar.Dock = DockStyle.Fill;
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(265, 4);
+            btn_buscar.Location = new Point(287, 4);
             btn_buscar.Margin = new Padding(3, 4, 3, 4);
             btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(28, 43);
+            btn_buscar.Size = new Size(40, 43);
             btn_buscar.TabIndex = 7;
             btn_buscar.UseVisualStyleBackColor = true;
             btn_buscar.Click += btn_buscar_Click;
             // 
             // txt_buscar
             // 
+            txt_buscar.BorderStyle = BorderStyle.FixedSingle;
             txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txt_buscar.Location = new Point(3, 4);
             txt_buscar.Margin = new Padding(3, 4, 3, 4);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(256, 43);
+            txt_buscar.Size = new Size(278, 43);
             txt_buscar.TabIndex = 8;
             txt_buscar.TextChanged += txt_buscar_TextChanged;
+            // 
+            // btn_modo
+            // 
+            btn_modo.BackgroundImage = Properties.Resources.modo_claro;
+            btn_modo.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_modo.Dock = DockStyle.Fill;
+            btn_modo.FlatAppearance.BorderSize = 0;
+            btn_modo.FlatStyle = FlatStyle.Flat;
+            btn_modo.Location = new Point(1265, 3);
+            btn_modo.Name = "btn_modo";
+            btn_modo.Size = new Size(44, 45);
+            btn_modo.TabIndex = 9;
+            btn_modo.UseVisualStyleBackColor = true;
+            btn_modo.Click += btn_modo_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -850,5 +870,6 @@
         private DataGridViewTextBoxColumn Subtotal;
         private System.Drawing.Printing.PrintDocument pdComprobante;
         private PrintPreviewDialog printPreviewDialog1;
+        private Button btn_modo;
     }
 }

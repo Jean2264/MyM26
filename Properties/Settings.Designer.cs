@@ -34,5 +34,17 @@ namespace MyM26.Properties {
                 this["PrimeraEjecucion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool modoOscuro {
+            get {
+                return ((bool)(this["modoOscuro"]));
+            }
+            set {
+                this["modoOscuro"] = value;
+            }
+        }
     }
 }

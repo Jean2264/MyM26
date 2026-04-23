@@ -27,6 +27,7 @@ namespace MyM26.screens
         string codRemi;
         int alto;
         int cantidadProductos;
+        private bool modoOscuro = false;
         public Caja()
         {
             InitializeComponent();
@@ -61,21 +62,21 @@ namespace MyM26.screens
         }
 
         private void btn_añadir_desc_Click(object sender, EventArgs e)
-        { 
-           
-          
+        {
+
+
             if (string.IsNullOrWhiteSpace(txt_desc.Text))
             {
                 MessageBox.Show("Ingrese un valor de descuento válido.");
                 return;
             }
 
-          
+
             if (decimal.TryParse(txt_desc.Text, out decimal DesCAcum))
             {
-            
+
                 Descuento += DesCAcum;
-                if(Descuento> subtotal)
+                if (Descuento > subtotal)
                 {
                     MessageBox.Show("El descuento no puede ser mayor al sbtotal\nPor favor, revisa el descuento ingesado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Descuento -= DesCAcum;
@@ -84,13 +85,13 @@ namespace MyM26.screens
                 }
                 CalcularTotalGeneral();
 
-             
-                txt_desc.Clear(); 
+
+                txt_desc.Clear();
                 txt_desc.Visible = false;
                 btn_añadir_desc.Visible = false;
                 btn_reem_desc.Visible = false;
 
-                
+
                 Console.WriteLine($"Descuento sumado: {DesCAcum}. Total Descuento: {Descuento}");
             }
             else
@@ -144,17 +145,18 @@ namespace MyM26.screens
 
             if (cj == null) { return; }
 
-          
+
             if (cj.StockDisponible <= 0)
             {
                 MessageBox.Show($"El artículo '{cj.Nombre}' no tiene stock disponible (Stock: 0).",
                                 "Sin Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-               
-                BeginInvoke(new MethodInvoker(() => {
+
+                BeginInvoke(new MethodInvoker(() =>
+                {
                     dtg_caja.Rows[e.RowIndex].Cells[0].Value = "";
                 }));
-                return; 
+                return;
             }
             // ---------------------------------
 
@@ -228,7 +230,7 @@ namespace MyM26.screens
             {
                 using (MemoryStream ms = new MemoryStream(cj.Imagen))
                 {
-                    pcb_art.Image =  System.Drawing.Image.FromStream(ms);
+                    pcb_art.Image = System.Drawing.Image.FromStream(ms);
                     pcb_art.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
@@ -311,15 +313,15 @@ namespace MyM26.screens
         public void Cant()
         {
             VCaja cv = new VCaja();
-            CajaDatos dt= new CajaDatos();
+            CajaDatos dt = new CajaDatos();
 
             dt.cantArt(cv);
-            if(cv.cantArt==0)
+            if (cv.cantArt == 0)
             {
                 MessageBox.Show("Para poder hacer una venta, debe tener por lo menos un articulo activo.");
                 btn_buscar.Enabled = false;
                 btn_confiVenta.Enabled = false;
-                btn_cancelarVenta.Enabled=false;
+                btn_cancelarVenta.Enabled = false;
                 btn_mostrar_vuelto.Enabled = false;
                 btn_desc.Enabled = false;
                 button2.Enabled = false;
@@ -329,7 +331,7 @@ namespace MyM26.screens
         }
         private void btn_reem_desc_Click(object sender, EventArgs e)
         {
-            
+
             Descuento = Convert.ToDecimal(txt_desc.Text);
             if (Descuento > subtotal)
             {
@@ -514,7 +516,7 @@ namespace MyM26.screens
                     StockDisponible = stock,
                     Imagen = imagen
                 };
-                if (stock <= 0) 
+                if (stock <= 0)
                 {
                     MessageBox.Show("No se puede añadir el producto porque no tiene stock disponible.");
                     return;
@@ -560,7 +562,7 @@ namespace MyM26.screens
             numeric_restar.Visible = false;
             btn_restar.Visible = false;
             btn_sumar.Visible = false;
-            
+
             btn_desc.Enabled = false;
             button2.Enabled = false;
 
@@ -574,7 +576,7 @@ namespace MyM26.screens
         private void btn_confiVenta_Click(object sender, EventArgs e)
         {
 
-            if(dtg_caja.Rows.Count == 0)
+            if (dtg_caja.Rows.Count == 0)
             {
                 MessageBox.Show("No hay productos en la venta.");
                 return;
@@ -597,9 +599,9 @@ namespace MyM26.screens
             venta.Cuit = cmb_cliente.SelectedValue?.ToString();
             venta.Monto = Total;
             venta.TipoMovimiento = "Alta venta";
-            venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc+ " (DNI:  "+UsuarioActivo.Datos.DNIAc +") "+" a generado una venta por un total de"+ Total.ToString("N2");
+            venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc + " (DNI:  " + UsuarioActivo.Datos.DNIAc + ") " + " a generado una venta por un total de" + Total.ToString("N2");
 
-        
+
 
             //Armamos Detalle
             List<HVentaDetalle> listaDetalle = new List<HVentaDetalle>();
@@ -623,7 +625,7 @@ namespace MyM26.screens
             }
             if (cmb_comprobante.Text == "Presupuesto")
             {
-                
+
                 codRemi = "PRES-" + DateTime.Now.ToString("yyyyMMddHHmmss");
 
                 int cantidadProductos = dtg_caja.Rows
@@ -638,15 +640,15 @@ namespace MyM26.screens
                     40;
 
                 GenerarTicketPDF();
-                CajaDatos dt= new CajaDatos();
+                CajaDatos dt = new CajaDatos();
                 dt.AltaHistoricoCompleto(venta);
-              
+
                 MessageBox.Show($"Presupuesto generado correctamente");
-               
+
                 ResetCampos();
                 return;
             }
-            else if(cmb_comprobante.Text == "Remito")
+            else if (cmb_comprobante.Text == "Remito")
             {
                 CajaDatos dt = new CajaDatos();
                 dt.altacompletoVenta(venta, listaDetalle);
@@ -676,7 +678,7 @@ namespace MyM26.screens
                 MessageBox.Show($"Comprobante guardado");
                 ResetCampos();
             }
-          
+
         }
 
 
@@ -713,7 +715,7 @@ namespace MyM26.screens
             button3.Enabled = true;
         }
 
-     
+
 
         private void GenerarTicketPDF()
         {
@@ -852,6 +854,84 @@ namespace MyM26.screens
             {
                 doc.Close();
             }
+        }
+
+        private void btn_modo_Click(object sender, EventArgs e)
+        {
+
+            modoOscuro = !modoOscuro;
+            if (modoOscuro)
+            {
+                btn_modo.BackgroundImage = Properties.Resources.modo_oscuro;
+               // ModoOscuro();
+            }
+            else
+            {
+                btn_modo.BackgroundImage = Properties.Resources.modo_claro;
+               // ModoClaro();
+
+            }
+        }
+
+       /* private void ModoOscuro()
+        {
+            tableLayoutPanel1.BackColor= Color.FromArgb(35,35,35);
+            tableLayoutPanel2.BackColor = Color.FromArgb(35, 35, 35);
+            tableLayoutPanel4.BackColor = Color.FromArgb(35, 35, 35);
+            panel3.BackColor = Color.FromArgb(53, 53, 53);
+            panel4.BackColor = Color.FromArgb(53, 53, 53);
+
+            txt_buscar.BackColor = Color.FromArgb(53, 53, 53);
+            txt_buscar.ForeColor = Color.FromArgb(221,221,221);
+           cmb_cliente.BackColor = Color.FromArgb(53, 53, 53);
+         
+            cmb_cliente.ForeColor = Color.FromArgb(221,221,221);
+           
+            cmb_comprobante.FlatStyle = FlatStyle.Flat;
+            cmb_comprobante.BackColor = Color.FromArgb(53, 53, 53);
+            cmb_comprobante.ForeColor = Color.FromArgb(221,221,221);
+
+            cmb_factura.BackColor = Color.FromArgb(53, 53, 53);
+           
+            cmb_factura.ForeColor = Color.FromArgb(221,221,221);
+            cmb_pago.BackColor = Color.FromArgb(53, 53, 53);
+            cmb_pago.ForeColor = Color.FromArgb(221,221,221);
+            label1.ForeColor = Color.FromArgb(221,221,221);
+                label2.ForeColor = Color.FromArgb(221,221,221);
+            label3.ForeColor = Color.FromArgb(221,221,221);
+            label4.ForeColor = Color.FromArgb(221,221,221);     
+            btn_confiVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+            btn_cancelarVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+
+            btn_buscar.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+          
+            btn_mostrar_vuelto.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+            btn_desc.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+            button2.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+            button3.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+            dtg_caja.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
+           dtg_caja.DefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
+            dtg_caja.BackgroundColor = Color.FromArgb(53, 53, 53);
+            dtg_caja.DefaultCellStyle.ForeColor = Color.FromArgb(221,221,221);
+            txt_subtotal.BackColor = Color.FromArgb(53, 53, 53);
+            txt_subtotal.ForeColor = Color.FromArgb(221,221,221);
+            txt_descuento.BackColor = Color.FromArgb(53, 53, 53);
+            txt_descuento.ForeColor = Color.FromArgb(221,221,221);
+            txt_total.BackColor = Color.FromArgb(53, 53, 53);
+            txt_total.ForeColor = Color.FromArgb(221,221,221);
+        }
+
+        private void ModoClaro()
+        {
+            tableLayoutPanel1.BackColor = Color.White;
+            tableLayoutPanel2.BackColor = Color.White;
+            tableLayoutPanel4.BackColor = Color.White;
+            panel3.BackColor = Color.White;
+            panel4.BackColor = Color.White;
+        }*/
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
