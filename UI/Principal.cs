@@ -69,7 +69,7 @@ namespace MyM26
             if (isMaximized)
             {
                 this.WindowState = FormWindowState.Normal;
-                btn_maxi.BackgroundImage = Properties.Resources.min;
+                btn_maxi.Image = Properties.Resources.tNormal;
                 btn_maxi.BackgroundImageLayout = ImageLayout.Stretch;
 
                 isMaximized = false;
@@ -80,7 +80,7 @@ namespace MyM26
                 this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
                 this.WindowState = FormWindowState.Maximized;
-                btn_maxi.BackgroundImage = Properties.Resources.maxi;
+                btn_maxi.Image = Properties.Resources.tMax;
                 btn_maxi.BackgroundImageLayout = ImageLayout.Stretch;
                 isMaximized = true;
             }

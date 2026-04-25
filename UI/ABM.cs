@@ -21,6 +21,7 @@ namespace MyM26.screens
     public partial class ABM : Form
     {
         public string Modo;
+        public string md;
         public Articulos ar;
         public string cod;
         string cb;
@@ -45,6 +46,10 @@ namespace MyM26.screens
 
         private void AVM_Load(object sender, EventArgs e)
         {
+            if(md== "RevCant")
+            {
+                RevCan();
+            }
             if (Modo == "Añadir")
             {
                 label_Title.Text = "Añadir Artículo";
@@ -141,6 +146,20 @@ namespace MyM26.screens
 
                 }
             }
+        }
+
+        private void RevCan()
+        {
+            VArticulo art= new VArticulo(); 
+            ArticuloDatos dt = new ArticuloDatos();
+            dt.CantCompleto2(art);
+
+            if(art.CantCategoria==0 && art.CantSub==0)
+            {
+                MessageBox.Show("Para dar de alta a un articulo por lo menos debe haber una categoria y una subcategoria.");
+                this.Close();
+            }
+
         }
         private void Combos()
         {

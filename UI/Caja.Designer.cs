@@ -179,6 +179,9 @@
             txt_desc.Size = new Size(256, 43);
             txt_desc.TabIndex = 1;
             txt_desc.Visible = false;
+            txt_desc.KeyDown += txt_buscar_KeyDown;
+            txt_desc.KeyPress += txt_vuelto_KeyPress;
+            txt_desc.MouseDown += txt_desc_MouseDown;
             // 
             // btn_desc
             // 
@@ -316,6 +319,9 @@
             txt_vuelto.Size = new Size(256, 47);
             txt_vuelto.TabIndex = 1;
             txt_vuelto.Visible = false;
+            txt_vuelto.DragEnter += txt_buscar_DragEnter;
+            txt_vuelto.KeyPress += txt_vuelto_KeyPress;
+            txt_vuelto.MouseDown += txt_desc_MouseDown;
             // 
             // btn_mostrar_vuelto
             // 
@@ -454,6 +460,10 @@
             txt_buscar.Size = new Size(278, 43);
             txt_buscar.TabIndex = 8;
             txt_buscar.TextChanged += txt_buscar_TextChanged;
+            txt_buscar.DragEnter += txt_buscar_DragEnter;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            txt_buscar.KeyPress += txt_buscar_KeyPress;
+            txt_buscar.MouseDown += txt_buscar_MouseDown;
             // 
             // btn_modo
             // 

@@ -863,75 +863,134 @@ namespace MyM26.screens
             if (modoOscuro)
             {
                 btn_modo.BackgroundImage = Properties.Resources.modo_oscuro;
-               // ModoOscuro();
+                // ModoOscuro();
             }
             else
             {
                 btn_modo.BackgroundImage = Properties.Resources.modo_claro;
-               // ModoClaro();
+                // ModoClaro();
 
             }
         }
 
-       /* private void ModoOscuro()
-        {
-            tableLayoutPanel1.BackColor= Color.FromArgb(35,35,35);
-            tableLayoutPanel2.BackColor = Color.FromArgb(35, 35, 35);
-            tableLayoutPanel4.BackColor = Color.FromArgb(35, 35, 35);
-            panel3.BackColor = Color.FromArgb(53, 53, 53);
-            panel4.BackColor = Color.FromArgb(53, 53, 53);
+        /* private void ModoOscuro()
+         {
+             tableLayoutPanel1.BackColor= Color.FromArgb(35,35,35);
+             tableLayoutPanel2.BackColor = Color.FromArgb(35, 35, 35);
+             tableLayoutPanel4.BackColor = Color.FromArgb(35, 35, 35);
+             panel3.BackColor = Color.FromArgb(53, 53, 53);
+             panel4.BackColor = Color.FromArgb(53, 53, 53);
 
-            txt_buscar.BackColor = Color.FromArgb(53, 53, 53);
-            txt_buscar.ForeColor = Color.FromArgb(221,221,221);
-           cmb_cliente.BackColor = Color.FromArgb(53, 53, 53);
-         
-            cmb_cliente.ForeColor = Color.FromArgb(221,221,221);
-           
-            cmb_comprobante.FlatStyle = FlatStyle.Flat;
-            cmb_comprobante.BackColor = Color.FromArgb(53, 53, 53);
-            cmb_comprobante.ForeColor = Color.FromArgb(221,221,221);
+             txt_buscar.BackColor = Color.FromArgb(53, 53, 53);
+             txt_buscar.ForeColor = Color.FromArgb(221,221,221);
+            cmb_cliente.BackColor = Color.FromArgb(53, 53, 53);
 
-            cmb_factura.BackColor = Color.FromArgb(53, 53, 53);
-           
-            cmb_factura.ForeColor = Color.FromArgb(221,221,221);
-            cmb_pago.BackColor = Color.FromArgb(53, 53, 53);
-            cmb_pago.ForeColor = Color.FromArgb(221,221,221);
-            label1.ForeColor = Color.FromArgb(221,221,221);
-                label2.ForeColor = Color.FromArgb(221,221,221);
-            label3.ForeColor = Color.FromArgb(221,221,221);
-            label4.ForeColor = Color.FromArgb(221,221,221);     
-            btn_confiVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-            btn_cancelarVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+             cmb_cliente.ForeColor = Color.FromArgb(221,221,221);
 
-            btn_buscar.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-          
-            btn_mostrar_vuelto.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-            btn_desc.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-            button2.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-            button3.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-            dtg_caja.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
-           dtg_caja.DefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
-            dtg_caja.BackgroundColor = Color.FromArgb(53, 53, 53);
-            dtg_caja.DefaultCellStyle.ForeColor = Color.FromArgb(221,221,221);
-            txt_subtotal.BackColor = Color.FromArgb(53, 53, 53);
-            txt_subtotal.ForeColor = Color.FromArgb(221,221,221);
-            txt_descuento.BackColor = Color.FromArgb(53, 53, 53);
-            txt_descuento.ForeColor = Color.FromArgb(221,221,221);
-            txt_total.BackColor = Color.FromArgb(53, 53, 53);
-            txt_total.ForeColor = Color.FromArgb(221,221,221);
-        }
+             cmb_comprobante.FlatStyle = FlatStyle.Flat;
+             cmb_comprobante.BackColor = Color.FromArgb(53, 53, 53);
+             cmb_comprobante.ForeColor = Color.FromArgb(221,221,221);
 
-        private void ModoClaro()
-        {
-            tableLayoutPanel1.BackColor = Color.White;
-            tableLayoutPanel2.BackColor = Color.White;
-            tableLayoutPanel4.BackColor = Color.White;
-            panel3.BackColor = Color.White;
-            panel4.BackColor = Color.White;
-        }*/
+             cmb_factura.BackColor = Color.FromArgb(53, 53, 53);
+
+             cmb_factura.ForeColor = Color.FromArgb(221,221,221);
+             cmb_pago.BackColor = Color.FromArgb(53, 53, 53);
+             cmb_pago.ForeColor = Color.FromArgb(221,221,221);
+             label1.ForeColor = Color.FromArgb(221,221,221);
+                 label2.ForeColor = Color.FromArgb(221,221,221);
+             label3.ForeColor = Color.FromArgb(221,221,221);
+             label4.ForeColor = Color.FromArgb(221,221,221);     
+             btn_confiVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+             btn_cancelarVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+
+             btn_buscar.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+
+             btn_mostrar_vuelto.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+             btn_desc.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+             button2.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+             button3.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
+             dtg_caja.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
+            dtg_caja.DefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
+             dtg_caja.BackgroundColor = Color.FromArgb(53, 53, 53);
+             dtg_caja.DefaultCellStyle.ForeColor = Color.FromArgb(221,221,221);
+             txt_subtotal.BackColor = Color.FromArgb(53, 53, 53);
+             txt_subtotal.ForeColor = Color.FromArgb(221,221,221);
+             txt_descuento.BackColor = Color.FromArgb(53, 53, 53);
+             txt_descuento.ForeColor = Color.FromArgb(221,221,221);
+             txt_total.BackColor = Color.FromArgb(53, 53, 53);
+             txt_total.ForeColor = Color.FromArgb(221,221,221);
+         }
+
+         private void ModoClaro()
+         {
+             tableLayoutPanel1.BackColor = Color.White;
+             tableLayoutPanel2.BackColor = Color.White;
+             tableLayoutPanel4.BackColor = Color.White;
+             panel3.BackColor = Color.White;
+             panel4.BackColor = Color.White;
+         }*/
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txt_buscar_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+        }
+
+        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_buscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Bloquear copiar/pegar/cortar
+            if ((e.Control && e.KeyCode == Keys.C) ||
+                (e.Control && e.KeyCode == Keys.V) ||
+                (e.Control && e.KeyCode == Keys.X) ||
+                (e.Shift && e.KeyCode == Keys.Insert) ||
+                (e.Control && e.KeyCode == Keys.Insert) ||
+                (e.Shift && e.KeyCode == Keys.Delete))
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+
+            // Bloquear AltGr + Q
+            if (e.Control && e.Alt && e.KeyCode == Keys.Q)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void txt_buscar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                e = null;
+            }
+        }
+
+        private void txt_desc_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                e = null;
+            }
+        }
+
+        private void txt_vuelto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -45,6 +45,7 @@ namespace MyM26.UI
                 {
                     ABM ar = new ABM();
                     ar.Modo = "Añadir-Compra";
+                    ar.md= "RevCant";
                     ar.StartPosition = FormStartPosition.CenterScreen;
                     ar.ShowDialog();
                     this.Close();
@@ -71,6 +72,11 @@ namespace MyM26.UI
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text.Length<8 || textBox1.Text.Length> 15)
+            {
+                errorProvider1.SetError(textBox1, "El código de barra debe tener entre 8 y 15 caracteres numéricos.");
+                return;
+            }
             Buscar();
         }
 

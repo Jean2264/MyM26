@@ -1,5 +1,6 @@
 ﻿using MyM26.BLL;
 using MyM26.DAL;
+using MyM26.Entidades.Articulos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,7 +62,7 @@ namespace MyM26.UI
             int totalRegistros = db.ObtenerTotalCompras();
             TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
 
-           
+
 
             btn_siguente.Enabled = paginaActual < TotalPaginas;
             btn_anterior.Enabled = paginaActual > 1;
@@ -168,6 +169,34 @@ namespace MyM26.UI
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        //validacion de existencia de proveedor
+        private void prov()
+        {
+            VArticulo art = new VArticulo();
+            ArticuloDatos db = new ArticuloDatos();
+            db.CantProvCompra(art);
+            if (art.CantProveedor == 0)
+
+            {
+                MessageBox.Show("Para poder realizar y/0 modificar una compra, debe existir al menos un proveedor.");
+                btn_buscar.Enabled = false;
+                btn_añadirUsrr.Enabled = false;
+                btn_anterior.Enabled = false;
+                btn_siguente.Enabled = false;
+                return;
+            }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Compras_Load(object sender, EventArgs e)
+        {
+            prov();
         }
     }
 }

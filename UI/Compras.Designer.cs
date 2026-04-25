@@ -149,6 +149,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(1312, 53);
             tableLayoutPanel1.TabIndex = 6;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // txt_buscar
             // 
@@ -247,6 +248,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Compras";
             Size = new Size(1312, 931);
+            Load += Compras_Load;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

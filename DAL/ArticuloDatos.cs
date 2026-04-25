@@ -35,7 +35,7 @@ namespace MyM26.DAL
 
 
         //METODOS PARA LOS COMBOBOX
-       
+
         public static DataTable MostrarCategoriaBox()
         {
             string consulta = "select CodCategoria, Categoria from Categoria where Estado=1";
@@ -57,7 +57,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.CategoriaBox;
-          
+
 
         }
 
@@ -93,13 +93,13 @@ namespace MyM26.DAL
         }
 
 
-       
+
         public static DataTable FiltrarCompra(string nombre)
         {
             string consulta = @"select h.FechaAlta, cd.Descripcion, cd.Cantidad, cd.PrecioUnitario,
                                     cd.PrecioXCantidad, h.DNI, h.Cuit from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra  WHERE (cd.Descripcion LIKE @filtro)";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@filtro", "%"+ nombre + "%");
+            cmd.Parameters.AddWithValue("@filtro", "%" + nombre + "%");
             Decla.CompraFil.Clear();
             try
             {
@@ -142,7 +142,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.SubBox;
-         
+
         }
 
         //Metodo que usamos para mostrar el proveedor en el Cmb
@@ -167,7 +167,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.ProvBox;
-            
+
 
         }
 
@@ -221,7 +221,7 @@ namespace MyM26.DAL
                     {
                         arts.LlenarArt();
                     };
-                 
+
                     btn.Nombre = _nombre;
                     btn.Cantidad = _cantidad;
                     btn.PU = _precio;
@@ -691,7 +691,7 @@ namespace MyM26.DAL
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-              
+
                 art.UltimoIdMov = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -811,11 +811,11 @@ namespace MyM26.DAL
             }
         }
 
-        public VArticulo traerParaCompra( string cb)
+        public VArticulo traerParaCompra(string cb)
         {
             VArticulo art = null;
 
-           
+
             string consulta = @"
                                 SELECT 
     a.CodigoArticulo,
@@ -854,7 +854,7 @@ WHERE a.CodigoBarra = @codBarra ";
                     art.Descuento = reader["Descuento"] != DBNull.Value ? Convert.ToDecimal(reader["Descuento"]) : 0;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex);
             }
@@ -878,12 +878,12 @@ WHERE a.CodigoBarra = @codBarra ";
             {
                 Decla.cnn.Open();
                 SqlDataReader r = cmd.ExecuteReader();
-                if(r.Read())
+                if (r.Read())
                 {
-                    art= new VArticulo
+                    art = new VArticulo
                     {
-                       Cantidad= Convert.ToInt32(r["Cantidad"]),
-                       Costo= Convert.ToDecimal(r["Costo"])
+                        Cantidad = Convert.ToInt32(r["Cantidad"]),
+                        Costo = Convert.ToDecimal(r["Costo"])
                     };
                 }
             }
@@ -915,7 +915,7 @@ WHERE a.CodigoBarra = @codBarra ";
                 {
                     art = new VArticulo
                     {
-                        Descuento= Convert.ToDecimal(r["Descuento"])
+                        Descuento = Convert.ToDecimal(r["Descuento"])
                     };
                 }
             }
@@ -935,13 +935,13 @@ WHERE a.CodigoBarra = @codBarra ";
         }
         //////////////////PARA LA ACTUALIZACION DE HCOMPRA
         ///
-        
+
 
 
         //PARA HCOMPRADETALLE
 
 
-       
+
 
         public void ModArtCompra(VArticulo art, SqlTransaction trans)
         {
@@ -954,7 +954,7 @@ WHERE a.CodigoBarra = @codBarra ";
 
         public void ModStockCompra(VArticulo art, SqlTransaction trans)
         {
-            string consulta = "UPDATE Stock SET Costo=@costo, Cantidad=@cantidad WHERE CodigoArticulo=@cod" ;
+            string consulta = "UPDATE Stock SET Costo=@costo, Cantidad=@cantidad WHERE CodigoArticulo=@cod";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
             cmd.Parameters.AddWithValue("@cod", art.CodArt);
             cmd.Parameters.AddWithValue("@costo", art.Costo);
@@ -1165,7 +1165,7 @@ WHERE a.CodigoBarra = @codBarra ";
         {
             string consulta = @"SELECT COUNT(*) as CantCat FROM Categoria WHERE Estado=1";
 
-            using(SqlCommand cmd= new SqlCommand(consulta,Decla.cnn, trans))
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
                 object obj = cmd.ExecuteScalar();
                 if (obj == DBNull.Value)
@@ -1196,7 +1196,7 @@ WHERE a.CodigoBarra = @codBarra ";
 
 
         //para prov
-         public void CantProv(VArticulo art, SqlTransaction trans)
+        public void CantProv(VArticulo art, SqlTransaction trans)
         {
             string consulta = @"SELECT COUNT(*) as CantProv FROM Proveedor WHERE Estado=1";
 
@@ -1227,7 +1227,7 @@ WHERE a.CodigoBarra = @codBarra ";
 
                     trans.Commit();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     trans.Rollback();
                     MessageBox.Show("No se pudieron traer las cantidades. " + ex.Message);
@@ -1240,6 +1240,100 @@ WHERE a.CodigoBarra = @codBarra ";
             }
         }
 
+
+        //PARA LA VALIDACION DE PROVEEDORES EN EL CASO DE COMPRAS
+
+        public void CantProvCompra(VArticulo art)
+        {
+            string consulta = @"SELECT COUNT(*) FROM Proveedor WHERE  Estado=1";
+
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+
+            try
+            {
+                Decla.cnn.Open();
+                object obj = cmd.ExecuteScalar();
+                if (obj == DBNull.Value)
+                {
+                    art.CantProveedor = 0;
+                }
+                else
+                    art.CantProveedor = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al traer la cantidad de proveedores. " + ex.Message);
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+
+        }
+
+        //cant cat y sub para alta de compras
+
+        //para categoria
+        public void CantCat2(VArticulo art, SqlTransaction trans)
+        {
+            string consulta = @"SELECT COUNT(*) as CantCat FROM Categoria WHERE Estado=1";
+
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
+            {
+                object obj = cmd.ExecuteScalar();
+                if (obj == DBNull.Value)
+                {
+                    art.CantCategoria = 0;
+                }
+                else
+                    art.CantCategoria = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        //para sub
+        public void CantSub2(VArticulo art, SqlTransaction trans)
+        {
+            string consulta = @"SELECT COUNT(*) as CantSub FROM Subcategoria WHERE Estado=1";
+
+            using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
+            {
+                object obj = cmd.ExecuteScalar();
+                if (obj == DBNull.Value)
+                {
+                    art.CantSub = 0;
+                }
+                else
+                    art.CantSub = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+
+        public void CantCompleto2(VArticulo art)
+        {
+            try
+            {
+                Decla.cnn.Open();
+                SqlTransaction trans = Decla.cnn.BeginTransaction();
+                try
+                {
+                    CantCat(art, trans);
+                    CantSub(art, trans);
+                    
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("No se pudieron traer las cantidades. " + ex.Message);
+                }
+            }
+            finally
+            {
+                if (Decla.cnn.State == ConnectionState.Open)
+                    Decla.cnn.Close();
+            }
+        }
     }
-    }
+}
 
