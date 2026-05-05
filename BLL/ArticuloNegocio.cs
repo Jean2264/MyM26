@@ -30,7 +30,7 @@ namespace MyM26.BLL
                 resultado.Errores.Add(new Error
                 {
                     Campo="CodigoBarra", 
-                    Mensaje="Este campo no puede quedar vacio."
+                    Mensaje="Este campo no debe quedar vacio."
                 });
             }
             else if(art.CodigoBarra.Length<8 || art.CodigoBarra.Length>15)
