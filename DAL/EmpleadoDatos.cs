@@ -217,61 +217,83 @@ namespace MyM26.DAL
                 Total = total
             };
         }
-        public static DataTable LLenarDtgEmpleado(int paginaActual, int registrosPorPagina)
+      public PagedResult<EmpleadoDto> GetFiltroEmpleado(int pagina, int limite, string filtro)
         {
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registrosPorPagina;
-            string consulta = "select  DNI, Apellido, Nombre, Telefono, Mail, Sector from Empleado where Estado=1 ORDER BY Apellido OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
-            SqlConnection cn = new SqlConnection(Decla.ConnectionString);
-            SqlCommand cmd = new SqlCommand(consulta, cn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
-            Decla.EmpleadoTab.Clear();
-            try
-            {
-                cn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.EmpleadoTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.ToString(), "Error al cargar los datos", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (cn.State == ConnectionState.Open)
-                {
-                    cn.Close();
-                }
-            }
-            return Decla.EmpleadoTab;
-        }
 
-        public int ObtenerTotalEmpleados()
-        {
+            if (pagina < 1) pagina = 1;
+            if (limite <= 0) limite = 10;
+
+            var lis = new List<EmpleadoDto>();
             int total = 0;
-
-            string sql = "SELECT COUNT(*) FROM Empleado WHERE Estado = 1";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-
-            try
+            int offset = (pagina - 1) * limite;
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
             {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
+                conn.Open();
+
+                
+                string where = "WHERE Estado=1";
+                if(!string.IsNullOrWhiteSpace(filtro))
+                {
+                    where += @"AND (DNI LIKE @filtro OR 
+                               Apellido LIKE @filtro OR 
+                               Nombre LIKE @filtro OR Sector like @filtro)";
+                }
+
+                //total
+
+                string QueryTotalC = $"SELECT COUNT(*) FROM Empleado {where}";
+                using(SqlCommand cmd= new SqlCommand(QueryTotalC, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+                    }
+
+
+                    total= (int)cmd.ExecuteScalar();
+                }
+
+                //DataFiltrada
+
+                string queryData = @$"select  DNI, Apellido, Nombre,
+                                   Telefono, Mail, Sector from Empleado
+                                    {where} ORDER BY Apellido OFFSET 
+                                      @offset ROWS FETCH NEXT @limite ROWS ONLY";
+
+                using(SqlCommand cmd= new SqlCommand(queryData, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    if(!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+                    }
+
+
+                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lis.Add(new EmpleadoDto
+                            {
+                                DNI = reader["DNI"].ToString(),
+                                Apellido = reader["Apellido"].ToString(),
+                                Nombre = reader["Nombre"].ToString(),
+                                Telefono = reader["Telefono"].ToString(),
+                                Mail = reader["Mail"].ToString(),
+                                Seccion = reader["Sector"].ToString(),
+                            });
+                        }
+                    }
+                }
+
             }
 
-            return total;
+            return new PagedResult<EmpleadoDto>
+            {
+                Data = lis,
+                Total = total,
+            };
         }
 
         public static DataTable BajaEmpleado()
@@ -382,27 +404,7 @@ namespace MyM26.DAL
 
         }
 
-        public static DataTable FiltrarEmpl(string dni)
-        {
-
-            string consulta = "select  DNI, Apellido, Nombre, Telefono, Mail, Sector from Empleado WHERE (Nombre LIKE @cuit OR DNI LIKE @cuit) and Estado=1";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@cuit", "%" + dni + "%");
-
-            try
-            {
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                Decla.EmpleadoFil.Clear();
-
-                da.Fill(Decla.EmpleadoFil);
-
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Error al filtrar el proveedor: " + ex.Message.ToString());
-            }
-            return Decla.EmpleadoFil;
-        }
+        
+        
     }
 }

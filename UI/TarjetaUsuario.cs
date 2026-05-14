@@ -11,7 +11,7 @@ using MyM26.DAL;
 
 namespace MyM26.screens
 {
-    public partial class TargetaUsuario : UserControl
+    public partial class TarjetaUsuario : UserControl
     {
         private string dni;
         private string nombre;
@@ -19,24 +19,25 @@ namespace MyM26.screens
         public Users usr;
 
         public event Action<string> EditarUsuario;
+        public event Action<string> VerUsuario;
         public event Action DatoEliminado;
 
 
 
-        public TargetaUsuario(Users user)
+        public TarjetaUsuario(Users user)
         {
             InitializeComponent();
             pic_usu.SizeMode = PictureBoxSizeMode.StretchImage;
             this.usr = user;
         }
 
-        public TargetaUsuario()
+        public TarjetaUsuario()
         {
-         InitializeComponent();
-         pic_usu.SizeMode = PictureBoxSizeMode.StretchImage;
+            InitializeComponent();
+            pic_usu.SizeMode = PictureBoxSizeMode.StretchImage;
 
         }
-      
+
         private void TargetaUsuario_Load(object sender, EventArgs e)
         {
 
@@ -53,28 +54,7 @@ namespace MyM26.screens
         {
 
         }
-        /* public void eliminar()
-         {
-             string dni = lbl_dni.Text.Trim();
-             DialogResult resultado = MessageBox.Show("¿Esta seguro de eliminar a este usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-             if (resultado != DialogResult.Yes)
-                 return;
-             UsuarioNegocio un = new UsuarioNegocio();
-             VUser usuario= un.eliminarUser(dni);
-
-             DatoEliminado?.Invoke();
-
-
-             usuario.TipoMovimiento = "modificación de usuario";
-             usuario.DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
-                             " (DNI: " + UsuarioActivo.Datos.DNIAc +
-                             " ) ha modificado la información de: " + nombre +
-                             " ( DNI: " + dni + ")";
-             UsuarioDatos datos = new UsuarioDatos();
-             datos.AltaHistoricoCompleto(usuario);
-             //se rompio
-         }*/
+       
         public void eliminar()
         {
             string dni = lbl_dni.Text.Trim();
@@ -103,11 +83,11 @@ namespace MyM26.screens
         }
         private void btn_editar_Click(object sender, EventArgs e)
         {
-         
+
             string dni = lbl_dni.Text.Trim();
             EditarUsuario?.Invoke(dni);
 
-        
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -115,6 +95,17 @@ namespace MyM26.screens
             string dni = lbl_dni.Text.Trim();
             eliminar();
             DatoEliminado?.Invoke();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string dni = lbl_dni.Text.Trim();
+            VerUsuario?.Invoke(dni);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 

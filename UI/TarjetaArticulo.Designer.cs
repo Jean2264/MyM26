@@ -1,6 +1,6 @@
 ﻿namespace MyM26.UI
 {
-    partial class TargetaArticulo
+    partial class TarjetaArticulo
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TargetaArticulo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TarjetaArticulo));
             pictureBox1 = new PictureBox();
             lbl_nombre = new Label();
             lbl_precio = new Label();

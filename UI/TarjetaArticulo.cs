@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace MyM26.UI
 {
-    public partial class TargetaArticulo : UserControl
+    public partial class TarjetaArticulo : UserControl
     {
 
         public string codArt;
@@ -26,7 +26,7 @@ namespace MyM26.UI
         public event Action<string> EditarArt;
         public event Action<string> VistaArt;
         public event Action DatoEliminado;
-        public TargetaArticulo()
+        public TarjetaArticulo()
         {
             InitializeComponent();
             Conexion.Conectar();

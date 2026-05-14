@@ -258,7 +258,7 @@ namespace MyM26.UI
 
                        datos.ReactivarEmpleado(dni);
                         MessageBox.Show("Empleado reactivado correctamente.");
-                        em.LlenarDtgEmpleado();
+                        em.mostrar();
                         this.Close();
                         return;
                     }
@@ -280,7 +280,7 @@ namespace MyM26.UI
            
                 datos.AltaCompletoEmpleado(empleado);
                 datos.AltaHistoricoCompleto(empleado);
-                em.LlenarDtgEmpleado();
+                em.mostrar();
                 this.Close();
             }
             if (Modo=="Editar")
@@ -313,7 +313,7 @@ namespace MyM26.UI
                 EmpleadoDatos datos = new EmpleadoDatos();
                 datos.ModiEmpleado(empleado);
                 datos.AltaHistoricoCompleto(empleado);
-                em.LlenarDtgEmpleado();
+                em.mostrar();
                 this.Close();
             }
         }

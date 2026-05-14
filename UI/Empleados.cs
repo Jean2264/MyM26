@@ -24,6 +24,7 @@ namespace MyM26.UI
         int TotalPaginas = 0;
         string cda2 = "";
         string nombre = "";
+        string md;
         public Empleados()
         {
             InitializeComponent();
@@ -76,11 +77,23 @@ namespace MyM26.UI
 
       
         private void btn_siguente_Click(object sender, EventArgs e)
-        {
+        { string filtro = txt_buscar.Text;
+
             if (paginaActual < TotalPaginas)
             {
                 paginaActual++;
-               mostrar();
+                if (md == "m")
+                {
+                    mostrar();
+                }
+                else if (md == "b")
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        buscar(filtro);
+                    }
+
+                            }
             } 
 
         }
@@ -143,7 +156,7 @@ namespace MyM26.UI
                             " ( DNI: " + cda2 + ")";
             EmpleadoDatos datos = new EmpleadoDatos();
             datos.AltaHistoricoCompleto(empleado);
-            LlenarDtgEmpleado();
+            mostrar();
 
         }
 
@@ -163,14 +176,10 @@ namespace MyM26.UI
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string dni = txt_buscar.Text;
-            BuscarEmpl(dni);
+            buscar(dni);
         }
 
-        public void BuscarEmpl(string dni)
-        {
-            dataGridView1.DataSource = EmpleadoDatos.FiltrarEmpl(dni);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
+       
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
@@ -201,6 +210,13 @@ namespace MyM26.UI
             {
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+            }
+
+            if(e.KeyCode == Keys.Enter)
+            {
+                btn_buscar.PerformClick();
+
+                e.Handled = true; e.SuppressKeyPress=true;
             }
         }
 
@@ -246,9 +262,44 @@ namespace MyM26.UI
                 btn_siguente.Enabled = paginaActual < TotalPaginas;
 
                 label1.Text = $"Total registros: {result.Total}";
-               
+                md = "m";
 
             }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        public void buscar(string filtro)
+        {
+
+            try
+            {
+                EmpleadoDatos dt = new EmpleadoDatos();
+                var result = dt.GetFiltroEmpleado(paginaActual, registrosPorPagina, filtro);
+
+                if (result == null)
+                {
+                    MessageBox.Show("no se encontro ningun registro con esa descripción.");
+                    return;
+                }
+
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = result.Data;
+
+                TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+
+                lbl_paginas.Text = $"Página  {paginaActual} / {TotalPaginas}";
+
+                btn_anterior.Enabled = paginaActual > 1;
+                btn_siguente.Enabled = paginaActual < TotalPaginas;
+
+                label1.Text = $"Total filtrado: {result.Total}";
+
+                md = "b";
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;

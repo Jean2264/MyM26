@@ -66,6 +66,7 @@ namespace MyM26.screens
             else
             {
                 label_title.Text = "Consulta de usuario";
+                buscarUsuario();
                 btn_AM.Visible = false;
                 foreach (Control ctrl in this.Controls)
                 {

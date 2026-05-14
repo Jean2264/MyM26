@@ -77,7 +77,7 @@ int registrosPorPagina)
                     else
                         _foto = null;
 
-                    TargetaUsuario btn = new TargetaUsuario();
+                    TarjetaUsuario btn = new TarjetaUsuario();
 
                     btn.DatoEliminado += () =>
                     {
@@ -89,6 +89,7 @@ int registrosPorPagina)
                     btn.Tipo = _tipo;
 
                     btn.EditarUsuario += editarCallback;
+                   
 
                     if (_foto != null)
                     {
@@ -479,7 +480,7 @@ int registrosPorPagina)
                         _foto = null;
                     }
 
-                    TargetaUsuario btn = new TargetaUsuario();
+                    TarjetaUsuario btn = new TarjetaUsuario();
                     btn.Dni = _dni;
                     btn.Nombre = _nombre;
                     btn.Tipo = _tipo;

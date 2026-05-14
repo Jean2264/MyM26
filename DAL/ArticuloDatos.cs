@@ -215,7 +215,7 @@ namespace MyM26.DAL
                         _imagen = null;
                     }
 
-                    TargetaArticulo btn = new TargetaArticulo();
+                    TarjetaArticulo btn = new TarjetaArticulo();
 
                     btn.DatoEliminado += () =>
                     {
@@ -780,7 +780,7 @@ namespace MyM26.DAL
                         _imagen = null;
                     }
 
-                    TargetaArticulo btn = new TargetaArticulo();
+                    TarjetaArticulo btn = new TarjetaArticulo();
                     btn.Nombre = _nombre;
                     btn.Cantidad = _cantidad;
                     btn.PU = _precio;
