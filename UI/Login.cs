@@ -18,7 +18,7 @@ namespace MyM26.UI
 {
     public partial class Login : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        /*[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
 (
     int nLeftRect,     // x-coordinate of upper-left corner
@@ -27,7 +27,7 @@ namespace MyM26.UI
     int nBottomRect,   // y-coordinate of lower-right corner
     int nWidthEllipse, // width of ellipse (curvatura)
     int nHeightEllipse // height of ellipse (curvatura)
-);
+);*/
         private Size tamañoOriginal = new Size(178, 39);
         private Size tamañoHover = new Size(180, 43); // Un poco más grande
         private Size tamañoClick = new Size(175, 36);  // Un poco más pequeño
@@ -35,8 +35,8 @@ namespace MyM26.UI
         {
             InitializeComponent();
             Conexion.Conectar();
-            this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
+            /*this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));*/
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -63,24 +63,24 @@ namespace MyM26.UI
 
         private void button2_MouseEnter(object sender, EventArgs e)
         {
-
+            button2.BackgroundImage = Properties.Resources.enter;
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
 
-
+            button2.BackgroundImage = Properties.Resources.leave;
         }
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
-            button2.Size = tamañoClick;
+
             button2.BackgroundImage = Properties.Resources.apreto;
         }
 
         private void button2_MouseUp(object sender, MouseEventArgs e)
         {
-            button2.Size = tamañoHover;
+
             button2.BackgroundImage = Properties.Resources.suelto;
         }
 
@@ -192,6 +192,8 @@ namespace MyM26.UI
                 principal.tipo = usuariolog.TipoAc;
                 principal.foto = usuariolog.FotoAc;
                 principal.StartPosition = FormStartPosition.CenterScreen;
+               
+               principal.WindowState = FormWindowState.Maximized;
                 principal.Show();
                 this.Hide();
             }
@@ -241,7 +243,7 @@ namespace MyM26.UI
         {
             //Segoe UI Semibold, 9.75pt, style=Bold  
             //79, 207
-            label2.Location = new Point(79, 210);
+            label2.Location = new Point(154, 376);
             label2.Enabled = true;
             label2.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             label2.ForeColor = Color.Black;
@@ -252,7 +254,7 @@ namespace MyM26.UI
         {
             if (txt_user.Text == "")
             { //Segoe UI, 7.8pt
-                label2.Location = new Point(83, 238);
+                label2.Location = new Point(158, 404);
 
                 label2.Font = new Font("Segoe UI", 8);
                 label2.ForeColor = Color.FromArgb(64, 64, 64);
@@ -262,7 +264,7 @@ namespace MyM26.UI
 
         private void txt_contra_Enter(object sender, EventArgs e)
         {
-            label4.Location = new Point(81, 330);
+            label4.Location = new Point(157, 435);
             label4.Enabled = true;
             label4.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             label4.ForeColor = Color.Black;
@@ -272,7 +274,7 @@ namespace MyM26.UI
         {
             if (txt_contra.Text == "")
             {
-                label4.Location = new Point(86, 358);
+                label4.Location = new Point(161, 463);
                 label4.Font = new Font("Segoe UI", 8);
                 label4.ForeColor = Color.DimGray;
                 label4.ForeColor = Color.FromArgb(64, 64, 64);
@@ -288,14 +290,45 @@ namespace MyM26.UI
         private void btn_QA_Click(object sender, EventArgs e)
         {
 
-          DialogResult= MessageBox.Show("¿Estás seguro de que deseas restablecer la configuración de primera ejecución? Esto hará que la aplicación se comporte como si fuera la primera vez que se ejecuta, solicitando el registro de un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult = MessageBox.Show("¿Estás seguro de que deseas restablecer la configuración de primera ejecución? Esto hará que la aplicación se comporte como si fuera la primera vez que se ejecuta, solicitando el registro de un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if(DialogResult == DialogResult.No)
+            if (DialogResult == DialogResult.No)
                 return;
             Properties.Settings.Default.PrimeraEjecucion = true;
             Properties.Settings.Default.Save();
 
             MessageBox.Show("Se ha restablecido la configuración de primera ejecución. La próxima vez que inicies la aplicación, se te pedirá registrar un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btn_salir_MouseEnter(object sender, EventArgs e)
+        {
+            btn_salir.Image = Properties.Resources.XClaro;
+        }
+
+        private void btn_salir_MouseLeave(object sender, EventArgs e)
+        {
+            btn_salir.Image = Properties.Resources.xnegro;
+        }
+
+        private void btn_mini_MouseEnter(object sender, EventArgs e)
+        {
+            btn_mini.Image = Properties.Resources.GuionClaro;
+        }
+
+        private void btn_mini_MouseLeave(object sender, EventArgs e)
+        {
+            btn_mini.Image = Properties.Resources.GuionOscuro;
+
+        }
+
+        private void pcb_ver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -28,8 +28,8 @@ namespace MyM26.UI
         {
             InitializeComponent();
             Conexion.Conectar();
-            CalcularTotalPaginasEmpleados();
-            LlenarDtgEmpleado();
+           
+            mostrar();
             btn_editar.Enabled = false;
             btn_eliminar.Enabled = false;
         }
@@ -74,39 +74,13 @@ namespace MyM26.UI
             btn_eliminar.Enabled = true;
         }
 
-        public void LlenarDtgEmpleado()
-        {
-            Decla.EmpleadoTab = EmpleadoDatos.LLenarDtgEmpleado(paginaActual, registrosPorPagina);
-
-            dataGridView1.DataSource = Decla.EmpleadoTab;
-            CalcularTotalPaginasEmpleados();
-
-        }
-        private void CalcularTotalPaginasEmpleados()
-        {
-            EmpleadoDatos db = new EmpleadoDatos();
-            int totalRegistros = db.ObtenerTotalEmpleados();
-            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
-
-            btn_siguente.Enabled = paginaActual < TotalPaginas;
-            btn_anterior.Enabled = paginaActual > 1;
-            label1.Text = $"Total de empleados: {totalRegistros}";
-            if (dataGridView1.Rows.Count == 0 || (dataGridView1.AllowUserToAddRows && dataGridView1.Rows.Count == 1))
-            {
-                lbl_paginas.Text = $"Página 0/0";
-            }
-            else
-            {
-                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-            }
-        }
-
+      
         private void btn_siguente_Click(object sender, EventArgs e)
         {
             if (paginaActual < TotalPaginas)
             {
                 paginaActual++;
-                LlenarDtgEmpleado();
+               mostrar();
             } 
 
         }
@@ -116,7 +90,7 @@ namespace MyM26.UI
             if (paginaActual > 1)
             {
                 paginaActual--;
-                LlenarDtgEmpleado();
+                mostrar();
             }
         }
 
@@ -249,6 +223,36 @@ namespace MyM26.UI
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public void mostrar()
+        {
+
+            try
+            {
+                EmpleadoDatos dt = new EmpleadoDatos();
+                var result = dt.GetEmpleado(paginaActual, registrosPorPagina);
+
+                if (result == null) return;
+
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = result.Data;
+
+                TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+
+                lbl_paginas.Text = $"Página  {paginaActual} / {TotalPaginas}";
+
+                btn_anterior.Enabled = paginaActual > 1;
+                btn_siguente.Enabled = paginaActual < TotalPaginas;
+
+                label1.Text = $"Total registros: {result.Total}";
+               
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
     }
 }

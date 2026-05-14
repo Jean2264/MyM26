@@ -40,12 +40,17 @@ namespace MyM26.UI
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_buscar.Text))
+            {
+                MessageBox.Show("El campo no debe estar vacio al momento de buscar.");
+                return;
+            }
             string filtro = txt_buscar.Text;
             CajaNegocio negocio = new CajaNegocio();
             VCaja cj = negocio.BuscarAer(filtro);
             if (cj != null)
             {
-
+                dtg_caja.Rows.Clear();
                 dtg_caja.Rows.Add(cj.CodigoBarra, cj.Nombre, cj.PrecioUnitario, cj.PrecioMayorista, cj.CantidadMinimaMayor, cj.StockDisponible);
 
                 img = cj.Imagen;
@@ -55,12 +60,17 @@ namespace MyM26.UI
 
         public void buscar()
         {
+            if(string.IsNullOrWhiteSpace(txt_buscar.Text))
+            {
+                MessageBox.Show("El campo no debe estar vacio al momento de buscar.");
+                return;
+            }
             CajaNegocio negocio = new CajaNegocio();
             VCaja cj = negocio.BuscarAer(caj);
             if (cj != null)
             {
-
-                dtg_caja.Rows.Add(cj.CodigoBarra,cj.codigoArticulo, cj.Nombre, cj.PrecioUnitario, cj.PrecioMayorista, cj.CantidadMinimaMayor, cj.StockDisponible);
+                dtg_caja.Rows.Clear();
+                dtg_caja.Rows.Add(cj.CodigoBarra, cj.codigoArticulo, cj.Nombre, cj.PrecioUnitario, cj.PrecioMayorista, cj.CantidadMinimaMayor, cj.StockDisponible);
 
                 img = cj.Imagen;
 
@@ -80,7 +90,7 @@ namespace MyM26.UI
         private void dtg_caja_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             cb = dtg_caja.CurrentRow.Cells["CodigoBarra"].Value.ToString();
-            nombre = dtg_caja.CurrentRow.Cells["Nombre"].Value.ToString() ;
+            nombre = dtg_caja.CurrentRow.Cells["Nombre"].Value.ToString();
             PU = Convert.ToDecimal(dtg_caja.CurrentRow.Cells["PrecioUnit"].Value);
             PM = Convert.ToDecimal(dtg_caja.CurrentRow.Cells["PrecioMayor"].Value);
             CM = Convert.ToInt32(dtg_caja.CurrentRow.Cells["CantMinMayor"].Value);
@@ -90,7 +100,23 @@ namespace MyM26.UI
 
             this.DialogResult = DialogResult.OK;
             this.Close();
-            
+
+        }
+
+        private void txt_buscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrWhiteSpace(txt_buscar.Text))
+                {
+                    MessageBox.Show("El campo no debe estar vacio al momento de buscar.");
+                    return;
+                }
+                btn_buscar.PerformClick();
+                
+                e.Handled = true; e.SuppressKeyPress=true;
+            }
+
         }
     }
 }

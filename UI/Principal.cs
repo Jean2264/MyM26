@@ -7,7 +7,7 @@ namespace MyM26
 {
     public partial class Principal : Form
     {
-        bool isMaximized = false;
+        bool isMaximized = true;
         public VUser _usuarioActual; // Variable para almacenar el usuario actual
 
         public string name;
@@ -18,7 +18,8 @@ namespace MyM26
         public Principal()
         {
             InitializeComponent();
-
+             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            btn_maxi.Image = Properties.Resources.tMax;
             buttons = new List<Button> { btn_principal, btn_usurios, btn_art,
                 btn_cajas, button6, button1, btn_ventas, btn_compras,btn_contables, button2 };
            
@@ -27,6 +28,8 @@ namespace MyM26
         public Principal(VUser user)
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            btn_maxi.Image = Properties.Resources.tMax;
             buttons = new List<Button> { btn_principal, btn_usurios, btn_art,
                 btn_cajas, button6, button1, btn_ventas, btn_compras,btn_contables, button2 };
             this._usuarioActual = user; // Asignar el usuario actual

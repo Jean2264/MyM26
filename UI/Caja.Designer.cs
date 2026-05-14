@@ -52,9 +52,9 @@
             numeric_restar = new NumericUpDown();
             button3 = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
-            btn_buscar = new Button();
+            panel7 = new Panel();
             txt_buscar = new TextBox();
-            btn_modo = new Button();
+            btn_buscar = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel3 = new Panel();
@@ -89,6 +89,7 @@
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numeric_restar).BeginInit();
             tableLayoutPanel4.SuspendLayout();
+            panel7.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel3.SuspendLayout();
@@ -415,14 +416,12 @@
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 5;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.4898548F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.65358567F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.5142059F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3423538F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.8351822F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.6339144F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.85737F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.6735344F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel4.Controls.Add(btn_buscar, 1, 0);
-            tableLayoutPanel4.Controls.Add(txt_buscar, 0, 0);
-            tableLayoutPanel4.Controls.Add(btn_modo, 4, 0);
+            tableLayoutPanel4.Controls.Add(panel7, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Top;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
@@ -433,31 +432,27 @@
             tableLayoutPanel4.TabIndex = 3;
             tableLayoutPanel4.Paint += tableLayoutPanel4_Paint;
             // 
-            // btn_buscar
+            // panel7
             // 
-            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
-            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_buscar.Dock = DockStyle.Fill;
-            btn_buscar.FlatAppearance.BorderSize = 0;
-            btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(287, 4);
-            btn_buscar.Margin = new Padding(3, 4, 3, 4);
-            btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(40, 43);
-            btn_buscar.TabIndex = 7;
-            btn_buscar.UseVisualStyleBackColor = true;
-            btn_buscar.Click += btn_buscar_Click;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(txt_buscar);
+            panel7.Controls.Add(btn_buscar);
+            panel7.Dock = DockStyle.Fill;
+            panel7.Location = new Point(3, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(421, 45);
+            panel7.TabIndex = 10;
             // 
             // txt_buscar
             // 
-            txt_buscar.BorderStyle = BorderStyle.FixedSingle;
+            txt_buscar.BorderStyle = BorderStyle.None;
             txt_buscar.Dock = DockStyle.Fill;
             txt_buscar.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txt_buscar.Location = new Point(3, 4);
+            txt_buscar.Location = new Point(0, 0);
             txt_buscar.Margin = new Padding(3, 4, 3, 4);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(278, 43);
+            txt_buscar.Size = new Size(379, 43);
             txt_buscar.TabIndex = 8;
             txt_buscar.TextChanged += txt_buscar_TextChanged;
             txt_buscar.DragEnter += txt_buscar_DragEnter;
@@ -465,19 +460,20 @@
             txt_buscar.KeyPress += txt_buscar_KeyPress;
             txt_buscar.MouseDown += txt_buscar_MouseDown;
             // 
-            // btn_modo
+            // btn_buscar
             // 
-            btn_modo.BackgroundImage = Properties.Resources.modo_claro;
-            btn_modo.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_modo.Dock = DockStyle.Fill;
-            btn_modo.FlatAppearance.BorderSize = 0;
-            btn_modo.FlatStyle = FlatStyle.Flat;
-            btn_modo.Location = new Point(1265, 3);
-            btn_modo.Name = "btn_modo";
-            btn_modo.Size = new Size(44, 45);
-            btn_modo.TabIndex = 9;
-            btn_modo.UseVisualStyleBackColor = true;
-            btn_modo.Click += btn_modo_Click;
+            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
+            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_buscar.Dock = DockStyle.Right;
+            btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.FlatStyle = FlatStyle.Flat;
+            btn_buscar.Location = new Point(379, 0);
+            btn_buscar.Margin = new Padding(3, 4, 3, 4);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(40, 43);
+            btn_buscar.TabIndex = 7;
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -814,7 +810,8 @@
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numeric_restar).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
-            tableLayoutPanel4.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -880,6 +877,6 @@
         private DataGridViewTextBoxColumn Subtotal;
         private System.Drawing.Printing.PrintDocument pdComprobante;
         private PrintPreviewDialog printPreviewDialog1;
-        private Button btn_modo;
+        private Panel panel7;
     }
 }

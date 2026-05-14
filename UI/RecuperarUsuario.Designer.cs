@@ -119,6 +119,7 @@
             Controls.Add(btn_mini);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "RecuperarUsuario";
             StartPosition = FormStartPosition.CenterScreen;

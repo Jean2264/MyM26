@@ -397,6 +397,7 @@
             Controls.Add(btn_salir);
             Controls.Add(btn_mini);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "registroDeUser";
             Text = "registroDeUser";
             Load += registroDeUser_Load;

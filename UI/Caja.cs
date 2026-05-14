@@ -143,7 +143,11 @@ namespace MyM26.screens
             CajaNegocio neg = new CajaNegocio();
             VCaja cj = neg.tomarInfo(codigoEscaneado);
 
-            if (cj == null) { return; }
+            if (cj == null)
+            {
+                MessageBox.Show("Articulo no enontrado");
+                dtg_caja.Rows.RemoveAt(e.RowIndex);
+                return; }
 
 
             if (cj.StockDisponible <= 0)
@@ -482,6 +486,12 @@ namespace MyM26.screens
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrWhiteSpace(txt_buscar.Text))
+            {
+                MessageBox.Show("EL campo no debe estar vacio al momento de filtrar.");
+                return;
+            }
+
             string filtro = txt_buscar.Text;
             BuscarArt ar = new BuscarArt(filtro);
             ar.StartPosition = FormStartPosition.CenterParent;
@@ -523,7 +533,7 @@ namespace MyM26.screens
                 }
                 int index = dtg_caja.Rows.Add();
                 LlenarFila(index, cj);
-                MessageBox.Show(cd);
+              
 
             }
 
@@ -856,23 +866,7 @@ namespace MyM26.screens
             }
         }
 
-        private void btn_modo_Click(object sender, EventArgs e)
-        {
-
-            modoOscuro = !modoOscuro;
-            if (modoOscuro)
-            {
-                btn_modo.BackgroundImage = Properties.Resources.modo_oscuro;
-                // ModoOscuro();
-            }
-            else
-            {
-                btn_modo.BackgroundImage = Properties.Resources.modo_claro;
-                // ModoClaro();
-
-            }
-        }
-
+       
         /* private void ModoOscuro()
          {
              tableLayoutPanel1.BackColor= Color.FromArgb(35,35,35);
@@ -966,6 +960,20 @@ namespace MyM26.screens
             {
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+            }
+
+            if(e.KeyCode== Keys.Enter)
+            {
+
+                if(string.IsNullOrWhiteSpace(txt_buscar.Text))
+                {
+                    MessageBox.Show("EL campo no debe quedar vacio al momento de filtrar.");
+                    return;
+                }
+
+             btn_buscar.PerformClick();
+
+                e.Handled= true; e.SuppressKeyPress= true;  
             }
         }
 

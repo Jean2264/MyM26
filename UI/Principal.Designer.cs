@@ -419,6 +419,7 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Principal";
             StartPosition = FormStartPosition.CenterScreen;

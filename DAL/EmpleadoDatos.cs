@@ -1,4 +1,5 @@
-﻿using MyM26.Entidades.Comun;
+﻿using MyM26.Entidades;
+using MyM26.Entidades.Comun;
 using MyM26.Entidades.Empleado;
 using MyM26.Entidades.Usuario;
 using MyM26.screens;
@@ -158,6 +159,63 @@ namespace MyM26.DAL
             }
 
             return empleado;
+        }
+
+        public PagedResult<EmpleadoDto> GetEmpleado(int pagina, int limite)
+        {
+            if (pagina < 1) pagina = 1;
+            if(limite<=0) limite = 10;
+
+            var lis = new List<EmpleadoDto>();
+            int total = 0;
+            int offset= (pagina-1)*limite;
+            using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+
+                //TOTAL
+
+                string queryTotal = "SELECT COUNT(*) FROM Empleado WHERE Estado=1";
+
+                using(SqlCommand cmd= new SqlCommand(queryTotal, conn))
+                {
+                    total= (int)cmd.ExecuteScalar();
+                }
+
+                //Data
+
+                string queryData = @"select  DNI, Apellido, Nombre,
+                                   Telefono, Mail, Sector from Empleado
+                                    where Estado=1 ORDER BY Apellido OFFSET 
+                                      @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using(SqlCommand cmd= new SqlCommand(queryData, conn))
+                {
+                    cmd.Parameters.Add("@offset", SqlDbType.Int).Value = offset;
+                    cmd.Parameters.Add("@limite", SqlDbType.Int).Value = total;
+
+                    using(SqlDataReader  reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lis.Add(new EmpleadoDto
+                            {
+                              DNI= reader["DNI"].ToString(),
+                              Apellido= reader["Apellido"].ToString(),
+                              Nombre= reader["Nombre"].ToString(),
+                              Telefono= reader["Telefono"].ToString(),
+                              Mail= reader["Mail"].ToString(),
+                              Seccion= reader["Sector"].ToString(),
+                            });
+                        }
+                    }
+                }
+            }
+
+            return new PagedResult<EmpleadoDto>
+            {
+                Data = lis,
+                Total = total
+            };
         }
         public static DataTable LLenarDtgEmpleado(int paginaActual, int registrosPorPagina)
         {
