@@ -15,6 +15,7 @@ using MyM26.Entidades.Comun;
 using System.Text;
 
 using Microsoft.VisualBasic.ApplicationServices;
+using MyM26.Entidades;
 
 namespace MyM26.DAL
 {
@@ -32,11 +33,12 @@ namespace MyM26.DAL
         public byte[] Foto { get => _foto; set => _foto = value; }
         public object ImagenHelper { get; private set; }
 
-     
+
 
         public void LlenarContenedor(
 FlowLayoutPanel Contenedor,
 Action<string> editarCallback,
+Action<string> VerCallback,
 Users usu,
 int paginaActual,
 int registrosPorPagina)
@@ -89,6 +91,7 @@ int registrosPorPagina)
                     btn.Tipo = _tipo;
 
                     btn.EditarUsuario += editarCallback;
+                    btn.VerUsuario += VerCallback;
                    
 
                     if (_foto != null)
@@ -116,7 +119,68 @@ int registrosPorPagina)
                     Decla.cnn.Close();
             }
         }
+        public PagedResult<UsuarioDto> LlenarContenedorPaginado(
+FlowLayoutPanel Contenedor,
+Action<string> editarCallback,
+Action<string> VerCallback,
+Users usu,
+int paginaActual,
+int registrosPorPagina)
+        {
 
+
+            if (paginaActual < 1)
+                paginaActual = 1;
+            int offset = (paginaActual - 1) * registrosPorPagina;
+            int total;
+            var list = new List<UsuarioDto>();
+            using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
+            {
+                string QueryTotal = "SELECT COUNT(*) FROM Usuario Where Estado=1";
+
+                using(SqlCommand cmd= new SqlCommand(QueryTotal, conn))
+                {
+                    total = (int)cmd.ExecuteScalar();
+                }
+
+
+                //Data
+
+                string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.perfil
+                   FROM Usuario s
+                   INNER JOIN TipoUsuario t 
+                   ON s.CodtipoUsuario = t.CodTipoUsuario
+                   WHERE s.Estado = 1
+                   ORDER BY s.Usuario
+                   OFFSET @offset ROWS
+                   FETCH NEXT @limite ROWS ONLY";
+
+                using(SqlCommand cmd= new SqlCommand(sql,conn))
+                {
+                    cmd.Parameters.Add("@offset", SqlDbType.Int).Value = offset;
+                    cmd.Parameters.Add("@limite", SqlDbType.Int).Value = total;
+
+                    using(SqlDataReader reader= cmd.ExecuteReader())
+                    {
+                        list.Add(new UsuarioDto
+                        {
+
+                        });
+                    }
+                }
+
+            }
+
+
+
+
+            return new PagedResult<UsuarioDto>
+            {
+                Data = list,
+                Total = total
+            };
+           
+        }
         public static DataTable bajaUsuario()
         {
             string sqltranq = "Select TOP 50 s.DNI, s.Usuario, t.Tipo from Usuario s inner join TipoUsuario t on s.CodtipoUsuario= t.CodTipoUsuario where s.Estado=0 ORDER BY IdUsuario DESC";

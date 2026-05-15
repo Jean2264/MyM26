@@ -65,7 +65,7 @@ namespace MyM26.screens
             }
             else
             {
-                label_title.Text = "Consulta de usuario";
+                label_title.Text = "Ver usuario";
                 buscarUsuario();
                 btn_AM.Visible = false;
                 foreach (Control ctrl in this.Controls)
@@ -73,11 +73,9 @@ namespace MyM26.screens
                     if (ctrl is TextBox)
                     {
                         ((TextBox)ctrl).ReadOnly = true;
+                        ((TextBox)ctrl).BackColor = Color.White;
                     }
-                    else if (ctrl is ComboBox)
-                    {
-                        ((ComboBox)ctrl).Enabled = false;
-                    }
+                   cmb_tipo.Enabled= false;
                 }
                 // Deshabilitar campos para solo consulta
 

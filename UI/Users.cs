@@ -37,7 +37,7 @@ namespace MyM26.screens
 
 
 
-            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario, this, paginaActual, registrosPorPagina);
+            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario,AbrirVerUsuario, this, paginaActual, registrosPorPagina);
 
             /*db.LlenarContenedor(
                 flowLayoutPanel1,
@@ -111,7 +111,21 @@ namespace MyM26.screens
                 llenarUser(); // 🔥 refresca
             }
         }
+        public void AbrirVerUsuario(string dni)
+        {
+            UsuarioNegocio un= new UsuarioNegocio();
+            un.Tomarinfo(dni);
+            AMUser us = new AMUser(this);
+            us.DNI = dni;
+            us.Modo = "Ver usuario";
+            us.StartPosition = FormStartPosition.CenterParent;
 
+            if (us.ShowDialog() == DialogResult.OK)
+            {
+                llenarUser(); // 🔥 refresca
+            }
+            
+        }
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string dni = txt_buscar.Text;

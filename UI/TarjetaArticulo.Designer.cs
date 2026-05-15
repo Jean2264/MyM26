@@ -161,7 +161,7 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // TargetaArticulo
+            // TarjetaArticulo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -180,7 +180,7 @@
             Margin = new Padding(3, 4, 3, 4);
             MaximumSize = new Size(252, 316);
             MinimumSize = new Size(252, 316);
-            Name = "TargetaArticulo";
+            Name = "TarjetaArticulo";
             Size = new Size(252, 316);
             Load += TargetaArticulo_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
