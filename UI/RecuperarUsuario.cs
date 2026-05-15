@@ -105,5 +105,25 @@ namespace MyM26.UI
         {
 
         }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.Image = Properties.Resources.XClaro;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.Image = Properties.Resources.xnegro;
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.Image = Properties.Resources.GuionClaro;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.Image = Properties.Resources.GuionOscuro;
+        }
     }
 }

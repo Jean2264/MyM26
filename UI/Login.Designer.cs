@@ -62,10 +62,9 @@
             btn_mini.FlatAppearance.MouseOverBackColor = Color.FromArgb(178, 178, 178);
             btn_mini.FlatStyle = FlatStyle.Flat;
             btn_mini.Image = (Image)resources.GetObject("btn_mini.Image");
-            btn_mini.Location = new Point(524, 0);
-            btn_mini.Margin = new Padding(3, 4, 3, 4);
+            btn_mini.Location = new Point(458, 0);
             btn_mini.Name = "btn_mini";
-            btn_mini.Size = new Size(27, 48);
+            btn_mini.Size = new Size(24, 36);
             btn_mini.TabIndex = 0;
             btn_mini.UseVisualStyleBackColor = false;
             btn_mini.Click += btn_mini_Click;
@@ -81,11 +80,10 @@
             btn_salir.FlatAppearance.MouseOverBackColor = Color.FromArgb(215, 10, 60);
             btn_salir.FlatStyle = FlatStyle.Flat;
             btn_salir.Image = (Image)resources.GetObject("btn_salir.Image");
-            btn_salir.Location = new Point(553, 0);
-            btn_salir.Margin = new Padding(3, 4, 3, 4);
+            btn_salir.Location = new Point(484, 0);
             btn_salir.Name = "btn_salir";
             btn_salir.RightToLeft = RightToLeft.No;
-            btn_salir.Size = new Size(29, 48);
+            btn_salir.Size = new Size(25, 36);
             btn_salir.TabIndex = 2;
             btn_salir.UseVisualStyleBackColor = false;
             btn_salir.Click += btn_salir_Click;
@@ -107,33 +105,34 @@
             panel1.Controls.Add(txt_contra);
             panel1.Controls.Add(txt_user);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(729, -1);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(639, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(582, 933);
+            panel1.Size = new Size(509, 698);
             panel1.TabIndex = 4;
             panel1.Paint += panel1_Paint;
             // 
             // lbl_error
             // 
+            lbl_error.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lbl_error.AutoSize = true;
             lbl_error.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_error.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error.Location = new Point(156, 493);
+            lbl_error.Location = new Point(136, 370);
             lbl_error.Name = "lbl_error";
-            lbl_error.Size = new Size(239, 40);
+            lbl_error.Size = new Size(182, 30);
             lbl_error.TabIndex = 13;
             lbl_error.Text = "Usuario no encontrado, por favor\r\nrevisa los campos\r\n";
             lbl_error.Visible = false;
             // 
             // pcb_ver
             // 
+            pcb_ver.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pcb_ver.BackgroundImage = (Image)resources.GetObject("pcb_ver.BackgroundImage");
             pcb_ver.BackgroundImageLayout = ImageLayout.Stretch;
-            pcb_ver.Location = new Point(424, 455);
-            pcb_ver.Margin = new Padding(3, 4, 3, 4);
+            pcb_ver.Location = new Point(371, 341);
             pcb_ver.Name = "pcb_ver";
-            pcb_ver.Size = new Size(29, 33);
+            pcb_ver.Size = new Size(25, 23);
             pcb_ver.TabIndex = 12;
             pcb_ver.TabStop = false;
             pcb_ver.Click += pcb_ver_Click;
@@ -141,12 +140,13 @@
             // linkLabel1
             // 
             linkLabel1.ActiveLinkColor = Color.FromArgb(39, 33, 250);
+            linkLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             linkLabel1.LinkColor = Color.FromArgb(89, 83, 200);
-            linkLabel1.Location = new Point(165, 757);
+            linkLabel1.Location = new Point(148, 568);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(255, 28);
+            linkLabel1.Size = new Size(204, 21);
             linkLabel1.TabIndex = 11;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "¿Olvidaste tu contraseña?";
@@ -154,6 +154,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
             button2.BackgroundImageLayout = ImageLayout.Stretch;
             button2.Cursor = Cursors.Hand;
@@ -163,10 +164,9 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(185, 648);
-            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Location = new Point(162, 486);
             button2.Name = "button2";
-            button2.Size = new Size(203, 52);
+            button2.Size = new Size(178, 37);
             button2.TabIndex = 10;
             button2.TabStop = false;
             button2.Text = "  Iniciar sesión";
@@ -179,37 +179,39 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Enabled = false;
             label4.Font = new Font("Segoe UI", 7.8F);
             label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(161, 463);
+            label4.Location = new Point(141, 347);
             label4.Name = "label4";
-            label4.Size = new Size(74, 17);
+            label4.Size = new Size(66, 13);
             label4.TabIndex = 9;
             label4.Text = "Contraseña";
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Enabled = false;
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(158, 404);
+            label2.Location = new Point(138, 303);
             label2.Name = "label2";
-            label2.Size = new Size(91, 17);
+            label2.Size = new Size(79, 13);
             label2.TabIndex = 6;
             label2.Text = "Usuario o DNI";
             // 
             // txt_contra
             // 
-            txt_contra.Location = new Point(156, 458);
-            txt_contra.Margin = new Padding(3, 4, 3, 4);
+            txt_contra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txt_contra.Location = new Point(136, 344);
             txt_contra.Name = "txt_contra";
-            txt_contra.Size = new Size(257, 27);
+            txt_contra.Size = new Size(225, 23);
             txt_contra.TabIndex = 7;
             txt_contra.DragEnter += txt_user_DragEnter;
             txt_contra.Enter += txt_contra_Enter;
@@ -220,10 +222,10 @@
             // 
             // txt_user
             // 
-            txt_user.Location = new Point(156, 399);
-            txt_user.Margin = new Padding(3, 4, 3, 4);
+            txt_user.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txt_user.Location = new Point(136, 299);
             txt_user.Name = "txt_user";
-            txt_user.Size = new Size(257, 27);
+            txt_user.Size = new Size(225, 23);
             txt_user.TabIndex = 6;
             txt_user.TextChanged += txt_user_TextChanged;
             txt_user.DragEnter += txt_user_DragEnter;
@@ -236,13 +238,14 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(11, 0, 57);
-            label1.Location = new Point(137, 291);
+            label1.Location = new Point(135, 218);
             label1.Name = "label1";
-            label1.Size = new Size(293, 38);
+            label1.Size = new Size(229, 30);
             label1.TabIndex = 6;
             label1.Text = "Bienvenido de nuevo";
             // 
@@ -252,9 +255,10 @@
             // 
             // btn_QA
             // 
-            btn_QA.Location = new Point(262, 781);
+            btn_QA.Location = new Point(229, 586);
+            btn_QA.Margin = new Padding(3, 2, 3, 2);
             btn_QA.Name = "btn_QA";
-            btn_QA.Size = new Size(217, 47);
+            btn_QA.Size = new Size(190, 35);
             btn_QA.TabIndex = 7;
             btn_QA.Text = "Boton QA";
             btn_QA.UseVisualStyleBackColor = true;
@@ -265,9 +269,10 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(85, 153);
+            pictureBox1.Location = new Point(122, 115);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(452, 459);
+            pictureBox1.Size = new Size(323, 344);
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
@@ -276,19 +281,20 @@
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.Location = new Point(30, 471);
+            pictureBox2.Location = new Point(26, 353);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(577, 123);
+            pictureBox2.Size = new Size(505, 151);
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 0, 146);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1312, 931);
+            ClientSize = new Size(1148, 698);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(btn_QA);
@@ -297,7 +303,6 @@
             ForeColor = SystemColors.InactiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Login";

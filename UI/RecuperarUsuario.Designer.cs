@@ -29,111 +29,130 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecuperarUsuario));
-            panel3 = new Panel();
-            panel2 = new Panel();
-            btn_salir = new Button();
-            btn_mini = new Button();
             panelprincipal = new Panel();
+            button1 = new Button();
+            button2 = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Transparent;
-            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
-            panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Location = new Point(96, 624);
-            panel3.Margin = new Padding(3, 4, 3, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(456, 61);
-            panel3.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Transparent;
-            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
-            panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(127, 221);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(353, 416);
-            panel2.TabIndex = 9;
-            // 
-            // btn_salir
-            // 
-            btn_salir.BackColor = Color.Transparent;
-            btn_salir.BackgroundImage = (Image)resources.GetObject("btn_salir.BackgroundImage");
-            btn_salir.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_salir.FlatAppearance.BorderSize = 0;
-            btn_salir.FlatAppearance.MouseDownBackColor = Color.FromArgb(215, 10, 60);
-            btn_salir.FlatAppearance.MouseOverBackColor = Color.FromArgb(215, 10, 60);
-            btn_salir.FlatStyle = FlatStyle.Flat;
-            btn_salir.Location = new Point(1272, 1);
-            btn_salir.Margin = new Padding(3, 4, 3, 4);
-            btn_salir.Name = "btn_salir";
-            btn_salir.RightToLeft = RightToLeft.No;
-            btn_salir.Size = new Size(23, 43);
-            btn_salir.TabIndex = 8;
-            btn_salir.UseVisualStyleBackColor = false;
-            btn_salir.Click += btn_salir_Click;
-            // 
-            // btn_mini
-            // 
-            btn_mini.BackColor = Color.Transparent;
-            btn_mini.BackgroundImage = (Image)resources.GetObject("btn_mini.BackgroundImage");
-            btn_mini.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_mini.FlatAppearance.BorderSize = 0;
-            btn_mini.FlatAppearance.MouseDownBackColor = Color.FromArgb(90, 82, 160);
-            btn_mini.FlatAppearance.MouseOverBackColor = Color.FromArgb(90, 82, 160);
-            btn_mini.FlatStyle = FlatStyle.Flat;
-            btn_mini.Location = new Point(1243, 1);
-            btn_mini.Margin = new Padding(3, 4, 3, 4);
-            btn_mini.Name = "btn_mini";
-            btn_mini.Size = new Size(23, 43);
-            btn_mini.TabIndex = 7;
-            btn_mini.UseVisualStyleBackColor = false;
-            btn_mini.Click += btn_mini_Click;
             // 
             // panelprincipal
             // 
-            panelprincipal.BackColor = Color.Transparent;
+            panelprincipal.BackColor = Color.White;
             panelprincipal.BackgroundImageLayout = ImageLayout.Stretch;
-            panelprincipal.Location = new Point(729, 139);
-            panelprincipal.Margin = new Padding(3, 4, 3, 4);
+            panelprincipal.Location = new Point(87, 107);
             panelprincipal.Name = "panelprincipal";
-            panelprincipal.Size = new Size(391, 679);
+            panelprincipal.Size = new Size(342, 509);
             panelprincipal.TabIndex = 11;
             panelprincipal.Paint += panelprincipal_Paint;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(215, 10, 60);
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(215, 10, 60);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(482, 1);
+            button1.Name = "button1";
+            button1.RightToLeft = RightToLeft.No;
+            button1.Size = new Size(25, 36);
+            button1.TabIndex = 4;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btn_salir_Click;
+            button1.MouseEnter += button1_MouseEnter;
+            button1.MouseLeave += button1_MouseLeave;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Transparent;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(178, 178, 178);
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(178, 178, 178);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.Location = new Point(456, 1);
+            button2.Name = "button2";
+            button2.Size = new Size(24, 36);
+            button2.TabIndex = 3;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += btn_mini_Click;
+            button2.MouseEnter += button2_MouseEnter;
+            button2.MouseLeave += button2_MouseLeave;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox2.Location = new Point(26, 353);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(505, 151);
+            pictureBox2.TabIndex = 13;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(122, 115);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(323, 344);
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(panelprincipal);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(639, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(509, 698);
+            panel1.TabIndex = 14;
+            // 
             // RecuperarUsuario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(115, 109, 244);
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.FromArgb(42, 0, 146);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1312, 931);
-            Controls.Add(panelprincipal);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(btn_salir);
-            Controls.Add(btn_mini);
+            ClientSize = new Size(1148, 698);
+            Controls.Add(panel1);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "RecuperarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RecuperarUsuario";
             Load += RecuperarUsuario_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel3;
-        private Panel panel2;
-        private Button btn_salir;
-        private Button btn_mini;
         private Panel panelprincipal;
+        private Button button1;
+        private Button button2;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Panel panel1;
     }
 }

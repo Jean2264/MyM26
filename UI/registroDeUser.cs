@@ -288,7 +288,8 @@ namespace MyM26.UI
             {
                 Application.Exit();
             }
-            else            {
+            else
+            {
                 result = DialogResult.None;
             }
 
@@ -301,7 +302,7 @@ namespace MyM26.UI
 
         private void btn_QA_Click(object sender, EventArgs e)
         {
-            DialogResult result= MessageBox.Show("¿Estás seguro de que deseas restablecer la configuración de primera ejecución? Esto hará que la aplicación se comporte como si ya no fuera la primera vez  que se ejecuta, solicitando el registro de un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas restablecer la configuración de primera ejecución? Esto hará que la aplicación se comporte como si ya no fuera la primera vez  que se ejecuta, solicitando el registro de un nuevo usuario.", "Restablecer Configuración", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 Properties.Settings.Default.PrimeraEjecucion = false;
@@ -313,6 +314,36 @@ namespace MyM26.UI
                 result = DialogResult.None;
             }
 
+        }
+
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            button3.Image = Properties.Resources.GuionClaro;
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.Image = Properties.Resources.GuionOscuro;
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.Image = Properties.Resources.XClaro;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.Image = Properties.Resources.xnegro;
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.Image = Properties.Resources.enter;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.Image = Properties.Resources.leave;
         }
     }
 }
