@@ -143,16 +143,6 @@ namespace MyM26.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap M_M__1_ {
-            get {
-                object obj = ResourceManager.GetObject("M&M (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap maxi {
             get {
                 object obj = ResourceManager.GetObject("maxi", resourceCulture);
@@ -236,6 +226,16 @@ namespace MyM26.Properties {
         public static System.Drawing.Bitmap rojo {
             get {
                 object obj = ResourceManager.GetObject("rojo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap sjBackg {
+            get {
+                object obj = ResourceManager.GetObject("sjBackg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

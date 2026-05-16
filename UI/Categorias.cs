@@ -68,13 +68,13 @@ namespace MyM26.screens
 
             if (dtg_Cate.Rows.Count == 0 || (dtg_Cate.AllowUserToAddRows && dtg_Cate.Rows.Count == 1))
             {
-                lbl_pag_cat.Text = $"Página 0/0";
+                lbl_pag_cat.Text = $" 0/0";
             }
             else
             {
-                lbl_pag_cat.Text = $"Página {paginaActual} / {totalPaginas}";
+                lbl_pag_cat.Text = $"{paginaActual} / {totalPaginas}";
             }
-            lbl_total_cat.Text = $"Total de categorías: {totalRegistros}";
+            lbl_total_cat.Text = $"Total: {totalRegistros}";
         }
         //Para categoria
         private void btn_añadirCate_Click(object sender, EventArgs e)
@@ -217,13 +217,13 @@ namespace MyM26.screens
 
             if (dtg_Subcate.Rows.Count == 0 || (dtg_Subcate.AllowUserToAddRows && dtg_Subcate.Rows.Count == 1))
             {
-                lbl_paginas.Text = $"Página 0/0";
+                lbl_paginas.Text = $"0/0";
             }
             else
             {
-                lbl_paginas.Text = $"Página {paginaActual} / {totalPaginas}";
+                lbl_paginas.Text = $"{paginaActual} / {totalPaginas}";
             }
-            lbl_total.Text = $"Total de subcategorías: {totalRegistros}";
+            lbl_total.Text = $"Total: {totalRegistros}";
         }
         public void MostrarErrorSubcat(Resultado resultado)
         {

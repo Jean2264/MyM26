@@ -37,7 +37,7 @@ namespace MyM26.screens
 
 
 
-            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario,AbrirVerUsuario, this, paginaActual, registrosPorPagina);
+            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario, AbrirVerUsuario, this, paginaActual, registrosPorPagina);
 
             /*db.LlenarContenedor(
                 flowLayoutPanel1,
@@ -113,7 +113,7 @@ namespace MyM26.screens
         }
         public void AbrirVerUsuario(string dni)
         {
-            UsuarioNegocio un= new UsuarioNegocio();
+            UsuarioNegocio un = new UsuarioNegocio();
             un.Tomarinfo(dni);
             AMUser us = new AMUser(this);
             us.DNI = dni;
@@ -124,7 +124,7 @@ namespace MyM26.screens
             {
                 llenarUser(); // 🔥 refresca
             }
-            
+
         }
         private void btn_buscar_Click(object sender, EventArgs e)
         {
@@ -141,7 +141,7 @@ namespace MyM26.screens
                 llenar();
             }
 */
-           if(paginaActual < TotalPaginas)
+            if (paginaActual < TotalPaginas)
             {
                 paginaActual++;
                 llenarUser();
@@ -150,11 +150,11 @@ namespace MyM26.screens
 
         private void btn_anterior_Click(object sender, EventArgs e)
         {
-           
+
             if (paginaActual > 1)
             {
                 paginaActual--;
-               llenarUser();
+                llenarUser();
             }
         }
 
@@ -217,6 +217,16 @@ namespace MyM26.screens
                 e = null;
             }
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-    }
+}
 

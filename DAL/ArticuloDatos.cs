@@ -258,10 +258,11 @@ namespace MyM26.DAL
         public void ModiArt(VArticulo art, SqlTransaction trans)
         {
 
-            string consulta = @"UPDATE Articulo SET PrecioUnitario=@PU, PrecioXMayor=@PM, CantMinMayorista=@CM WHERE CodigoArticulo=@CD";
+            string consulta = @"UPDATE Articulo SET PrecioUnitario=@PU, Imagen=@Imagen, PrecioXMayor=@PM, CantMinMayorista=@CM WHERE CodigoArticulo=@CD";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
             cmd.Parameters.AddWithValue("@CD", art.codArtRef);
             cmd.Parameters.AddWithValue("@PU", art.PrecioUnitario);
+            cmd.Parameters.AddWithValue("@Imagen", art.Imagen ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("@PM", art.PrecioXMayor);
             cmd.Parameters.AddWithValue("@CM", art.CantMinMayor);
 

@@ -31,10 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Articulos));
             tableLayoutPanel1 = new TableLayoutPanel();
             btn_menu = new Button();
-            btn_buscar = new Button();
-            txt_buscar = new TextBox();
             btn_bajas = new Button();
             btn_añadir = new Button();
+            panel1 = new Panel();
+            txt_buscar = new TextBox();
+            btn_buscar = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             btn_anterior = new Button();
             btn_siguente = new Button();
@@ -42,6 +43,7 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,18 +51,17 @@
             // 
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 7;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 41F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 315F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 48F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 591F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 53F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 431F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 38F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 473F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 158F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
             tableLayoutPanel1.Controls.Add(btn_menu, 0, 0);
-            tableLayoutPanel1.Controls.Add(btn_buscar, 2, 0);
-            tableLayoutPanel1.Controls.Add(txt_buscar, 1, 0);
             tableLayoutPanel1.Controls.Add(btn_bajas, 6, 0);
             tableLayoutPanel1.Controls.Add(btn_añadir, 5, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -75,45 +76,16 @@
             btn_menu.BackColor = Color.White;
             btn_menu.BackgroundImage = (Image)resources.GetObject("btn_menu.BackgroundImage");
             btn_menu.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_menu.Dock = DockStyle.Fill;
             btn_menu.FlatAppearance.BorderSize = 0;
             btn_menu.FlatStyle = FlatStyle.Flat;
             btn_menu.Location = new Point(3, 4);
             btn_menu.Margin = new Padding(3, 4, 3, 4);
             btn_menu.Name = "btn_menu";
-            btn_menu.Size = new Size(34, 45);
+            btn_menu.Size = new Size(47, 45);
             btn_menu.TabIndex = 4;
             btn_menu.UseVisualStyleBackColor = false;
             btn_menu.Click += btn_menu_Click;
-            // 
-            // btn_buscar
-            // 
-            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
-            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_buscar.Dock = DockStyle.Fill;
-            btn_buscar.FlatAppearance.BorderSize = 0;
-            btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(359, 4);
-            btn_buscar.Margin = new Padding(3, 4, 3, 4);
-            btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(42, 45);
-            btn_buscar.TabIndex = 6;
-            btn_buscar.UseVisualStyleBackColor = true;
-            btn_buscar.Click += btn_buscar_Click;
-            // 
-            // txt_buscar
-            // 
-            txt_buscar.Anchor = AnchorStyles.None;
-            txt_buscar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_buscar.Location = new Point(49, 4);
-            txt_buscar.Margin = new Padding(3, 4, 3, 4);
-            txt_buscar.Multiline = true;
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(299, 44);
-            txt_buscar.TabIndex = 5;
-            txt_buscar.DragEnter += txt_buscar_DragEnter;
-            txt_buscar.KeyDown += txt_buscar_KeyDown;
-            txt_buscar.KeyPress += txt_buscar_KeyPress;
-            txt_buscar.MouseDown += txt_buscar_MouseDown;
             // 
             // btn_bajas
             // 
@@ -155,28 +127,68 @@
             btn_añadir.UseVisualStyleBackColor = false;
             btn_añadir.Click += btn_añadir_Click;
             // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txt_buscar);
+            panel1.Controls.Add(btn_buscar);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(56, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(425, 47);
+            panel1.TabIndex = 7;
+            // 
+            // txt_buscar
+            // 
+            txt_buscar.BorderStyle = BorderStyle.None;
+            txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Location = new Point(0, 0);
+            txt_buscar.Multiline = true;
+            txt_buscar.Name = "txt_buscar";
+            txt_buscar.Size = new Size(381, 45);
+            txt_buscar.TabIndex = 7;
+            txt_buscar.DragEnter += txt_buscar_DragEnter;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            txt_buscar.KeyPress += txt_buscar_KeyPress;
+            txt_buscar.MouseDown += txt_buscar_MouseDown;
+            // 
+            // btn_buscar
+            // 
+            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
+            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_buscar.Dock = DockStyle.Right;
+            btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.FlatStyle = FlatStyle.Flat;
+            btn_buscar.Location = new Point(381, 0);
+            btn_buscar.Margin = new Padding(3, 4, 3, 4);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(42, 45);
+            btn_buscar.TabIndex = 6;
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 6;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 57.14285F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 123F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 127F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 42.8571472F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 154F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 142F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 342F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 186F));
             tableLayoutPanel2.Controls.Add(btn_anterior, 1, 0);
             tableLayoutPanel2.Controls.Add(btn_siguente, 3, 0);
             tableLayoutPanel2.Controls.Add(lbl_paginas, 2, 0);
             tableLayoutPanel2.Controls.Add(label1, 5, 0);
             tableLayoutPanel2.Dock = DockStyle.Bottom;
             tableLayoutPanel2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tableLayoutPanel2.Location = new Point(0, 878);
+            tableLayoutPanel2.Location = new Point(0, 872);
             tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 11F));
-            tableLayoutPanel2.Size = new Size(1312, 53);
+            tableLayoutPanel2.Size = new Size(1312, 59);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // btn_anterior
@@ -189,10 +201,10 @@
             btn_anterior.FlatStyle = FlatStyle.Flat;
             btn_anterior.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_anterior.ForeColor = Color.White;
-            btn_anterior.Location = new Point(452, 4);
+            btn_anterior.Location = new Point(401, 4);
             btn_anterior.Margin = new Padding(3, 4, 3, 4);
             btn_anterior.Name = "btn_anterior";
-            btn_anterior.Size = new Size(116, 34);
+            btn_anterior.Size = new Size(116, 40);
             btn_anterior.TabIndex = 0;
             btn_anterior.Text = "Anterior";
             btn_anterior.UseVisualStyleBackColor = false;
@@ -208,10 +220,10 @@
             btn_siguente.FlatStyle = FlatStyle.Flat;
             btn_siguente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_siguente.ForeColor = Color.White;
-            btn_siguente.Location = new Point(697, 4);
+            btn_siguente.Location = new Point(665, 4);
             btn_siguente.Margin = new Padding(3, 4, 3, 4);
             btn_siguente.Name = "btn_siguente";
-            btn_siguente.Size = new Size(121, 34);
+            btn_siguente.Size = new Size(116, 40);
             btn_siguente.TabIndex = 1;
             btn_siguente.Text = "Siguente";
             btn_siguente.UseVisualStyleBackColor = false;
@@ -221,7 +233,7 @@
             // 
             lbl_paginas.Anchor = AnchorStyles.None;
             lbl_paginas.AutoSize = true;
-            lbl_paginas.Location = new Point(608, 11);
+            lbl_paginas.Location = new Point(567, 14);
             lbl_paginas.Name = "lbl_paginas";
             lbl_paginas.Size = new Size(48, 20);
             lbl_paginas.TabIndex = 2;
@@ -231,9 +243,9 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Location = new Point(1160, 0);
+            label1.Location = new Point(1129, 0);
             label1.Name = "label1";
-            label1.Size = new Size(48, 42);
+            label1.Size = new Size(48, 48);
             label1.TabIndex = 4;
             label1.Text = "\r\nlabel1";
             // 
@@ -244,8 +256,7 @@
             flowLayoutPanel1.Location = new Point(0, 53);
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(46, 7, 46, 7);
-            flowLayoutPanel1.Size = new Size(1312, 825);
+            flowLayoutPanel1.Size = new Size(1312, 819);
             flowLayoutPanel1.TabIndex = 4;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint_1;
             // 
@@ -261,7 +272,8 @@
             Name = "Articulos";
             Size = new Size(1312, 931);
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
@@ -272,8 +284,8 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private Button btn_añadir;
-        private TextBox txt_buscar;
         private Button btn_buscar;
+        
         private Button btn_bajas;
         private Button btn_menu;
         private TableLayoutPanel tableLayoutPanel2;
@@ -282,5 +294,7 @@
         private Label lbl_paginas;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
+        private Panel panel1;
+        private TextBox txt_buscar;
     }
 }

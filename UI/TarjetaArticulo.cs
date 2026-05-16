@@ -33,13 +33,13 @@ namespace MyM26.UI
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
 
             pictureBox1.BorderStyle = BorderStyle.None;
-            pictureBox1.Paint += (s, e) =>
+          /*  pictureBox1.Paint += (s, e) =>
             {
                 using (Pen p = new Pen(Color.LightGray, 2)) // color y grosor
                 {
                     e.Graphics.DrawRectangle(p, 0, 0, pictureBox1.Width - 1, pictureBox1.Height - 1);
                 }
-            };
+            };*/
         }
 
         private void TargetaArticulo_Load(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace MyM26.UI
             if (reasultado != DialogResult.Yes)
                 return;
 
-           
+
             ArticuloNegocio neg = new ArticuloNegocio();
             VArticulo art = neg.EliminarArt(cod);
 
@@ -85,15 +85,25 @@ namespace MyM26.UI
 
             art.TipoMovimiento = "Baja de articulo";
 
-                art.DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
-                                " (DNI: " + UsuarioActivo.Datos.DNIAc +
-                                ") ha dado de baja al articulo: " + lbl_nombre.Text + ")";
+            art.DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
+                            " (DNI: " + UsuarioActivo.Datos.DNIAc +
+                            ") ha dado de baja al articulo: " + lbl_nombre.Text + ")";
 
             ArticuloDatos dt = new ArticuloDatos();
             dt.AltaHistoricoCompleto(art);
             DatoEliminado?.Invoke();
-           
-           
+
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         [Browsable(false)]

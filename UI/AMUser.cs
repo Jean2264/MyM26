@@ -52,21 +52,28 @@ namespace MyM26.screens
             {
                 label_title.Text = "Alta de usuario";
                 btn_AM.Text = "Añadir usuario";
-                btn_AM.BackgroundImage = Properties.Resources.verde;
+                btn_AM.BackColor=Color.FromArgb(32,0,130);
             }
             else if (Modo == "Modificar")
             {
                 label_title.Text = "Modificación de usuario";
                 btn_AM.Text = "Modificar usuario";
                 txt_dni.ReadOnly = true;
+                label3.Visible = false;
+               // txt_repit.Visible=false;
+                txt_contraseña.Text= "********";
                 txt_dni.BackColor = Color.White;
                 buscarUsuario();
-                btn_AM.BackgroundImage = Properties.Resources.naranja;
+                btn_AM.BackColor=Color.FromArgb(53,0,152);
             }
             else
             {
                 label_title.Text = "Ver usuario";
                 buscarUsuario();
+                label3.Visible = false;
+                txt_repit.Visible = false;
+              
+                txt_contraseña.Text = "********";
                 btn_AM.Visible = false;
                 foreach (Control ctrl in this.Controls)
                 {
@@ -101,8 +108,8 @@ namespace MyM26.screens
 
             txt_dni.Text = usuario.Dni;
             txt_nombre.Text = usuario.Nombre;
-            txt_contraseña.Text = usuario.Contrasenia;
-            txt_repit.Text = usuario.Contrasenia;
+          //  txt_contraseña.Text = usuario.Contrasenia;
+          //  txt_repit.Text = usuario.Contrasenia;
             txt_fechaAlta.Text = usuario.FechaAlta;
             txt_telefono.Text = usuario.Telefono;
             txt_mail.Text = usuario.Mail;

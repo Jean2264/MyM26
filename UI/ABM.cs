@@ -54,6 +54,7 @@ namespace MyM26.screens
             {
                 label_Title.Text = "Añadir Artículo";
                 btn_añadir.Text = "Añadir Artículo";
+                btn_añadir.BackColor= Color.FromArgb(32,0,130);
 
                 Combos();
 
@@ -70,6 +71,7 @@ namespace MyM26.screens
             {
                 label_Title.Text = "Modificar Artículo";
                 btn_añadir.Text = "Modificar Artículo";
+                btn_añadir.BackColor = Color.FromArgb(53, 0, 152);
                 pic_art.BackgroundImageLayout = ImageLayout.None;
                 if (pic_art != null)
                 {
@@ -304,7 +306,7 @@ namespace MyM26.screens
 
 
 
-            Image img = pic_art.Image ?? Properties.Resources.M_M__1_;
+            Image img = pic_art.Image ?? Properties.Resources.sjBackg;
             ar.Imagen = ImagenABytes(img);
 
             return ar;
@@ -331,7 +333,7 @@ namespace MyM26.screens
                                 ") ha modificado la info del articulo: " + txt_nombre.Text + ")",
             };
 
-            Image img = pic_art.Image ?? Properties.Resources.M_M__1_;
+            Image img = pic_art.Image ?? Properties.Resources.sjBackg;
             art.Imagen = ImagenABytes(img);
 
             return art;
@@ -340,7 +342,7 @@ namespace MyM26.screens
         private byte[] ImagenABytes(Image imagen)
         {
             if (imagen == null)
-                return null;
+                return null!;
 
             using (MemoryStream ms = new MemoryStream())
             {

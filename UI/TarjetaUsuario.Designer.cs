@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TarjetaUsuario));
             lbl_nombre = new Label();
             lbl_tipo = new Label();
@@ -40,6 +41,7 @@
             btn_editar = new Button();
             panel2 = new Panel();
             pic_usu = new PictureBox();
+            toolTip1 = new ToolTip(components);
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -155,6 +157,7 @@
             button2.Padding = new Padding(10, 0, 0, 0);
             button2.Size = new Size(32, 34);
             button2.TabIndex = 13;
+            toolTip1.SetToolTip(button2, "Inspeccionar usuario");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -175,6 +178,7 @@
             button1.Padding = new Padding(10, 0, 0, 0);
             button1.Size = new Size(32, 34);
             button1.TabIndex = 11;
+            toolTip1.SetToolTip(button1, "Eliminar usuario");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -196,6 +200,7 @@
             btn_editar.Size = new Size(32, 34);
             btn_editar.TabIndex = 12;
             btn_editar.Tag = "";
+            toolTip1.SetToolTip(btn_editar, "Modificar usuario");
             btn_editar.UseVisualStyleBackColor = true;
             btn_editar.Click += btn_editar_Click;
             // 
@@ -251,5 +256,6 @@
         private Button btn_editar;
         private Panel panel2;
         public PictureBox pic_usu;
+        private ToolTip toolTip1;
     }
 }
