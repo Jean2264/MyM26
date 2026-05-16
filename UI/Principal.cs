@@ -18,11 +18,11 @@ namespace MyM26
         public Principal()
         {
             InitializeComponent();
-             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             btn_maxi.Image = Properties.Resources.tMax;
             buttons = new List<Button> { btn_principal, btn_usurios, btn_art,
                 btn_cajas, button6, button1, btn_ventas, btn_compras,btn_contables, button2 };
-           
+
         }
 
         public Principal(VUser user)
@@ -46,7 +46,7 @@ namespace MyM26
                 // Aquí podrías restaurar la imagen original si es necesario
             }
             // Activar solo el botón clickeado
-            btnActivo.BackColor = Color.FromArgb(10, 75, 145);
+            btnActivo.BackColor = Color.FromArgb(65, 0, 201);
             // Aquí podrías cambiar la imagen del botón si es necesario
             // Guardar el botón activo
             BotonActivo = btnActivo;
@@ -118,11 +118,11 @@ namespace MyM26
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            
+
 
             lbl_name.Text = name;
             lbl_tipo.Text = tipo;
-            if (foto!= null)
+            if (foto != null)
             {
                 using (MemoryStream ms = new MemoryStream(foto))
                 {
@@ -131,22 +131,22 @@ namespace MyM26
                 }
             }
 
-      
+
             btn_art.Enabled = _usuarioActual.ProductosAC;
             btn_cajas.Enabled = _usuarioActual.CajasAc;
-                button6.Enabled = _usuarioActual.ClientesAc;
-                button1.Enabled = _usuarioActual.ProveedoresAc;
-                btn_usurios.Enabled = _usuarioActual.UsuariosAc;
-                btn_ventas.Enabled = _usuarioActual.VentasAc;
-                btn_compras.Enabled = _usuarioActual.ComprasAc;
-                btn_contables.Enabled =     _usuarioActual.ContableAc;
-                button2.Enabled = _usuarioActual.EmpleadosAc;
+            button6.Enabled = _usuarioActual.ClientesAc;
+            button1.Enabled = _usuarioActual.ProveedoresAc;
+            btn_usurios.Enabled = _usuarioActual.UsuariosAc;
+            btn_ventas.Enabled = _usuarioActual.VentasAc;
+            btn_compras.Enabled = _usuarioActual.ComprasAc;
+            btn_contables.Enabled = _usuarioActual.ContableAc;
+            button2.Enabled = _usuarioActual.EmpleadosAc;
 
-            if(tipo== "Administrador")
+            if (tipo == "Administrador")
             {
                 btn_principal.Enabled = true;
             }
-            else if( tipo != "Administrador")
+            else if (tipo != "Administrador")
             {
                 btn_principal.Enabled = false;
             }
@@ -187,8 +187,8 @@ namespace MyM26
         private void btn_principal_Click(object sender, EventArgs e)
         {
             Home cj = new Home();
-            MostrarUserControl (cj);
-           
+            MostrarUserControl(cj);
+
             ActivarBoton(btn_principal);
         }
 
@@ -202,7 +202,7 @@ namespace MyM26
         private void btn_compras_Click(object sender, EventArgs e)
         {
             Compras cj = new Compras();
-            MostrarUserControl (cj);
+            MostrarUserControl(cj);
             ActivarBoton(btn_compras);
         }
 
@@ -225,5 +225,9 @@ namespace MyM26
 
         }
 
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

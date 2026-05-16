@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contrasenia));
             btn_verifi = new Button();
             txt_contra = new TextBox();
             textBox2 = new TextBox();
@@ -136,8 +135,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Transparent;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(lbl_user);
             Controls.Add(lbl_error);

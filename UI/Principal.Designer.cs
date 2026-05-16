@@ -114,8 +114,8 @@
             // btn_cajas
             // 
             btn_cajas.BackColor = Color.Transparent;
-            btn_cajas.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            btn_cajas.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            btn_cajas.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_cajas.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_cajas.FlatStyle = FlatStyle.Flat;
             btn_cajas.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btn_cajas.ForeColor = Color.White;
@@ -133,8 +133,8 @@
             // btn_principal
             // 
             btn_principal.BackColor = Color.Transparent;
-            btn_principal.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            btn_principal.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            btn_principal.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_principal.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_principal.FlatStyle = FlatStyle.Flat;
             btn_principal.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btn_principal.ForeColor = Color.White;
@@ -152,8 +152,8 @@
             // btn_art
             // 
             btn_art.BackColor = Color.Transparent;
-            btn_art.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            btn_art.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            btn_art.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_art.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_art.FlatStyle = FlatStyle.Flat;
             btn_art.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btn_art.ForeColor = Color.White;
@@ -171,8 +171,8 @@
             // btn_compras
             // 
             btn_compras.BackColor = Color.Transparent;
-            btn_compras.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            btn_compras.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            btn_compras.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_compras.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_compras.FlatStyle = FlatStyle.Flat;
             btn_compras.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btn_compras.ForeColor = Color.White;
@@ -190,8 +190,8 @@
             // btn_ventas
             // 
             btn_ventas.BackColor = Color.Transparent;
-            btn_ventas.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            btn_ventas.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            btn_ventas.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_ventas.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_ventas.FlatStyle = FlatStyle.Flat;
             btn_ventas.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btn_ventas.ForeColor = Color.White;
@@ -254,8 +254,8 @@
             // button6
             // 
             button6.BackColor = Color.Transparent;
-            button6.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            button6.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button6.ForeColor = Color.White;
@@ -273,8 +273,8 @@
             // btn_usurios
             // 
             btn_usurios.BackColor = Color.Transparent;
-            btn_usurios.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            btn_usurios.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            btn_usurios.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_usurios.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_usurios.FlatStyle = FlatStyle.Flat;
             btn_usurios.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btn_usurios.ForeColor = Color.White;
@@ -301,8 +301,8 @@
             // button1
             // 
             button1.BackColor = Color.Transparent;
-            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button1.ForeColor = Color.White;
@@ -319,7 +319,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(10, 30, 70);
+            tableLayoutPanel1.BackColor = Color.FromArgb(27, 0, 94);
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.35052F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.64948452F));
@@ -340,7 +340,7 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.BackColor = Color.FromArgb(10, 40, 100);
+            flowLayoutPanel1.BackColor = Color.FromArgb(34, 0, 117);
             flowLayoutPanel1.Controls.Add(panel_perfil);
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(btn_principal);
@@ -359,12 +359,13 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(219, 924);
             flowLayoutPanel1.TabIndex = 25;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // button2
             // 
             button2.BackColor = Color.Transparent;
-            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button2.ForeColor = Color.White;
@@ -382,8 +383,8 @@
             // btn_contables
             // 
             btn_contables.BackColor = Color.Transparent;
-            btn_contables.FlatAppearance.MouseDownBackColor = Color.FromArgb(10, 75, 145);
-            btn_contables.FlatAppearance.MouseOverBackColor = Color.FromArgb(10, 75, 145);
+            btn_contables.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_contables.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_contables.FlatStyle = FlatStyle.Flat;
             btn_contables.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btn_contables.ForeColor = Color.White;

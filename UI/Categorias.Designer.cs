@@ -30,10 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Categorias));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             btn_salir = new Button();
@@ -78,8 +78,9 @@
             panel1.Controls.Add(btn_salir);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(360, 26);
+            panel1.Size = new Size(411, 35);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -87,9 +88,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(6, 6);
+            label1.Location = new Point(7, 8);
             label1.Name = "label1";
-            label1.Size = new Size(147, 15);
+            label1.Size = new Size(191, 20);
             label1.TabIndex = 24;
             label1.Text = "Categorias y subcategorias";
             // 
@@ -99,9 +100,10 @@
             btn_salir.BackgroundImageLayout = ImageLayout.Stretch;
             btn_salir.FlatAppearance.BorderSize = 0;
             btn_salir.FlatStyle = FlatStyle.Flat;
-            btn_salir.Location = new Point(340, 4);
+            btn_salir.Location = new Point(389, 5);
+            btn_salir.Margin = new Padding(3, 4, 3, 4);
             btn_salir.Name = "btn_salir";
-            btn_salir.Size = new Size(15, 15);
+            btn_salir.Size = new Size(17, 20);
             btn_salir.TabIndex = 3;
             btn_salir.UseVisualStyleBackColor = true;
             btn_salir.Click += btn_salir_Click;
@@ -110,10 +112,11 @@
             // 
             tabControl1.Controls.Add(tabcategoria);
             tabControl1.Controls.Add(tabSub);
-            tabControl1.Location = new Point(5, 26);
+            tabControl1.Location = new Point(6, 35);
+            tabControl1.Margin = new Padding(3, 4, 3, 4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(350, 358);
+            tabControl1.Size = new Size(400, 477);
             tabControl1.TabIndex = 4;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -129,10 +132,11 @@
             tabcategoria.Controls.Add(btn_eliminarCate);
             tabcategoria.Controls.Add(btn_añadirCate);
             tabcategoria.Controls.Add(txt_cate);
-            tabcategoria.Location = new Point(4, 24);
+            tabcategoria.Location = new Point(4, 29);
+            tabcategoria.Margin = new Padding(3, 4, 3, 4);
             tabcategoria.Name = "tabcategoria";
-            tabcategoria.Padding = new Padding(3);
-            tabcategoria.Size = new Size(342, 330);
+            tabcategoria.Padding = new Padding(3, 4, 3, 4);
+            tabcategoria.Size = new Size(392, 444);
             tabcategoria.TabIndex = 0;
             tabcategoria.Text = "Categoria";
             // 
@@ -140,9 +144,9 @@
             // 
             lbl_total_cat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             lbl_total_cat.AutoSize = true;
-            lbl_total_cat.Location = new Point(204, 293);
+            lbl_total_cat.Location = new Point(233, 391);
             lbl_total_cat.Name = "lbl_total_cat";
-            lbl_total_cat.Size = new Size(38, 30);
+            lbl_total_cat.Size = new Size(50, 40);
             lbl_total_cat.TabIndex = 40;
             lbl_total_cat.Text = "\r\nlabel1";
             // 
@@ -157,9 +161,10 @@
             btn_sig_cat.FlatStyle = FlatStyle.Flat;
             btn_sig_cat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_sig_cat.ForeColor = Color.White;
-            btn_sig_cat.Location = new Point(121, 293);
+            btn_sig_cat.Location = new Point(138, 391);
+            btn_sig_cat.Margin = new Padding(3, 4, 3, 4);
             btn_sig_cat.Name = "btn_sig_cat";
-            btn_sig_cat.Size = new Size(29, 30);
+            btn_sig_cat.Size = new Size(33, 40);
             btn_sig_cat.TabIndex = 39;
             btn_sig_cat.UseVisualStyleBackColor = false;
             btn_sig_cat.Click += btn_sig_cat_Click;
@@ -168,9 +173,9 @@
             // 
             lbl_pag_cat.Anchor = AnchorStyles.None;
             lbl_pag_cat.AutoSize = true;
-            lbl_pag_cat.Location = new Point(56, 293);
+            lbl_pag_cat.Location = new Point(64, 391);
             lbl_pag_cat.Name = "lbl_pag_cat";
-            lbl_pag_cat.Size = new Size(38, 30);
+            lbl_pag_cat.Size = new Size(50, 40);
             lbl_pag_cat.TabIndex = 38;
             lbl_pag_cat.Text = "\r\nlabel1";
             // 
@@ -185,9 +190,10 @@
             lbl_ant_cat.FlatStyle = FlatStyle.Flat;
             lbl_ant_cat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             lbl_ant_cat.ForeColor = Color.White;
-            lbl_ant_cat.Location = new Point(4, 293);
+            lbl_ant_cat.Location = new Point(5, 391);
+            lbl_ant_cat.Margin = new Padding(3, 4, 3, 4);
             lbl_ant_cat.Name = "lbl_ant_cat";
-            lbl_ant_cat.Size = new Size(29, 30);
+            lbl_ant_cat.Size = new Size(33, 40);
             lbl_ant_cat.TabIndex = 37;
             lbl_ant_cat.UseVisualStyleBackColor = false;
             lbl_ant_cat.Click += lbl_ant_cat_Click;
@@ -198,29 +204,31 @@
             dtg_Cate.AllowUserToResizeRows = false;
             dtg_Cate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtg_Cate.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(61, 100, 255);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dtg_Cate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(61, 100, 255);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dtg_Cate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dtg_Cate.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtg_Cate.EnableHeadersVisualStyles = false;
             dtg_Cate.ImeMode = ImeMode.On;
-            dtg_Cate.Location = new Point(3, 59);
+            dtg_Cate.Location = new Point(3, 79);
+            dtg_Cate.Margin = new Padding(3, 4, 3, 4);
             dtg_Cate.Name = "dtg_Cate";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 125, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dtg_Cate.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 125, 255);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dtg_Cate.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dtg_Cate.RowHeadersVisible = false;
-            dtg_Cate.Size = new Size(333, 228);
+            dtg_Cate.RowHeadersWidth = 51;
+            dtg_Cate.Size = new Size(381, 304);
             dtg_Cate.TabIndex = 25;
             dtg_Cate.CellContentClick += dtg_Cate_CellContentClick;
             // 
@@ -228,21 +236,22 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(6, 9);
+            label2.Location = new Point(7, 12);
             label2.Name = "label2";
-            label2.Size = new Size(103, 15);
+            label2.Size = new Size(134, 20);
             label2.TabIndex = 24;
             label2.Text = "Nombre categoria";
             // 
             // btn_eliminarCate
             // 
-            btn_eliminarCate.BackColor = Color.FromArgb(200, 20, 20);
+            btn_eliminarCate.BackColor = Color.FromArgb(87, 0, 238);
             btn_eliminarCate.FlatStyle = FlatStyle.Flat;
             btn_eliminarCate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_eliminarCate.ForeColor = Color.White;
-            btn_eliminarCate.Location = new Point(269, 25);
+            btn_eliminarCate.Location = new Point(307, 33);
+            btn_eliminarCate.Margin = new Padding(3, 4, 3, 4);
             btn_eliminarCate.Name = "btn_eliminarCate";
-            btn_eliminarCate.Size = new Size(70, 28);
+            btn_eliminarCate.Size = new Size(80, 37);
             btn_eliminarCate.TabIndex = 2;
             btn_eliminarCate.Text = "Eliminar";
             btn_eliminarCate.UseVisualStyleBackColor = false;
@@ -250,13 +259,14 @@
             // 
             // btn_añadirCate
             // 
-            btn_añadirCate.BackColor = Color.FromArgb(20, 134, 223);
+            btn_añadirCate.BackColor = Color.FromArgb(32, 0, 130);
             btn_añadirCate.FlatStyle = FlatStyle.Flat;
             btn_añadirCate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_añadirCate.ForeColor = Color.White;
-            btn_añadirCate.Location = new Point(193, 25);
+            btn_añadirCate.Location = new Point(221, 33);
+            btn_añadirCate.Margin = new Padding(3, 4, 3, 4);
             btn_añadirCate.Name = "btn_añadirCate";
-            btn_añadirCate.Size = new Size(70, 28);
+            btn_añadirCate.Size = new Size(80, 37);
             btn_añadirCate.TabIndex = 1;
             btn_añadirCate.Text = "Añadir";
             btn_añadirCate.UseVisualStyleBackColor = false;
@@ -264,10 +274,11 @@
             // 
             // txt_cate
             // 
-            txt_cate.Location = new Point(6, 27);
+            txt_cate.Location = new Point(7, 36);
+            txt_cate.Margin = new Padding(3, 4, 3, 4);
             txt_cate.Multiline = true;
             txt_cate.Name = "txt_cate";
-            txt_cate.Size = new Size(161, 24);
+            txt_cate.Size = new Size(183, 31);
             txt_cate.TabIndex = 0;
             // 
             // tabSub
@@ -284,10 +295,11 @@
             tabSub.Controls.Add(btn_eliminarSub);
             tabSub.Controls.Add(btn_añadirSub);
             tabSub.Controls.Add(txt_sub);
-            tabSub.Location = new Point(4, 24);
+            tabSub.Location = new Point(4, 29);
+            tabSub.Margin = new Padding(3, 4, 3, 4);
             tabSub.Name = "tabSub";
-            tabSub.Padding = new Padding(3);
-            tabSub.Size = new Size(342, 330);
+            tabSub.Padding = new Padding(3, 4, 3, 4);
+            tabSub.Size = new Size(392, 444);
             tabSub.TabIndex = 1;
             tabSub.Text = "Subcategoria";
             // 
@@ -295,9 +307,9 @@
             // 
             lbl_total.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             lbl_total.AutoSize = true;
-            lbl_total.Location = new Point(206, 293);
+            lbl_total.Location = new Point(235, 391);
             lbl_total.Name = "lbl_total";
-            lbl_total.Size = new Size(38, 30);
+            lbl_total.Size = new Size(50, 40);
             lbl_total.TabIndex = 36;
             lbl_total.Text = "\r\nlabel1";
             // 
@@ -312,9 +324,10 @@
             btn_siguente.FlatStyle = FlatStyle.Flat;
             btn_siguente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_siguente.ForeColor = Color.White;
-            btn_siguente.Location = new Point(123, 293);
+            btn_siguente.Location = new Point(141, 391);
+            btn_siguente.Margin = new Padding(3, 4, 3, 4);
             btn_siguente.Name = "btn_siguente";
-            btn_siguente.Size = new Size(29, 30);
+            btn_siguente.Size = new Size(33, 40);
             btn_siguente.TabIndex = 35;
             btn_siguente.UseVisualStyleBackColor = false;
             // 
@@ -322,9 +335,9 @@
             // 
             lbl_paginas.Anchor = AnchorStyles.None;
             lbl_paginas.AutoSize = true;
-            lbl_paginas.Location = new Point(58, 293);
+            lbl_paginas.Location = new Point(66, 391);
             lbl_paginas.Name = "lbl_paginas";
-            lbl_paginas.Size = new Size(38, 30);
+            lbl_paginas.Size = new Size(50, 40);
             lbl_paginas.TabIndex = 34;
             lbl_paginas.Text = "\r\nlabel1";
             // 
@@ -339,9 +352,10 @@
             btn_anterior.FlatStyle = FlatStyle.Flat;
             btn_anterior.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_anterior.ForeColor = Color.White;
-            btn_anterior.Location = new Point(6, 293);
+            btn_anterior.Location = new Point(7, 391);
+            btn_anterior.Margin = new Padding(3, 4, 3, 4);
             btn_anterior.Name = "btn_anterior";
-            btn_anterior.Size = new Size(29, 30);
+            btn_anterior.Size = new Size(33, 40);
             btn_anterior.TabIndex = 33;
             btn_anterior.UseVisualStyleBackColor = false;
             // 
@@ -349,9 +363,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(6, 6);
+            label4.Location = new Point(7, 8);
             label4.Name = "label4";
-            label4.Size = new Size(57, 15);
+            label4.Size = new Size(75, 20);
             label4.TabIndex = 32;
             label4.Text = "Categoria";
             // 
@@ -359,9 +373,10 @@
             // 
             cmb_cate.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_cate.FormattingEnabled = true;
-            cmb_cate.Location = new Point(6, 24);
+            cmb_cate.Location = new Point(7, 32);
+            cmb_cate.Margin = new Padding(3, 4, 3, 4);
             cmb_cate.Name = "cmb_cate";
-            cmb_cate.Size = new Size(161, 23);
+            cmb_cate.Size = new Size(183, 28);
             cmb_cate.TabIndex = 31;
             // 
             // dtg_Subcate
@@ -370,50 +385,53 @@
             dtg_Subcate.AllowUserToResizeRows = false;
             dtg_Subcate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtg_Subcate.BackgroundColor = Color.White;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(61, 100, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dtg_Subcate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(61, 100, 255);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dtg_Subcate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dtg_Subcate.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtg_Subcate.EnableHeadersVisualStyles = false;
             dtg_Subcate.ImeMode = ImeMode.On;
-            dtg_Subcate.Location = new Point(3, 108);
+            dtg_Subcate.Location = new Point(3, 144);
+            dtg_Subcate.Margin = new Padding(3, 4, 3, 4);
             dtg_Subcate.Name = "dtg_Subcate";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 125, 255);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dtg_Subcate.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(0, 125, 255);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dtg_Subcate.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dtg_Subcate.RowHeadersVisible = false;
-            dtg_Subcate.Size = new Size(333, 179);
+            dtg_Subcate.RowHeadersWidth = 51;
+            dtg_Subcate.Size = new Size(381, 239);
             dtg_Subcate.TabIndex = 30;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(6, 59);
+            label3.Location = new Point(7, 79);
             label3.Name = "label3";
-            label3.Size = new Size(122, 15);
+            label3.Size = new Size(158, 20);
             label3.TabIndex = 29;
             label3.Text = "Nombre subcategoria";
             // 
             // btn_eliminarSub
             // 
-            btn_eliminarSub.BackColor = Color.FromArgb(200, 20, 20);
+            btn_eliminarSub.BackColor = Color.FromArgb(87, 0, 238);
             btn_eliminarSub.FlatStyle = FlatStyle.Flat;
             btn_eliminarSub.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_eliminarSub.ForeColor = Color.White;
-            btn_eliminarSub.Location = new Point(266, 77);
+            btn_eliminarSub.Location = new Point(304, 103);
+            btn_eliminarSub.Margin = new Padding(3, 4, 3, 4);
             btn_eliminarSub.Name = "btn_eliminarSub";
-            btn_eliminarSub.Size = new Size(70, 28);
+            btn_eliminarSub.Size = new Size(80, 37);
             btn_eliminarSub.TabIndex = 28;
             btn_eliminarSub.Text = "Eliminar";
             btn_eliminarSub.UseVisualStyleBackColor = false;
@@ -421,13 +439,14 @@
             // 
             // btn_añadirSub
             // 
-            btn_añadirSub.BackColor = Color.FromArgb(20, 134, 223);
+            btn_añadirSub.BackColor = Color.FromArgb(32, 0, 130);
             btn_añadirSub.FlatStyle = FlatStyle.Flat;
             btn_añadirSub.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_añadirSub.ForeColor = Color.White;
-            btn_añadirSub.Location = new Point(190, 77);
+            btn_añadirSub.Location = new Point(217, 103);
+            btn_añadirSub.Margin = new Padding(3, 4, 3, 4);
             btn_añadirSub.Name = "btn_añadirSub";
-            btn_añadirSub.Size = new Size(70, 28);
+            btn_añadirSub.Size = new Size(80, 37);
             btn_añadirSub.TabIndex = 27;
             btn_añadirSub.Text = "Añadir";
             btn_añadirSub.UseVisualStyleBackColor = false;
@@ -435,10 +454,11 @@
             // 
             // txt_sub
             // 
-            txt_sub.Location = new Point(6, 77);
+            txt_sub.Location = new Point(7, 103);
+            txt_sub.Margin = new Padding(3, 4, 3, 4);
             txt_sub.Multiline = true;
             txt_sub.Name = "txt_sub";
-            txt_sub.Size = new Size(161, 24);
+            txt_sub.Size = new Size(183, 31);
             txt_sub.TabIndex = 26;
             // 
             // errorProvider1
@@ -447,16 +467,17 @@
             // 
             // Categorias
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(360, 386);
+            ClientSize = new Size(411, 515);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Categorias";
             Text = "Categorias";
             Load += Categorias_Load;

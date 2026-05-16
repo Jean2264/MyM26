@@ -53,13 +53,13 @@
             // 
             tableLayoutPanel1.ColumnCount = 7;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 35F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 197F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 147F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 139F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 158F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 126F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 225F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 168F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 159F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 181F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 144F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 23F));
             tableLayoutPanel1.Controls.Add(btn_eliminar, 5, 0);
             tableLayoutPanel1.Controls.Add(btn_editar, 4, 0);
             tableLayoutPanel1.Controls.Add(btn_añadir, 3, 0);
@@ -68,16 +68,17 @@
             tableLayoutPanel1.Controls.Add(btn_bajas, 6, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1148, 40);
+            tableLayoutPanel1.Size = new Size(1312, 53);
             tableLayoutPanel1.TabIndex = 2;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // btn_eliminar
             // 
-            btn_eliminar.BackColor = Color.FromArgb(30, 40, 134);
+            btn_eliminar.BackColor = Color.FromArgb(87, 0, 238);
             btn_eliminar.BackgroundImageLayout = ImageLayout.Stretch;
             btn_eliminar.Dock = DockStyle.Fill;
             btn_eliminar.FlatStyle = FlatStyle.Flat;
@@ -85,9 +86,10 @@
             btn_eliminar.ForeColor = Color.White;
             btn_eliminar.Image = (Image)resources.GetObject("btn_eliminar.Image");
             btn_eliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_eliminar.Location = new Point(867, 3);
+            btn_eliminar.Location = new Point(990, 4);
+            btn_eliminar.Margin = new Padding(3, 4, 3, 4);
             btn_eliminar.Name = "btn_eliminar";
-            btn_eliminar.Size = new Size(152, 34);
+            btn_eliminar.Size = new Size(175, 45);
             btn_eliminar.TabIndex = 3;
             btn_eliminar.Text = "Eliminar empleado";
             btn_eliminar.TextAlign = ContentAlignment.MiddleRight;
@@ -96,7 +98,7 @@
             // 
             // btn_editar
             // 
-            btn_editar.BackColor = Color.FromArgb(235, 129, 10);
+            btn_editar.BackColor = Color.FromArgb(53, 0, 152);
             btn_editar.BackgroundImageLayout = ImageLayout.Stretch;
             btn_editar.Dock = DockStyle.Fill;
             btn_editar.FlatStyle = FlatStyle.Flat;
@@ -104,9 +106,10 @@
             btn_editar.ForeColor = Color.White;
             btn_editar.Image = (Image)resources.GetObject("btn_editar.Image");
             btn_editar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_editar.Location = new Point(728, 3);
+            btn_editar.Location = new Point(831, 4);
+            btn_editar.Margin = new Padding(3, 4, 3, 4);
             btn_editar.Name = "btn_editar";
-            btn_editar.Size = new Size(133, 34);
+            btn_editar.Size = new Size(153, 45);
             btn_editar.TabIndex = 4;
             btn_editar.Text = "Editar empleado";
             btn_editar.TextAlign = ContentAlignment.MiddleRight;
@@ -115,7 +118,7 @@
             // 
             // btn_añadir
             // 
-            btn_añadir.BackColor = Color.FromArgb(20, 100, 134);
+            btn_añadir.BackColor = Color.FromArgb(32, 0, 130);
             btn_añadir.BackgroundImageLayout = ImageLayout.Stretch;
             btn_añadir.Dock = DockStyle.Fill;
             btn_añadir.FlatStyle = FlatStyle.Flat;
@@ -123,9 +126,10 @@
             btn_añadir.ForeColor = Color.White;
             btn_añadir.Image = (Image)resources.GetObject("btn_añadir.Image");
             btn_añadir.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_añadir.Location = new Point(581, 3);
+            btn_añadir.Location = new Point(663, 4);
+            btn_añadir.Margin = new Padding(3, 4, 3, 4);
             btn_añadir.Name = "btn_añadir";
-            btn_añadir.Size = new Size(141, 34);
+            btn_añadir.Size = new Size(162, 45);
             btn_añadir.TabIndex = 1;
             btn_añadir.Text = "Añadir empleado";
             btn_añadir.TextAlign = ContentAlignment.MiddleRight;
@@ -136,10 +140,11 @@
             // 
             txt_buscar.Dock = DockStyle.Fill;
             txt_buscar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_buscar.Location = new Point(3, 3);
+            txt_buscar.Location = new Point(3, 4);
+            txt_buscar.Margin = new Padding(3, 4, 3, 4);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(340, 34);
+            txt_buscar.Size = new Size(389, 45);
             txt_buscar.TabIndex = 5;
             txt_buscar.TextChanged += txt_buscar_TextChanged;
             txt_buscar.DragEnter += txt_buscar_DragEnter;
@@ -154,16 +159,17 @@
             btn_buscar.Dock = DockStyle.Fill;
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(349, 3);
+            btn_buscar.Location = new Point(398, 4);
+            btn_buscar.Margin = new Padding(3, 4, 3, 4);
             btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(29, 34);
+            btn_buscar.Size = new Size(34, 45);
             btn_buscar.TabIndex = 6;
             btn_buscar.UseVisualStyleBackColor = true;
             btn_buscar.Click += btn_buscar_Click;
             // 
             // btn_bajas
             // 
-            btn_bajas.BackColor = Color.FromArgb(70, 40, 134);
+            btn_bajas.BackColor = Color.FromArgb(120, 82, 255);
             btn_bajas.BackgroundImageLayout = ImageLayout.Stretch;
             btn_bajas.Dock = DockStyle.Fill;
             btn_bajas.FlatStyle = FlatStyle.Flat;
@@ -171,9 +177,10 @@
             btn_bajas.ForeColor = Color.White;
             btn_bajas.Image = (Image)resources.GetObject("btn_bajas.Image");
             btn_bajas.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bajas.Location = new Point(1025, 3);
+            btn_bajas.Location = new Point(1171, 4);
+            btn_bajas.Margin = new Padding(3, 4, 3, 4);
             btn_bajas.Name = "btn_bajas";
-            btn_bajas.Size = new Size(120, 34);
+            btn_bajas.Size = new Size(138, 45);
             btn_bajas.TabIndex = 2;
             btn_bajas.Text = "Ver bajas";
             btn_bajas.TextAlign = ContentAlignment.MiddleRight;
@@ -184,29 +191,30 @@
             // 
             tableLayoutPanel2.ColumnCount = 6;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 107F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 124F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 107F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 299F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 163F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 142F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 122F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 342F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 186F));
             tableLayoutPanel2.Controls.Add(btn_anterior, 1, 0);
             tableLayoutPanel2.Controls.Add(btn_siguente, 3, 0);
             tableLayoutPanel2.Controls.Add(lbl_paginas, 2, 0);
             tableLayoutPanel2.Controls.Add(label1, 5, 0);
             tableLayoutPanel2.Dock = DockStyle.Bottom;
             tableLayoutPanel2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tableLayoutPanel2.Location = new Point(0, 654);
+            tableLayoutPanel2.Location = new Point(0, 872);
+            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
-            tableLayoutPanel2.Size = new Size(1148, 44);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 11F));
+            tableLayoutPanel2.Size = new Size(1312, 59);
             tableLayoutPanel2.TabIndex = 4;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
             // btn_anterior
             // 
-            btn_anterior.BackColor = Color.FromArgb(0, 150, 30);
+            btn_anterior.BackColor = Color.FromArgb(100, 60, 200);
             btn_anterior.BackgroundImageLayout = ImageLayout.None;
             btn_anterior.Dock = DockStyle.Fill;
             btn_anterior.FlatAppearance.BorderSize = 0;
@@ -214,9 +222,10 @@
             btn_anterior.FlatStyle = FlatStyle.Flat;
             btn_anterior.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_anterior.ForeColor = Color.White;
-            btn_anterior.Location = new Point(351, 3);
+            btn_anterior.Location = new Point(401, 4);
+            btn_anterior.Margin = new Padding(3, 4, 3, 4);
             btn_anterior.Name = "btn_anterior";
-            btn_anterior.Size = new Size(101, 30);
+            btn_anterior.Size = new Size(116, 40);
             btn_anterior.TabIndex = 0;
             btn_anterior.Text = "Anterior";
             btn_anterior.UseVisualStyleBackColor = false;
@@ -224,7 +233,7 @@
             // 
             // btn_siguente
             // 
-            btn_siguente.BackColor = Color.FromArgb(0, 150, 30);
+            btn_siguente.BackColor = Color.FromArgb(100, 60, 200);
             btn_siguente.BackgroundImageLayout = ImageLayout.None;
             btn_siguente.Dock = DockStyle.Fill;
             btn_siguente.FlatAppearance.BorderSize = 0;
@@ -232,9 +241,10 @@
             btn_siguente.FlatStyle = FlatStyle.Flat;
             btn_siguente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_siguente.ForeColor = Color.White;
-            btn_siguente.Location = new Point(582, 3);
+            btn_siguente.Location = new Point(665, 4);
+            btn_siguente.Margin = new Padding(3, 4, 3, 4);
             btn_siguente.Name = "btn_siguente";
-            btn_siguente.Size = new Size(101, 30);
+            btn_siguente.Size = new Size(116, 40);
             btn_siguente.TabIndex = 1;
             btn_siguente.Text = "Siguente";
             btn_siguente.UseVisualStyleBackColor = false;
@@ -244,9 +254,9 @@
             // 
             lbl_paginas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             lbl_paginas.AutoSize = true;
-            lbl_paginas.Location = new Point(498, 0);
+            lbl_paginas.Location = new Point(567, 0);
             lbl_paginas.Name = "lbl_paginas";
-            lbl_paginas.Size = new Size(37, 36);
+            lbl_paginas.Size = new Size(48, 48);
             lbl_paginas.TabIndex = 2;
             lbl_paginas.Text = "\r\nlabel1";
             // 
@@ -254,9 +264,9 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Location = new Point(988, 0);
+            label1.Location = new Point(1129, 0);
             label1.Name = "label1";
-            label1.Size = new Size(37, 36);
+            label1.Size = new Size(48, 48);
             label1.TabIndex = 3;
             label1.Text = "\r\nlabel1";
             // 
@@ -278,7 +288,8 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ImeMode = ImeMode.On;
-            dataGridView1.Location = new Point(0, 40);
+            dataGridView1.Location = new Point(0, 53);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -290,21 +301,23 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(1148, 614);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1312, 819);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // Empleados
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(dataGridView1);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Empleados";
-            Size = new Size(1148, 698);
+            Size = new Size(1312, 931);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

@@ -73,7 +73,7 @@
             // 
             // btn_anterior
             // 
-            btn_anterior.BackColor = Color.FromArgb(0, 150, 30);
+            btn_anterior.BackColor = Color.FromArgb(100, 60, 200);
             btn_anterior.BackgroundImageLayout = ImageLayout.None;
             btn_anterior.Dock = DockStyle.Fill;
             btn_anterior.FlatAppearance.BorderSize = 0;
@@ -92,7 +92,7 @@
             // 
             // btn_siguente
             // 
-            btn_siguente.BackColor = Color.FromArgb(0, 150, 30);
+            btn_siguente.BackColor = Color.FromArgb(100, 60, 200);
             btn_siguente.BackgroundImageLayout = ImageLayout.None;
             btn_siguente.Dock = DockStyle.Fill;
             btn_siguente.FlatAppearance.BorderSize = 0;
@@ -183,7 +183,7 @@
             // 
             // btn_añadirUsrr
             // 
-            btn_añadirUsrr.BackColor = Color.FromArgb(20, 100, 134);
+            btn_añadirUsrr.BackColor = Color.FromArgb(32, 0, 130);
             btn_añadirUsrr.BackgroundImageLayout = ImageLayout.Stretch;
             btn_añadirUsrr.Dock = DockStyle.Fill;
             btn_añadirUsrr.FlatStyle = FlatStyle.Flat;

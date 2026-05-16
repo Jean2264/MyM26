@@ -136,7 +136,7 @@
             // 
             // btn_añadir_desc
             // 
-            btn_añadir_desc.BackColor = Color.FromArgb(190, 43, 80);
+            btn_añadir_desc.BackColor = Color.FromArgb(80, 100, 158);
             btn_añadir_desc.Dock = DockStyle.Top;
             btn_añadir_desc.FlatStyle = FlatStyle.Flat;
             btn_añadir_desc.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -153,7 +153,7 @@
             // 
             // btn_reem_desc
             // 
-            btn_reem_desc.BackColor = Color.FromArgb(180, 130, 20);
+            btn_reem_desc.BackColor = Color.FromArgb(100, 100, 158);
             btn_reem_desc.Dock = DockStyle.Bottom;
             btn_reem_desc.FlatStyle = FlatStyle.Flat;
             btn_reem_desc.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -186,7 +186,7 @@
             // 
             // btn_desc
             // 
-            btn_desc.BackColor = Color.FromArgb(70, 83, 180);
+            btn_desc.BackColor = Color.FromArgb(68, 80, 158);
             btn_desc.BackgroundImageLayout = ImageLayout.Stretch;
             btn_desc.Dock = DockStyle.Top;
             btn_desc.FlatStyle = FlatStyle.Flat;
@@ -203,7 +203,7 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.FromArgb(180, 15, 20);
+            button2.BackColor = Color.FromArgb(49, 59, 122);
             button2.Dock = DockStyle.Top;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -231,7 +231,7 @@
             // 
             // btn_cancelarVenta
             // 
-            btn_cancelarVenta.BackColor = Color.FromArgb(100, 10, 56);
+            btn_cancelarVenta.BackColor = Color.FromArgb(60, 10, 96);
             btn_cancelarVenta.Dock = DockStyle.Top;
             btn_cancelarVenta.FlatStyle = FlatStyle.Flat;
             btn_cancelarVenta.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -247,7 +247,7 @@
             // 
             // btn_confiVenta
             // 
-            btn_confiVenta.BackColor = Color.FromArgb(10, 100, 56);
+            btn_confiVenta.BackColor = Color.FromArgb(10, 100, 100);
             btn_confiVenta.Dock = DockStyle.Top;
             btn_confiVenta.FlatStyle = FlatStyle.Flat;
             btn_confiVenta.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -276,7 +276,7 @@
             // 
             // btn_cerrar_vuelto
             // 
-            btn_cerrar_vuelto.BackColor = Color.FromArgb(10, 90, 153);
+            btn_cerrar_vuelto.BackColor = Color.FromArgb(100, 150, 200);
             btn_cerrar_vuelto.Dock = DockStyle.Top;
             btn_cerrar_vuelto.FlatStyle = FlatStyle.Flat;
             btn_cerrar_vuelto.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -293,7 +293,7 @@
             // 
             // btn_vuelto
             // 
-            btn_vuelto.BackColor = Color.FromArgb(10, 90, 153);
+            btn_vuelto.BackColor = Color.FromArgb(90, 120, 200);
             btn_vuelto.Dock = DockStyle.Top;
             btn_vuelto.FlatStyle = FlatStyle.Flat;
             btn_vuelto.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -326,7 +326,7 @@
             // 
             // btn_mostrar_vuelto
             // 
-            btn_mostrar_vuelto.BackColor = Color.FromArgb(20, 100, 123);
+            btn_mostrar_vuelto.BackColor = Color.FromArgb(96, 100, 200);
             btn_mostrar_vuelto.Dock = DockStyle.Top;
             btn_mostrar_vuelto.FlatStyle = FlatStyle.Flat;
             btn_mostrar_vuelto.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -355,7 +355,7 @@
             // 
             // btn_sumar
             // 
-            btn_sumar.BackColor = Color.FromArgb(90, 43, 80);
+            btn_sumar.BackColor = Color.FromArgb(24, 50, 89);
             btn_sumar.Dock = DockStyle.Top;
             btn_sumar.FlatAppearance.BorderColor = Color.White;
             btn_sumar.FlatStyle = FlatStyle.Flat;
@@ -373,7 +373,7 @@
             // 
             // btn_restar
             // 
-            btn_restar.BackColor = Color.FromArgb(190, 43, 80);
+            btn_restar.BackColor = Color.FromArgb(24, 30, 83);
             btn_restar.Dock = DockStyle.Top;
             btn_restar.FlatAppearance.BorderColor = Color.White;
             btn_restar.FlatStyle = FlatStyle.Flat;
@@ -399,7 +399,7 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.FromArgb(220, 120, 20);
+            button3.BackColor = Color.FromArgb(24, 30, 68);
             button3.Dock = DockStyle.Top;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);

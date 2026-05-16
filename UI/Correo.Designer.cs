@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Correo));
             label1 = new Label();
             txt_correo = new TextBox();
             btn_verifi = new Button();
@@ -75,8 +74,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Transparent;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(btn_verifi);
             Controls.Add(txt_correo);
