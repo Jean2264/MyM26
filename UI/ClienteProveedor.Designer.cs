@@ -55,9 +55,9 @@
             tableLayoutPanel1.ColumnCount = 8;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 216F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 173F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 155F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 199F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 178F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 167F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 189F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 151F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 133F));
@@ -126,10 +126,10 @@
             btn_editar.ForeColor = Color.White;
             btn_editar.Image = (Image)resources.GetObject("btn_editar.Image");
             btn_editar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_editar.Location = new Point(687, 4);
+            btn_editar.Location = new Point(675, 4);
             btn_editar.Margin = new Padding(3, 4, 3, 4);
             btn_editar.Name = "btn_editar";
-            btn_editar.Size = new Size(149, 45);
+            btn_editar.Size = new Size(161, 45);
             btn_editar.TabIndex = 4;
             btn_editar.TextAlign = ContentAlignment.MiddleRight;
             btn_editar.UseVisualStyleBackColor = false;
@@ -145,10 +145,10 @@
             btn_añadir.ForeColor = Color.White;
             btn_añadir.Image = (Image)resources.GetObject("btn_añadir.Image");
             btn_añadir.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_añadir.Location = new Point(514, 4);
+            btn_añadir.Location = new Point(497, 4);
             btn_añadir.Margin = new Padding(3, 4, 3, 4);
             btn_añadir.Name = "btn_añadir";
-            btn_añadir.Size = new Size(167, 45);
+            btn_añadir.Size = new Size(172, 45);
             btn_añadir.TabIndex = 1;
             btn_añadir.TextAlign = ContentAlignment.MiddleRight;
             btn_añadir.UseVisualStyleBackColor = false;
