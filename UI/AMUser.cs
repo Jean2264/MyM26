@@ -27,6 +27,7 @@ namespace MyM26.screens
         public Users usu;
         public string UsuOriginal;
         public string ContraOriginal;
+        bool cambia = false;
 
 
 
@@ -52,19 +53,21 @@ namespace MyM26.screens
             {
                 label_title.Text = "Alta de usuario";
                 btn_AM.Text = "Añadir usuario";
-                btn_AM.BackColor=Color.FromArgb(32,0,130);
+                btn_AM.BackColor = Color.FromArgb(32, 0, 130);
             }
             else if (Modo == "Modificar")
             {
+                btn_cambiar.Visible = true;
+                txt_repit.Visible = false;
                 label_title.Text = "Modificación de usuario";
                 btn_AM.Text = "Modificar usuario";
                 txt_dni.ReadOnly = true;
                 label3.Visible = false;
-               // txt_repit.Visible=false;
-                txt_contraseña.Text= "********";
+                // txt_repit.Visible=false;
+                txt_contraseña.Text = "********";
                 txt_dni.BackColor = Color.White;
                 buscarUsuario();
-                btn_AM.BackColor=Color.FromArgb(53,0,152);
+                btn_AM.BackColor = Color.FromArgb(53, 0, 152);
             }
             else
             {
@@ -72,7 +75,7 @@ namespace MyM26.screens
                 buscarUsuario();
                 label3.Visible = false;
                 txt_repit.Visible = false;
-              
+
                 txt_contraseña.Text = "********";
                 btn_AM.Visible = false;
                 foreach (Control ctrl in this.Controls)
@@ -82,7 +85,7 @@ namespace MyM26.screens
                         ((TextBox)ctrl).ReadOnly = true;
                         ((TextBox)ctrl).BackColor = Color.White;
                     }
-                   cmb_tipo.Enabled= false;
+                    cmb_tipo.Enabled = false;
                 }
                 // Deshabilitar campos para solo consulta
 
@@ -108,8 +111,9 @@ namespace MyM26.screens
 
             txt_dni.Text = usuario.Dni;
             txt_nombre.Text = usuario.Nombre;
-          //  txt_contraseña.Text = usuario.Contrasenia;
-          //  txt_repit.Text = usuario.Contrasenia;
+            txt_contraseña.Text ="********";
+            txt_contraseña.ReadOnly = true;
+            txt_repit.Text = "";
             txt_fechaAlta.Text = usuario.FechaAlta;
             txt_telefono.Text = usuario.Telefono;
             txt_mail.Text = usuario.Mail;
@@ -131,7 +135,7 @@ namespace MyM26.screens
                     pic_usu.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
-
+          
 
         }
         private void btn_buscar_Click(object sender, EventArgs e)
@@ -204,10 +208,24 @@ namespace MyM26.screens
             }
         }
 
-        string tipoAnterior = "";
+       // string tipoAnterior = "";
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string TipoSeleccionado = cmb_tipo.SelectedItem?.ToString();
+            string TipoSeleccionado =
+        cmb_tipo.SelectedItem?.ToString();
+
+            // LIMPIAR TODOS
+            cajas.Checked = false;
+            Ventas.Checked = false;
+            articulos.Checked = false;
+            compras.Checked = false;
+            Proveedores.Checked = false;
+            Clientes.Checked = false;
+            Usuarios.Checked = false;
+            empleados.Checked = false;
+            Contable.Checked = false;
+
+            // ADMINISTRADOR
             if (TipoSeleccionado == "Administrador")
             {
                 cajas.Checked = true;
@@ -219,21 +237,24 @@ namespace MyM26.screens
                 Usuarios.Checked = true;
                 empleados.Checked = true;
                 Contable.Checked = true;
+            }
 
-            }
-            else if (tipoAnterior == "Administrador")
+            // CAJERO
+            else if (TipoSeleccionado == "Cajero")
             {
-                cajas.Checked = false;
-                Ventas.Checked = false;
-                articulos.Checked = false;
-                compras.Checked = false;
-                Proveedores.Checked = false;
-                Clientes.Checked = false;
-                empleados.Checked = false;
-                Usuarios.Checked = false;
-                Contable.Checked = false;
+                cajas.Checked = true;
+                articulos.Checked = true;
             }
-            tipoAnterior = TipoSeleccionado;
+
+            // RRHH
+            else if (TipoSeleccionado == "RRHH")
+            {
+                Usuarios.Checked = true;
+                empleados.Checked = true;
+                Proveedores.Checked = true;
+                Clientes.Checked = true;
+            }
+            //  tipoAnterior = TipoSeleccionado;
         }
 
         //Validaciines de campos
@@ -469,12 +490,21 @@ namespace MyM26.screens
             }
             else if (Modo == "Modificar")
             {
+                
                 VUser usuario = new VUser();
 
                 usuario.Dni = txt_dni.Text;
                 usuario.Nombre = txt_nombre.Text;
-                usuario.Contrasenia = txt_contraseña.Text;
-                usuario.Repit = txt_repit.Text;
+                if (cambia)
+                {
+                    usuario.Contrasenia = txt_contraseña.Text;
+                    usuario.Repit = txt_repit.Text;
+                    usuario.cambia = true;
+                }
+                else
+                {
+                    usuario.cambia = false;
+                }
                 usuario.Telefono = txt_telefono.Text;
                 usuario.Mail = txt_mail.Text;
 
@@ -490,7 +520,7 @@ namespace MyM26.screens
                 usuario.Usuarios = Usuarios.Checked;
                 usuario.Contabilidad = Contable.Checked;
                 usuario.Empleados = empleados.Checked;
-                usuario.Foto = ImagenABytes(pic_usu.Image);
+                usuario.Foto = ImagenABytes(pic_usu.Image!);
 
 
                 usuario.TipoMovimiento = "modificación de usuario";
@@ -508,9 +538,12 @@ namespace MyM26.screens
                     MostrarErrores(resultado);
                     return;
                 }
-
+                if (usuario.cambia)
+                {
+                   usuarioNegocio.PrepararPassword(usuario);
+                }
                 UsuarioDatos usuarioDatos = new UsuarioDatos();
-                usuarioDatos.ModiCompleto(usuario);
+                usuarioDatos.ModificacionUsuario(usuario); 
                 usuarioDatos.AltaHistoricoCompleto(usuario);
                 usu.llenarUser();
                 this.DialogResult = DialogResult.OK;
@@ -561,6 +594,16 @@ namespace MyM26.screens
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_cambiar_Click(object sender, EventArgs e)
+        {
+            cambia = true;
+            btn_cambiar.Visible = false;
+            label3.Visible = true;
+            txt_repit.Visible = true;
+            txt_contraseña.Text = "";
+            txt_contraseña.ReadOnly=false;
         }
     }
 }

@@ -33,6 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
             dataGridView1 = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
             dateTimePicker1 = new DateTimePicker();
             button1 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -42,6 +43,7 @@
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ImeMode = ImeMode.On;
-            dataGridView1.Location = new Point(0, 39);
+            dataGridView1.Location = new Point(0, 34);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -77,7 +79,7 @@
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1312, 833);
+            dataGridView1.Size = new Size(1312, 838);
             dataGridView1.TabIndex = 10;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
             // 
@@ -85,28 +87,38 @@
             // 
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 302F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 135F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 531F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 157F));
-            tableLayoutPanel1.Controls.Add(dateTimePicker1, 0, 0);
-            tableLayoutPanel1.Controls.Add(button1, 1, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1312, 39);
+            tableLayoutPanel1.Size = new Size(1312, 34);
             tableLayoutPanel1.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(dateTimePicker1);
+            panel1.Controls.Add(button1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(296, 28);
+            panel1.TabIndex = 9;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(3, 4);
+            dateTimePicker1.Dock = DockStyle.Fill;
+            dateTimePicker1.Location = new Point(0, 0);
             dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(374, 27);
+            dateTimePicker1.Size = new Size(265, 27);
             dateTimePicker1.TabIndex = 7;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -114,15 +126,15 @@
             // 
             button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
             button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Dock = DockStyle.Fill;
+            button1.Dock = DockStyle.Right;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(394, 4);
+            button1.Location = new Point(265, 0);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(31, 31);
+            button1.Size = new Size(31, 28);
             button1.TabIndex = 8;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -224,6 +236,7 @@
             Load += Ventas_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
@@ -234,12 +247,14 @@
 
         private DataGridView dataGridView1;
         private TableLayoutPanel tableLayoutPanel1;
+        private Button button1;
         private DateTimePicker dateTimePicker1;
         private TableLayoutPanel tableLayoutPanel2;
         private Button btn_anterior;
         private Button btn_siguente;
         private Label lbl_paginas;
         private Label label1;
-        private Button button1;
+        
+        private Panel panel1;
     }
 }

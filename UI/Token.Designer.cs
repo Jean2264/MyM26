@@ -35,7 +35,8 @@
             // 
             // btn_verifi
             // 
-            btn_verifi.BackgroundImage = Properties.Resources.verde;
+            btn_verifi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btn_verifi.BackColor = Color.FromArgb(53, 0, 152);
             btn_verifi.BackgroundImageLayout = ImageLayout.Stretch;
             btn_verifi.FlatAppearance.BorderSize = 0;
             btn_verifi.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -43,17 +44,18 @@
             btn_verifi.FlatStyle = FlatStyle.Flat;
             btn_verifi.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_verifi.ForeColor = Color.White;
-            btn_verifi.Location = new Point(112, 447);
+            btn_verifi.Location = new Point(89, 446);
             btn_verifi.Margin = new Padding(3, 4, 3, 4);
             btn_verifi.Name = "btn_verifi";
-            btn_verifi.Size = new Size(169, 53);
+            btn_verifi.Size = new Size(169, 42);
             btn_verifi.TabIndex = 5;
             btn_verifi.Text = "Verificar correo";
-            btn_verifi.UseVisualStyleBackColor = true;
+            btn_verifi.UseVisualStyleBackColor = false;
             btn_verifi.Click += btn_verifi_Click;
             // 
             // txt_token
             // 
+            txt_token.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_token.Location = new Point(75, 281);
             txt_token.Margin = new Padding(3, 4, 3, 4);
             txt_token.Name = "txt_token";
@@ -62,6 +64,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(49, 177);

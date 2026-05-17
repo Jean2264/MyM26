@@ -60,11 +60,6 @@ namespace MyM26.UI
 
         public void buscar()
         {
-            if(string.IsNullOrWhiteSpace(txt_buscar.Text))
-            {
-                MessageBox.Show("El campo no debe estar vacio al momento de buscar.");
-                return;
-            }
             CajaNegocio negocio = new CajaNegocio();
             VCaja cj = negocio.BuscarAer(caj);
             if (cj != null)
@@ -84,7 +79,7 @@ namespace MyM26.UI
 
         private void BuscarArt_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void dtg_caja_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

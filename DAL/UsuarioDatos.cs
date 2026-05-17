@@ -340,7 +340,7 @@ int registrosPorPagina)
         public VUser Tomarinfo(string dni)
         {
             VUser usuario = null;
-            string consulta = "SELECT s.DNI, s.Usuario, s.Contrasenia, s.Telefono, s.Mail, s.FechaAlta, s.Perfil, t.Tipo, t.Cajas, t.Compras, t.Productos, " +
+            string consulta = "SELECT s.DNI, s.Usuario,  s.Telefono, s.Mail, s.FechaAlta, s.Perfil, t.Tipo, t.Cajas, t.Compras, t.Productos, " +
                                      "t.Ventas, t.Usuarios, t.Clientes, t.Empleados, t.Proveedores, t.EstadoContable FROM Usuario s inner join TipoUsuario t on s.CodTipoUsuario= t.CodTipoUsuario WHERE s.DNI=@dni";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@dni", dni);
@@ -355,12 +355,12 @@ int registrosPorPagina)
                     usuario = new VUser();
                     usuario.Dni = reader["DNI"].ToString();
                     usuario.Nombre = reader["Usuario"].ToString();
-                    usuario.Contrasenia = reader["Contrasenia"].ToString();
+                    
                     usuario.Telefono = reader["Telefono"].ToString();
                     usuario.Mail = reader["Mail"].ToString();
                     usuario.FechaAlta = reader["FechaAlta"].ToString();
                     usuario.NombreOriginal = reader["Usuario"].ToString();
-                    usuario.ContraseniaOriginal = reader["Contrasenia"].ToString();
+                  
 
                     if (reader["Perfil"] != DBNull.Value)
                     {
@@ -368,10 +368,10 @@ int registrosPorPagina)
                     }
                     else
                     {
-                        usuario.Foto = null;
+                        usuario.Foto = null!;
                     }
 
-                    usuario.Tipo = reader["Tipo"].ToString();
+                    usuario.Tipo = reader["Tipo"].ToString()!;
                     usuario.Cajas = Convert.ToBoolean(reader["Cajas"]);
                     usuario.Compras = Convert.ToBoolean(reader["Compras"]);
                     usuario.Articulos = Convert.ToBoolean(reader["Productos"]);
@@ -385,7 +385,7 @@ int registrosPorPagina)
             }
             catch (Exception ex)
             {
-
+                throw;
             }
             finally
             {
@@ -397,13 +397,13 @@ int registrosPorPagina)
 
         public void ModificarUsuario(VUser usuario, SqlTransaction trans)
         {
-            string consulta = "UPDATE Usuario SET Usuario=@Usuario, Contrasenia=@Contrasenia, Telefono=@Telefono, Mail=@Mail, Perfil=@Perfil WHERE DNI=@DNI";
+            string consulta = "UPDATE Usuario SET Usuario=@Usuario,  Telefono=@Telefono, Mail=@Mail, Perfil=@Perfil WHERE DNI=@DNI";
 
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
 
             cmd.Parameters.AddWithValue("@DNI", usuario.Dni);
             cmd.Parameters.AddWithValue("@Usuario", usuario.Nombre);
-            cmd.Parameters.AddWithValue("@contrasenia", usuario.Contrasenia);
+          
             cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
             cmd.Parameters.AddWithValue("@Mail", usuario.Mail);
             if (usuario.Foto != null)
@@ -493,6 +493,101 @@ int registrosPorPagina)
             {
                 if (Decla.cnn.State == ConnectionState.Open)
                     Decla.cnn.Close();
+            }
+        }
+
+        public void ModificacionUsuario(VUser usuario)
+        {
+
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+                var trans = conn.BeginTransaction();
+                try
+                {
+                    //update user
+                    string consultaU = "UPDATE Usuario SET Usuario=@Usuario,  Telefono=@Telefono, Mail=@Mail, Perfil=@Perfil WHERE DNI=@DNI";
+                    using (SqlCommand cmd = new SqlCommand(consultaU, conn, trans))
+                    {
+                        cmd.Parameters.AddWithValue("@DNI", usuario.Dni);
+                        cmd.Parameters.AddWithValue("@Usuario", usuario.Nombre);
+
+                        cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
+                        cmd.Parameters.AddWithValue("@Mail", usuario.Mail);
+                        if (usuario.Foto != null)
+                        {
+                            cmd.Parameters.Add("@Perfil", SqlDbType.VarBinary).Value = usuario.Foto;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@Perfil", SqlDbType.VarBinary).Value = DBNull.Value;
+                        }
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    //If true
+                    if (usuario.cambia==true)
+                    {
+                        string consultaPass = "UPDATE Usuario SET Contrasenia=@Contrasenia WHERE DNI=@dni";
+                        using (SqlCommand cmd = new SqlCommand(consultaPass, conn, trans))
+                        {
+                            cmd.Parameters.AddWithValue("@dni", usuario.Dni);
+                            cmd.Parameters.AddWithValue("@Contrasenia", usuario.Contrasenia);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    //cod TypeUser
+                    string cod = null;
+                    string consulta = "select CodTipoUsuario from Usuario where DNI=@dni";
+                    using (SqlCommand cmd = new SqlCommand(consulta, conn, trans))
+                    {
+                        cmd.Parameters.AddWithValue("@dni", usuario.Dni);
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            cod = result.ToString();
+                        }
+                    }
+
+                    //update TypeUser
+
+                    string consultaT = "UPDATE TipoUsuario set Tipo= @Tipo, " +
+                                                           "Cajas=@Cajas, " +
+                                                           "Compras=@Compras, " +
+                                                           "Productos=@Productos, " +
+                                                           "Ventas=@Ventas, " +
+                                                           "Usuarios=@Usuarios, " +
+                                                           "Clientes=@Clientes, " +
+                                                           "Empleados= @Empleados," +
+                                                           "Proveedores=@Proveedores, " +
+                                                           "EStadoContable=@EstadoContable " +
+                                                           "WHERE CodTipoUsuario= @Cod";
+                    using (SqlCommand cmd = new SqlCommand(consultaT, conn, trans))
+                    {
+                        cmd.Parameters.AddWithValue("@Cod", cod);
+                        cmd.Parameters.AddWithValue("@Tipo", usuario.Tipo);
+                        cmd.Parameters.AddWithValue("@Cajas", usuario.Cajas);
+                        cmd.Parameters.AddWithValue("@Compras", usuario.Compras);
+                        cmd.Parameters.AddWithValue("@Productos", usuario.Articulos);
+                        cmd.Parameters.AddWithValue("@Ventas", usuario.Ventas);
+                        cmd.Parameters.AddWithValue("@Usuarios", usuario.Usuarios);
+                        cmd.Parameters.AddWithValue("@Clientes", usuario.Clientes);
+                        cmd.Parameters.AddWithValue("@Proveedores", usuario.Proveedores);
+                        cmd.Parameters.AddWithValue("@EstadoContable", usuario.Contabilidad);
+                        cmd.Parameters.AddWithValue("@Empleados", usuario.Empleados);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw;
+                }
+               
             }
         }
         public VUser ElimianrUser(string dni)
@@ -681,27 +776,49 @@ int registrosPorPagina)
             }
         }
 
+        public bool ExisteMailEnModificacion(string mail, string dni)
+        {
+            using (SqlConnection cn = new SqlConnection(Decla.ConnectionString))
+            {
+                string sql = @"SELECT COUNT(*) 
+                       FROM Usuario 
+                       WHERE Mail = @mail
+                       AND DNI <> @dni 
+                       AND Estado = 1";
+
+                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue("@mail", mail);
+                    cmd.Parameters.AddWithValue("@dni", dni);
+
+                    cn.Open();
+                    int existe = (int)cmd.ExecuteScalar();
+
+                    return existe > 0;
+                }
+            }
+        }
+
         //Verificacion para logeo de usuario en la app
 
-        public VUser logeo(string us, string contrasenia)
+        public VUser logeo(string us)
         {
             VUser user = null;
 
-            string consulta = "SELECT s.DNI, s.Perfil, s.Usuario, t.Tipo, t.Cajas, t.Compras, " +
-                    "t.Productos, t.Ventas, t.Empleados, t.Usuarios, t.Clientes, t.Proveedores, " +
-                    "t.EstadoContable " +
-                    "FROM Usuario s " +
-                    "INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario " +
-                    "WHERE (s.Usuario = @user OR s.DNI = @dni) " +
-                    "AND s.Contrasenia = @pass " +
-                    "AND s.Estado = 1";
+            string consulta = @"SELECT s.DNI, s.Perfil, s.Usuario, s.Contrasenia, t.Tipo, t.Cajas, t.Compras,
+                    t.Productos, t.Ventas, t.Empleados, t.Usuarios, t.Clientes, t.Proveedores,
+                    t.EstadoContable 
+                    FROM Usuario s 
+                    INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario
+                    WHERE (s.Usuario = @user OR s.DNI = @dni)                
+                    AND s.Estado = 1";
             try
             {
                 using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn))
                 {
                     cmd.Parameters.AddWithValue("@user", us);
                     cmd.Parameters.AddWithValue("@dni", us);
-                    cmd.Parameters.AddWithValue("@pass", contrasenia);
+                  
 
                     Decla.cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -711,6 +828,7 @@ int registrosPorPagina)
                         user = new VUser();
                         user.DNIAc = reader["DNI"].ToString();
                         user.NombreAc = reader["Usuario"].ToString();
+                        user.ContraseniaAc = reader["Contrasenia"].ToString();
                         user.TipoAc = reader["Tipo"].ToString();
                         user.CajasAc = Convert.ToBoolean(reader["Cajas"]);
                         user.ComprasAc = Convert.ToBoolean(reader["Compras"]);
@@ -735,7 +853,7 @@ int registrosPorPagina)
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al iniciar sesión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             finally
             {

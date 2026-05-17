@@ -53,59 +53,63 @@ namespace MyM26.BLL
                     Mensaje = "El campo Nombre debe tener entre 8 y 16 caracteres."
                 });
             }
+            if (usuario.cambia == true)
+            {
 
-            //Validar contrasenia
-            if (string.IsNullOrWhiteSpace(usuario.Contrasenia))
-            {
-                resultado.Errores.Add(new Error
-                {
-                    Campo = "Contrasenia",
-                    Mensaje = "El campo Contraseña es obligatorio."
-                });
-            }
-            else if (usuario.Contrasenia.Length < 8 || usuario.Contrasenia.Length > 16)
-            {
-                resultado.Errores.Add(new Error
-                {
-                    Campo = "Contrasenia",
-                    Mensaje = "El campo Contraseña debe tener entre 8 y 16 caracteres."
-                });
-            }
-            else
-            {
-                bool tieneLetra = false;
-                bool tieneNumero = false;
-                foreach (char c in usuario.Contrasenia)
-                {
-                    if (char.IsLetter(c))
-                        tieneLetra = true;
-                    else if (char.IsDigit(c))
-                        tieneNumero = true;
-                    if (tieneLetra && tieneNumero)
-                        break;
-                }
-                if (!tieneLetra || !tieneNumero)
+
+                //Validar contrasenia
+                if (string.IsNullOrWhiteSpace(usuario.Contrasenia))
                 {
                     resultado.Errores.Add(new Error
                     {
                         Campo = "Contrasenia",
-                        Mensaje = "El campo Contraseña debe contener al menos una letra y un número."
+                        Mensaje = "El campo Contraseña es obligatorio."
                     });
                 }
-            }
-            if (usuario.Contrasenia != usuario.Repit)
-            {
-                resultado.Errores.Add(new Error
+                else if (usuario.Contrasenia.Length < 8 || usuario.Contrasenia.Length > 16)
                 {
-                    Campo = "Contrasenia",
-                    Mensaje = "Las contraseñas no coinciden."
-                });
+                    resultado.Errores.Add(new Error
+                    {
+                        Campo = "Contrasenia",
+                        Mensaje = "El campo Contraseña debe tener entre 8 y 16 caracteres."
+                    });
+                }
+                else
+                {
+                    bool tieneLetra = false;
+                    bool tieneNumero = false;
+                    foreach (char c in usuario.Contrasenia)
+                    {
+                        if (char.IsLetter(c))
+                            tieneLetra = true;
+                        else if (char.IsDigit(c))
+                            tieneNumero = true;
+                        if (tieneLetra && tieneNumero)
+                            break;
+                    }
+                    if (!tieneLetra || !tieneNumero)
+                    {
+                        resultado.Errores.Add(new Error
+                        {
+                            Campo = "Contrasenia",
+                            Mensaje = "El campo Contraseña debe contener al menos una letra y un número."
+                        });
+                    }
+                }
+                if (usuario.Contrasenia != usuario.Repit)
+                {
+                    resultado.Errores.Add(new Error
+                    {
+                        Campo = "Contrasenia",
+                        Mensaje = "Las contraseñas no coinciden."
+                    });
+                }
+              
             }
-
             UsuarioDatos datos= new UsuarioDatos();
             bool existeEnModificacion = datos.ExisteUsuarioEnModificacion(usuario.Nombre, usuario.Dni);
-
-                if (existeEnModificacion)
+            bool ExisteMailEnModificacion = datos.ExisteMailEnModificacion(usuario.Mail, usuario.Dni);
+            if (existeEnModificacion)
                 {
                     resultado.Errores.Add(new Error
                     {
@@ -113,8 +117,16 @@ namespace MyM26.BLL
                         Mensaje = "El nombre de usuario ya existe en el sistema."
                     });
                 }
-    
-               
+            if(ExisteMailEnModificacion)
+            {
+                resultado.Errores.Add(new Error
+                {
+                    Campo = "Mail",
+                    Mensaje = "El correo electrónico ya existe en el sistema."
+                });
+            }
+
+
             //validar telefono
             if (string.IsNullOrWhiteSpace(usuario.Telefono))
             {
@@ -190,7 +202,14 @@ namespace MyM26.BLL
                 });
             }
 
+
                 return resultado;
+        }
+
+        public void PrepararPassword(VUser usuario)
+        {
+            usuario.Contrasenia =
+                BCrypt.Net.BCrypt.HashPassword(usuario.Contrasenia);
         }
 
         public VUser Tomarinfo( string dni)

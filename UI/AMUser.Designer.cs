@@ -66,6 +66,7 @@
             cajas = new CheckBox();
             btn_AM = new Button();
             errorProvider1 = new ErrorProvider(components);
+            btn_cambiar = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_usu).BeginInit();
@@ -169,7 +170,7 @@
             // 
             // txt_repit
             // 
-            txt_repit.Location = new Point(222, 319);
+            txt_repit.Location = new Point(212, 277);
             txt_repit.Margin = new Padding(3, 4, 3, 4);
             txt_repit.MaxLength = 16;
             txt_repit.Multiline = true;
@@ -298,11 +299,13 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(btn_cambiar);
             panel2.Controls.Add(cmb_tipo);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(btn_buscar);
             panel2.Controls.Add(pic_usu);
             panel2.Controls.Add(label8);
+            panel2.Controls.Add(txt_repit);
             panel2.Location = new Point(9, 41);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
@@ -515,6 +518,20 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // btn_cambiar
+            // 
+            btn_cambiar.BackColor = Color.FromArgb(100, 82, 255);
+            btn_cambiar.FlatStyle = FlatStyle.Flat;
+            btn_cambiar.ForeColor = Color.White;
+            btn_cambiar.Location = new Point(211, 276);
+            btn_cambiar.Name = "btn_cambiar";
+            btn_cambiar.Size = new Size(173, 35);
+            btn_cambiar.TabIndex = 22;
+            btn_cambiar.Text = "Actualizar contraseña";
+            btn_cambiar.UseVisualStyleBackColor = false;
+            btn_cambiar.Visible = false;
+            btn_cambiar.Click += btn_cambiar_Click;
+            // 
             // AMUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -532,7 +549,6 @@
             Controls.Add(label6);
             Controls.Add(txt_fechaAlta);
             Controls.Add(label3);
-            Controls.Add(txt_repit);
             Controls.Add(label4);
             Controls.Add(txt_contraseña);
             Controls.Add(label2);
@@ -597,5 +613,6 @@
         private Label label10;
         private ErrorProvider errorProvider1;
         private CheckBox empleados;
+        private Button btn_cambiar;
     }
 }

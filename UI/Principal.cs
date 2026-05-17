@@ -145,6 +145,8 @@ namespace MyM26
             if (tipo == "Administrador")
             {
                 btn_principal.Enabled = true;
+
+                btn_principal.PerformClick();
             }
             else if (tipo != "Administrador")
             {
@@ -228,6 +230,19 @@ namespace MyM26
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_CS_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea cerrar sesión?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login log = new Login();
+                log.StartPosition = FormStartPosition.CenterParent;
+                log.Show();
+                this.Close();
+            }
         }
     }
 }

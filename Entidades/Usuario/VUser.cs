@@ -36,6 +36,8 @@ namespace MyM26.Entidades.Usuario
        public bool Contabilidad { get; set; }
         public bool Empleados { get; set; }
 
+        public bool cambia { get; set; }
+
         //Para verificacion de existencia en modifiacion
         public string NombreOriginal { get; set; }
         public string ContraseniaOriginal { get; set; }

@@ -50,6 +50,7 @@
             button2 = new Button();
             btn_contables = new Button();
             panelprincipal = new Panel();
+            btn_CS = new Button();
             panel_perfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_perfil).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -70,7 +71,7 @@
             btn_mini.Location = new Point(1458, 4);
             btn_mini.Margin = new Padding(3, 4, 3, 4);
             btn_mini.Name = "btn_mini";
-            btn_mini.Size = new Size(14, 29);
+            btn_mini.Size = new Size(14, 35);
             btn_mini.TabIndex = 3;
             btn_mini.UseVisualStyleBackColor = false;
             btn_mini.Click += btn_mini_Click;
@@ -88,7 +89,7 @@
             btn_salir.Location = new Point(1512, 4);
             btn_salir.Margin = new Padding(3, 4, 3, 4);
             btn_salir.Name = "btn_salir";
-            btn_salir.Size = new Size(18, 29);
+            btn_salir.Size = new Size(18, 35);
             btn_salir.TabIndex = 1;
             btn_salir.UseVisualStyleBackColor = false;
             btn_salir.Click += btn_salir_Click;
@@ -106,7 +107,7 @@
             btn_maxi.Location = new Point(1478, 4);
             btn_maxi.Margin = new Padding(3, 4, 3, 4);
             btn_maxi.Name = "btn_maxi";
-            btn_maxi.Size = new Size(28, 29);
+            btn_maxi.Size = new Size(28, 35);
             btn_maxi.TabIndex = 2;
             btn_maxi.UseVisualStyleBackColor = false;
             btn_maxi.Click += btn_maxi_Click;
@@ -114,6 +115,7 @@
             // btn_cajas
             // 
             btn_cajas.BackColor = Color.Transparent;
+            btn_cajas.FlatAppearance.BorderSize = 0;
             btn_cajas.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             btn_cajas.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_cajas.FlatStyle = FlatStyle.Flat;
@@ -124,7 +126,7 @@
             btn_cajas.Location = new Point(3, 246);
             btn_cajas.Margin = new Padding(3, 4, 3, 4);
             btn_cajas.Name = "btn_cajas";
-            btn_cajas.Size = new Size(213, 59);
+            btn_cajas.Size = new Size(216, 59);
             btn_cajas.TabIndex = 13;
             btn_cajas.Text = "Cajas";
             btn_cajas.UseVisualStyleBackColor = false;
@@ -133,6 +135,7 @@
             // btn_principal
             // 
             btn_principal.BackColor = Color.Transparent;
+            btn_principal.FlatAppearance.BorderSize = 0;
             btn_principal.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             btn_principal.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_principal.FlatStyle = FlatStyle.Flat;
@@ -143,7 +146,7 @@
             btn_principal.Location = new Point(3, 179);
             btn_principal.Margin = new Padding(3, 4, 3, 4);
             btn_principal.Name = "btn_principal";
-            btn_principal.Size = new Size(213, 59);
+            btn_principal.Size = new Size(216, 59);
             btn_principal.TabIndex = 14;
             btn_principal.Text = "Inicio";
             btn_principal.UseVisualStyleBackColor = false;
@@ -152,6 +155,7 @@
             // btn_art
             // 
             btn_art.BackColor = Color.Transparent;
+            btn_art.FlatAppearance.BorderSize = 0;
             btn_art.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             btn_art.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_art.FlatStyle = FlatStyle.Flat;
@@ -162,7 +166,7 @@
             btn_art.Location = new Point(3, 313);
             btn_art.Margin = new Padding(3, 4, 3, 4);
             btn_art.Name = "btn_art";
-            btn_art.Size = new Size(213, 59);
+            btn_art.Size = new Size(216, 59);
             btn_art.TabIndex = 15;
             btn_art.Text = "Articulos";
             btn_art.UseVisualStyleBackColor = false;
@@ -171,6 +175,7 @@
             // btn_compras
             // 
             btn_compras.BackColor = Color.Transparent;
+            btn_compras.FlatAppearance.BorderSize = 0;
             btn_compras.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             btn_compras.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_compras.FlatStyle = FlatStyle.Flat;
@@ -181,7 +186,7 @@
             btn_compras.Location = new Point(3, 447);
             btn_compras.Margin = new Padding(3, 4, 3, 4);
             btn_compras.Name = "btn_compras";
-            btn_compras.Size = new Size(213, 59);
+            btn_compras.Size = new Size(216, 59);
             btn_compras.TabIndex = 17;
             btn_compras.Text = "Compras";
             btn_compras.UseVisualStyleBackColor = false;
@@ -190,6 +195,7 @@
             // btn_ventas
             // 
             btn_ventas.BackColor = Color.Transparent;
+            btn_ventas.FlatAppearance.BorderSize = 0;
             btn_ventas.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             btn_ventas.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_ventas.FlatStyle = FlatStyle.Flat;
@@ -200,7 +206,7 @@
             btn_ventas.Location = new Point(3, 380);
             btn_ventas.Margin = new Padding(3, 4, 3, 4);
             btn_ventas.Name = "btn_ventas";
-            btn_ventas.Size = new Size(213, 59);
+            btn_ventas.Size = new Size(216, 59);
             btn_ventas.TabIndex = 2;
             btn_ventas.Text = "Ventas";
             btn_ventas.UseVisualStyleBackColor = false;
@@ -254,6 +260,7 @@
             // button6
             // 
             button6.BackColor = Color.Transparent;
+            button6.FlatAppearance.BorderSize = 0;
             button6.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             button6.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             button6.FlatStyle = FlatStyle.Flat;
@@ -264,7 +271,7 @@
             button6.Location = new Point(3, 514);
             button6.Margin = new Padding(3, 4, 3, 4);
             button6.Name = "button6";
-            button6.Size = new Size(213, 59);
+            button6.Size = new Size(216, 59);
             button6.TabIndex = 19;
             button6.Text = "Clientes";
             button6.UseVisualStyleBackColor = false;
@@ -273,6 +280,7 @@
             // btn_usurios
             // 
             btn_usurios.BackColor = Color.Transparent;
+            btn_usurios.FlatAppearance.BorderSize = 0;
             btn_usurios.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             btn_usurios.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_usurios.FlatStyle = FlatStyle.Flat;
@@ -283,7 +291,7 @@
             btn_usurios.Location = new Point(3, 648);
             btn_usurios.Margin = new Padding(3, 4, 3, 4);
             btn_usurios.Name = "btn_usurios";
-            btn_usurios.Size = new Size(213, 59);
+            btn_usurios.Size = new Size(216, 59);
             btn_usurios.TabIndex = 20;
             btn_usurios.Text = "Usuarios";
             btn_usurios.UseVisualStyleBackColor = false;
@@ -301,6 +309,7 @@
             // button1
             // 
             button1.BackColor = Color.Transparent;
+            button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             button1.FlatStyle = FlatStyle.Flat;
@@ -311,7 +320,7 @@
             button1.Location = new Point(3, 581);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(213, 59);
+            button1.Size = new Size(216, 59);
             button1.TabIndex = 11;
             button1.Text = "Proveedores";
             button1.UseVisualStyleBackColor = false;
@@ -335,7 +344,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1533, 37);
+            tableLayoutPanel1.Size = new Size(1533, 43);
             tableLayoutPanel1.TabIndex = 24;
             // 
             // flowLayoutPanel1
@@ -353,17 +362,19 @@
             flowLayoutPanel1.Controls.Add(btn_usurios);
             flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(btn_contables);
+            flowLayoutPanel1.Controls.Add(btn_CS);
             flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 37);
+            flowLayoutPanel1.Location = new Point(0, 43);
             flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(219, 924);
+            flowLayoutPanel1.Size = new Size(219, 918);
             flowLayoutPanel1.TabIndex = 25;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // button2
             // 
             button2.BackColor = Color.Transparent;
+            button2.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             button2.FlatStyle = FlatStyle.Flat;
@@ -374,7 +385,7 @@
             button2.Location = new Point(3, 715);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(213, 59);
+            button2.Size = new Size(216, 59);
             button2.TabIndex = 21;
             button2.Text = "Empleados";
             button2.UseVisualStyleBackColor = false;
@@ -383,6 +394,7 @@
             // btn_contables
             // 
             btn_contables.BackColor = Color.Transparent;
+            btn_contables.FlatAppearance.BorderSize = 0;
             btn_contables.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
             btn_contables.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
             btn_contables.FlatStyle = FlatStyle.Flat;
@@ -393,7 +405,7 @@
             btn_contables.Location = new Point(3, 782);
             btn_contables.Margin = new Padding(3, 4, 3, 4);
             btn_contables.Name = "btn_contables";
-            btn_contables.Size = new Size(213, 59);
+            btn_contables.Size = new Size(216, 59);
             btn_contables.TabIndex = 12;
             btn_contables.Text = "Contable";
             btn_contables.UseVisualStyleBackColor = false;
@@ -401,14 +413,33 @@
             // 
             // panelprincipal
             // 
-            panelprincipal.BorderStyle = BorderStyle.FixedSingle;
             panelprincipal.Dock = DockStyle.Fill;
-            panelprincipal.Location = new Point(219, 37);
+            panelprincipal.Location = new Point(219, 43);
             panelprincipal.Margin = new Padding(3, 4, 3, 4);
             panelprincipal.Name = "panelprincipal";
-            panelprincipal.Size = new Size(1314, 924);
+            panelprincipal.Size = new Size(1314, 918);
             panelprincipal.TabIndex = 26;
             panelprincipal.Paint += panelprincipal_Paint;
+            // 
+            // btn_CS
+            // 
+            btn_CS.BackColor = Color.Transparent;
+            btn_CS.FlatAppearance.BorderSize = 0;
+            btn_CS.FlatAppearance.MouseDownBackColor = Color.FromArgb(65, 0, 201);
+            btn_CS.FlatAppearance.MouseOverBackColor = Color.FromArgb(65, 0, 201);
+            btn_CS.FlatStyle = FlatStyle.Flat;
+            btn_CS.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btn_CS.ForeColor = Color.White;
+            btn_CS.Image = (Image)resources.GetObject("btn_CS.Image");
+            btn_CS.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_CS.Location = new Point(3, 849);
+            btn_CS.Margin = new Padding(3, 4, 3, 4);
+            btn_CS.Name = "btn_CS";
+            btn_CS.Size = new Size(216, 59);
+            btn_CS.TabIndex = 22;
+            btn_CS.Text = "Cerrar sesión";
+            btn_CS.UseVisualStyleBackColor = false;
+            btn_CS.Click += btn_CS_Click;
             // 
             // Principal
             // 
@@ -456,5 +487,6 @@
         private Label lbl_tipo;
         private Label lbl_name;
         private PictureBox pcb_perfil;
+        private Button btn_CS;
     }
 }

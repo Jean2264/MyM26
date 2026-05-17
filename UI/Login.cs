@@ -9,6 +9,7 @@ using MyM26.DAL;
 using System.Net.Mail;
 using System.Net;
 using MyM26.BLL;
+using System.Linq;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -181,25 +182,41 @@ namespace MyM26.UI
             }
 
             UsuarioDatos usuarioDatos = new UsuarioDatos();
-            VUser usuariolog = usuarioDatos.logeo(usu.NombreAc, usu.ContraseniaAc);
+            VUser usuariolog = usuarioDatos.logeo(usu.NombreAc);
 
 
             if (usuariolog != null)
             {
-                UsuarioActivo.Datos = usuariolog;
-                Principal principal = new Principal(usuariolog);
-                principal.name = usuariolog.NombreAc;
-                principal.tipo = usuariolog.TipoAc;
-                principal.foto = usuariolog.FotoAc;
-                principal.StartPosition = FormStartPosition.CenterScreen;
-               
-               principal.WindowState = FormWindowState.Maximized;
-                principal.Show();
-                this.Hide();
+                bool passCorrecto= BCrypt.Net.BCrypt.Verify(usu.ContraseniaAc, usuariolog.ContraseniaAc);
+
+               if(passCorrecto)
+                {
+                    UsuarioActivo.Datos = usuariolog;
+                    Principal principal = new Principal(usuariolog);
+                    principal.name = usuariolog.NombreAc;
+                    principal.tipo = usuariolog.TipoAc;
+                    principal.foto = usuariolog.FotoAc;
+                    principal.StartPosition = FormStartPosition.CenterScreen;
+
+                    principal.WindowState = FormWindowState.Maximized;
+                    principal.Show();
+                    this.Hide();
+                }
+               else
+                {
+                    lbl_error.Visible = true;
+
+                    txt_contra.Clear();
+                    txt_contra.Focus();
+                    return;
+                }
             }
             else
             {
                 lbl_error.Visible = true;
+
+                txt_contra.Clear();
+                txt_contra.Focus();
                 return;
             }
         }
@@ -219,7 +236,7 @@ namespace MyM26.UI
                 }
             }
         }
-
+        //Hola 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RecuperarUsuario recuperar = new RecuperarUsuario();

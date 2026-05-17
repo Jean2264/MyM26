@@ -42,7 +42,8 @@
             // 
             // btn_verifi
             // 
-            btn_verifi.BackgroundImage = Properties.Resources.verde;
+            btn_verifi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btn_verifi.BackColor = Color.FromArgb(53, 0, 152);
             btn_verifi.BackgroundImageLayout = ImageLayout.Stretch;
             btn_verifi.FlatAppearance.BorderSize = 0;
             btn_verifi.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -50,17 +51,18 @@
             btn_verifi.FlatStyle = FlatStyle.Flat;
             btn_verifi.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_verifi.ForeColor = Color.White;
-            btn_verifi.Location = new Point(91, 436);
+            btn_verifi.Location = new Point(72, 452);
             btn_verifi.Margin = new Padding(3, 4, 3, 4);
             btn_verifi.Name = "btn_verifi";
-            btn_verifi.Size = new Size(169, 34);
+            btn_verifi.Size = new Size(210, 42);
             btn_verifi.TabIndex = 8;
             btn_verifi.Text = "Actualizar Contraseña";
-            btn_verifi.UseVisualStyleBackColor = true;
+            btn_verifi.UseVisualStyleBackColor = false;
             btn_verifi.Click += btn_verifi_Click;
             // 
             // txt_contra
             // 
+            txt_contra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_contra.Location = new Point(65, 281);
             txt_contra.Margin = new Padding(3, 4, 3, 4);
             txt_contra.Name = "txt_contra";
@@ -74,6 +76,7 @@
             // 
             // textBox2
             // 
+            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox2.Location = new Point(65, 347);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
@@ -88,6 +91,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(64, 257);
@@ -98,6 +102,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(64, 320);
@@ -108,6 +113,7 @@
             // 
             // lbl_error
             // 
+            lbl_error.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lbl_error.AutoSize = true;
             lbl_error.ForeColor = Color.FromArgb(192, 0, 0);
             lbl_error.Location = new Point(66, 387);
@@ -119,6 +125,7 @@
             // 
             // lbl_user
             // 
+            lbl_user.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lbl_user.AutoSize = true;
             lbl_user.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_user.Location = new Point(62, 127);

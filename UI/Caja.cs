@@ -486,13 +486,15 @@ namespace MyM26.screens
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(txt_buscar.Text))
+            string filtro = txt_buscar.Text;
+            
+            if(string.IsNullOrWhiteSpace(filtro))
             {
                 MessageBox.Show("EL campo no debe estar vacio al momento de filtrar.");
                 return;
             }
 
-            string filtro = txt_buscar.Text;
+          
             BuscarArt ar = new BuscarArt(filtro);
             ar.StartPosition = FormStartPosition.CenterParent;
             if (ar.ShowDialog() == DialogResult.OK)
@@ -867,62 +869,7 @@ namespace MyM26.screens
         }
 
        
-        /* private void ModoOscuro()
-         {
-             tableLayoutPanel1.BackColor= Color.FromArgb(35,35,35);
-             tableLayoutPanel2.BackColor = Color.FromArgb(35, 35, 35);
-             tableLayoutPanel4.BackColor = Color.FromArgb(35, 35, 35);
-             panel3.BackColor = Color.FromArgb(53, 53, 53);
-             panel4.BackColor = Color.FromArgb(53, 53, 53);
-
-             txt_buscar.BackColor = Color.FromArgb(53, 53, 53);
-             txt_buscar.ForeColor = Color.FromArgb(221,221,221);
-            cmb_cliente.BackColor = Color.FromArgb(53, 53, 53);
-
-             cmb_cliente.ForeColor = Color.FromArgb(221,221,221);
-
-             cmb_comprobante.FlatStyle = FlatStyle.Flat;
-             cmb_comprobante.BackColor = Color.FromArgb(53, 53, 53);
-             cmb_comprobante.ForeColor = Color.FromArgb(221,221,221);
-
-             cmb_factura.BackColor = Color.FromArgb(53, 53, 53);
-
-             cmb_factura.ForeColor = Color.FromArgb(221,221,221);
-             cmb_pago.BackColor = Color.FromArgb(53, 53, 53);
-             cmb_pago.ForeColor = Color.FromArgb(221,221,221);
-             label1.ForeColor = Color.FromArgb(221,221,221);
-                 label2.ForeColor = Color.FromArgb(221,221,221);
-             label3.ForeColor = Color.FromArgb(221,221,221);
-             label4.ForeColor = Color.FromArgb(221,221,221);     
-             btn_confiVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-             btn_cancelarVenta.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-
-             btn_buscar.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-
-             btn_mostrar_vuelto.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-             btn_desc.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-             button2.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-             button3.FlatAppearance.BorderColor = Color.FromArgb(54, 50, 50);
-             dtg_caja.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
-            dtg_caja.DefaultCellStyle.BackColor = Color.FromArgb(53, 53, 53);
-             dtg_caja.BackgroundColor = Color.FromArgb(53, 53, 53);
-             dtg_caja.DefaultCellStyle.ForeColor = Color.FromArgb(221,221,221);
-             txt_subtotal.BackColor = Color.FromArgb(53, 53, 53);
-             txt_subtotal.ForeColor = Color.FromArgb(221,221,221);
-             txt_descuento.BackColor = Color.FromArgb(53, 53, 53);
-             txt_descuento.ForeColor = Color.FromArgb(221,221,221);
-             txt_total.BackColor = Color.FromArgb(53, 53, 53);
-             txt_total.ForeColor = Color.FromArgb(221,221,221);
-         }
-
-         private void ModoClaro()
-         {
-             tableLayoutPanel1.BackColor = Color.White;
-             tableLayoutPanel2.BackColor = Color.White;
-             tableLayoutPanel4.BackColor = Color.White;
-             panel3.BackColor = Color.White;
-             panel4.BackColor = Color.White;
-         }*/
+        
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -965,7 +912,7 @@ namespace MyM26.screens
             if(e.KeyCode== Keys.Enter)
             {
 
-                if(string.IsNullOrWhiteSpace(txt_buscar.Text))
+               if(string.IsNullOrWhiteSpace(txt_buscar.Text))
                 {
                     MessageBox.Show("EL campo no debe quedar vacio al momento de filtrar.");
                     return;

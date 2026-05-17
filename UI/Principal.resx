@@ -311,6 +311,18 @@
         c50AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btn_CS.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABJklEQVRYR+2WPUqDQRBAg2CTxp9U6jFim1t4AK3sNJ5A0CAWtqbRWq8jCom/hV7kycAIMqy4M9+I
+        BPbBNJnZmVd82Z1er9FYBIBV4BA4r4gjYGB7hAFWgDd8fADrtlcIYF+bXgHbwPCXuNT6se0VAphow5HN
+        lQDWgBmwY3MhPAJAH1i2v3fCKXAHPAKbNhfGKXCstU9pEh4BATjV+mdgy+bdeAWEb2e6S0QEhDQJKwDc
+        6sX0U7wAe1orN6PwACzZ3lUUBG4KQ63ArtZe6Nn7NIFagDM91+0fERFIGy54BVKHCx4B4ERr5TbcsPkQ
+        TgH52uUhyhkuOAX+9zES9DmeZz7HXwvJdeVCMtX6tIVEVrJXbVrLe9pKJqjEQWEBLcU4dXij8dd8AkT+
+        7ud1ClyPAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEA4wAAAAEAIAAorAMAFgAAACgAAADjAAAAAAIAAAEAIAAAAAAAAIwDABILAAASCwAAAAAAAAAA

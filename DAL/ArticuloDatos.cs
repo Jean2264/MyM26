@@ -626,7 +626,7 @@ namespace MyM26.DAL
                     }
                     else
                     {
-                        art.Imagen = null;
+                        art.Imagen = null!;
                     }
 
                     art.Categoria = reader["Categoria"].ToString();

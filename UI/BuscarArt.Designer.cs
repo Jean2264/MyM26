@@ -33,7 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btn_salir = new Button();
             btn_buscar = new Button();
-            txt_buscar = new TextBox();
             dtg_caja = new DataGridView();
             CodigoBarra = new DataGridViewTextBoxColumn();
             CodigoArticulo = new DataGridViewTextBoxColumn();
@@ -43,7 +42,10 @@
             CantMinMayor = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            txt_buscar = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dtg_caja).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btn_salir
@@ -64,25 +66,16 @@
             // 
             btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
             btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_buscar.Dock = DockStyle.Right;
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(270, 36);
+            btn_buscar.Location = new Point(383, 0);
             btn_buscar.Margin = new Padding(3, 4, 3, 4);
             btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(34, 43);
+            btn_buscar.Size = new Size(34, 41);
             btn_buscar.TabIndex = 33;
             btn_buscar.UseVisualStyleBackColor = true;
             btn_buscar.Click += btn_buscar_Click;
-            // 
-            // txt_buscar
-            // 
-            txt_buscar.Location = new Point(8, 36);
-            txt_buscar.Margin = new Padding(3, 4, 3, 4);
-            txt_buscar.Multiline = true;
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(254, 41);
-            txt_buscar.TabIndex = 34;
-            txt_buscar.KeyDown += txt_buscar_KeyDown;
             // 
             // dtg_caja
             // 
@@ -179,6 +172,27 @@
             Subtotal.Name = "Subtotal";
             Subtotal.ReadOnly = true;
             // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txt_buscar);
+            panel1.Controls.Add(btn_buscar);
+            panel1.Location = new Point(9, 33);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(419, 43);
+            panel1.TabIndex = 36;
+            // 
+            // txt_buscar
+            // 
+            txt_buscar.BorderStyle = BorderStyle.None;
+            txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Location = new Point(0, 0);
+            txt_buscar.Multiline = true;
+            txt_buscar.Name = "txt_buscar";
+            txt_buscar.Size = new Size(383, 41);
+            txt_buscar.TabIndex = 37;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            // 
             // BuscarArt
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -187,9 +201,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(914, 600);
+            Controls.Add(panel1);
             Controls.Add(dtg_caja);
-            Controls.Add(btn_buscar);
-            Controls.Add(txt_buscar);
             Controls.Add(btn_salir);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
@@ -198,15 +211,15 @@
             Text = "BuscarArt";
             Load += BuscarArt_Load;
             ((System.ComponentModel.ISupportInitialize)dtg_caja).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Button btn_salir;
         private Button btn_buscar;
-        private TextBox txt_buscar;
         private DataGridView dtg_caja;
         private DataGridViewTextBoxColumn CodigoBarra;
         private DataGridViewTextBoxColumn CodigoArticulo;
@@ -216,5 +229,7 @@
         private DataGridViewTextBoxColumn CantMinMayor;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Subtotal;
+        private Panel panel1;
+        private TextBox txt_buscar;
     }
 }

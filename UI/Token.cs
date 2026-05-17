@@ -39,11 +39,9 @@ namespace MyM26.UI
                 cn.Open();
 
                 string query = @"
-            SELECT s.TokenRecuperacion, s.TokenExpira, s.Usuario 
-            FROM Usuario s
-            INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario
-            WHERE s.Mail = @correo
-            AND t.Tipo = 'Administrador'";
+            SELECT TokenRecuperacion, TokenExpira, Usuario 
+            FROM Usuario 
+            WHERE Mail = @correo";
 
                 SqlCommand cmd = new SqlCommand(query, cn);
                 cmd.Parameters.AddWithValue("@correo", correo);

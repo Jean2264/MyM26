@@ -43,11 +43,11 @@ namespace MyM26.UI
                 cn.Open();
                 string consulta = @"
                                      SELECT COUNT(*) 
-                                FROM Usuario s 
-                                INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario 
-                                WHERE s.Mail = @Mail 
-                                AND t.Tipo = 'Administrador' 
-                                AND s.Estado = 1
+                                FROM Usuario
+                                
+                                WHERE Mail = @Mail 
+                               
+                                AND Estado = 1
                                     ";
 
                 SqlCommand cmd = new SqlCommand(consulta, cn);
@@ -93,13 +93,11 @@ namespace MyM26.UI
             {
                 cn.Open();
                 string consulta = @"
-                                       UPDATE  s
-                                       SET s.TokenRecuperacion = @token,
-                                       s.TokenExpira = @expira
-                                       FROM Usuario s
-                                       INNER JOIN TipoUsuario t ON s.CodTipoUsuario = t.CodTipoUsuario
-                                       WHERE s.Mail = @correo
-                                       AND t.Tipo = 'Administrador'";
+                                       UPDATE  Usuario
+                                       SET TokenRecuperacion = @token,
+                                       TokenExpira = @expira
+                                       WHERE Mail = @correo";   
+                                       
                 SqlCommand comando = new SqlCommand(consulta, cn);
                 comando.Parameters.AddWithValue("@token", token);
                 comando.Parameters.AddWithValue("@expira", expira);
@@ -153,7 +151,7 @@ namespace MyM26.UI
             btn_verifi.Enabled = false; // Evitar múltiples clics
             if (!ValidarUser(txt_correo.Text))
             {
-                MessageBox.Show("Correo no registrado o no es un administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Correo no registrado¨.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
