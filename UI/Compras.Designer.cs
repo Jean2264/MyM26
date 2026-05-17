@@ -37,13 +37,15 @@
             lbl_paginas = new Label();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            txt_buscar = new TextBox();
             btn_buscar = new Button();
             btn_añadirUsrr = new Button();
             dataGridView1 = new DataGridView();
+            panel1 = new Panel();
+            txt_buscar = new TextBox();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -133,14 +135,13 @@
             // 
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 539F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 163F));
-            tableLayoutPanel1.Controls.Add(txt_buscar, 0, 0);
-            tableLayoutPanel1.Controls.Add(btn_buscar, 1, 0);
             tableLayoutPanel1.Controls.Add(btn_añadirUsrr, 4, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -151,29 +152,14 @@
             tableLayoutPanel1.TabIndex = 6;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
-            // txt_buscar
-            // 
-            txt_buscar.Dock = DockStyle.Fill;
-            txt_buscar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_buscar.Location = new Point(3, 4);
-            txt_buscar.Margin = new Padding(3, 4, 3, 4);
-            txt_buscar.Multiline = true;
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(370, 45);
-            txt_buscar.TabIndex = 5;
-            txt_buscar.DragEnter += txt_buscar_DragEnter;
-            txt_buscar.KeyDown += txt_buscar_KeyDown;
-            txt_buscar.KeyPress += txt_buscar_KeyPress;
-            txt_buscar.MouseDown += txt_buscar_MouseDown;
-            // 
             // btn_buscar
             // 
             btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
             btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_buscar.Dock = DockStyle.Fill;
+            btn_buscar.Dock = DockStyle.Right;
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(379, 4);
+            btn_buscar.Location = new Point(383, 0);
             btn_buscar.Margin = new Padding(3, 4, 3, 4);
             btn_buscar.Name = "btn_buscar";
             btn_buscar.Size = new Size(39, 45);
@@ -191,10 +177,10 @@
             btn_añadirUsrr.ForeColor = Color.White;
             btn_añadirUsrr.Image = (Image)resources.GetObject("btn_añadirUsrr.Image");
             btn_añadirUsrr.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_añadirUsrr.Location = new Point(1151, 4);
+            btn_añadirUsrr.Location = new Point(1152, 4);
             btn_añadirUsrr.Margin = new Padding(3, 4, 3, 4);
             btn_añadirUsrr.Name = "btn_añadirUsrr";
-            btn_añadirUsrr.Size = new Size(158, 45);
+            btn_añadirUsrr.Size = new Size(157, 45);
             btn_añadirUsrr.TabIndex = 1;
             btn_añadirUsrr.Text = "Agregar compra";
             btn_añadirUsrr.TextAlign = ContentAlignment.MiddleRight;
@@ -237,6 +223,31 @@
             dataGridView1.TabIndex = 7;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txt_buscar);
+            panel1.Controls.Add(btn_buscar);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(424, 47);
+            panel1.TabIndex = 7;
+            // 
+            // txt_buscar
+            // 
+            txt_buscar.BorderStyle = BorderStyle.None;
+            txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Location = new Point(0, 0);
+            txt_buscar.Multiline = true;
+            txt_buscar.Name = "txt_buscar";
+            txt_buscar.Size = new Size(383, 45);
+            txt_buscar.TabIndex = 7;
+            txt_buscar.DragEnter += txt_buscar_DragEnter;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            txt_buscar.KeyPress += txt_buscar_KeyPress;
+            txt_buscar.MouseDown += txt_buscar_MouseDown;
+            // 
             // Compras
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -252,8 +263,9 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -267,8 +279,9 @@
         private Label label1;
         private TableLayoutPanel tableLayoutPanel1;
         private Button btn_añadirUsrr;
-        private TextBox txt_buscar;
         private Button btn_buscar;
         private DataGridView dataGridView1;
+        private Panel panel1;
+        private TextBox txt_buscar;
     }
 }

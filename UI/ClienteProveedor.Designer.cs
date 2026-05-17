@@ -36,33 +36,33 @@
             btn_ver = new Button();
             btn_editar = new Button();
             btn_añadir = new Button();
-            btn_buscar = new Button();
             btn_bajas = new Button();
+            panel1 = new Panel();
+            txt_buscar = new TextBox();
+            btn_buscar = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             btn_anterior = new Button();
             btn_siguente = new Button();
             lbl_paginas = new Label();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            panel1 = new Panel();
-            txt_buscar = new TextBox();
             tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 8;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 8F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 178F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 167F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 189F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 151F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 133F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 56F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 164F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 174F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 174F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 156F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel1.Controls.Add(btn_eliminar, 5, 0);
             tableLayoutPanel1.Controls.Add(btn_ver, 6, 0);
             tableLayoutPanel1.Controls.Add(btn_editar, 4, 0);
@@ -89,10 +89,10 @@
             btn_eliminar.ForeColor = Color.White;
             btn_eliminar.Image = (Image)resources.GetObject("btn_eliminar.Image");
             btn_eliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_eliminar.Location = new Point(842, 4);
+            btn_eliminar.Location = new Point(835, 4);
             btn_eliminar.Margin = new Padding(3, 4, 3, 4);
             btn_eliminar.Name = "btn_eliminar";
-            btn_eliminar.Size = new Size(183, 45);
+            btn_eliminar.Size = new Size(168, 45);
             btn_eliminar.TabIndex = 3;
             btn_eliminar.TextAlign = ContentAlignment.MiddleRight;
             btn_eliminar.UseVisualStyleBackColor = false;
@@ -108,10 +108,10 @@
             btn_ver.ForeColor = Color.White;
             btn_ver.Image = (Image)resources.GetObject("btn_ver.Image");
             btn_ver.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ver.Location = new Point(1031, 4);
+            btn_ver.Location = new Point(1009, 4);
             btn_ver.Margin = new Padding(3, 4, 3, 4);
             btn_ver.Name = "btn_ver";
-            btn_ver.Size = new Size(145, 45);
+            btn_ver.Size = new Size(150, 45);
             btn_ver.TabIndex = 7;
             btn_ver.TextAlign = ContentAlignment.MiddleRight;
             btn_ver.UseVisualStyleBackColor = false;
@@ -127,10 +127,10 @@
             btn_editar.ForeColor = Color.White;
             btn_editar.Image = (Image)resources.GetObject("btn_editar.Image");
             btn_editar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_editar.Location = new Point(675, 4);
+            btn_editar.Location = new Point(661, 4);
             btn_editar.Margin = new Padding(3, 4, 3, 4);
             btn_editar.Name = "btn_editar";
-            btn_editar.Size = new Size(161, 45);
+            btn_editar.Size = new Size(168, 45);
             btn_editar.TabIndex = 4;
             btn_editar.TextAlign = ContentAlignment.MiddleRight;
             btn_editar.UseVisualStyleBackColor = false;
@@ -149,26 +149,11 @@
             btn_añadir.Location = new Point(497, 4);
             btn_añadir.Margin = new Padding(3, 4, 3, 4);
             btn_añadir.Name = "btn_añadir";
-            btn_añadir.Size = new Size(172, 45);
+            btn_añadir.Size = new Size(158, 45);
             btn_añadir.TabIndex = 1;
             btn_añadir.TextAlign = ContentAlignment.MiddleRight;
             btn_añadir.UseVisualStyleBackColor = false;
             btn_añadir.Click += btn_añadir_Click;
-            // 
-            // btn_buscar
-            // 
-            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
-            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_buscar.Dock = DockStyle.Right;
-            btn_buscar.FlatAppearance.BorderSize = 0;
-            btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(422, 0);
-            btn_buscar.Margin = new Padding(3, 4, 3, 4);
-            btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(38, 45);
-            btn_buscar.TabIndex = 6;
-            btn_buscar.UseVisualStyleBackColor = true;
-            btn_buscar.Click += btn_buscar_Click;
             // 
             // btn_bajas
             // 
@@ -180,14 +165,54 @@
             btn_bajas.ForeColor = Color.White;
             btn_bajas.Image = (Image)resources.GetObject("btn_bajas.Image");
             btn_bajas.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bajas.Location = new Point(1182, 4);
+            btn_bajas.Location = new Point(1165, 4);
             btn_bajas.Margin = new Padding(3, 4, 3, 4);
             btn_bajas.Name = "btn_bajas";
-            btn_bajas.Size = new Size(127, 45);
+            btn_bajas.Size = new Size(144, 45);
             btn_bajas.TabIndex = 2;
             btn_bajas.TextAlign = ContentAlignment.MiddleRight;
             btn_bajas.UseVisualStyleBackColor = false;
             btn_bajas.Click += btn_bajas_Click;
+            // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txt_buscar);
+            panel1.Controls.Add(btn_buscar);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(424, 47);
+            panel1.TabIndex = 8;
+            // 
+            // txt_buscar
+            // 
+            txt_buscar.BorderStyle = BorderStyle.None;
+            txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Location = new Point(0, 0);
+            txt_buscar.Multiline = true;
+            txt_buscar.Name = "txt_buscar";
+            txt_buscar.Size = new Size(384, 45);
+            txt_buscar.TabIndex = 7;
+            txt_buscar.DragEnter += txt_buscar_DragEnter;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            txt_buscar.KeyPress += txt_buscar_KeyPress;
+            txt_buscar.MouseDown += txt_buscar_MouseDown;
+            // 
+            // btn_buscar
+            // 
+            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
+            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_buscar.Dock = DockStyle.Right;
+            btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.FlatStyle = FlatStyle.Flat;
+            btn_buscar.Location = new Point(384, 0);
+            btn_buscar.Margin = new Padding(3, 4, 3, 4);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(38, 45);
+            btn_buscar.TabIndex = 6;
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -308,31 +333,6 @@
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellDoubleClick;
             // 
-            // panel1
-            // 
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(txt_buscar);
-            panel1.Controls.Add(btn_buscar);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(462, 47);
-            panel1.TabIndex = 8;
-            // 
-            // txt_buscar
-            // 
-            txt_buscar.BorderStyle = BorderStyle.None;
-            txt_buscar.Dock = DockStyle.Fill;
-            txt_buscar.Location = new Point(0, 0);
-            txt_buscar.Multiline = true;
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(422, 45);
-            txt_buscar.TabIndex = 7;
-            txt_buscar.DragEnter += txt_buscar_DragEnter;
-            txt_buscar.KeyDown += txt_buscar_KeyDown;
-            txt_buscar.KeyPress += txt_buscar_KeyPress;
-            txt_buscar.MouseDown += txt_buscar_MouseDown;
-            // 
             // ClienteProveedor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -346,11 +346,11 @@
             Size = new Size(1312, 931);
             Load += ClienteProveedor_Load;
             tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
         }
 

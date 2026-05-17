@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             tableLayoutPanel1 = new TableLayoutPanel();
-            btn_añadirUsrr = new Button();
+            panel1 = new Panel();
+            txt_buscar = new TextBox();
             btn_buscar = new Button();
+            btn_añadirUsrr = new Button();
             btn_bajas = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             btn_anterior = new Button();
@@ -39,22 +41,20 @@
             lbl_paginas = new Label();
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            panel1 = new Panel();
-            txt_buscar = new TextBox();
             tableLayoutPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 283F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 487F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 163F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 141F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 530F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 171F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Controls.Add(btn_añadirUsrr, 3, 0);
             tableLayoutPanel1.Controls.Add(btn_bajas, 4, 0);
@@ -67,6 +67,47 @@
             tableLayoutPanel1.Size = new Size(1533, 59);
             tableLayoutPanel1.TabIndex = 0;
             // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txt_buscar);
+            panel1.Controls.Add(btn_buscar);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(424, 53);
+            panel1.TabIndex = 0;
+            // 
+            // txt_buscar
+            // 
+            txt_buscar.BorderStyle = BorderStyle.None;
+            txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Location = new Point(0, 0);
+            txt_buscar.Multiline = true;
+            txt_buscar.Name = "txt_buscar";
+            txt_buscar.Size = new Size(376, 51);
+            txt_buscar.TabIndex = 7;
+            txt_buscar.TextChanged += txt_buscar_TextChanged;
+            txt_buscar.DragEnter += txt_buscar_DragEnter;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            txt_buscar.KeyPress += txt_buscar_KeyPress;
+            txt_buscar.MouseDown += txt_buscar_MouseDown;
+            // 
+            // btn_buscar
+            // 
+            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
+            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_buscar.Dock = DockStyle.Right;
+            btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.FlatStyle = FlatStyle.Flat;
+            btn_buscar.Location = new Point(376, 0);
+            btn_buscar.Margin = new Padding(3, 4, 3, 4);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(46, 51);
+            btn_buscar.TabIndex = 6;
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
+            // 
             // btn_añadirUsrr
             // 
             btn_añadirUsrr.BackColor = Color.FromArgb(32, 0, 130);
@@ -77,30 +118,15 @@
             btn_añadirUsrr.ForeColor = Color.White;
             btn_añadirUsrr.Image = (Image)resources.GetObject("btn_añadirUsrr.Image");
             btn_añadirUsrr.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_añadirUsrr.Location = new Point(1232, 4);
+            btn_añadirUsrr.Location = new Point(1246, 4);
             btn_añadirUsrr.Margin = new Padding(3, 4, 3, 4);
             btn_añadirUsrr.Name = "btn_añadirUsrr";
-            btn_añadirUsrr.Size = new Size(157, 51);
+            btn_añadirUsrr.Size = new Size(165, 51);
             btn_añadirUsrr.TabIndex = 1;
             btn_añadirUsrr.Text = "Agregar usuario";
             btn_añadirUsrr.TextAlign = ContentAlignment.MiddleRight;
             btn_añadirUsrr.UseVisualStyleBackColor = false;
             btn_añadirUsrr.Click += btn_añadirUsrr_Click;
-            // 
-            // btn_buscar
-            // 
-            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
-            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_buscar.Dock = DockStyle.Right;
-            btn_buscar.FlatAppearance.BorderSize = 0;
-            btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(405, 0);
-            btn_buscar.Margin = new Padding(3, 4, 3, 4);
-            btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(46, 51);
-            btn_buscar.TabIndex = 6;
-            btn_buscar.UseVisualStyleBackColor = true;
-            btn_buscar.Click += btn_buscar_Click;
             // 
             // btn_bajas
             // 
@@ -112,10 +138,10 @@
             btn_bajas.ForeColor = Color.White;
             btn_bajas.Image = (Image)resources.GetObject("btn_bajas.Image");
             btn_bajas.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bajas.Location = new Point(1395, 4);
+            btn_bajas.Location = new Point(1417, 4);
             btn_bajas.Margin = new Padding(3, 4, 3, 4);
             btn_bajas.Name = "btn_bajas";
-            btn_bajas.Size = new Size(135, 51);
+            btn_bajas.Size = new Size(113, 51);
             btn_bajas.TabIndex = 2;
             btn_bajas.Text = "Ver bajas";
             btn_bajas.TextAlign = ContentAlignment.MiddleRight;
@@ -218,32 +244,6 @@
             flowLayoutPanel1.TabIndex = 3;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
-            // panel1
-            // 
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(txt_buscar);
-            panel1.Controls.Add(btn_buscar);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(453, 53);
-            panel1.TabIndex = 0;
-            // 
-            // txt_buscar
-            // 
-            txt_buscar.BorderStyle = BorderStyle.None;
-            txt_buscar.Dock = DockStyle.Fill;
-            txt_buscar.Location = new Point(0, 0);
-            txt_buscar.Multiline = true;
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(405, 51);
-            txt_buscar.TabIndex = 7;
-            txt_buscar.TextChanged += txt_buscar_TextChanged;
-            txt_buscar.DragEnter += txt_buscar_DragEnter;
-            txt_buscar.KeyDown += txt_buscar_KeyDown;
-            txt_buscar.KeyPress += txt_buscar_KeyPress;
-            txt_buscar.MouseDown += txt_buscar_MouseDown;
-            // 
             // Users
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -257,10 +257,10 @@
             Size = new Size(1533, 961);
             Load += Users_Load;
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }

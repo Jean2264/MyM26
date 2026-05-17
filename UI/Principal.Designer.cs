@@ -49,8 +49,8 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             button2 = new Button();
             btn_contables = new Button();
-            panelprincipal = new Panel();
             btn_CS = new Button();
+            panelprincipal = new Panel();
             panel_perfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_perfil).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -411,16 +411,6 @@
             btn_contables.UseVisualStyleBackColor = false;
             btn_contables.Click += btn_contables_Click;
             // 
-            // panelprincipal
-            // 
-            panelprincipal.Dock = DockStyle.Fill;
-            panelprincipal.Location = new Point(219, 43);
-            panelprincipal.Margin = new Padding(3, 4, 3, 4);
-            panelprincipal.Name = "panelprincipal";
-            panelprincipal.Size = new Size(1314, 918);
-            panelprincipal.TabIndex = 26;
-            panelprincipal.Paint += panelprincipal_Paint;
-            // 
             // btn_CS
             // 
             btn_CS.BackColor = Color.Transparent;
@@ -440,6 +430,17 @@
             btn_CS.Text = "Cerrar sesión";
             btn_CS.UseVisualStyleBackColor = false;
             btn_CS.Click += btn_CS_Click;
+            // 
+            // panelprincipal
+            // 
+            panelprincipal.BorderStyle = BorderStyle.FixedSingle;
+            panelprincipal.Dock = DockStyle.Fill;
+            panelprincipal.Location = new Point(219, 43);
+            panelprincipal.Margin = new Padding(3, 4, 3, 4);
+            panelprincipal.Name = "panelprincipal";
+            panelprincipal.Size = new Size(1314, 918);
+            panelprincipal.TabIndex = 26;
+            panelprincipal.Paint += panelprincipal_Paint;
             // 
             // Principal
             // 

@@ -416,10 +416,10 @@
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 5;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.8351822F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.6339144F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.85737F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.6735344F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.9580838F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.23952F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.8024F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 49F));
             tableLayoutPanel4.Controls.Add(panel7, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Top;
@@ -440,7 +440,7 @@
             panel7.Dock = DockStyle.Fill;
             panel7.Location = new Point(3, 3);
             panel7.Name = "panel7";
-            panel7.Size = new Size(421, 45);
+            panel7.Size = new Size(424, 45);
             panel7.TabIndex = 10;
             // 
             // txt_buscar
@@ -452,7 +452,7 @@
             txt_buscar.Margin = new Padding(3, 4, 3, 4);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(379, 43);
+            txt_buscar.Size = new Size(382, 43);
             txt_buscar.TabIndex = 8;
             txt_buscar.TextChanged += txt_buscar_TextChanged;
             txt_buscar.DragEnter += txt_buscar_DragEnter;
@@ -467,7 +467,7 @@
             btn_buscar.Dock = DockStyle.Right;
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(379, 0);
+            btn_buscar.Location = new Point(382, 0);
             btn_buscar.Margin = new Padding(3, 4, 3, 4);
             btn_buscar.Name = "btn_buscar";
             btn_buscar.Size = new Size(40, 43);

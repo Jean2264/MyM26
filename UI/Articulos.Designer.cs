@@ -52,7 +52,7 @@
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 7;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 53F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 431F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 38F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 473F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -135,7 +135,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(56, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(425, 47);
+            panel1.Size = new Size(424, 47);
             panel1.TabIndex = 7;
             // 
             // txt_buscar
@@ -145,7 +145,7 @@
             txt_buscar.Location = new Point(0, 0);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(381, 45);
+            txt_buscar.Size = new Size(380, 45);
             txt_buscar.TabIndex = 7;
             txt_buscar.DragEnter += txt_buscar_DragEnter;
             txt_buscar.KeyDown += txt_buscar_KeyDown;
@@ -159,7 +159,7 @@
             btn_buscar.Dock = DockStyle.Right;
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(381, 0);
+            btn_buscar.Location = new Point(380, 0);
             btn_buscar.Margin = new Padding(3, 4, 3, 4);
             btn_buscar.Name = "btn_buscar";
             btn_buscar.Size = new Size(42, 45);
