@@ -48,7 +48,24 @@ namespace MyM26.screens
         {
 
         }
+        public void SetDta(UsuarioDto user)
+        {
 
+
+            Nombre = user.Username;
+            Tipo = user.Type;
+
+            if (user.Foto != null)
+            {
+                using (var ms = new MemoryStream(user.Foto))
+                {
+
+                    Foto = Image.FromStream(ms);
+                }
+
+            }
+            Dni = user.DNI;
+        }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {

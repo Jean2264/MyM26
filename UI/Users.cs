@@ -1,5 +1,7 @@
 ﻿using MyM26.BLL;
 using MyM26.DAL;
+using MyM26.Entidades;
+using MyM26.Entidades.Usuario;
 using MyM26.Querys;
 using MyM26.UI;
 using System;
@@ -90,8 +92,26 @@ namespace MyM26.screens
         {
 
         }
-
-
+      /*   public void MostrarUser(PagedResult<UsuarioDto> lista)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            foreach(var item in lista.Data)
+            {
+                TarjetaUsuario u= new TarjetaUsuario();
+                u.SetDta(item);
+                flowLayoutPanel1.Controls.Add(u);
+            }
+        }
+        /*FlowLayoutPanel Contenedor,
+Action<string> editarCallback,
+Action<string> VerCallback,
+Users usu,
+int paginaActual,
+int registrosPorPagina
+        public void CargarUser(PagedResult<UsuarioDto> lista)
+        {
+          var list=   UsuarioDatos.mostrarUser(flowLayoutPanel1, AbrirEdicionUsuario, AbrirVerUsuario, this, paginaActual, registrosPorPagina);
+        }  */ 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 

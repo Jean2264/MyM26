@@ -35,7 +35,7 @@ namespace MyM26.DAL
 
 
 
-        public void LlenarContenedor(
+       public void LlenarContenedor(
 FlowLayoutPanel Contenedor,
 Action<string> editarCallback,
 Action<string> VerCallback,
@@ -147,7 +147,7 @@ int registrosPorPagina)
                 //Data
 
                 string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.perfil
-                   FROM Usuario s
+                   FROM Usuario s     
                    INNER JOIN TipoUsuario t 
                    ON s.CodtipoUsuario = t.CodTipoUsuario
                    WHERE s.Estado = 1
@@ -164,7 +164,10 @@ int registrosPorPagina)
                     {
                         list.Add(new UsuarioDto
                         {
-
+                            Username= reader["Usuario"].ToString(),
+                            DNI = reader["DNI"].ToString(),
+                            Type = reader["Tipo"].ToString(),
+                            Foto = reader["perfil"] != DBNull.Value ? (byte[])reader["perfil"] : null  !
                         });
                     }
                 }
