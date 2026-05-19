@@ -55,12 +55,36 @@ namespace MyM26.screens
                 btn_eliminar.Text = "Eliminar Proveedor";
                 btn_ver.Text = "Ver vista";
                 btn_bajas.Text = "Ver bajas";
-                LlenarDtgProveedores();
-                CalcularTotalPaginasProv();
+               // LlenarDtgProveedores();
+               // CalcularTotalPaginasProv();
+               mostrarProveedor();
 
             }
         }
+        public void mostrarProveedor()
+        {
+            try
+            {
+                ProveedorDatos db = new ProveedorDatos();
+               var result= db.GetProveedor(paginaActual, registrosPorPagina);
+                if (result == null) return;
 
+                dataGridView1.DataSource = null;
+                dataGridView1 .DataSource = result.Data;
+
+                TotalPaginas= (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+                btn_anterior.Enabled = paginaActual > 1;
+                btn_anterior.Enabled= paginaActual < TotalPaginas;
+
+                label1.Text = $"Total registros: {result.Total}";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los proveedores: " + ex.Message);
+            }
+        }
         private void btn_añadir_Click(object sender, EventArgs e)
         {
             if (Modal == "Clientes")

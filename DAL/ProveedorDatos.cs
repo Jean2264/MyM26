@@ -1,4 +1,6 @@
-﻿using MyM26.Entidades.Cliente;
+﻿using MyM26.Entidades;
+using MyM26.Entidades.Cliente;
+using MyM26.Entidades.Empleado;
 using MyM26.Entidades.Proveedor;
 using MyM26.Entidades.Usuario;
 using System;
@@ -11,6 +13,58 @@ namespace MyM26.DAL
 {
     public class ProveedorDatos
     {
+
+        public PagedResult<ProveedorDto> GetProveedor(int pagina, int limite)
+        {
+            if(pagina<1) pagina = 1;
+            if(limite<=0) limite = 10;
+
+            var list = new List<ProveedorDto>();
+            int offset = (pagina - 1) * limite;
+            int totalCount;
+
+            using (SqlConnection conn= new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+
+                string countQuery = "SELECT COUNT(*) FROM Proveedor WHERE Estado=1";
+                
+                using(SqlCommand cd= new SqlCommand(countQuery, conn))
+                {
+                    totalCount = (int)cd.ExecuteScalar();
+                }
+
+
+
+                string DataQuery= "SELECT Nombre, Cuit, Telefono, Mail, Empresa FROM Proveedor WHERE Estado=1 ORDER BY Nombre OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using(SqlCommand cmd= new SqlCommand(DataQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ProveedorDto
+                                {
+                                Nombre= reader["Nombre"].ToString(),
+                                Cuit = reader["Cuit"].ToString(),
+                                Telefono= reader["Telefono"].ToString(),
+                                Mail = reader["Mail"].ToString(),
+                                Empresa= reader["Empresa"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+             
+            return new PagedResult<ProveedorDto>
+            {
+                Data = list,
+                Total = totalCount
+            };
+        }
+
         public void UltimoIdProveedor(VProveedor prov, SqlTransaction trans)
         {
             string consulta = "SELECT MAX(IdProveedor) as ultimoId FROM Proveedor";
