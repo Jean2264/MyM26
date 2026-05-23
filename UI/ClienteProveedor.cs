@@ -20,6 +20,7 @@ namespace MyM26.screens
         public string Modal;
         public string cda2;
         public string nombre;
+        public string m;
         //cliente
         int paginaActual = 1;
         int registrosPorPagina = 50;
@@ -55,8 +56,7 @@ namespace MyM26.screens
                 btn_eliminar.Text = "Eliminar Proveedor";
                 btn_ver.Text = "Ver vista";
                 btn_bajas.Text = "Ver bajas";
-               // LlenarDtgProveedores();
-               // CalcularTotalPaginasProv();
+              
                mostrarProveedor();
 
             }
@@ -78,7 +78,7 @@ namespace MyM26.screens
                 btn_anterior.Enabled= paginaActual < TotalPaginas;
 
                 label1.Text = $"Total registros: {result.Total}";
-
+                m = "pd";
             }
             catch (Exception ex)
             {
@@ -188,22 +188,7 @@ namespace MyM26.screens
             label1.Text = $"Total de clientes: {totalRegistros}";
         }
 
-        private void CalcularTotalPaginasProv()
-        {
-            ProveedorDatos db = new ProveedorDatos();
-            int totalRegistros = db.ObtenerTotalProveedor();
-            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
-            lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-           
-            btn_siguente.Enabled = paginaActual < TotalPaginas;
-            btn_anterior.Enabled = paginaActual > 1;
-            label1.Text = $"Total de proveedores: {totalRegistros}";
-        }
-        public void LlenarDtgProveedores()
-        {
-            Decla.proveedorTab = ProveedorDatos.LLenarDtg(paginaActual, registrosPorPagina);
-            dataGridView1.DataSource = Decla.proveedorTab;
-        }
+      
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_editar.Enabled = true;
@@ -304,7 +289,7 @@ namespace MyM26.screens
                             " ( CUIT: " + cda2 + ")";
             ProveedorDatos datos = new ProveedorDatos();
             datos.AltaHistoricoCompleto(proveedor);
-            LlenarDtgProveedores();
+           mostrarProveedor();
         }
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -397,8 +382,15 @@ namespace MyM26.screens
                    if(paginaActual < TotalPaginas)
                    {
                        paginaActual++;
-                       LlenarDtgProveedores();
-                   }
+                        if (m == "pd")
+                        {
+                            mostrarProveedor();
+                        }
+                        else if (m == "pf")
+                        {
+
+                        }
+                    }
                }
 
             }
@@ -419,7 +411,12 @@ namespace MyM26.screens
                 if (paginaActual > 1)
                 {
                     paginaActual--;
-                    LlenarDtgProveedores();
+                    if(m == "pd")
+                    { mostrarProveedor(); }
+                    else if(m=="pf")
+                    {
+
+                    }
                 }
             }
         }
