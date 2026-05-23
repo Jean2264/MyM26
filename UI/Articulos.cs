@@ -21,7 +21,7 @@ namespace MyM26.screens
         {
             InitializeComponent();
             Conexion.Conectar();
-            
+
             LlenarArt();
             CalcularTotalPaginas();
             calculoCantidad();
@@ -70,7 +70,7 @@ namespace MyM26.screens
         }
         public void LlenarArt()
         {
-           
+
 
             flowLayoutPanel1.Controls.Clear();
             ArticuloDatos db = new ArticuloDatos();
@@ -117,7 +117,7 @@ namespace MyM26.screens
             ArticuloDatos dt = new ArticuloDatos();
             dt.CantCompleto(art);
 
-            if(art.CantCategoria==0 && art.CantSub==0 && art.CantProveedor==0)
+            if (art.CantCategoria == 0 && art.CantSub == 0 && art.CantProveedor == 0)
             {
                 MessageBox.Show("Para dar de alta a un articulo, al menos debe haber dado de alta una Categoria, Subcategoria y un Proveedor");
                 btn_buscar.Enabled = false;
@@ -157,7 +157,7 @@ namespace MyM26.screens
 
         private void btn_anterior_Click(object sender, EventArgs e)
         {
-           
+
             if (paginaActual > 1)
             {
                 paginaActual--;
@@ -167,7 +167,7 @@ namespace MyM26.screens
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
-          if(paginaActual< totalPaginas)
+            if (paginaActual < totalPaginas)
             {
                 paginaActual++;
                 LlenarArt();
@@ -247,6 +247,18 @@ namespace MyM26.screens
             {
                 e = null;
             }
+        }
+
+        private void Articulos_Load(object sender, EventArgs e)
+        {
+            // Supongamos que ya agregaste las columnas Editar y Ver en el diseñador
+          /*  foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells["Editar"].Value = Properties.Resources.edit;
+                row.Cells["Ver"].Value = Properties.Resources.ver;
+                row.Cells["Eliminar"].Value = Properties.Resources.eliminar;
+            }*/c
+
         }
     }
 }

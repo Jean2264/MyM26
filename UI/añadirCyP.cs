@@ -330,7 +330,7 @@ namespace MyM26.screens
 
                         proveedorDatos.ReactivarProveedor(cuit);
                         MessageBox.Show("Proveedor reactivado correctamente.");
-                        cl.LlenarDtgProveedores();
+                       // cl.LlenarDtgProveedores();
                         this.Close();
                         return;
                     }
@@ -352,7 +352,7 @@ namespace MyM26.screens
 
                 proveedorDatos.AltaCompletoProveedor(Prov);
                 proveedorDatos.AltaHistoricoCompleto(Prov);
-                cl.LlenarDtgProveedores();
+              //  cl.LlenarDtgProveedores();
                 this.Close();
             }
             if (Modo == "Editar-Proveedor")
@@ -381,7 +381,7 @@ namespace MyM26.screens
                 ProveedorDatos datos = new ProveedorDatos();
                 datos.ModiProveedor(Prov);
                 datos.AltaHistoricoCompleto(Prov);
-                cl.LlenarDtgProveedores();
+              //  cl.LlenarDtgProveedores();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

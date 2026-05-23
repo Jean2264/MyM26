@@ -271,6 +271,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Articulos";
             Size = new Size(1312, 931);
+            Load += Articulos_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
