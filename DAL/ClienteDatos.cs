@@ -1,4 +1,5 @@
-﻿using MyM26.Entidades.Cliente;
+﻿using MyM26.Entidades;
+using MyM26.Entidades.Cliente;
 using MyM26.Entidades.Usuario;
 using System;
 using System.Collections.Generic;
@@ -68,8 +69,86 @@ namespace MyM26.DAL
 
         }
 
-         
-    
+        //PAGINADO
+        public PagedResult<ClienteDto> MostrarCliente(int pagina, int limite)
+        {
+            if(pagina < 1) pagina = 1;
+            if(limite <= 0) limite = 10;
+
+            int offset = (pagina - 1) * limite;
+
+            int total = 0;
+            var list= new List<ClienteDto>();
+            using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+
+                //Total
+                string queryCount = "SELECT COUNT(*) FROM Cliente WHERE Estado = 1 AND EsGenerico = 0";
+                using (SqlCommand cmdCount = new SqlCommand(queryCount, conn))
+                {
+                    total = (int)cmdCount.ExecuteScalar();
+                }
+
+                //data
+
+                string queryData = @"SELECT Nombre, Entidad, Cuit, Telefono, Mail
+                   FROM Cliente
+                  WHERE Estado = 1 AND EsGenerico = 0
+                   ORDER BY Nombre
+                   OFFSET @offset ROWS
+                   FETCH NEXT @limite ROWS ONLY";
+                using(SqlCommand cmdData = new SqlCommand(queryData, conn))
+                {
+                    cmdData.Parameters.AddWithValue("@offset", offset);
+                    cmdData.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmdData.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ClienteDto
+                            {
+                                Nombre = reader["Nombre"].ToString(),
+                                Entidad = reader["Entidad"].ToString(),
+                                Cuit = reader["Cuit"].ToString(),
+                                Telefono = reader["Telefono"].ToString(),
+                                Mail = reader["Mail"].ToString()
+                            });
+                        }
+                    }
+                } 
+            }
+
+            return new PagedResult<ClienteDto>
+            {
+                Data = list,
+                Total = total
+            };
+        }
+        //PAGINADO Y FILTRADO
+        public PagedResult<ClienteDto> MostrarClienteFiltro(int pagina, int limite, string filtro)
+        {
+            if (pagina < 1) pagina = 1;
+            if (limite <= 0) limite = 10;
+
+            int offset = (pagina - 1) * limite;
+            var list = new List<ClienteDto>();
+            int total = 0;
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+
+                //Total
+                string where = "";
+
+            }
+
+            return new PagedResult<ClienteDto>
+            {
+                Data = list,
+                Total = total
+            };
+        }
         public static DataTable bajaCliente()
         {
             string consulta = "select  Nombre, Entidad, Cuit, Telefono, Mail from Cliente where Estado=0";

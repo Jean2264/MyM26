@@ -21,9 +21,9 @@ namespace MyM26.screens
         public string cda2;
         public string nombre;
         public string m;
-        
-        bool filtroCliente= false;
-        bool filtroProveedor=false;
+
+        bool filtroCliente = false;
+        bool filtroProveedor = false;
         int paginaActual = 1;
         int registrosPorPagina = 50;
         int TotalPaginas = 0;
@@ -58,12 +58,12 @@ namespace MyM26.screens
                 btn_eliminar.Text = "Eliminar Proveedor";
                 btn_ver.Text = "Ver vista";
                 btn_bajas.Text = "Ver bajas";
-              
-               mostrarProveedor();
+
+                mostrarProveedor();
 
             }
         }
-     
+
         private void btn_añadir_Click(object sender, EventArgs e)
         {
             if (Modal == "Clientes")
@@ -167,7 +167,7 @@ namespace MyM26.screens
             label1.Text = $"Total de clientes: {totalRegistros}";
         }
 
-      
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_editar.Enabled = true;
@@ -224,7 +224,7 @@ namespace MyM26.screens
             ClienteNegocio cn = new ClienteNegocio();
             VCliente cliente = cn.eliminarCliente(cda2);
 
-          
+
             if (cliente == null) cliente = new VCliente { Cuit = cda2 };
             if (UsuarioActivo.Datos == null)
             {
@@ -268,7 +268,7 @@ namespace MyM26.screens
                             " ( CUIT: " + cda2 + ")";
             ProveedorDatos datos = new ProveedorDatos();
             datos.AltaHistoricoCompleto(proveedor);
-           mostrarProveedor();
+            mostrarProveedor();
         }
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -296,7 +296,7 @@ namespace MyM26.screens
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-       
+
 
 
         private void btn_buscar_Click(object sender, EventArgs e)
@@ -347,16 +347,16 @@ namespace MyM26.screens
             if (Modal == "Clientes")
             {
 
-               if(paginaActual < TotalPaginas)
+                if (paginaActual < TotalPaginas)
                 {
                     paginaActual++;
                     LlenarDtgClientes();
                 }
-               else if(Modal== "Proveedor")
-               {
-                   if(paginaActual < TotalPaginas)
-                   {
-                       paginaActual++;
+                else if (Modal == "Proveedor")
+                {
+                    if (paginaActual < TotalPaginas)
+                    {
+                        paginaActual++;
                         if (m == "pd")
                         {
                             mostrarProveedor();
@@ -366,7 +366,7 @@ namespace MyM26.screens
 
                         }
                     }
-               }
+                }
 
             }
         }
@@ -390,7 +390,7 @@ namespace MyM26.screens
                     { mostrarProveedor(); }
                     else if (filtroProveedor)
                     {
-                        if(!string.IsNullOrWhiteSpace(txt_buscar.Text))
+                        if (!string.IsNullOrWhiteSpace(txt_buscar.Text))
                         {
                             BuscarProveedor(txt_buscar.Text.Trim());
                         }
@@ -476,14 +476,14 @@ namespace MyM26.screens
             try
             {
                 //llamo al dal
-                ProveedorDatos db= new ProveedorDatos();
-                var result= db.GetProveedorFiltro(paginaActual, registrosPorPagina, filtro);
+                ProveedorDatos db = new ProveedorDatos();
+                var result = db.GetProveedorFiltro(paginaActual, registrosPorPagina, filtro);
 
-                if(result.Total==0)
+                if (result.Total == 0)
                 {
                     mostrarProveedor();
                     MessageBox.Show("No se encontraron resultados para el filtro ingresado.");
-                   return;
+                    return;
                 }
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = result.Data;
@@ -499,6 +499,32 @@ namespace MyM26.screens
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los proveedores: " + ex.Message);
+            }
+        }
+
+
+        //DE CLIENTES
+        public void MostrarClientes()
+        {
+            try
+            {
+                ClienteDatos db = new ClienteDatos();
+                var result = db.MostrarCliente(paginaActual, registrosPorPagina);
+
+                if (result == null) return;
+
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = result.Data;
+                TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+                btn_anterior.Enabled = paginaActual > 1;
+                btn_siguente.Enabled = paginaActual < TotalPaginas;
+                label1.Text = $"Total registros: {result.Total}";
+                filtroCliente = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los clientes: " + ex.Message);
             }
         }
     }
