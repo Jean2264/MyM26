@@ -55,7 +55,7 @@
             // 
             tableLayoutPanel1.ColumnCount = 7;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 248F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 169F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 162F));
@@ -91,11 +91,17 @@
             // 
             txt_buscar.BorderStyle = BorderStyle.None;
             txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Font = new Font("Segoe UI", 18F);
             txt_buscar.Location = new Point(0, 0);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";
             txt_buscar.Size = new Size(383, 45);
             txt_buscar.TabIndex = 0;
+            txt_buscar.TextChanged += txt_buscar_TextChanged;
+            txt_buscar.DragEnter += txt_buscar_DragEnter;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            txt_buscar.KeyPress += txt_buscar_KeyPress;
+            txt_buscar.MouseDown += txt_buscar_MouseDown;
             // 
             // btn_buscar
             // 
@@ -110,6 +116,7 @@
             btn_buscar.Size = new Size(39, 45);
             btn_buscar.TabIndex = 6;
             btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
             // 
             // btn_eliminar
             // 
@@ -121,7 +128,7 @@
             btn_eliminar.ForeColor = Color.White;
             btn_eliminar.Image = (Image)resources.GetObject("btn_eliminar.Image");
             btn_eliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_eliminar.Location = new Point(1052, 4);
+            btn_eliminar.Location = new Point(1017, 4);
             btn_eliminar.Margin = new Padding(3, 4, 3, 4);
             btn_eliminar.Name = "btn_eliminar";
             btn_eliminar.Size = new Size(174, 45);
@@ -141,7 +148,7 @@
             btn_editar.ForeColor = Color.White;
             btn_editar.Image = (Image)resources.GetObject("btn_editar.Image");
             btn_editar.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_editar.Location = new Point(890, 4);
+            btn_editar.Location = new Point(855, 4);
             btn_editar.Margin = new Padding(3, 4, 3, 4);
             btn_editar.Name = "btn_editar";
             btn_editar.Size = new Size(156, 45);
@@ -161,7 +168,7 @@
             btn_añadir.ForeColor = Color.White;
             btn_añadir.Image = (Image)resources.GetObject("btn_añadir.Image");
             btn_añadir.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_añadir.Location = new Point(721, 4);
+            btn_añadir.Location = new Point(686, 4);
             btn_añadir.Margin = new Padding(3, 4, 3, 4);
             btn_añadir.Name = "btn_añadir";
             btn_añadir.Size = new Size(163, 45);
@@ -181,7 +188,7 @@
             btn_bajas.ForeColor = Color.White;
             btn_bajas.Image = (Image)resources.GetObject("btn_bajas.Image");
             btn_bajas.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_bajas.Location = new Point(1232, 4);
+            btn_bajas.Location = new Point(1197, 4);
             btn_bajas.Margin = new Padding(3, 4, 3, 4);
             btn_bajas.Name = "btn_bajas";
             btn_bajas.Size = new Size(112, 45);

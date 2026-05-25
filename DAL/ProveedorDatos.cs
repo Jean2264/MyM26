@@ -13,7 +13,7 @@ namespace MyM26.DAL
 {
     public class ProveedorDatos
     {
-
+        // Método para obtener proveedores con paginación
         public PagedResult<ProveedorDto> GetProveedor(int pagina, int limite)
         {
             if(pagina<1) pagina = 1;
@@ -65,6 +65,70 @@ namespace MyM26.DAL
             };
         }
 
+        //Metodo para mostrar proveedor paginado y filtrado
+        public PagedResult<ProveedorDto> GetProveedorFiltro(int pagina, int limite, string filtro)
+        {
+            if (pagina < 1) pagina = 1;
+            if (limite <= 0) limite = 10;
+
+            var list = new List<ProveedorDto>();
+            int offset = (pagina - 1) * limite;
+            int total;
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+
+                string where = "Estado=1";
+
+                if (!string.IsNullOrWhiteSpace(filtro))
+                {
+                    where += " AND (Nombre LIKE @filtro OR Cuit LIKE @filtro OR Empresa LIKE @filtro)";
+                }
+
+                //total
+                string countQuery = $"SELECT COUNT(*) FROM Proveedor WHERE {where}";
+                using (SqlCommand cd = new SqlCommand(countQuery, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
+                    total = (int)cd.ExecuteScalar();
+                }
+
+                //data
+                string dataQuery = $"SELECT Nombre, Cuit, Telefono, Mail, Empresa FROM Proveedor WHERE {where} ORDER BY Nombre OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(dataQuery, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ProveedorDto
+                            {
+                                Nombre = reader["Nombre"].ToString(),
+                                Cuit = reader["Cuit"].ToString(),
+                                Telefono = reader["Telefono"].ToString(),
+                                Mail = reader["Mail"].ToString(),
+                                Empresa = reader["Empresa"].ToString()
+                            });
+                        }
+                    }
+                }
+
+                return new PagedResult<ProveedorDto>
+                {
+                    Data = list,
+                    Total = total
+                };
+            }
+        }
         public void UltimoIdProveedor(VProveedor prov, SqlTransaction trans)
         {
             string consulta = "SELECT MAX(IdProveedor) as ultimoId FROM Proveedor";
@@ -125,38 +189,7 @@ namespace MyM26.DAL
         }
 
         
-        public static DataTable LLenarDtg(int paginaActual, int registrosPorPagina)
-        {
-
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registrosPorPagina;
-            string consulta = "select  Nombre, Empresa, Cuit, Telefono, Mail from Proveedor where Estado=1 ORDER BY Nombre OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
-            SqlConnection cn = new SqlConnection(Decla.ConnectionString);
-            SqlCommand cmd = new SqlCommand(consulta, cn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
-
-            Decla.proveedorTab.Clear();
-            try
-            {
-                cn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.proveedorTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.ToString(), "Error al cargar los datos", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (cn.State == ConnectionState.Open)
-                {
-                    cn.Close();
-                }
-            }
-            return Decla.proveedorTab;
-        }
+        
 
 
       
@@ -315,31 +348,7 @@ namespace MyM26.DAL
             }
             return Decla.bajaProv;
         }
-        public int ObtenerTotalProveedor()
-        {
-            int total = 0;
-
-            string sql = "SELECT COUNT(*) FROM Proveedor WHERE Estado = 1";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-
-            try
-            {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-
-            return total;
-        }
+      
 
         public void ReactivarProveedor(string cuit)
         {
@@ -425,28 +434,7 @@ namespace MyM26.DAL
         }
 
 
-        public static DataTable FiltrarProv(string cuit)
-        {
-
-            string consulta = "select Nombre, Empresa, Cuit, Telefono, Mail from Proveedor WHERE (Nombre LIKE @cuit OR Cuit LIKE @cuit) and Estado=1";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@cuit", "%" + cuit + "%");
-
-            try
-            {
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                Decla.proveedorTab.Clear();
-
-                da.Fill(Decla.proveedorTab);
-
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Error al filtrar el proveedor: " + ex.Message.ToString());
-            }
-            return Decla.proveedorTab;
-        }
+      
     }
 }
 

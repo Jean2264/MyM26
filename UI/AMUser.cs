@@ -445,7 +445,7 @@ namespace MyM26.screens
                         UsuarioDatos datos = new UsuarioDatos();
                         datos.ReactivarUsuario(dni);
                         MessageBox.Show("Usuario reactivado correctamente.");
-                        usu.llenarUser();
+                        usu.LLenarFlow();
                         this.Close();
                         return;
                     }
@@ -483,7 +483,7 @@ namespace MyM26.screens
 
                     usuarioDatos.AltacompletoUsuario(usuario);
                     usuarioDatos.AltaHistoricoCompleto(usuario);
-                    usu?.llenarUser();
+                    usu?.LLenarFlow();
                     this.Close();
                 }
 
@@ -545,7 +545,7 @@ namespace MyM26.screens
                 UsuarioDatos usuarioDatos = new UsuarioDatos();
                 usuarioDatos.ModificacionUsuario(usuario); 
                 usuarioDatos.AltaHistoricoCompleto(usuario);
-                usu.llenarUser();
+                usu.LLenarFlow();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
 

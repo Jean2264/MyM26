@@ -35,107 +35,23 @@ namespace MyM26.DAL
 
 
 
-       public void LlenarContenedor(
-FlowLayoutPanel Contenedor,
-Action<string> editarCallback,
-Action<string> VerCallback,
-Users usu,
-int paginaActual,
-int registrosPorPagina)
-        {
+      
 
+        //PAGINADO  
+        public PagedResult<UsuarioDto> GetUsuario(int paginaActual, int registrosPorPagina)
+        {
             if (paginaActual < 1)
                 paginaActual = 1;
+
             int offset = (paginaActual - 1) * registrosPorPagina;
 
-            string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.perfil
-                   FROM Usuario s
-                   INNER JOIN TipoUsuario t 
-                   ON s.CodtipoUsuario = t.CodTipoUsuario
-                   WHERE s.Estado = 1
-                   ORDER BY s.Usuario
-                   OFFSET @offset ROWS
-                   FETCH NEXT @limite ROWS ONLY";
+            int total=0;
 
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
-
-            try
-            {
-                Contenedor.Controls.Clear();
-
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    _dni = reader["DNI"].ToString();
-                    _nombre = reader["Usuario"].ToString();
-                    _tipo = reader["Tipo"].ToString();
-
-                    if (reader["perfil"] != DBNull.Value)
-                        _foto = (byte[])reader["perfil"];
-                    else
-                        _foto = null;
-
-                    TarjetaUsuario btn = new TarjetaUsuario();
-
-                    btn.DatoEliminado += () =>
-                    {
-                        usu.llenarUser();
-                    };
-
-                    btn.Dni = _dni;
-                    btn.Nombre = _nombre;
-                    btn.Tipo = _tipo;
-
-                    btn.EditarUsuario += editarCallback;
-                    btn.VerUsuario += VerCallback;
-                   
-
-                    if (_foto != null)
-                    {
-                        using (var ms = new System.IO.MemoryStream(_foto))
-                        {
-                            btn.Foto = System.Drawing.Image.FromStream(ms);
-                        }
-                    }
-                    else
-                    {
-                        btn.Foto = null;
-                    }
-
-                    Contenedor.Controls.Add(btn);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al llenar usuarios: " + ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-        }
-        public PagedResult<UsuarioDto> LlenarContenedorPaginado(
-FlowLayoutPanel Contenedor,
-Action<string> editarCallback,
-Action<string> VerCallback,
-Users usu,
-int paginaActual,
-int registrosPorPagina)
-        {
-
-
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registrosPorPagina;
-            int total;
             var list = new List<UsuarioDto>();
+
             using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
             {
+                conn.Open();
                 string QueryTotal = "SELECT COUNT(*) FROM Usuario Where Estado=1";
 
                 using(SqlCommand cmd= new SqlCommand(QueryTotal, conn))
@@ -146,29 +62,32 @@ int registrosPorPagina)
 
                 //Data
 
-                string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.perfil
+                string sql = @"SELECT s.DNI, s.Usuario, t.Tipo, s.Perfil
                    FROM Usuario s     
                    INNER JOIN TipoUsuario t 
                    ON s.CodtipoUsuario = t.CodTipoUsuario
                    WHERE s.Estado = 1
-                   ORDER BY s.Usuario
+                   ORDER BY s.Usuario, s.DNI 
                    OFFSET @offset ROWS
                    FETCH NEXT @limite ROWS ONLY";
 
                 using(SqlCommand cmd= new SqlCommand(sql,conn))
                 {
                     cmd.Parameters.Add("@offset", SqlDbType.Int).Value = offset;
-                    cmd.Parameters.Add("@limite", SqlDbType.Int).Value = total;
+                    cmd.Parameters.Add("@limite", SqlDbType.Int).Value = registrosPorPagina;
 
                     using(SqlDataReader reader= cmd.ExecuteReader())
                     {
-                        list.Add(new UsuarioDto
+                        while (reader.Read())
                         {
-                            Username= reader["Usuario"].ToString(),
-                            DNI = reader["DNI"].ToString(),
-                            Type = reader["Tipo"].ToString(),
-                            Foto = reader["perfil"] != DBNull.Value ? (byte[])reader["perfil"] : null  !
-                        });
+                            list.Add(new UsuarioDto
+                            {
+                                Username = reader["Usuario"].ToString(),
+                                DNI = reader["DNI"].ToString(),
+                                Type = reader["Tipo"].ToString(),
+                                Foto = reader["perfil"] != DBNull.Value ? (byte[])reader["perfil"] : null
+                            });
+                        }
                     }
                 }
 
@@ -184,6 +103,82 @@ int registrosPorPagina)
             };
            
         }
+
+        //Paginado y filtrado
+        public PagedResult<UsuarioDto> GetUsuarioFiltro(int paginaActual, int registrosPorPagina, string filtro)
+        {
+            if (paginaActual < 1)
+                paginaActual = 1;
+
+            int offset = (paginaActual - 1) * registrosPorPagina;
+
+            int total = 0;
+
+            var list = new List<UsuarioDto>();
+
+            using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+               
+
+                string where= "WHERE s.Estado = 1";
+                if (!string.IsNullOrWhiteSpace(filtro))
+                {
+                    where += " AND (s.Usuario LIKE @filtro OR s.DNI LIKE @filtro OR t.Tipo LIKE @filtro)";
+                }
+
+                //traer total
+                string QueryTotal = $"SELECT COUNT(*) FROM Usuario s INNER JOIN TipoUsuario t ON s.CodtipoUsuario = t.CodTipoUsuario  {where}";
+                using(SqlCommand cmd = new SqlCommand(QueryTotal, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
+                    total = (int)cmd.ExecuteScalar();
+                }
+
+                //traer data
+                string sql = $@"SELECT s.DNI, s.Usuario, t.Tipo, s.Perfil
+                   FROM Usuario s     
+                   INNER JOIN TipoUsuario t 
+                   ON s.CodtipoUsuario = t.CodTipoUsuario
+                   {where}
+                   ORDER BY s.Usuario, s.DNI 
+                   OFFSET @offset ROWS
+                   FETCH NEXT @limite ROWS ONLY";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
+                    cmd.Parameters.Add("@offset", SqlDbType.Int).Value = offset;
+                    cmd.Parameters.Add("@limite", SqlDbType.Int).Value = registrosPorPagina;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new UsuarioDto
+                            {
+                                Username = reader["Usuario"].ToString(),
+                                DNI = reader["DNI"].ToString(),
+                                Type = reader["Tipo"].ToString(),
+                                Foto = reader["perfil"] != DBNull.Value ? (byte[])reader["perfil"] : null
+                            });
+                        }
+                    }
+                }
+            }
+
+            return new PagedResult<UsuarioDto>
+            {
+                Data = list,
+                Total = total
+            };
+        }
+        
         public static DataTable bajaUsuario()
         {
             string sqltranq = "Select TOP 50 s.DNI, s.Usuario, t.Tipo from Usuario s inner join TipoUsuario t on s.CodtipoUsuario= t.CodTipoUsuario where s.Estado=0 ORDER BY IdUsuario DESC";
@@ -617,62 +612,7 @@ int registrosPorPagina)
         }
 
 
-        public void FiltrarUser(FlowLayoutPanel Contenedor, string dni)
-        {//      string consulta = "select top 300 Cuit, Nombre, Entidad, Cuit, Telefono, Mail from Cliente where (Nombre LIKE @filtro OR Cuit LIKE @filtro) and Estado= 1";
-            string sqltranq = "Select s.DNI, s.Usuario, t.Tipo, s.perfil from Usuario s inner join TipoUsuario t on s.CodtipoUsuario= t.CodTipoUsuario WHERE (s.Usuario LIKE @filtro OR s.DNI LIKE @filtro) AND  s.Estado=1";
-            SqlCommand cmd = new SqlCommand(sqltranq, Decla.cnn);
-            cmd.Parameters.AddWithValue("@filtro", "%" + dni + "%");
-
-            try
-            {
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    _dni = reader["DNI"].ToString();
-                    _nombre = reader["Usuario"].ToString();
-                    _tipo = reader["Tipo"].ToString();
-                    if (reader["perfil"] != DBNull.Value)
-                    {
-                        _foto = (byte[])reader["perfil"];
-                    }
-                    else
-                    {
-                        _foto = null;
-                    }
-
-                    TarjetaUsuario btn = new TarjetaUsuario();
-                    btn.Dni = _dni;
-                    btn.Nombre = _nombre;
-                    btn.Tipo = _tipo;
-
-
-                    if (_foto != null)
-                    {
-                        using (var ms = new System.IO.MemoryStream(_foto))
-                        {
-                            btn.Foto = System.Drawing.Image.FromStream(ms);
-                        }
-                    }
-                    else
-                    {
-                        btn.Foto = null;
-                    }
-                    Contenedor.Controls.Add(btn);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Error al llenar el contenedor de usuarios: " + ex.Message.ToString());
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-        }
-
+       
         public (bool dniDuplicado, bool usuarioDuplicado) VerficacionDuplicados(string dni, string usuario)
         {
             bool dniDup = false;
@@ -728,31 +668,7 @@ int registrosPorPagina)
             }
         }
 
-        public int ObtenerTotalUsuarios()
-        {
-            int total = 0;
-
-            string sql = "SELECT COUNT(*) FROM Usuario WHERE Estado = 1";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-
-            try
-            {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-
-            return total;
-        }
+       
 
         //Verificacion de existencia para modificacion
 

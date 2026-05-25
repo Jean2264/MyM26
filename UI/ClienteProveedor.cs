@@ -21,7 +21,9 @@ namespace MyM26.screens
         public string cda2;
         public string nombre;
         public string m;
-        //cliente
+        
+        bool filtroCliente= false;
+        bool filtroProveedor=false;
         int paginaActual = 1;
         int registrosPorPagina = 50;
         int TotalPaginas = 0;
@@ -61,30 +63,7 @@ namespace MyM26.screens
 
             }
         }
-        public void mostrarProveedor()
-        {
-            try
-            {
-                ProveedorDatos db = new ProveedorDatos();
-               var result= db.GetProveedor(paginaActual, registrosPorPagina);
-                if (result == null) return;
-
-                dataGridView1.DataSource = null;
-                dataGridView1 .DataSource = result.Data;
-
-                TotalPaginas= (int)Math.Ceiling((double)result.Total / registrosPorPagina);
-                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-                btn_anterior.Enabled = paginaActual > 1;
-                btn_anterior.Enabled= paginaActual < TotalPaginas;
-
-                label1.Text = $"Total registros: {result.Total}";
-                m = "pd";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los proveedores: " + ex.Message);
-            }
-        }
+     
         private void btn_añadir_Click(object sender, EventArgs e)
         {
             if (Modal == "Clientes")
@@ -317,11 +296,7 @@ namespace MyM26.screens
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        public void BuscarProv(string cuit)
-        {
-            dataGridView1.DataSource = ProveedorDatos.FiltrarProv(cuit);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
+       
 
 
         private void btn_buscar_Click(object sender, EventArgs e)
@@ -333,7 +308,7 @@ namespace MyM26.screens
             }
             if (Modal == "Proveedor")
             {
-                BuscarProv(cuit);
+                BuscarProveedor(cuit);
             }
 
         }
@@ -411,12 +386,16 @@ namespace MyM26.screens
                 if (paginaActual > 1)
                 {
                     paginaActual--;
-                    if(m == "pd")
+                    if (!filtroProveedor)
                     { mostrarProveedor(); }
-                    else if(m=="pf")
+                    else if (filtroProveedor)
                     {
-
+                        if(!string.IsNullOrWhiteSpace(txt_buscar.Text))
+                        {
+                            BuscarProveedor(txt_buscar.Text.Trim());
+                        }
                     }
+
                 }
             }
         }
@@ -461,6 +440,65 @@ namespace MyM26.screens
             if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        //DE PROVEEDORES
+
+        public void mostrarProveedor()
+        {
+            try
+            {
+                ProveedorDatos db = new ProveedorDatos();
+                var result = db.GetProveedor(paginaActual, registrosPorPagina);
+                if (result == null) return;
+
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = result.Data;
+
+                TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+                btn_anterior.Enabled = paginaActual > 1;
+                btn_anterior.Enabled = paginaActual < TotalPaginas;
+
+                label1.Text = $"Total registros: {result.Total}";
+                filtroProveedor = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los proveedores: " + ex.Message);
+            }
+        }
+
+        public void BuscarProveedor(string filtro)
+        {
+            try
+            {
+                //llamo al dal
+                ProveedorDatos db= new ProveedorDatos();
+                var result= db.GetProveedorFiltro(paginaActual, registrosPorPagina, filtro);
+
+                if(result.Total==0)
+                {
+                    mostrarProveedor();
+                    MessageBox.Show("No se encontraron resultados para el filtro ingresado.");
+                   return;
+                }
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = result.Data;
+
+                TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+                btn_anterior.Enabled = paginaActual > 1;
+                btn_siguente.Enabled = paginaActual < TotalPaginas;
+
+                label1.Text = $"Total registros: {result.Total}";
+                filtroProveedor = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los proveedores: " + ex.Message);
             }
         }
     }

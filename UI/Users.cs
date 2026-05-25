@@ -19,12 +19,15 @@ namespace MyM26.screens
         int paginaActual = 1;
         int registrosPorPagina = 50;
         int TotalPaginas = 0;
+        string filtro;
+        bool modoFiltro = false;
         public Users()
         {
             InitializeComponent();
             Conexion.Conectar();
-            llenarUser();
-            CalcularTotalPaginas();
+            // llenarUser();
+            //CalcularTotalPaginas();
+            LLenarFlow();
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -32,41 +35,112 @@ namespace MyM26.screens
 
 
         }
-        public void llenarUser()
+        //Mostrar contenido paginado
+        public void LLenarFlow()
         {
+            //vacio el flow para que no se dupliquen los datos
             flowLayoutPanel1.Controls.Clear();
+
+            //llamo al dal
             UsuarioDatos db = new UsuarioDatos();
 
+            //guardo el dato y total en una variable Var
+            var result = db.GetUsuario(paginaActual, registrosPorPagina);
+            //recorro la lista de usuarios y los agrego al flow
 
-
-            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionUsuario, AbrirVerUsuario, this, paginaActual, registrosPorPagina);
-
-            /*db.LlenarContenedor(
-                flowLayoutPanel1,
-                AbrirEdicionUsuario, 
-                this
-            );
-
-            TargetaUsuario targeta = new TargetaUsuario();
-
-            targeta.DatoEliminado += () =>
+            foreach (var item in result.Data)
             {
-              llenarUser(); 
-            };*/
+                TarjetaUsuario u = new TarjetaUsuario();
+                u.SetDta(item);
+
+                //asigno los eventos de editar y ver usuario
+                u.EditarUsuario += AbrirEdicionUsuario;
+
+                u.VerUsuario += AbrirVerUsuario;
+
+                u.DatoEliminado += () =>
+                { 
+                LLenarFlow();
+                };
+
+                flowLayoutPanel1.Controls.Add(u);
+            }
+
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+
+            lbl_paginas.Text =
+       $"Página {paginaActual} / {TotalPaginas}";
+
+            label1.Text =
+                $"Total usuarios: {result.Total}";
+
+            btn_siguente.Enabled =
+                paginaActual < TotalPaginas;
+
+            btn_anterior.Enabled =
+                paginaActual > 1;
+
+            modoFiltro = false;
         }
 
-        public void BuscarUser(string dni)
+        //Mostrar contenido paginado y filtrado
+        public void LLenarFlowFiltrado(string filtro)
         {
-
+            //vacio el flow para que no se dupliquen los datos
             flowLayoutPanel1.Controls.Clear();
-            UsuarioDatos DB = new UsuarioDatos();
-            DB.FiltrarUser(
-                flowLayoutPanel1,
-                dni
+            
+            //llamo al dal
+            UsuarioDatos db = new UsuarioDatos();
 
-                );
+            //guardo el dato y total en una variable Var
+            var result = db.GetUsuarioFiltro(paginaActual, registrosPorPagina, filtro);
 
+            //consulto si el resultado tiene datos
+            if(result.Total == 0)
+            {
+                LLenarFlow();
+                MessageBox.Show("No se encontraron resultados para el filtro ingresado.", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+                return;
+            }
+
+            //recorro la lista de usuarios y los agrego al flow
+
+            foreach (var item in result.Data)
+            {
+                TarjetaUsuario u = new TarjetaUsuario();
+                u.SetDta(item);
+
+                //asigno los eventos de editar y ver usuario
+                u.EditarUsuario += AbrirEdicionUsuario;
+
+                u.VerUsuario += AbrirVerUsuario;
+
+                u.DatoEliminado += () =>
+                {
+                    LLenarFlow();
+                };
+
+                flowLayoutPanel1.Controls.Add(u);
+            }
+
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+
+            lbl_paginas.Text =
+       $"Página {paginaActual} / {TotalPaginas}";
+
+            label1.Text =
+                $"Total usuarios: {result.Total}";
+
+            btn_siguente.Enabled =
+                paginaActual < TotalPaginas;
+
+            btn_anterior.Enabled =
+                paginaActual > 1;
+
+            modoFiltro = true;
         }
+      
         private void btn_añadirUsrr_Click(object sender, EventArgs e)
         {
             AMUser an = new AMUser(this);
@@ -74,11 +148,7 @@ namespace MyM26.screens
             an.Modo = "Alta";
             an.ShowDialog();
         }
-        /*private void usuario()
-         {
-             Variables.User = QueryUser.mostrarUser();
-             dataGridView1.DataSource = Variables.User;
-         }*/
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -92,26 +162,7 @@ namespace MyM26.screens
         {
 
         }
-      /*   public void MostrarUser(PagedResult<UsuarioDto> lista)
-        {
-            flowLayoutPanel1.Controls.Clear();
-            foreach(var item in lista.Data)
-            {
-                TarjetaUsuario u= new TarjetaUsuario();
-                u.SetDta(item);
-                flowLayoutPanel1.Controls.Add(u);
-            }
-        }
-        /*FlowLayoutPanel Contenedor,
-Action<string> editarCallback,
-Action<string> VerCallback,
-Users usu,
-int paginaActual,
-int registrosPorPagina
-        public void CargarUser(PagedResult<UsuarioDto> lista)
-        {
-          var list=   UsuarioDatos.mostrarUser(flowLayoutPanel1, AbrirEdicionUsuario, AbrirVerUsuario, this, paginaActual, registrosPorPagina);
-        }  */ 
+     
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -128,7 +179,7 @@ int registrosPorPagina
 
             if (us.ShowDialog() == DialogResult.OK)
             {
-                llenarUser(); // 🔥 refresca
+                LLenarFlow();
             }
         }
         public void AbrirVerUsuario(string dni)
@@ -142,29 +193,32 @@ int registrosPorPagina
 
             if (us.ShowDialog() == DialogResult.OK)
             {
-                llenarUser(); // 🔥 refresca
+                LLenarFlow();
             }
 
         }
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string dni = txt_buscar.Text;
-            BuscarUser(dni);
+           LLenarFlowFiltrado(dni);
         }
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
+            filtro = txt_buscar.Text;
 
-            /*if (paginaActual < TotalPaginas)
-            {
-                paginaActual++;
-                llenar();
-            }
-*/
             if (paginaActual < TotalPaginas)
             {
                 paginaActual++;
-                llenarUser();
+                if (modoFiltro)
+                {
+                    LLenarFlowFiltrado(filtro);
+
+                }
+                else
+                {
+                    LLenarFlow();
+                }
             }
         }
 
@@ -174,21 +228,18 @@ int registrosPorPagina
             if (paginaActual > 1)
             {
                 paginaActual--;
-                llenarUser();
+                if (modoFiltro)
+                {
+                    LLenarFlowFiltrado(filtro);
+                }
+                else
+                {
+                    LLenarFlow();
+                }
             }
         }
 
-        private void CalcularTotalPaginas()
-        {
-            UsuarioDatos db = new UsuarioDatos();
-            int totalRegistros = db.ObtenerTotalUsuarios();
-            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
-            lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-            label1.Text = $"Total de usuarios: " + totalRegistros.ToString();
-            btn_siguente.Enabled = paginaActual < TotalPaginas;
-            btn_anterior.Enabled = paginaActual > 1;
-
-        }
+       
 
         private void lbl_paginas_Click(object sender, EventArgs e)
         {
@@ -227,6 +278,11 @@ int registrosPorPagina
             {
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+            }
+
+            if(e.KeyCode== Keys.Enter)
+            {
+                btn_buscar.PerformClick();
             }
         }
 

@@ -25,11 +25,13 @@ namespace MyM26.UI
         string cda2 = "";
         string nombre = "";
         string md;
+        bool modoFiltro = false;
+        string filtro;
         public Empleados()
         {
             InitializeComponent();
             Conexion.Conectar();
-           
+
             mostrar();
             btn_editar.Enabled = false;
             btn_eliminar.Enabled = false;
@@ -75,35 +77,48 @@ namespace MyM26.UI
             btn_eliminar.Enabled = true;
         }
 
-      
+
         private void btn_siguente_Click(object sender, EventArgs e)
-        { string filtro = txt_buscar.Text;
+        {
+            filtro = txt_buscar.Text;
 
             if (paginaActual < TotalPaginas)
             {
                 paginaActual++;
-                if (md == "m")
+                if (!modoFiltro)
                 {
                     mostrar();
                 }
-                else if (md == "b")
+                else
                 {
                     if (!string.IsNullOrWhiteSpace(filtro))
                     {
                         buscar(filtro);
                     }
 
-                            }
-            } 
+                }
+            }
 
         }
 
         private void btn_anterior_Click(object sender, EventArgs e)
         {
+            filtro = txt_buscar.Text;
             if (paginaActual > 1)
             {
                 paginaActual--;
-                mostrar();
+                if (!modoFiltro)
+                {
+                    mostrar();
+                }
+                else
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        buscar(filtro);
+                    }
+
+                }
             }
         }
 
@@ -179,7 +194,7 @@ namespace MyM26.UI
             buscar(dni);
         }
 
-       
+
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
@@ -212,11 +227,11 @@ namespace MyM26.UI
                 e.Handled = true;
             }
 
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btn_buscar.PerformClick();
 
-                e.Handled = true; e.SuppressKeyPress=true;
+                e.Handled = true; e.SuppressKeyPress = true;
             }
         }
 
@@ -262,9 +277,11 @@ namespace MyM26.UI
                 btn_siguente.Enabled = paginaActual < TotalPaginas;
 
                 label1.Text = $"Total registros: {result.Total}";
-                md = "m";
+                modoFiltro = false;
 
-            }catch(Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
@@ -279,8 +296,9 @@ namespace MyM26.UI
                 EmpleadoDatos dt = new EmpleadoDatos();
                 var result = dt.GetFiltroEmpleado(paginaActual, registrosPorPagina, filtro);
 
-                if (result == null)
+                if (result.Total == 0)
                 {
+                    mostrar();
                     MessageBox.Show("no se encontro ningun registro con esa descripción.");
                     return;
                 }
@@ -297,7 +315,7 @@ namespace MyM26.UI
 
                 label1.Text = $"Total filtrado: {result.Total}";
 
-                md = "b";
+                modoFiltro = true;
             }
             catch (Exception ex)
             {

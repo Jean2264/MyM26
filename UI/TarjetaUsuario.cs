@@ -71,7 +71,7 @@ namespace MyM26.screens
         {
 
         }
-       
+
         public void eliminar()
         {
             string dni = lbl_dni.Text.Trim();
@@ -122,6 +122,11 @@ namespace MyM26.screens
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

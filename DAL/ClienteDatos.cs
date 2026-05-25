@@ -67,6 +67,8 @@ namespace MyM26.DAL
             return Decla.clienteTab;
 
         }
+
+         
     
         public static DataTable bajaCliente()
         {

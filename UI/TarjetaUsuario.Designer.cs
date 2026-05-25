@@ -213,6 +213,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(173, 128);
             panel2.TabIndex = 14;
+            panel2.Paint += panel2_Paint;
             // 
             // pic_usu
             // 

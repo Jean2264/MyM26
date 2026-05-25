@@ -257,7 +257,7 @@ namespace MyM26.screens
                 row.Cells["Editar"].Value = Properties.Resources.edit;
                 row.Cells["Ver"].Value = Properties.Resources.ver;
                 row.Cells["Eliminar"].Value = Properties.Resources.eliminar;
-            }*/c
+            }*/
 
         }
     }
