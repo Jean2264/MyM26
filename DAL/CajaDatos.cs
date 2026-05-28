@@ -270,16 +270,16 @@ namespace MyM26.DAL
 
 
 
-        public static DataTable MostrarVenta(int paginaActual, int registrosPorPagina)
+       public static DataTable MostrarVenta(int pagina, int limite)
         {
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registrosPorPagina;
+            if (pagina < 1)
+                pagina = 1;
+            int offset = (pagina - 1) * limite;
             string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago FROM HVenta
                                 ORDER BY FechaHora DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
+            cmd.Parameters.AddWithValue("@limite", limite);
             Decla.VentaTab.Clear();
 
             try
@@ -299,6 +299,7 @@ namespace MyM26.DAL
             }
             return Decla.VentaTab;
         }
+       
 
         public int TotalVenta()
         {

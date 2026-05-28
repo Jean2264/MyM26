@@ -7,8 +7,10 @@ using MyM26.Entidades.Usuario;
 using MyM26.Entidades.Comun;
 using MyM26.DAL;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MyM26.BLL;
 
 namespace MyM26.UI
 {
@@ -113,8 +115,11 @@ namespace MyM26.UI
 
         private void btn_verifi_Click(object sender, EventArgs e)
         {
-            if(validarCampos())
+            string contra = txt_contra.Text.Trim();
+            if (validarCampos())
             {
+                contra= BCrypt.Net.BCrypt.HashPassword(contra);
+
                 using (SqlConnection cn = new SqlConnection(Decla.ConnectionString))
                 {
                     cn.Open();
@@ -123,7 +128,7 @@ namespace MyM26.UI
                                         SET Contrasenia = @contra
                                         WHERE Usuario = @usuario";
                     SqlCommand comando = new SqlCommand(consulta, cn);
-                    comando.Parameters.AddWithValue("@contra", txt_contra.Text.Trim());
+                    comando.Parameters.AddWithValue("@contra", contra);
                     comando.Parameters.AddWithValue("@usuario", RecUser.usuario);
                     comando.ExecuteNonQuery();
                 }
