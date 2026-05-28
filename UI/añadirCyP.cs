@@ -230,7 +230,7 @@ namespace MyM26.screens
 
                         clienteDatos.ReactivarCliente(cuit);
                         MessageBox.Show("Cliente reactivado correctamente.");
-                        cl.LlenarDtgClientes();
+                        cl.MostrarCliente();
                         this.Close();
                         return;
                     }
@@ -252,7 +252,7 @@ namespace MyM26.screens
 
                 clienteDatos.AltaCompletoCliente(cliente);
                 clienteDatos.AltaHistoricoCompleto(cliente);
-                cl.LlenarDtgClientes();
+                cl.MostrarCliente();
                 this.Close();
             }
             if (Modo == "Editar-Cliente")
@@ -284,7 +284,7 @@ namespace MyM26.screens
                 ClienteDatos clienteDatos = new ClienteDatos();
                 clienteDatos.ModiCliente(cliente);
                 clienteDatos.AltaHistoricoCompleto(cliente);
-                cl.LlenarDtgClientes();
+                cl.MostrarCliente();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
 
@@ -607,7 +607,7 @@ namespace MyM26.screens
 
         private void txt_nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar)&& e.KeyChar != ' ')
             {
                 e.Handled = true;
             }

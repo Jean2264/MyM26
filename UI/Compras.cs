@@ -16,13 +16,13 @@ namespace MyM26.UI
         int paginaActual = 1;
         int registrosPorPagina = 20;
         int TotalPaginas = 0;
+        bool filtroCompra = false;
         public Compras()
         {
             InitializeComponent();
             Conexion.Conectar();
             AvisosGlobales.OnCompraFinalizada += ActualizarGrilla;
-            llenar();
-            CalcularTotalPaginasCompras();
+           MostrarCompra();
         }
 
         private void btn_añadirUsrr_Click(object sender, EventArgs e)
@@ -45,46 +45,42 @@ namespace MyM26.UI
         }*/
         private void ActualizarGrilla()
         {
-            llenar();
+           MostrarCompra();
         }
-        public void llenar()
-        {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            Decla.CompraTab = ArticuloDatos.MostrarCompra(paginaActual, registrosPorPagina);
-            dataGridView1.DataSource = Decla.CompraTab;
-            CalcularTotalPaginasCompras();
-        }
-
-        private void CalcularTotalPaginasCompras()
+        public void MostrarCompra()
         {
             ArticuloDatos db = new ArticuloDatos();
-            int totalRegistros = db.ObtenerTotalCompras();
-            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
+            var result = db.MostrarCompra(paginaActual, registrosPorPagina);
 
+            if (result == null) return;
 
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
 
-            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text = $"Pagina {paginaActual} / {TotalPaginas}";
             btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
 
-
-            label1.Text = $"Total de clientes: {totalRegistros}";
-            if (dataGridView1.Rows.Count == 0 || (dataGridView1.AllowUserToAddRows && dataGridView1.Rows.Count == 1))
-            {
-                lbl_paginas.Text = $"Página 0/0";
-            }
-            else
-            {
-                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-            }
+            label1.Text = $"Total de clientes: {result.Total}";
+            filtroCompra = false;
         }
+
+       
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
             if (paginaActual < TotalPaginas)
             {
                 paginaActual++;
-                llenar();
+                if (!filtroCompra)
+                {
+                    MostrarCompra();
+                }
+                else
+                {
+                    MostrarCompraFiltro(txt_buscar.Text);
+                }
             }
 
         }
@@ -94,33 +90,40 @@ namespace MyM26.UI
             if (paginaActual > 1)
             {
                 paginaActual--;
-                llenar();
+               if(!filtroCompra)
+                {
+                    MostrarCompra();
+                }
+                else
+                {
+                    MostrarCompraFiltro(txt_buscar.Text);
+                }
             }
         }
 
 
-        /*private void btn_buscar_Click(object sender, EventArgs e)
-        {
-            string dni= txt_buscar.Text;
-            BuscarEmpl(dni);
-        }
-
-        public void BuscarEmpl(string dni)
-        {
-            dataGridView1.DataSource = EmpleadoDatos.FiltrarEmpl(dni);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }*/
+       
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string nombre = txt_buscar.Text;
-            BuscarCompra(nombre);
+            MostrarCompraFiltro(nombre);
         }
 
-        public void BuscarCompra(string nombre)
+        public void MostrarCompraFiltro(string filtro)
         {
-            dataGridView1.DataSource = ArticuloDatos.FiltrarCompra(nombre);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ArticuloDatos db = new ArticuloDatos();
 
+            var result= db.MostrarCompraFiltro(paginaActual, registrosPorPagina,filtro);
+            if (result == null) return;
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+           lbl_paginas.Text= $"Pagina {paginaActual} / {TotalPaginas}";
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            label1.Text = $"Total de clientes: {result.Total}";
+            filtroCompra = true;
         }
 
         private void txt_buscar_DragEnter(object sender, DragEventArgs e)
@@ -155,6 +158,12 @@ namespace MyM26.UI
             {
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+            }
+
+            if(e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btn_buscar.PerformClick();
             }
         }
 

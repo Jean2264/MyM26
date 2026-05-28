@@ -189,6 +189,7 @@
             // 
             txt_buscar.BorderStyle = BorderStyle.None;
             txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Font = new Font("Segoe UI", 18F);
             txt_buscar.Location = new Point(0, 0);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";

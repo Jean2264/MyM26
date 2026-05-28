@@ -36,8 +36,8 @@ namespace MyM26.Entidades.Articulos
         public int Cantidad { get; set; }
         public decimal Costo { get; set; }
         public decimal Ganancia { get; set; }
-        
 
+        
 
         //PARA HCOMPRA
         public int UltimoIdHC { get; set; }

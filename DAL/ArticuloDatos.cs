@@ -1,4 +1,5 @@
-﻿using MyM26.Entidades.Articulos;
+﻿using MyM26.Entidades;
+using MyM26.Entidades.Articulos;
 using MyM26.Entidades.Caja;
 using MyM26.Entidades.Empleado;
 using MyM26.Entidades.Usuario;
@@ -61,63 +62,119 @@ namespace MyM26.DAL
 
         }
 
-        public static DataTable MostrarCompra(int paginaActual, int registrosPorPagina)
+
+        public PagedResult<CompraDto> MostrarCompra(int pagina, int limite)
         {
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registrosPorPagina;
-            string consulta = @"select h.FechaAlta, cd.Descripcion, cd.Cantidad, cd.PrecioUnitario,
+            if (pagina < 1)
+                pagina = 1;
+            if(limite<=0) limite = 1;
+
+            int offset = (pagina - 1) * limite;
+            var list = new List<CompraDto>();
+            int total = 0;
+
+          using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+                //total
+                string sqlCount = "SELECT COUNT(*) FROM HCompra";
+                using (SqlCommand cmd = new SqlCommand(sqlCount, conn))
+                {
+                    total = (int)cmd.ExecuteScalar();
+                }
+
+                //data
+
+                string sqlData = @"select h.FechaAlta, cd.Descripcion, cd.Cantidad, cd.PrecioUnitario,
                                     cd.PrecioXCantidad, h.DNI, h.Cuit from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra ORDER BY FechaAlta DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(sqlData, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                   while (reader.Read())
+                    {
+                    
+                        list.Add(new CompraDto
+                            {
+                            FechaAlta = Convert.ToDateTime(reader["FechaAlta"]),
+                                Descripcion = reader["Descripcion"].ToString(),
+                                Cantidad = Convert.ToInt32(reader["Cantidad"]),
+                                PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
+                                PrecioXCantidad = Convert.ToDecimal(reader["PrecioXCantidad"]),
+                                DNI = reader["DNI"].ToString(),
+                                Cuit = reader["Cuit"].ToString()
+                        });
+                    }
+                }
+               
+            }
 
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
-            Decla.CompraTab.Clear();
-
-            try
-            {
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.CompraTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-            return Decla.CompraTab;
+         return  new PagedResult<CompraDto>
+          {
+              Data = list,
+              Total = total
+          };
         }
 
-
-
-        public static DataTable FiltrarCompra(string nombre)
+        public PagedResult<CompraDto> MostrarCompraFiltro(int pagina, int limite, string filtro)
         {
-            string consulta = @"select h.FechaAlta, cd.Descripcion, cd.Cantidad, cd.PrecioUnitario,
-                                    cd.PrecioXCantidad, h.DNI, h.Cuit from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra  WHERE (cd.Descripcion LIKE @filtro)";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@filtro", "%" + nombre + "%");
-            Decla.CompraFil.Clear();
-            try
+            if (pagina < 1)
+                pagina = 1;
+            if (limite <= 0) limite = 1;
+
+            int offset = (pagina - 1) * limite;
+            var list = new List<CompraDto>();
+            int total = 0;
+
+            using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
             {
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.CompraFil.Load(reader);
+                conn.Open();
+                //total
+                string sqlCount = @"select COUNT(*) from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra  WHERE (cd.Descripcion LIKE @filtro)";
+                using (SqlCommand cmd = new SqlCommand(sqlCount, conn))
+                {
+                    if(!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
+                   
+                    total = (int)cmd.ExecuteScalar();
+                }
+                //data
+                string sqlData = @"select h.FechaAlta, cd.Descripcion, cd.Cantidad, cd.PrecioUnitario,
+                                    cd.PrecioXCantidad, h.DNI, h.Cuit from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra  WHERE (cd.Descripcion LIKE @filtro) ORDER BY FechaAlta DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(sqlData, conn))
+                {
+                    if(!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        list.Add(new CompraDto
+                        {
+                            FechaAlta = Convert.ToDateTime(reader["FechaAlta"]),
+                            Descripcion = reader["Descripcion"].ToString(),
+                            Cantidad = Convert.ToInt32(reader["Cantidad"]),
+                            PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
+                            PrecioXCantidad = Convert.ToDecimal(reader["PrecioXCantidad"]),
+                            DNI = reader["DNI"].ToString(),
+                            Cuit = reader["Cuit"].ToString()
+                        });
+                    }
+                }
+                return new PagedResult<CompraDto>
+                {
+                    Data = list,
+                    Total = total
+                };
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-            return Decla.CompraFil;
         }
+
         //Metodo que usamos para mostrar la subcategoria en el Cmb
 
         public static DataTable MostrarSubcategoriaBox(string cod)

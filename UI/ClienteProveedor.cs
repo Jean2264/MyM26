@@ -48,8 +48,7 @@ namespace MyM26.screens
                 btn_eliminar.Text = "Eliminar Cliente";
                 btn_ver.Text = "Ver vista";
                 btn_bajas.Text = "Ver bajas";
-                LlenarDtgClientes();
-                CalcularTotalPaginasCliente();
+                MostrarCliente();
             }
             if (Modal == "Proveedor")
             {
@@ -147,26 +146,80 @@ namespace MyM26.screens
             }
         }
 
-        public void LlenarDtgClientes()
+        //CLIENTES
+        public void MostrarCliente()
         {
-            Decla.clienteTab = ClienteDatos.LLenarDtg(paginaActual, registrosPorPagina);
+            ClienteDatos db= new ClienteDatos();
+            var result = db.MostrarCliente(paginaActual, registrosPorPagina);
 
-            dataGridView1.DataSource = Decla.clienteTab;
+            if (result == null) return;
 
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            label1.Text = $"Total registros: {result.Total}";
+            filtroCliente = false;
         }
 
-
-        private void CalcularTotalPaginasCliente()
+        public void MostrarClienteFiltro(string cuit)
         {
             ClienteDatos db = new ClienteDatos();
-            int totalRegistros = db.ObtenerTotalClientes();
-            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
+            var result = db.MostrarClienteFiltro(paginaActual, registrosPorPagina, cuit);
+            if (result.Total == 0)
+            {
+                MostrarCliente();
+                MessageBox.Show("No se encontraron resultados para el filtro ingresado.");
+                return;
+            }
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
             lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-            btn_siguente.Enabled = paginaActual < TotalPaginas;
             btn_anterior.Enabled = paginaActual > 1;
-            label1.Text = $"Total de clientes: {totalRegistros}";
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            label1.Text = $"Total registros: {result.Total}";
+            filtroCliente = true;
         }
 
+
+        //PROVEEDORES
+        public void MostrarProveedor()
+        {
+            ProveedorDatos db = new ProveedorDatos();
+            var result = db.GetProveedor(paginaActual, registrosPorPagina);
+            if (result == null) return;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            label1.Text = $"Total registros: {result.Total}";
+            filtroProveedor = false;
+        }
+
+        public void MostrarProveedorFiltro(string cuit)
+        {
+            ProveedorDatos db = new ProveedorDatos();
+            var result = db.GetProveedorFiltro(paginaActual, registrosPorPagina, cuit);
+            if (result.Total == 0)
+            {
+                MostrarProveedor();
+                MessageBox.Show("No se encontraron resultados para el filtro ingresado.");
+                return;
+            }
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            label1.Text = $"Total registros: {result.Total}";
+            filtroProveedor = true;
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -238,7 +291,7 @@ namespace MyM26.screens
                             " ( CUIT: " + cda2 + ")";
             ClienteDatos datos = new ClienteDatos();
             datos.AltaHistoricoCompleto(cliente);
-            LlenarDtgClientes();
+           MostrarCliente();
         }
 
         public void EliminarProveedor()
@@ -287,14 +340,7 @@ namespace MyM26.screens
 
         }
 
-        public void BuscarCliente(string cuit)
-        {
-
-            /*      dataGridView1.DataSource = Consultas.FiltroArt(Nombre);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;*/
-            dataGridView1.DataSource = ClienteDatos.FiltrarCliente(cuit);
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
+     
 
 
 
@@ -304,11 +350,11 @@ namespace MyM26.screens
             string cuit = txt_buscar.Text.Trim();
             if (Modal == "Clientes")
             {
-                BuscarCliente(cuit);
+               MostrarClienteFiltro(cuit);
             }
             if (Modal == "Proveedor")
             {
-                BuscarProveedor(cuit);
+                MostrarProveedorFiltro(cuit);
             }
 
         }
@@ -350,27 +396,39 @@ namespace MyM26.screens
                 if (paginaActual < TotalPaginas)
                 {
                     paginaActual++;
-                    LlenarDtgClientes();
+                    if (!filtroCliente)
+                    {
+                        MostrarCliente();
+                    }
+                    else if (filtroCliente)
+                    {
+                        if (!string.IsNullOrWhiteSpace(txt_buscar.Text))
+                        {
+                            MostrarClienteFiltro(txt_buscar.Text.Trim());
+                        }
+                    }
                 }
                 else if (Modal == "Proveedor")
                 {
                     if (paginaActual < TotalPaginas)
                     {
                         paginaActual++;
-                        if (m == "pd")
+                        if (!filtroProveedor)
                         {
                             mostrarProveedor();
                         }
-                        else if (m == "pf")
+                        else if (filtroProveedor)
                         {
-
+                            if (!string.IsNullOrWhiteSpace(txt_buscar.Text))
+                            {
+                                MostrarProveedorFiltro(txt_buscar.Text.Trim());
+                            }
                         }
                     }
-                }
 
+                }
             }
         }
-
         private void btn_anterior_Click(object sender, EventArgs e)
         {
             if (Modal == "Clientes")
@@ -378,7 +436,17 @@ namespace MyM26.screens
                 if (paginaActual > 1)
                 {
                     paginaActual--;
-                    LlenarDtgClientes();
+                    if(!filtroCliente)
+                    {
+                        MostrarCliente();
+                    }
+                    else if (filtroCliente)
+                    {
+                        if (!string.IsNullOrWhiteSpace(txt_buscar.Text))
+                        {
+                            MostrarClienteFiltro(txt_buscar.Text.Trim());
+                        }
+                    }
                 }
             }
             else if (Modal == "Proveedor")
@@ -431,6 +499,13 @@ namespace MyM26.screens
             if (e.Control && e.Alt && e.KeyCode == Keys.Q)
             {
                 e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+
+            if(e.KeyCode == Keys.Enter)
+            {
+                btn_buscar.PerformClick();
+                e.SuppressKeyPress=true;
                 e.Handled = true;
             }
         }

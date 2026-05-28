@@ -25,49 +25,7 @@ namespace MyM26.DAL
         public string Telefono { get => _telefono; set => _telefono = value; }
         public string Mail { get => _mail; set => _mail = value; }
         public string Entidad { get => _entidad; set => _entidad = value; }
-        public static DataTable LLenarDtg(int paginaActual, int registrosPorPagina)
-        {
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registrosPorPagina;
-             string consulta = @"SELECT Nombre, Entidad, Cuit, Telefono, Mail
-                   FROM Cliente
-                  WHERE Estado = 1 AND EsGenerico = 0
-                   ORDER BY Nombre
-                   OFFSET @offset ROWS
-                   FETCH NEXT @limite ROWS ONLY";
-           
-
-         
-
-            SqlConnection cn = new SqlConnection(Decla.ConnectionString);
-            SqlCommand cmd = new SqlCommand(consulta, cn);
-
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
-            Decla.clienteTab.Clear();
-
-            try
-            {
-                cn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.clienteTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error al cargar los datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (cn.State == ConnectionState.Open)
-                {
-                    cn.Close();
-                }
-            }
-
-            return Decla.clienteTab;
-
-        }
+      
 
         //PAGINADO
         public PagedResult<ClienteDto> MostrarCliente(int pagina, int limite)
@@ -139,8 +97,54 @@ namespace MyM26.DAL
                 conn.Open();
 
                 //Total
-                string where = "";
+                string where = "WHERE Estado = 1 AND EsGenerico = 0";
+                if (!string.IsNullOrEmpty(filtro))
+                {
+                    where += " AND (Nombre LIKE @filtro OR Entidad LIKE @filtro OR Cuit LIKE @filtro OR Telefono LIKE @filtro OR Mail LIKE @filtro)";
+                }
+                
+                string queryCount = $"SELECT COUNT(*) FROM Cliente {where}";
+                using (SqlCommand cmdCount = new SqlCommand(queryCount, conn))
+                {
+                    if(!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmdCount.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
 
+                    total = (int)cmdCount.ExecuteScalar();
+                }
+
+                //data
+                string queryData = $@"SELECT Nombre, Entidad, Cuit, Telefono, Mail
+                   FROM Cliente
+                  {where}
+                   ORDER BY Nombre
+                   OFFSET @offset ROWS
+                   FETCH NEXT @limite ROWS ONLY";
+
+                using(SqlCommand cmd= new SqlCommand(queryData, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    }
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ClienteDto
+                            {
+                                Nombre = reader["Nombre"].ToString(),
+                                Entidad = reader["Entidad"].ToString(),
+                                Cuit = reader["Cuit"].ToString(),
+                                Telefono = reader["Telefono"].ToString(),
+                                Mail = reader["Mail"].ToString()
+                            });
+                        }
+                    }
+                }
             }
 
             return new PagedResult<ClienteDto>
@@ -373,54 +377,7 @@ namespace MyM26.DAL
             return cliente;
         }
 
-        public static DataTable FiltrarCliente( string cuit)
-        {
-
-            string consulta = "select Nombre, Entidad, Cuit, Telefono, Mail from Cliente WHERE (Nombre LIKE @cuit OR Cuit LIKE @cuit) and Estado=1 AND EsGenerico=0";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@cuit", "%" + cuit + "%");
-
-            try
-            {
-                
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                Decla.ClienteFilTab.Clear();
-
-                               da.Fill(Decla.ClienteFilTab);
-
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Error al filtrar el cliente: " + ex.Message.ToString());
-            }
-            return Decla.ClienteFilTab;
-        }
-
-        public int ObtenerTotalClientes()
-        {
-            int total = 0;
-
-            string sql = "SELECT COUNT(*) FROM Cliente WHERE Estado = 1";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-
-            try
-            {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-
-            return total;
-        }
+      
 
         public void ReactivarCliente(string cuit)
         {
