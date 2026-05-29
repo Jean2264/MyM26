@@ -231,87 +231,110 @@ namespace MyM26.DAL
         //PARA ARTICULO
 
         //Mostramos articulos
-        public void LlenarContenedor(FlowLayoutPanel Contenedor,
-            Action<string> editarCallBack,
-            Action<string> VerCallBack,
-            Articulos arts, int paginaActual,
-            int registroPorPagina)
+       
+        public PagedResult<ArticuloDto> MostrarArticulo(int pagina, int limite)
         {
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registroPorPagina;
-            string consulta = @"SELECT a.CodigoArticulo, a.Nombre, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad FROM Articulo a 
+            if (pagina < 1)
+                pagina = 1;
+            if (limite <= 0) limite = 1;
+            int offset = (pagina - 1) * limite;
+            var list = new List<ArticuloDto>();
+            int total = 0;
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+                //total
+                string sqlCount = "SELECT COUNT(*) FROM Articulo WHERE Estado=1";
+                using (SqlCommand cmd = new SqlCommand(sqlCount, conn))
+                {
+                    total = (int)cmd.ExecuteScalar();
+                }
+                //data
+                string sqlData = @"SELECT a.CodigoArticulo, a.Nombre, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad FROM Articulo a 
                  INNER JOIN Stock s ON a.CodigoArticulo= s.CodigoArticulo WHERE a.Estado=1 ORDER BY a.Nombre OFFSET @offset ROWS
                     FETCH NEXT @limite ROWS ONLY";
-
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registroPorPagina);
-
-            try
-            {
-                Contenedor.Controls.Clear();
-
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlCommand cmd = new SqlCommand(sqlData, conn))
                 {
-                    _CodArt = reader["CodigoArticulo"].ToString();
-                    _nombre = reader["Nombre"].ToString();
-                    _cantidad = Convert.ToInt32(reader["Cantidad"]);
-                    _precio = Convert.ToDecimal(reader["PrecioUnitario"]);
-                    _pm = Convert.ToDecimal(reader["PrecioXMayor"]);
-
-                    if (reader["Imagen"] != DBNull.Value)
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        _imagen = (byte[])reader["Imagen"];
-                    }
-                    else
-                    {
-                        _imagen = null;
-                    }
-
-                    TarjetaArticulo btn = new TarjetaArticulo();
-
-                    btn.DatoEliminado += () =>
-                    {
-                        arts.LlenarArt();
-                    };
-
-                    btn.Nombre = _nombre;
-                    btn.Cantidad = _cantidad;
-                    btn.PU = _precio;
-                    btn.PM = _pm;
-                    btn.codArt = _CodArt;
-
-                    btn.EditarArt += editarCallBack;
-                    btn.VistaArt += VerCallBack;
-                    if (_imagen != null)
-                    {
-                        using (var ms = new System.IO.MemoryStream(_imagen))
+                        list.Add(new ArticuloDto
                         {
-                            btn.Foto = System.Drawing.Image.FromStream(ms);
-                        }
+                            CodigoArticulo = reader["CodigoArticulo"].ToString(),
+                            Nombre = reader["Nombre"].ToString(),
+                            PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
+                            PrecioXMayor = Convert.ToDecimal(reader["PrecioXMayor"]),
+                            Imagen = reader["Imagen"] != DBNull.Value ? (byte[])reader["Imagen"] : null,
+                            Cantidad = Convert.ToInt32(reader["Cantidad"])
+                        });
                     }
-                    else
-                    {
-                        btn.Foto = null;
-                    }
-                    Contenedor.Controls.Add(btn);
                 }
             }
-            catch (Exception ex)
+            return new PagedResult<ArticuloDto>
             {
-                MessageBox.Show("Error al llenar articulos: " + ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
+                Data = list,
+                Total = total
+            };
         }
 
+
+        //Articulo filtrado
+        public PagedResult<ArticuloDto> MostrarArticuloFiltro(int pagina, int limite, string filtro)
+        {
+            if (pagina < 1)
+                pagina = 1;
+            if (limite <= 0) limite = 1;
+            int offset = (pagina - 1) * limite;
+            var list = new List<ArticuloDto>();
+            int total = 0;
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+                //total
+                string sqlCount = "SELECT COUNT(*) FROM Articulo WHERE Estado=1 AND (Nombre LIKE @filtro OR CodigoBarra LIKE @filtro)";
+                using (SqlCommand cmd = new SqlCommand(sqlCount, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+                    }
+                    total = (int)cmd.ExecuteScalar();
+                }
+                //data
+                string sqlData = @"SELECT a.CodigoArticulo, a.Nombre, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad FROM Articulo a 
+                 INNER JOIN Stock s ON a.CodigoArticulo= s.CodigoArticulo WHERE (a.Nombre LIKE @filtro OR a.CodigoBarra LIKE @filtro) AND  a.Estado=1 ORDER BY a.Nombre OFFSET @offset ROWS
+                    FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(sqlData, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+                    }
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        list.Add(new ArticuloDto
+                        {
+                            CodigoArticulo = reader["CodigoArticulo"].ToString(),
+                            Nombre = reader["Nombre"].ToString(),
+                            PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
+                            PrecioXMayor = Convert.ToDecimal(reader["PrecioXMayor"]),
+                            Imagen = reader["Imagen"] != DBNull.Value ? (byte[])reader["Imagen"] : null,
+                            Cantidad = Convert.ToInt32(reader["Cantidad"])
+                        });
+                    }
+                }
+            }
+            return new PagedResult<ArticuloDto>
+            {
+                Data = list,
+                Total = total
+            };
+        }
         public void ModiArt(VArticulo art, SqlTransaction trans)
         {
 
@@ -612,32 +635,7 @@ namespace MyM26.DAL
             }
         }
 
-        public int ObtenerTotalArt()
-        {
-            int total = 0;
-
-
-            string sql = "SELECT COUNT(*) FROM Articulo WHERE Estado = 1";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-
-            try
-            {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-
-            return total;
-        }
+        
 
         public VArticulo TomarInfo(string cod)
         {
@@ -810,64 +808,7 @@ namespace MyM26.DAL
 
         ///////////////////////PARA FILTRAR ARTICULO
         ///
-        public void FiltrarArt(FlowLayoutPanel Contenedor, string cod)
-        {
-            string consulta = @"SELECT a.CodigoArticulo, a.Nombre, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad FROM Articulo a 
-                 INNER JOIN Stock s ON a.CodigoArticulo= s.CodigoArticulo WHERE (a.Nombre LIKE @filtro OR a.CodigoBarra LIKE @filtro) AND  a.Estado=1 ";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@filtro", "%" + cod + "%");
-            try
-            {
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    _CodArt = reader["CodigoArticulo"].ToString();
-                    _nombre = reader["Nombre"].ToString();
-                    _cantidad = Convert.ToInt32(reader["Cantidad"]);
-                    _precio = Convert.ToDecimal(reader["PrecioUnitario"]);
-                    _pm = Convert.ToDecimal(reader["PrecioXMayor"]);
-
-                    if (reader["Imagen"] != DBNull.Value)
-                    {
-                        _imagen = (byte[])reader["Imagen"];
-                    }
-                    else
-                    {
-                        _imagen = null;
-                    }
-
-                    TarjetaArticulo btn = new TarjetaArticulo();
-                    btn.Nombre = _nombre;
-                    btn.Cantidad = _cantidad;
-                    btn.PU = _precio;
-                    btn.PM = _pm;
-                    btn.codArt = _CodArt;
-                    if (_imagen != null)
-                    {
-                        using (var ms = new System.IO.MemoryStream(_imagen))
-                        {
-                            btn.Foto = System.Drawing.Image.FromStream(ms);
-                        }
-                    }
-                    else
-                    {
-                        btn.Foto = null;
-                    }
-                    Contenedor.Controls.Add(btn);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al llenar articulos: " + ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-        }
+      
 
         public VArticulo traerParaCompra(string cb)
         {

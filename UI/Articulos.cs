@@ -17,13 +17,15 @@ namespace MyM26.screens
         int paginaActual = 1;
         int registrosPorPagina = 10;
         int totalPaginas = 0;
+        bool modoFiltro = false;
+        string filtro;
         public Articulos()
         {
             InitializeComponent();
             Conexion.Conectar();
 
-            LlenarArt();
-            CalcularTotalPaginas();
+           LLenarFlow();
+           
             calculoCantidad();
 
         }
@@ -68,32 +70,71 @@ namespace MyM26.screens
         {
 
         }
-        public void LlenarArt()
+       
+
+       public void LLenarFlow()
         {
-
-
             flowLayoutPanel1.Controls.Clear();
-            ArticuloDatos db = new ArticuloDatos();
 
-            db.LlenarContenedor(flowLayoutPanel1, AbrirEdicionArt, AbrirVista, this, paginaActual, registrosPorPagina);
-            CalcularTotalPaginas();
+            ArticuloDatos db = new ArticuloDatos();
+            var result= db.MostrarArticulo(paginaActual, registrosPorPagina);
+            if (result == null) return;
+
+            foreach(var item in result.Data)
+            {
+                TarjetaArticulo ar= new TarjetaArticulo();
+                ar.SetDta(item);
+                ar.EditarArt += AbrirEdicionArt;
+                ar.VistaArt += AbrirVista;
+                ar.DatoEliminado += () =>
+                {
+                    LLenarFlow();
+                };
+                flowLayoutPanel1.Controls.Add(ar);
+            }
+
+            totalPaginas= (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text = $"Página {paginaActual} / {totalPaginas}";
+            btn_siguente.Enabled = paginaActual < totalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
+            label1.Text = $"Total de articulos: " + result.Total.ToString();
+            modoFiltro = false;
         }
 
-        /* private void AbrirEdicionUsuario(string dni)
+        public void LlenarFlowFiltro(string filtro)
         {
-            UsuarioNegocio un = new UsuarioNegocio();
-            un.Tomarinfo(dni);
+            flowLayoutPanel1.Controls.Clear();
 
-            AMUser us = new AMUser(this);
-            us.DNI = dni;
-            us.Modo = "Modificar";
-            us.StartPosition = FormStartPosition.CenterParent;
-
-            if (us.ShowDialog() == DialogResult.OK)
+            ArticuloDatos db = new ArticuloDatos();
+            var result = db.MostrarArticuloFiltro(paginaActual, registrosPorPagina, filtro);
+            if (result.Total == 0)
             {
-                llenarUser(); // 🔥 refresca
+                LLenarFlow();
+                MessageBox.Show("No se encontraron resultados para la búsqueda.");
+                return;
             }
-        }*/
+
+            foreach (var item in result.Data)
+            {
+                TarjetaArticulo ar = new TarjetaArticulo();
+                ar.SetDta(item);
+                ar.EditarArt += AbrirEdicionArt;
+                ar.VistaArt += AbrirVista;
+                ar.DatoEliminado += () =>
+                {
+                    LLenarFlow();
+                };
+                flowLayoutPanel1.Controls.Add(ar);
+            }
+
+            totalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text = $"Página {paginaActual} / {totalPaginas}";
+            btn_siguente.Enabled = paginaActual < totalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
+            label1.Text = $"Total de articulos: " + result.Total.ToString();
+            modoFiltro = true;
+
+        }
         public void AbrirEdicionArt(string cod)
         {
             ArticuloNegocio neg = new ArticuloNegocio();
@@ -106,7 +147,7 @@ namespace MyM26.screens
 
             if (am.ShowDialog() == DialogResult.OK)
             {
-                LlenarArt();
+                LLenarFlow();
             }
         }
 
@@ -139,38 +180,44 @@ namespace MyM26.screens
 
             if (am.ShowDialog() == DialogResult.OK)
             {
-                LlenarArt();
+                LLenarFlow();
             }
         }
 
-        private void CalcularTotalPaginas()
-        {
-            ArticuloDatos dt = new ArticuloDatos();
-            int totalRegistros = dt.ObtenerTotalArt();
-            totalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
-            lbl_paginas.Text = $"Página {paginaActual} / {totalPaginas}";
-            label1.Text = $"Total de articulos: " + totalRegistros.ToString();
-            btn_siguente.Enabled = paginaActual < totalPaginas;
-            btn_anterior.Enabled = paginaActual > 1;
-
-        }
+     
 
         private void btn_anterior_Click(object sender, EventArgs e)
-        {
+        { filtro= txt_buscar.Text;
 
             if (paginaActual > 1)
             {
                 paginaActual--;
-                LlenarArt();
+                if(!modoFiltro)
+                {
+                    LLenarFlow();
+                }
+                else
+                {
+                    LlenarFlowFiltro(filtro);
+                }
             }
         }
 
         private void btn_siguente_Click(object sender, EventArgs e)
         {
+            filtro = txt_buscar.Text;
+
             if (paginaActual < totalPaginas)
             {
                 paginaActual++;
-                LlenarArt();
+                if (!modoFiltro)
+                {
+                    LLenarFlow();
+                }
+                else
+                {
+                    LlenarFlowFiltro(filtro);
+                }
             }
         }
 
@@ -187,23 +234,11 @@ namespace MyM26.screens
             bj.ShowDialog();
         }
 
-        public void BuscarArt(string cod)
-        {
-
-            flowLayoutPanel1.Controls.Clear();
-            ArticuloDatos dt = new ArticuloDatos();
-
-            dt.FiltrarArt(
-                flowLayoutPanel1,
-                cod);
-
-
-
-        }
+      
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string cod = txt_buscar.Text;
-            BuscarArt(cod);
+            LlenarFlowFiltro(cod);
         }
 
         private void txt_buscar_DragEnter(object sender, DragEventArgs e)
@@ -230,6 +265,11 @@ namespace MyM26.screens
             {
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+               btn_buscar.PerformClick();
             }
         }
 

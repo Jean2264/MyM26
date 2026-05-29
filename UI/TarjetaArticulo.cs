@@ -47,6 +47,21 @@ namespace MyM26.UI
 
         }
 
+        public void SetDta(ArticuloDto art)
+        {
+            Nombre = art.Nombre;
+            PU = art.PrecioUnitario;
+            PM = art.PrecioXMayor;
+            Cantidad = art.Cantidad;
+            codArt = art.CodigoArticulo;
+            if (art.Imagen != null)
+            {
+                using (var ms = new System.IO.MemoryStream(art.Imagen))
+                {
+                    Foto = Image.FromStream(ms);
+                }
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 

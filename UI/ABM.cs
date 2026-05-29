@@ -374,7 +374,7 @@ namespace MyM26.screens
                     {
                         dt.ReactivarArt(cb);
                         MessageBox.Show("Articulo reactivado correctamente.");
-                        ar.LlenarArt();
+                        ar.LLenarFlow();
                         this.Close();
                         return;
                     }
@@ -396,7 +396,7 @@ namespace MyM26.screens
                 ArticuloDatos dat = new ArticuloDatos();
                 dat.AltaCompleto(art);
                 limparCampos();
-                ar.LlenarArt();
+                ar.LLenarFlow();
                 dat.AltaHistoricoCompleto(art);
                 dat.ALtaCompletoIntOutVarios(art);
 
@@ -417,7 +417,7 @@ namespace MyM26.screens
                 ArticuloDatos dt = new ArticuloDatos();
                 dt.ModiCompleto(art);
                 limparCampos();
-                ar.LlenarArt();
+                ar.LLenarFlow();
                 dt.AltaHistoricoCompleto(art);
                 this.Close();
 
@@ -444,7 +444,7 @@ namespace MyM26.screens
                     {
                         dt.ReactivarArt(cb);
                         MessageBox.Show("Articulo reactivado correctamente.");
-                        ar.LlenarArt();
+                        ar.LLenarFlow();
                         this.Close();
                         return;
                     }
