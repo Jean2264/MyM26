@@ -16,6 +16,7 @@ namespace MyM26.UI
         int paginaActual = 1;
         int registrosPorPagina = 37;
         int TotalPaginas = 0;
+        bool filtroActivo = false;
         public Ventas()
         {
             InitializeComponent();
@@ -26,34 +27,41 @@ namespace MyM26.UI
 
         private void Ventas_Load(object sender, EventArgs e)
         {
-            llenarDTG();
+           MostrasVenta();
         }
 
-        private void llenarDTG()
+        private void MostrasVenta()
         {
-            Decla.VentaTab = CajaDatos.MostrarVenta(paginaActual, registrosPorPagina);
-            dataGridView1.DataSource = Decla.VentaTab;
-            CalcularTotalPaginasVentas();
-        }
-        private void CalcularTotalPaginasVentas()
-        {
-            CajaDatos cj = new CajaDatos();
-            int totalRegistros = cj.TotalVenta();
-            TotalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
+            CajaDatos db = new CajaDatos();
+            var result = db.MostrarVenta(paginaActual, registrosPorPagina);
 
+            if (result == null) return;
 
-
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text= $"Página {paginaActual} / {TotalPaginas}";
             btn_siguente.Enabled = paginaActual < TotalPaginas;
             btn_anterior.Enabled = paginaActual > 1;
-            label1.Text = $"Total de ventas: {totalRegistros}";
-            if (dataGridView1.Rows.Count == 0 || (dataGridView1.AllowUserToAddRows && dataGridView1.Rows.Count == 1))
-            {
-                lbl_paginas.Text = $"Página 0/0";
-            }
-            else
-            {
-                lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
-            }
+            label1.Text = $"Total de ventas: {result.Total}";
+
+            filtroActivo = false;
+
+        }
+       
+        public void MostrarVentaFiltrada(DateTime fecha)
+        {
+            CajaDatos db = new CajaDatos();
+            var result = db.MostrarVentaFiltro(paginaActual, registrosPorPagina, fecha);
+            if (result == null) return;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = result.Data;
+            TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
+            lbl_paginas.Text = $"Página {paginaActual} / {TotalPaginas}";
+            btn_siguente.Enabled = paginaActual < TotalPaginas;
+            btn_anterior.Enabled = paginaActual > 1;
+            label1.Text = $"Total de ventas: {result.Total}";
+            filtroActivo = true;
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -63,18 +71,17 @@ namespace MyM26.UI
             vd.StartPosition = FormStartPosition.CenterParent;
             vd.ShowDialog();
         }
-
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DateTime fechaSeleccionada = dateTimePicker1.Value.Date;
-            Decla.VentaFil = CajaDatos.FiltroVenta(paginaActual, registrosPorPagina, fechaSeleccionada);
-            dataGridView1.DataSource = Decla.VentaFil;
-            CalcularTotalPaginasVentas();
+           MostrarVentaFiltrada(fechaSeleccionada);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            llenarDTG();
+            MostrasVenta();
         }
 
         private void btn_siguente_Click(object sender, EventArgs e)
@@ -82,17 +89,28 @@ namespace MyM26.UI
             if (paginaActual < TotalPaginas)
             {
                 paginaActual++;
-                llenarDTG();
+                if(!filtroActivo)
+                    MostrasVenta();
+                else
+                    MostrarVentaFiltrada(dateTimePicker1.Value.Date);
             }
         }
 
         private void btn_anterior_Click(object sender, EventArgs e)
         {
-            if(paginaActual>1)
+            if (paginaActual > 1)
             {
                 paginaActual--;
-                llenarDTG();
+                if(!filtroActivo)
+                    MostrasVenta();
+                else
+                    MostrarVentaFiltrada(dateTimePicker1.Value.Date);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

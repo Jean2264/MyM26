@@ -269,140 +269,189 @@ namespace MyM26.DAL
         }
 
 
+        //VENTA
 
-       public static DataTable MostrarVenta(int pagina, int limite)
+       public PagedResult<VentaDto> MostrarVenta(int pagina, int limite)
         {
             if (pagina < 1)
                 pagina = 1;
             int offset = (pagina - 1) * limite;
-            string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago FROM HVenta
-                                ORDER BY FechaHora DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", limite);
-            Decla.VentaTab.Clear();
+            int Total = 0;
+            var list= new List<VentaDto>();
 
-            try
-            {
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.VentaTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al intentar traer las ventas: " + ex);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-            return Decla.VentaTab;
-        }
-       
 
-        public int TotalVenta()
-        {
-            int total = 0;
-            string sql = "SELECT COUNT(*) FROM HVenta";
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-            try
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
             {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-            return total;
-        }
+                conn.Open();
 
-        /*create table HVentaDetalle
-(
-IdVentaDetalle int not null,
-CodRDetalle varchar(10) unique not null,
-CodRemito varchar(10),
-CodigoArticulo varchar(10),
-Descripcion varchar(100),
-PrecioUnitario decimal(12,2),
-Cantidad int,
-PrecioXCantidad decimal(12,2),
-primary key (IdVentaDetalle),
-foreign key(CodRemito) references HVenta(CodRemito),
-foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
-)*/
-        public static DataTable MostrarVentaDetalle(string cd)
-        {
-            string consulta = @"SELECT Descripcion,CodRDetalle, Cantidad, PrecioXCantidad FROM HVentaDetalle WHERE CodRemito=@cd";
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@cd", cd);
-            Decla.VentaDetTab.Clear();
+                //Total
+                string countQuery = "SELECT COUNT(*) FROM HVenta";
+                using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
+                {
+                    Total = (int)countCmd.ExecuteScalar();
+                }
 
-            try
-            {
-                Decla.cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.VentaDetTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-            return Decla.VentaDetTab;
 
+                string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago FROM HVenta
+                                    ORDER BY FechaHora DESC OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using(SqlCommand cmd= new SqlCommand(consulta, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader= cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new VentaDto
+                            {
+                                FechaHora = Convert.ToDateTime(reader["FechaHora"]),
+                                CodRemito = reader["CodRemito"].ToString(),
+                                DNI = reader["DNI"].ToString(),
+                                Cuit = reader["Cuit"].ToString(),
+                                SubTotal = Convert.ToDecimal(reader["SubTotal"]),
+                                Descuento = Convert.ToDecimal(reader["Descuento"]),
+                                Total = Convert.ToDecimal(reader["Total"]),
+                                TipoComprobante = reader["TipoComprobante"].ToString(),
+                                Factura = reader["Factura"].ToString(),
+                                FormaPago = reader["FormaPago"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+
+           
+          return new PagedResult<VentaDto>
+          {
+              Data = list,
+              Total = Total
+          };
         }
 
 
-        public static DataTable FiltroVenta(int paginaActual, int registrosPorPagina, DateTime fecha)
+
+        public PagedResult<VDetalleDto> MostrarVentaDetalle(int pagina, int limite, string filtro)
+        {
+            if (pagina < 1)
+                pagina = 1;
+            if (limite <= 0)
+                limite = 10;
+            int offset = (pagina - 1) * limite;
+            int Total = 0;
+            var list = new List<VDetalleDto>();
+
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+                //Total
+                string countQuery = @"SELECT COUNT(*) FROM HVentaDetalle WHERE CodRemito=@filtro";
+                using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
+                {
+                    countCmd.Parameters.AddWithValue("@filtro", filtro);
+                    Total = (int)countCmd.ExecuteScalar();
+                }
+
+
+                //data
+
+                string consulta = @"SELECT Descripcion,CodRDetalle, Cantidad, PrecioXCantidad FROM HVentaDetalle WHERE CodRemito=@filtro
+                                        ORDER BY Descripcion OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(consulta, conn))
+                {
+                    if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        cmd.Parameters.AddWithValue("@filtro", filtro);
+                    }
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new VDetalleDto
+                            {
+                                Descripcion = reader["Descripcion"].ToString(),
+                                CodRDetalle = reader["CodRDetalle"].ToString(),
+                                Cantidad = Convert.ToInt32(reader["Cantidad"]),
+                                PrecioXCantidad = Convert.ToDecimal(reader["PrecioXCantidad"])
+                            });
+                        }
+                    }
+                }
+                return new PagedResult<VDetalleDto>
+                {
+                    Data = list,
+                    Total = Total
+                };
+            }
+        }
+
+        public PagedResult<VentaDto> MostrarVentaFiltro(int pagina, int limite, DateTime fecha)
         {
 
-            if (paginaActual < 1)
-                paginaActual = 1;
-            int offset = (paginaActual - 1) * registrosPorPagina;
+            if (pagina < 1)
+                pagina = 1;
+            if(limite<=0)
+                limite = 10;
+            int offset = (pagina - 1) * limite;
+            int Total = 0;
+            var list = new List<VentaDto>();
+            using (SqlConnection conn= new SqlConnection(Decla.ConnectionString))
+               {
+                conn.Open();
 
-            string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago 
+                //Total
+                string countQuery = @"SELECT COUNT(*) FROM HVenta WHERE CAST(FechaHora AS DATE) = @fecha";
+                using (SqlCommand cmd= new SqlCommand(countQuery, conn))
+                {
+                    if(!string.IsNullOrWhiteSpace(fecha.ToString()))
+                    {
+                        cmd.Parameters.AddWithValue("@fecha", fecha.Date);
+                        Total = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+
+                //data
+                string consulta = @"SELECT FechaHora, CodRemito, DNI, Cuit, SubTotal, Descuento, Total, TipoComprobante, Factura, FormaPago 
                         FROM HVenta
                         WHERE CAST(FechaHora AS DATE) = @fecha
                         ORDER BY FechaHora DESC 
                         OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
 
-            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", registrosPorPagina);
-            cmd.Parameters.AddWithValue("@fecha", fecha.Date);
-
-            Decla.VentaFil.Clear();
-
-            try
-            {
-                if (Decla.cnn.State != ConnectionState.Open) Decla.cnn.Open();
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using(SqlCommand cmd= new SqlCommand(consulta, conn))
                 {
-                    Decla.VentaFil.Load(reader);
+                    if (!string.IsNullOrWhiteSpace(fecha.ToString()))
+                    {
+                        cmd.Parameters.AddWithValue("@fecha", fecha.Date);
+                    }
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new VentaDto
+                            {
+                                FechaHora = Convert.ToDateTime(reader["FechaHora"]),
+                                CodRemito = reader["CodRemito"].ToString(),
+                                DNI = reader["DNI"].ToString(),
+                                Cuit = reader["Cuit"].ToString(),
+                                SubTotal = Convert.ToDecimal(reader["SubTotal"]),
+                                Descuento = Convert.ToDecimal(reader["Descuento"]),
+                                Total = Convert.ToDecimal(reader["Total"]),
+                                TipoComprobante = reader["TipoComprobante"].ToString(),
+                                Factura = reader["Factura"].ToString(),
+                                FormaPago = reader["FormaPago"].ToString()
+                            });
+                        }
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al intentar traer las ventas: " + ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-            return Decla.VentaFil;
+           return new PagedResult<VentaDto>
+           {
+               Data = list,
+               Total = Total
+           };
         }
 
         //
