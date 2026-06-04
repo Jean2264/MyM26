@@ -39,6 +39,10 @@
             btn_salir = new Button();
             tabControl1 = new TabControl();
             tabcategoria = new TabPage();
+            label5 = new Label();
+            panel2 = new Panel();
+            txt_buscar = new TextBox();
+            btn_buscar = new Button();
             lbl_total_cat = new Label();
             btn_sig_cat = new Button();
             lbl_pag_cat = new Label();
@@ -49,35 +53,37 @@
             btn_añadirCate = new Button();
             txt_cate = new TextBox();
             tabSub = new TabPage();
+            label6 = new Label();
+            panel3 = new Panel();
+            textBox1 = new TextBox();
+            button1 = new Button();
             lbl_total = new Label();
             btn_siguente = new Button();
             lbl_paginas = new Label();
             btn_anterior = new Button();
             label4 = new Label();
             cmb_cate = new ComboBox();
+            dtg_Subcate = new DataGridView();
             label3 = new Label();
             btn_eliminarSub = new Button();
             btn_añadirSub = new Button();
             txt_sub = new TextBox();
+            tabDescuentos = new TabPage();
             errorProvider1 = new ErrorProvider(components);
-            panel2 = new Panel();
-            txt_buscar = new TextBox();
-            btn_buscar = new Button();
-            label5 = new Label();
-            dtg_Subcate = new DataGridView();
-            label6 = new Label();
-            panel3 = new Panel();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            lbl_descripcion = new Label();
+            btn_editarDesc = new Button();
+            textBox2 = new TextBox();
+            label7 = new Label();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabcategoria.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtg_Cate).BeginInit();
             tabSub.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtg_Subcate).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtg_Subcate).BeginInit();
+            tabDescuentos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -100,9 +106,8 @@
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(7, 8);
             label1.Name = "label1";
-            label1.Size = new Size(191, 20);
+            label1.Size = new Size(0, 20);
             label1.TabIndex = 24;
-            label1.Text = "Categorias y subcategorias";
             // 
             // btn_salir
             // 
@@ -110,7 +115,7 @@
             btn_salir.BackgroundImageLayout = ImageLayout.Stretch;
             btn_salir.FlatAppearance.BorderSize = 0;
             btn_salir.FlatStyle = FlatStyle.Flat;
-            btn_salir.Location = new Point(389, 5);
+            btn_salir.Location = new Point(498, 5);
             btn_salir.Margin = new Padding(3, 4, 3, 4);
             btn_salir.Name = "btn_salir";
             btn_salir.Size = new Size(17, 20);
@@ -122,6 +127,7 @@
             // 
             tabControl1.Controls.Add(tabcategoria);
             tabControl1.Controls.Add(tabSub);
+            tabControl1.Controls.Add(tabDescuentos);
             tabControl1.Location = new Point(6, 35);
             tabControl1.Margin = new Padding(3, 4, 3, 4);
             tabControl1.Name = "tabControl1";
@@ -151,6 +157,51 @@
             tabcategoria.Size = new Size(503, 598);
             tabcategoria.TabIndex = 0;
             tabcategoria.Text = "Categoria";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(7, 130);
+            label5.Name = "label5";
+            label5.Size = new Size(122, 20);
+            label5.TabIndex = 42;
+            label5.Text = "Buscar categoria";
+            // 
+            // panel2
+            // 
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(txt_buscar);
+            panel2.Controls.Add(btn_buscar);
+            panel2.Location = new Point(5, 153);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(259, 38);
+            panel2.TabIndex = 41;
+            // 
+            // txt_buscar
+            // 
+            txt_buscar.BorderStyle = BorderStyle.None;
+            txt_buscar.Dock = DockStyle.Fill;
+            txt_buscar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_buscar.Location = new Point(0, 0);
+            txt_buscar.Multiline = true;
+            txt_buscar.Name = "txt_buscar";
+            txt_buscar.Size = new Size(228, 36);
+            txt_buscar.TabIndex = 7;
+            // 
+            // btn_buscar
+            // 
+            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
+            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_buscar.Dock = DockStyle.Right;
+            btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.FlatStyle = FlatStyle.Flat;
+            btn_buscar.Location = new Point(228, 0);
+            btn_buscar.Margin = new Padding(3, 4, 3, 4);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(29, 36);
+            btn_buscar.TabIndex = 6;
+            btn_buscar.UseVisualStyleBackColor = true;
             // 
             // lbl_total_cat
             // 
@@ -317,6 +368,51 @@
             tabSub.TabIndex = 1;
             tabSub.Text = "Subcategoria";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(6, 80);
+            label6.Name = "label6";
+            label6.Size = new Size(122, 20);
+            label6.TabIndex = 44;
+            label6.Text = "Buscar categoria";
+            // 
+            // panel3
+            // 
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(button1);
+            panel3.Location = new Point(4, 103);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(259, 38);
+            panel3.TabIndex = 43;
+            // 
+            // textBox1
+            // 
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(0, 0);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(228, 36);
+            textBox1.TabIndex = 7;
+            // 
+            // button1
+            // 
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Dock = DockStyle.Right;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(228, 0);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(29, 36);
+            button1.TabIndex = 6;
+            button1.UseVisualStyleBackColor = true;
+            // 
             // lbl_total
             // 
             lbl_total.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
@@ -326,6 +422,7 @@
             lbl_total.Size = new Size(50, 40);
             lbl_total.TabIndex = 36;
             lbl_total.Text = "\r\nlabel1";
+            lbl_total.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btn_siguente
             // 
@@ -354,6 +451,7 @@
             lbl_paginas.Size = new Size(50, 40);
             lbl_paginas.TabIndex = 34;
             lbl_paginas.Text = "\r\nlabel1";
+            lbl_paginas.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btn_anterior
             // 
@@ -392,6 +490,39 @@
             cmb_cate.Name = "cmb_cate";
             cmb_cate.Size = new Size(183, 28);
             cmb_cate.TabIndex = 31;
+            // 
+            // dtg_Subcate
+            // 
+            dtg_Subcate.AllowUserToResizeColumns = false;
+            dtg_Subcate.AllowUserToResizeRows = false;
+            dtg_Subcate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtg_Subcate.BackgroundColor = Color.White;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(61, 100, 255);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dtg_Subcate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dtg_Subcate.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtg_Subcate.EnableHeadersVisualStyles = false;
+            dtg_Subcate.ImeMode = ImeMode.On;
+            dtg_Subcate.Location = new Point(3, 144);
+            dtg_Subcate.Margin = new Padding(3, 4, 3, 4);
+            dtg_Subcate.Name = "dtg_Subcate";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 125, 255);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dtg_Subcate.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dtg_Subcate.RowHeadersVisible = false;
+            dtg_Subcate.RowHeadersWidth = 51;
+            dtg_Subcate.Size = new Size(497, 397);
+            dtg_Subcate.TabIndex = 30;
             // 
             // label3
             // 
@@ -442,132 +573,69 @@
             txt_sub.Size = new Size(183, 31);
             txt_sub.TabIndex = 26;
             // 
+            // tabDescuentos
+            // 
+            tabDescuentos.BackColor = Color.White;
+            tabDescuentos.Controls.Add(label7);
+            tabDescuentos.Controls.Add(textBox2);
+            tabDescuentos.Controls.Add(btn_editarDesc);
+            tabDescuentos.Controls.Add(lbl_descripcion);
+            tabDescuentos.Location = new Point(4, 29);
+            tabDescuentos.Name = "tabDescuentos";
+            tabDescuentos.Padding = new Padding(3);
+            tabDescuentos.Size = new Size(503, 598);
+            tabDescuentos.TabIndex = 2;
+            tabDescuentos.Text = "Descuentos";
+            // 
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
             // 
-            // panel2
+            // lbl_descripcion
             // 
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(txt_buscar);
-            panel2.Controls.Add(btn_buscar);
-            panel2.Location = new Point(5, 153);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(259, 38);
-            panel2.TabIndex = 41;
+            lbl_descripcion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lbl_descripcion.AutoSize = true;
+            lbl_descripcion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lbl_descripcion.Location = new Point(95, 26);
+            lbl_descripcion.Name = "lbl_descripcion";
+            lbl_descripcion.Size = new Size(273, 28);
+            lbl_descripcion.TabIndex = 0;
+            lbl_descripcion.Text = "Descuento general por socio";
             // 
-            // txt_buscar
+            // btn_editarDesc
             // 
-            txt_buscar.BorderStyle = BorderStyle.None;
-            txt_buscar.Dock = DockStyle.Fill;
-            txt_buscar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_buscar.Location = new Point(0, 0);
-            txt_buscar.Multiline = true;
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(228, 36);
-            txt_buscar.TabIndex = 7;
+            btn_editarDesc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btn_editarDesc.BackColor = Color.FromArgb(32, 0, 130);
+            btn_editarDesc.FlatStyle = FlatStyle.Flat;
+            btn_editarDesc.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_editarDesc.ForeColor = Color.White;
+            btn_editarDesc.Location = new Point(137, 189);
+            btn_editarDesc.Margin = new Padding(3, 4, 3, 4);
+            btn_editarDesc.Name = "btn_editarDesc";
+            btn_editarDesc.Size = new Size(180, 37);
+            btn_editarDesc.TabIndex = 28;
+            btn_editarDesc.Text = "Editar descunto";
+            btn_editarDesc.UseVisualStyleBackColor = false;
             // 
-            // btn_buscar
+            // textBox2
             // 
-            btn_buscar.BackgroundImage = (Image)resources.GetObject("btn_buscar.BackgroundImage");
-            btn_buscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_buscar.Dock = DockStyle.Right;
-            btn_buscar.FlatAppearance.BorderSize = 0;
-            btn_buscar.FlatStyle = FlatStyle.Flat;
-            btn_buscar.Location = new Point(228, 0);
-            btn_buscar.Margin = new Padding(3, 4, 3, 4);
-            btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(29, 36);
-            btn_buscar.TabIndex = 6;
-            btn_buscar.UseVisualStyleBackColor = true;
+            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBox2.Location = new Point(92, 86);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(285, 27);
+            textBox2.TabIndex = 29;
+            textBox2.TextAlign = HorizontalAlignment.Center;
             // 
-            // label5
+            // label7
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(7, 130);
-            label5.Name = "label5";
-            label5.Size = new Size(122, 20);
-            label5.TabIndex = 42;
-            label5.Text = "Buscar categoria";
-            // 
-            // dtg_Subcate
-            // 
-            dtg_Subcate.AllowUserToResizeColumns = false;
-            dtg_Subcate.AllowUserToResizeRows = false;
-            dtg_Subcate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtg_Subcate.BackgroundColor = Color.White;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(61, 100, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dtg_Subcate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dtg_Subcate.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtg_Subcate.EnableHeadersVisualStyles = false;
-            dtg_Subcate.ImeMode = ImeMode.On;
-            dtg_Subcate.Location = new Point(3, 144);
-            dtg_Subcate.Margin = new Padding(3, 4, 3, 4);
-            dtg_Subcate.Name = "dtg_Subcate";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 125, 255);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dtg_Subcate.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dtg_Subcate.RowHeadersVisible = false;
-            dtg_Subcate.RowHeadersWidth = 51;
-            dtg_Subcate.Size = new Size(497, 397);
-            dtg_Subcate.TabIndex = 30;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(6, 80);
-            label6.Name = "label6";
-            label6.Size = new Size(122, 20);
-            label6.TabIndex = 44;
-            label6.Text = "Buscar categoria";
-            // 
-            // panel3
-            // 
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(button1);
-            panel3.Location = new Point(4, 103);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(259, 38);
-            panel3.TabIndex = 43;
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(0, 0);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(228, 36);
-            textBox1.TabIndex = 7;
-            // 
-            // button1
-            // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Dock = DockStyle.Right;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(228, 0);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(29, 36);
-            button1.TabIndex = 6;
-            button1.UseVisualStyleBackColor = true;
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(92, 123);
+            label7.Name = "label7";
+            label7.Size = new Size(285, 34);
+            label7.TabIndex = 30;
+            label7.Text = "* El descuento se aplicará de forma porcentual.\n  Ejemplo: 5 = 5% de descuento.";
             // 
             // Categorias
             // 
@@ -590,15 +658,17 @@
             tabControl1.ResumeLayout(false);
             tabcategoria.ResumeLayout(false);
             tabcategoria.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtg_Cate).EndInit();
             tabSub.ResumeLayout(false);
             tabSub.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtg_Subcate).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtg_Subcate).EndInit();
+            tabDescuentos.ResumeLayout(false);
+            tabDescuentos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -639,5 +709,10 @@
         private TextBox textBox1;
         private Button button1;
         private DataGridView dtg_Subcate;
+        private TabPage tabDescuentos;
+        private TextBox textBox2;
+        private Button btn_editarDesc;
+        private Label lbl_descripcion;
+        private Label label7;
     }
 }

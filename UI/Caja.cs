@@ -847,6 +847,23 @@ namespace MyM26.screens
                     HorizontalAlignment = Element.ALIGN_RIGHT
                 });
 
+                totales.AddCell(new PdfPCell(new Phrase("DESCUENTO PARCIAL:", fontBold)) { Border = 0 });
+                totales.AddCell(new PdfPCell(new Phrase("$ " + Descuento.ToString("N2"), fontNormal))
+                {
+                    Border = 0,
+                    HorizontalAlignment = Element.ALIGN_RIGHT
+                });
+
+                if(ClienteSeleccionado != "00000000000")
+                {
+                    totales.AddCell(new PdfPCell(new Phrase("DESCUENTO POR SOCIO:", fontBold)) { Border = 0 });
+                    totales.AddCell(new PdfPCell(new Phrase("$ " + Descuento.ToString("N2"), fontNormal))
+                    {
+                        Border = 0,
+                        HorizontalAlignment = Element.ALIGN_RIGHT
+                    });
+                }
+
                 totales.AddCell(new PdfPCell(new Phrase("TOTAL:", fontTotal)) { Border = 0 });
                 totales.AddCell(new PdfPCell(new Phrase("$ " + Total.ToString("N2"), fontTotal))
                 {

@@ -182,6 +182,13 @@ IdHCompraDetalle int not null,
  foreign key (CodigoArticulo) references Articulo (CodigoArticulo)
  )
 
+create table DescuentoCliente
+(
+IdDescuento int not null,
+CodDesc varchar(10) unique not null,
+DescuentoSocio decimal(5,2)-- Por ejemplo, 5.00 significa 5% de descuento
+)
+
 create table HVenta
 (
 IdVenta int not null,
