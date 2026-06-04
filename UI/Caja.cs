@@ -16,6 +16,7 @@ using MyM26.Entidades.Caja;
 using MyM26.UI;
 using MyM26.Querys;
 using MyM26.Entidades.Usuario;
+using MyM26.Entidades.Cliente;
 
 namespace MyM26.screens
 {
@@ -28,6 +29,7 @@ namespace MyM26.screens
         int alto;
         int cantidadProductos;
         private bool modoOscuro = false;
+        string ClienteSeleccionado = "00000000000";
         public Caja()
         {
             InitializeComponent();
@@ -147,7 +149,8 @@ namespace MyM26.screens
             {
                 MessageBox.Show("Articulo no enontrado");
                 dtg_caja.Rows.RemoveAt(e.RowIndex);
-                return; }
+                return;
+            }
 
 
             if (cj.StockDisponible <= 0)
@@ -193,10 +196,11 @@ namespace MyM26.screens
             cmb_pago.SelectedItem = "Efectivo";
 
             //cliente
-            cmb_cliente.DataSource = CajaDatos.ClienteCaja();
-            cmb_cliente.DisplayMember = "NombreCompleto";
-            cmb_cliente.ValueMember = "Cuit";
-            cmb_cliente.SelectedValue = "00000000000";
+            /*  cmb_cliente.DataSource = CajaDatos.ClienteCaja();
+              cmb_cliente.DisplayMember = "NombreCompleto";
+              cmb_cliente.ValueMember = "Cuit";
+              cmb_cliente.SelectedValue = "00000000000";
+            */
 
         }
         public void SumarCantidadExistente(DataGridViewRow fila)
@@ -487,14 +491,14 @@ namespace MyM26.screens
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string filtro = txt_buscar.Text;
-            
-            if(string.IsNullOrWhiteSpace(filtro))
+
+            if (string.IsNullOrWhiteSpace(filtro))
             {
                 MessageBox.Show("EL campo no debe estar vacio al momento de filtrar.");
                 return;
             }
 
-          
+
             BuscarArt ar = new BuscarArt(filtro);
             ar.StartPosition = FormStartPosition.CenterParent;
             if (ar.ShowDialog() == DialogResult.OK)
@@ -535,7 +539,7 @@ namespace MyM26.screens
                 }
                 int index = dtg_caja.Rows.Add();
                 LlenarFila(index, cj);
-              
+
 
             }
 
@@ -608,7 +612,7 @@ namespace MyM26.screens
             venta.FormaPago = cmb_pago.Text;
             venta.Factura = cmb_factura.Text;
             venta.TipoComprobante = cmb_comprobante.Text;
-            venta.Cuit = cmb_cliente.SelectedValue?.ToString();
+            venta.Cuit = ClienteSeleccionado;
             venta.Monto = Total;
             venta.TipoMovimiento = "Alta venta";
             venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc + " (DNI:  " + UsuarioActivo.Datos.DNIAc + ") " + " a generado una venta por un total de" + Total.ToString("N2");
@@ -705,7 +709,7 @@ namespace MyM26.screens
             cmb_comprobante.SelectedItem = "Remito";
             cmb_factura.SelectedItem = "FC";
             cmb_pago.SelectedItem = "Efectivo";
-            cmb_cliente.SelectedValue = "00000000000";
+            // cmb_cliente.SelectedValue = "00000000000";
 
             txt_buscar.Clear();
             txt_desc.Clear();
@@ -868,8 +872,8 @@ namespace MyM26.screens
             }
         }
 
-       
-        
+
+
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -909,18 +913,18 @@ namespace MyM26.screens
                 e.Handled = true;
             }
 
-            if(e.KeyCode== Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
 
-               if(string.IsNullOrWhiteSpace(txt_buscar.Text))
+                if (string.IsNullOrWhiteSpace(txt_buscar.Text))
                 {
                     MessageBox.Show("EL campo no debe quedar vacio al momento de filtrar.");
                     return;
                 }
 
-             btn_buscar.PerformClick();
+                btn_buscar.PerformClick();
 
-                e.Handled= true; e.SuppressKeyPress= true;  
+                e.Handled = true; e.SuppressKeyPress = true;
             }
         }
 
@@ -946,6 +950,56 @@ namespace MyM26.screens
             {
                 e.Handled = true;
             }
+        }
+
+        private void textBox1_MouseEnter(object sender, EventArgs e)
+        {
+            /* if(string.IsNullOrWhiteSpace(textBox1.Text))
+             {
+                 textBox1.Text = "Ingrese un filtro...";
+             } */
+
+        }
+
+        private void btn_AggCliente_Click(object sender, EventArgs e)
+        {
+            btn_AggCliente.Visible = false;
+            lbl_cliente.Text = "Ingrese cliente";
+            txt_cliente.Visible = true;
+            btn_Buscar_cliente.Visible = true;
+
+        }
+
+        private void btn_Buscar_cliente_Click(object sender, EventArgs e)
+        {
+            string filtro = txt_cliente.Text;
+
+             if (string.IsNullOrWhiteSpace(filtro))
+             {
+                 MessageBox.Show("EL campo no debe estar vacio al momento de filtrar.");
+                 return;
+             }
+              CajaNegocio ne= new CajaNegocio();
+              ClientCajaDto cli= ne.ObtenerClientePorCuit(filtro);
+
+             if (cli == null)
+            {
+                lbl_error.Visible = true; 
+                txt_cliente.Clear();
+                txt_cliente.Focus();
+                return;
+            }
+
+             lbl_error.Visible = false;
+
+            lbl_cliente.Visible = true;
+             lbl_cliente.Text = "Cliente:";
+             ClienteSeleccionado = cli.Cuit;
+             txt_cliente.Text = cli.Nombre;
+             btn_AggCliente.Visible = false;
+             btn_Buscar_cliente.Visible = false;
+            
+
         }
     }
 }

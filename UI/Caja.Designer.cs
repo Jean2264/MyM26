@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caja));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -58,8 +59,11 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel3 = new Panel();
-            label3 = new Label();
-            cmb_cliente = new ComboBox();
+            lbl_error = new Label();
+            btn_AggCliente = new Button();
+            btn_Buscar_cliente = new Button();
+            txt_cliente = new TextBox();
+            lbl_cliente = new Label();
             label2 = new Label();
             cmb_pago = new ComboBox();
             label1 = new Label();
@@ -82,6 +86,7 @@
             Subtotal = new DataGridViewTextBoxColumn();
             pdComprobante = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
+            errorProvider1 = new ErrorProvider(components);
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -96,6 +101,7 @@
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_art).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtg_caja).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -514,8 +520,11 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(cmb_cliente);
+            panel3.Controls.Add(lbl_error);
+            panel3.Controls.Add(btn_AggCliente);
+            panel3.Controls.Add(btn_Buscar_cliente);
+            panel3.Controls.Add(txt_cliente);
+            panel3.Controls.Add(lbl_cliente);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(cmb_pago);
             panel3.Controls.Add(label1);
@@ -529,33 +538,78 @@
             panel3.Size = new Size(250, 331);
             panel3.TabIndex = 0;
             // 
-            // label3
+            // lbl_error
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 220);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 20);
-            label3.TabIndex = 35;
-            label3.Text = "Cliente";
+            lbl_error.AutoSize = true;
+            lbl_error.FlatStyle = FlatStyle.Flat;
+            lbl_error.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_error.ForeColor = Color.FromArgb(200, 10, 10);
+            lbl_error.Location = new Point(3, 277);
+            lbl_error.Name = "lbl_error";
+            lbl_error.Size = new Size(161, 20);
+            lbl_error.TabIndex = 39;
+            lbl_error.Text = "Cliente no encontrado";
+            lbl_error.Visible = false;
             // 
-            // cmb_cliente
+            // btn_AggCliente
             // 
-            cmb_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cmb_cliente.BackColor = Color.WhiteSmoke;
-            cmb_cliente.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb_cliente.FormattingEnabled = true;
-            cmb_cliente.Location = new Point(3, 244);
-            cmb_cliente.Margin = new Padding(3, 4, 3, 4);
-            cmb_cliente.Name = "cmb_cliente";
-            cmb_cliente.Size = new Size(240, 28);
-            cmb_cliente.TabIndex = 34;
+            btn_AggCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btn_AggCliente.BackColor = Color.FromArgb(50, 10, 200);
+            btn_AggCliente.FlatAppearance.BorderSize = 0;
+            btn_AggCliente.FlatStyle = FlatStyle.Flat;
+            btn_AggCliente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btn_AggCliente.ForeColor = Color.White;
+            btn_AggCliente.Location = new Point(3, 239);
+            btn_AggCliente.Name = "btn_AggCliente";
+            btn_AggCliente.Size = new Size(241, 29);
+            btn_AggCliente.TabIndex = 36;
+            btn_AggCliente.Text = "Buscar cliente";
+            btn_AggCliente.UseVisualStyleBackColor = false;
+            btn_AggCliente.Click += btn_AggCliente_Click;
+            // 
+            // btn_Buscar_cliente
+            // 
+            btn_Buscar_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btn_Buscar_cliente.BackColor = Color.FromArgb(50, 10, 200);
+            btn_Buscar_cliente.FlatAppearance.BorderSize = 0;
+            btn_Buscar_cliente.FlatStyle = FlatStyle.Flat;
+            btn_Buscar_cliente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btn_Buscar_cliente.ForeColor = Color.White;
+            btn_Buscar_cliente.Location = new Point(3, 297);
+            btn_Buscar_cliente.Name = "btn_Buscar_cliente";
+            btn_Buscar_cliente.Size = new Size(241, 29);
+            btn_Buscar_cliente.TabIndex = 38;
+            btn_Buscar_cliente.Text = "Buscar ";
+            btn_Buscar_cliente.UseVisualStyleBackColor = false;
+            btn_Buscar_cliente.Visible = false;
+            btn_Buscar_cliente.Click += btn_Buscar_cliente_Click;
+            // 
+            // txt_cliente
+            // 
+            txt_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_cliente.Location = new Point(2, 238);
+            txt_cliente.Multiline = true;
+            txt_cliente.Name = "txt_cliente";
+            txt_cliente.Size = new Size(242, 37);
+            txt_cliente.TabIndex = 37;
+            txt_cliente.Visible = false;
+            txt_cliente.MouseEnter += textBox1_MouseEnter;
+            // 
+            // lbl_cliente
+            // 
+            lbl_cliente.AutoSize = true;
+            lbl_cliente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_cliente.Location = new Point(3, 216);
+            lbl_cliente.Name = "lbl_cliente";
+            lbl_cliente.Size = new Size(56, 20);
+            lbl_cliente.TabIndex = 35;
+            lbl_cliente.Text = "Cliente";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(3, 153);
+            label2.Location = new Point(3, 149);
             label2.Name = "label2";
             label2.Size = new Size(113, 20);
             label2.TabIndex = 33;
@@ -567,7 +621,7 @@
             cmb_pago.BackColor = Color.WhiteSmoke;
             cmb_pago.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_pago.FormattingEnabled = true;
-            cmb_pago.Location = new Point(3, 177);
+            cmb_pago.Location = new Point(3, 173);
             cmb_pago.Margin = new Padding(3, 4, 3, 4);
             cmb_pago.Name = "cmb_pago";
             cmb_pago.Size = new Size(240, 28);
@@ -577,7 +631,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 83);
+            label1.Location = new Point(3, 79);
             label1.Name = "label1";
             label1.Size = new Size(112, 20);
             label1.TabIndex = 31;
@@ -589,7 +643,7 @@
             cmb_factura.BackColor = Color.WhiteSmoke;
             cmb_factura.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_factura.FormattingEnabled = true;
-            cmb_factura.Location = new Point(3, 107);
+            cmb_factura.Location = new Point(3, 103);
             cmb_factura.Margin = new Padding(3, 4, 3, 4);
             cmb_factura.Name = "cmb_factura";
             cmb_factura.Size = new Size(240, 28);
@@ -599,7 +653,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 16);
+            label4.Location = new Point(3, 12);
             label4.Name = "label4";
             label4.Size = new Size(156, 20);
             label4.TabIndex = 29;
@@ -611,7 +665,7 @@
             cmb_comprobante.BackColor = Color.WhiteSmoke;
             cmb_comprobante.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_comprobante.FormattingEnabled = true;
-            cmb_comprobante.Location = new Point(1, 40);
+            cmb_comprobante.Location = new Point(1, 36);
             cmb_comprobante.Margin = new Padding(3, 4, 3, 4);
             cmb_comprobante.Name = "cmb_comprobante";
             cmb_comprobante.Size = new Size(243, 28);
@@ -790,6 +844,10 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Caja
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -820,6 +878,7 @@
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_art).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtg_caja).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -844,8 +903,7 @@
         private DataGridView dtg_caja;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel panel3;
-        private Label label3;
-        private ComboBox cmb_cliente;
+        private Label lbl_cliente;
         private Label label2;
         private ComboBox cmb_pago;
         private Label label1;
@@ -878,5 +936,10 @@
         private System.Drawing.Printing.PrintDocument pdComprobante;
         private PrintPreviewDialog printPreviewDialog1;
         private Panel panel7;
+        private Button btn_AggCliente;
+        private Button btn_Buscar_cliente;
+        private TextBox txt_cliente;
+        private Label lbl_error;
+        private ErrorProvider errorProvider1;
     }
 }

@@ -2,6 +2,7 @@
 using MyM26.Entidades;
 using MyM26.Entidades.Articulos;
 using MyM26.Entidades.Caja;
+using MyM26.Entidades.Cliente;
 using MyM26.Entidades.Comun;
 using MyM26.Entidades.Usuario;
 using System;
@@ -64,16 +65,23 @@ namespace MyM26.DAL
             return cj;
         }
 
-        public static DataTable ClienteCaja()
+        public  ClientCajaDto ClienteCaja(string filtro)
         {
-            string consulta = @"SELECT Cuit, Nombre + '-'+ Entidad AS NombreCompleto FROM Cliente WHERE Estado=1;";
+            ClientCajaDto cli = null;
+            string consulta = @"SELECT Cuit, Nombre + '-'+ Entidad AS NombreCompleto FROM Cliente WHERE Estado=1 AND (Cuit LIKE @filtro OR Nombre LIKE @filtro);";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
+            cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
             Decla.ClienteCaja.Clear();
             try
             {
                 Decla.cnn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                Decla.ClienteCaja.Load(reader);
+                while (reader.Read())
+                {
+                    cli = new ClientCajaDto();
+                    cli.Nombre = reader["NombreCompleto"].ToString();
+                    cli.Cuit = reader["Cuit"].ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -85,7 +93,7 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
 
-            return Decla.ClienteCaja;
+            return cli;
         }
 
         public VCaja ArtCajaBuscar(string filtro)
