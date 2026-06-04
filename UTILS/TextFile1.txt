@@ -189,6 +189,9 @@ CodDesc varchar(10) unique not null,
 DescuentoSocio decimal(5,2)-- Por ejemplo, 5.00 significa 5% de descuento
 )
 
+ insert into DescuentoCliente (IdDescuento, CodDesc, DescuentoSocio) values (1, 'DESC1', 05.00);
+select * from DescuentoCliente
+ 
 create table HVenta
 (
 IdVenta int not null,
