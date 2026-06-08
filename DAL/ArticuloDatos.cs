@@ -373,6 +373,7 @@ namespace MyM26.DAL
                     ModiStock(art, trans);
 
                     trans.Commit();
+                }
                 catch (Exception)
                 {
                     trans.Rollback();
