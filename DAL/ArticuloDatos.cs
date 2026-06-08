@@ -359,7 +359,7 @@ namespace MyM26.DAL
             cmd.Parameters.AddWithValue("@gan", ganancia);
             cmd.ExecuteNonQuery();
         }
-
+        
         public void ModiCompleto(VArticulo art)
         {
             try
@@ -373,7 +373,6 @@ namespace MyM26.DAL
                     ModiStock(art, trans);
 
                     trans.Commit();
-                }
                 catch (Exception)
                 {
                     trans.Rollback();
