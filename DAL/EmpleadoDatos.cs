@@ -191,7 +191,7 @@ namespace MyM26.DAL
                 using(SqlCommand cmd= new SqlCommand(queryData, conn))
                 {
                     cmd.Parameters.Add("@offset", SqlDbType.Int).Value = offset;
-                    cmd.Parameters.Add("@limite", SqlDbType.Int).Value = total;
+                    cmd.Parameters.Add("@limite", SqlDbType.Int).Value = limite;
 
                     using(SqlDataReader  reader = cmd.ExecuteReader())
                     {
@@ -224,7 +224,7 @@ namespace MyM26.DAL
             if (limite <= 0) limite = 10;
 
             var lis = new List<EmpleadoDto>();
-            int total = 0;
+            int total = 0; 
             int offset = (pagina - 1) * limite;
             using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
             {
