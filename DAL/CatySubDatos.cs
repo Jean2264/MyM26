@@ -1,4 +1,5 @@
-﻿using MyM26.Entidades.CatySub;
+﻿using MyM26.Entidades;
+using MyM26.Entidades.CatySub;
 using MyM26.Entidades.Cliente;
 using MyM26.Entidades.Comun;
 using MyM26.Entidades.Usuario;
@@ -101,70 +102,118 @@ namespace MyM26.DAL
             }
         }
 
-        //Treamos info de la categoria
-        public static DataTable TraerCat(int PaginaActual, int RegistrosPorPagina)
+        //CATEGORIA PARA MOSTRAR EN EL DATAGRIDVIEW
+        public PagedResult<CategoriaDto> MostrarCategoria(int pagina, int limite)
         {
-            if (PaginaActual < 1)
-                PaginaActual = 1;
 
-            int offset = (PaginaActual - 1) * RegistrosPorPagina;
-            string consulta = "select CodCategoria, Categoria from Categoria where Estado=1 ORDER BY  Categoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+            if (pagina < 1)
+                pagina = 1;
 
-            SqlConnection cn = new SqlConnection(Decla.ConnectionString);
-            SqlCommand cmd = new SqlCommand(consulta, cn);
-
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", RegistrosPorPagina);
-            Decla.CatTab.Clear();
-
-            try
+            int offset = (pagina - 1) * limite;
+            int total = 0;
+            var list = new List<CategoriaDto>();
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
             {
-                cn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.CatTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al traer categorias: " + ex.Message);
-            }
-            finally
-            {
-                if (cn.State == ConnectionState.Open)
+
+                conn.Open();
+
+                string countQuery = "SELECT COUNT(*) FROM Categoria WHERE Estado=1";
+                using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
                 {
-                    cn.Close();
+                    total = (int)countCmd.ExecuteScalar();
+                }
+
+                string consulta = @"select CodCategoria, Categoria from Categoria where 
+                                    Estado=1 ORDER BY  Categoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(consulta, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new CategoriaDto
+                            {
+                                CodCategoria = reader["CodCategoria"].ToString(),
+                                Categoria = reader["Categoria"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            return new PagedResult<CategoriaDto>
+            {
+                Data = list,
+                Total = total
+            };
+        }
+
+        //CATEGORIA PARA FILTRAR EN EL DATAGRIDVIEW
+        public PagedResult<CategoriaDto> MostrarCategoriaFiltro(int pagina, int limite, string filtro)
+        {
+            if (pagina < 1) pagina = 1;
+            if (limite <= 0) limite = 10;
+            int offset = (pagina - 1) * limite;
+            int total = 0;
+            var list = new List<CategoriaDto>();
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+
+                string countQuery = "Select COUNT(*) FROM Categoria WHERE Estado=1 AND Categoria LIKE @filtro";
+                using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
+                {
+                    countCmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    total = (int)countCmd.ExecuteScalar();
+                }
+
+                // Consulta SQL para obtener categorías filtradas y paginadas:
+                // - Selecciona CodCategoria y Categoria desde la tabla Categoria
+                // - Filtra los registros con Estado = 1 y los que coinciden con el patrón @filtro (LIKE)
+                // - Ordena por la columna Categoria
+                // - Aplica paginación usando OFFSET @offset ROWS y FETCH NEXT @limite ROWS ONLY
+                //   - OFFSET @offset ROWS: salta las primeras @offset filas del conjunto ordenado.
+                //     Normalmente @offset = (pagina - 1) * limite.
+                //   - FETCH NEXT @limite ROWS ONLY: después del salto, devuelve las siguientes @limite filas.
+                //   - Ejemplo: pagina=1, limite=10 => OFFSET 0 FETCH NEXT 10 => filas 1..10.
+                //              pagina=2, limite=10 => OFFSET 10 FETCH NEXT 10 => filas 11..20.
+                //   - Requiere una cláusula ORDER BY válida; sin ORDER BY la paginación no es determinista.
+                //   - Si OFFSET es mayor que el total de filas, la consulta devuelve 0 filas.
+                //   - Parámetros (@offset, @limite) deben ser enteros no negativos.
+                //   - Para desplazamientos muy grandes (offsets altos) puede ser más eficiente
+                //     usar paginación por clave (keyset pagination) en lugar de OFFSET/FETCH.
+                //
+                string Consulta = @"select CodCategoria, Categoria FROM Categoria WHERE Estado=1 AND Categoria 
+                                    LIKE @filtro ORDER BY Categoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(Consulta, conn))
+                {
+                    string mensaje = "HOLA, saludameeeeeee";
+                    cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new CategoriaDto
+                            {
+                                CodCategoria = reader["CodCategoria"].ToString(),
+                                Categoria = reader["Categoria"].ToString()
+                            });
+                        }
+                    }
                 }
             }
 
-            return Decla.CatTab;
+            return new PagedResult<CategoriaDto>
+            {
+                Data = list,
+                Total = total
+            };
         }
 
-        //Obtener total categorias
 
-        public int ObtenerTotalCategorias()
-        {
-            int total = 0;
-
-            string sql = "SELECT COUNT(*) FROM Categoria WHERE Estado = 1";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-
-            try
-            {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-
-            return total;
-        }
 
 
         //TODO DE SUBCATEGORIA
@@ -200,9 +249,9 @@ namespace MyM26.DAL
             cmd.Parameters.AddWithValue("@CodSubcategoria", subcat.CodSubcategoria);
             cmd.Parameters.AddWithValue("@Subcategoria", subcat.Subcategoria);
             cmd.Parameters.AddWithValue("@CodCategoria", subcat.CodCatRef);
-           
-                cmd.ExecuteNonQuery();
-           
+
+            cmd.ExecuteNonQuery();
+
         }
 
 
@@ -215,7 +264,7 @@ namespace MyM26.DAL
 
             using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans))
             {
-              
+
                 cat.UltimoIdMov = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
@@ -293,7 +342,7 @@ namespace MyM26.DAL
                 catch (Exception ex)
                 {
                     trans.Rollback();
-                    MessageBox.Show("erro: "+ex);
+                    MessageBox.Show("erro: " + ex);
                     throw;
                 }
             }
@@ -329,68 +378,95 @@ namespace MyM26.DAL
             }
         }
 
-        //Treamos info de la Subcategoria
-        public static DataTable TraerSubcat(int PaginaActual, int RegistrosPorPagina)
+        //SUBCATEGORIA PARA MOSTRAR EN EL DATAGRIDVIEW
+        public PagedResult<SubcategoriaDto> MostrarSubcategoria(int pagina, int limite)
         {
-            if (PaginaActual < 1)
-                PaginaActual = 1;
+            if (pagina < 1)
+                pagina = 1;
 
-            int offset = (PaginaActual - 1) * RegistrosPorPagina;
-            string consulta = "select CodSubcategoria, Subcategoria from Subcategoria where Estado=1 ORDER BY  Subcategoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
-
-            SqlConnection cn = new SqlConnection(Decla.ConnectionString);
-            SqlCommand cmd = new SqlCommand(consulta, cn);
-
-            cmd.Parameters.AddWithValue("@offset", offset);
-            cmd.Parameters.AddWithValue("@limite", RegistrosPorPagina);
-            Decla.SubCatTab.Clear();
-
-            try
+            int offset = (pagina - 1) * limite;
+            int total = 0;
+            var list = new List<SubcategoriaDto>();
+            using (SqlConnection conn = new SqlConnection((Decla.ConnectionString)))
             {
-                cn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                Decla.SubCatTab.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudo traer las subcategorias", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (cn.State == ConnectionState.Open)
+                conn.Open();
+                string countQuery = "SELECT COUNT(*) FROM Subcategoria WHERE Estado=1";
+                using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
                 {
-                    cn.Close();
+                    total = (int)countCmd.ExecuteScalar();
+                }
+                string consulta = @"select CodSubcategoria, Subcategoria from Subcategoria where 
+                                    Estado=1 ORDER BY  Subcategoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(consulta, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new SubcategoriaDto
+                            {
+                                CodSubcategoria = reader["CodSubcategoria"].ToString(),
+                                Subcategoria = reader["Subcategoria"].ToString()
+                            });
+                        }
+                    }
                 }
             }
-
-            return Decla.SubCatTab;
+            return new PagedResult<SubcategoriaDto>
+            {
+                Data = list,
+                Total = total
+            };
         }
 
-        public int ObtenerTotalSubcategorias()
+        //SUBCATEGORIA PARA FILTRAR EN EL DATAGRIDVIEW
+        public PagedResult<SubcategoriaDto> MostrarSubcategoriaFiltrada(int pagina, int limite, string filtro)
         {
+            if (pagina < 1)
+                pagina = 1;
+
+            int offset = (pagina - 1) * limite;
             int total = 0;
-
-            string sql = "SELECT COUNT(*) FROM Subcategoria WHERE Estado = 1";
-
-            SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
-
-            try
+            var list = new List<SubcategoriaDto>();
+            using (SqlConnection conn = new SqlConnection((Decla.ConnectionString)))
             {
-                Decla.cnn.Open();
-                total = (int)cmd.ExecuteScalar();
+                conn.Open();
+                string countQuery = "SELECT COUNT(*) FROM Subcategoria WHERE Estado=1 AND Subcategoria LIKE @filtro";
+                using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
+                {
+                    countCmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    total = (int)countCmd.ExecuteScalar();
+                }
+                string consulta = @"select CodSubcategoria, Subcategoria from Subcategoria where 
+                                    Estado=1 AND Subcategoria LIKE @filtro ORDER BY  Subcategoria OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+                using (SqlCommand cmd = new SqlCommand(consulta, conn))
+                {
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    cmd.Parameters.AddWithValue("@filtro", $"%{filtro}%");
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new SubcategoriaDto
+                            {
+                                CodSubcategoria = reader["CodSubcategoria"].ToString(),
+                                Subcategoria = reader["Subcategoria"].ToString()
+                            });
+                        }
+                    }
+                }
             }
-            catch (Exception ex)
+            return new PagedResult<SubcategoriaDto>
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-
-            return total;
+                Data = list,
+                Total = total
+            };
         }
+
+
 
         //Metodo que usamos para mostrar la categoria en el Cmb
         public static DataTable MostrarCategoriaBox()
@@ -414,7 +490,50 @@ namespace MyM26.DAL
                     Decla.cnn.Close();
             }
             return Decla.CategoriaBox;
-         
+
+
+        }
+
+        //PARA DESCUENTOS  
+        public int Descuento()
+        {
+            int total = 0;
+
+
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+                string consulta = "SELECT DescuentoSocio FROM DescuentoCliente";
+                using (SqlCommand cmd = new SqlCommand(consulta, conn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result == DBNull.Value)
+                    {
+                        total = 0;
+
+                    }
+                    else
+                    {
+                        total = Convert.ToInt32(result);
+                    }
+                }
+
+                return total;
+            }
+        }
+
+        public void ModificarDescuento(int nuevoDescuento)
+        {
+            string consulta = "UPDATE DescuentoCliente SET DescuentoSocio = @nuevoDescuento";
+            using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(consulta, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nuevoDescuento", nuevoDescuento);
+                    cmd.ExecuteNonQuery();
+                }
+            }
 
         }
     }

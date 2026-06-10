@@ -55,7 +55,7 @@
             tabSub = new TabPage();
             label6 = new Label();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            txt_buscar_sub = new TextBox();
             button1 = new Button();
             lbl_total = new Label();
             btn_siguente = new Button();
@@ -69,11 +69,12 @@
             btn_añadirSub = new Button();
             txt_sub = new TextBox();
             tabDescuentos = new TabPage();
-            errorProvider1 = new ErrorProvider(components);
-            lbl_descripcion = new Label();
-            btn_editarDesc = new Button();
-            textBox2 = new TextBox();
+            txt_descuento = new TextBox();
+            label8 = new Label();
             label7 = new Label();
+            btn_editarDesc = new Button();
+            lbl_descripcion = new Label();
+            errorProvider1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabcategoria.SuspendLayout();
@@ -157,6 +158,7 @@
             tabcategoria.Size = new Size(503, 598);
             tabcategoria.TabIndex = 0;
             tabcategoria.Text = "Categoria";
+            tabcategoria.Click += tabcategoria_Click;
             // 
             // label5
             // 
@@ -182,12 +184,16 @@
             // 
             txt_buscar.BorderStyle = BorderStyle.None;
             txt_buscar.Dock = DockStyle.Fill;
-            txt_buscar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txt_buscar.Font = new Font("Segoe UI", 14F);
             txt_buscar.Location = new Point(0, 0);
             txt_buscar.Multiline = true;
             txt_buscar.Name = "txt_buscar";
             txt_buscar.Size = new Size(228, 36);
             txt_buscar.TabIndex = 7;
+            txt_buscar.DragEnter += txt_buscar_sub_DragEnter;
+            txt_buscar.KeyDown += txt_buscar_KeyDown;
+            txt_buscar.KeyPress += txt_buscar_KeyPress;
+            txt_buscar.MouseDown += txt_buscar_sub_MouseDown;
             // 
             // btn_buscar
             // 
@@ -202,16 +208,19 @@
             btn_buscar.Size = new Size(29, 36);
             btn_buscar.TabIndex = 6;
             btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
+            btn_buscar.KeyDown += btn_buscar_KeyDown;
+            btn_buscar.KeyPress += btn_buscar_KeyPress;
             // 
             // lbl_total_cat
             // 
             lbl_total_cat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             lbl_total_cat.AutoSize = true;
-            lbl_total_cat.Location = new Point(346, 549);
+            lbl_total_cat.Location = new Point(346, 561);
             lbl_total_cat.Name = "lbl_total_cat";
-            lbl_total_cat.Size = new Size(50, 40);
+            lbl_total_cat.Size = new Size(50, 20);
             lbl_total_cat.TabIndex = 40;
-            lbl_total_cat.Text = "\r\nlabel1";
+            lbl_total_cat.Text = "label1";
             // 
             // btn_sig_cat
             // 
@@ -234,13 +243,14 @@
             // 
             // lbl_pag_cat
             // 
-            lbl_pag_cat.Anchor = AnchorStyles.None;
+            lbl_pag_cat.Anchor = AnchorStyles.Bottom;
             lbl_pag_cat.AutoSize = true;
-            lbl_pag_cat.Location = new Point(51, 547);
+            lbl_pag_cat.Location = new Point(56, 561);
             lbl_pag_cat.Name = "lbl_pag_cat";
-            lbl_pag_cat.Size = new Size(50, 40);
+            lbl_pag_cat.Size = new Size(50, 20);
             lbl_pag_cat.TabIndex = 38;
-            lbl_pag_cat.Text = "\r\nlabel1";
+            lbl_pag_cat.Text = "label1";
+            lbl_pag_cat.TextAlign = ContentAlignment.BottomCenter;
             // 
             // lbl_ant_cat
             // 
@@ -381,23 +391,27 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txt_buscar_sub);
             panel3.Controls.Add(button1);
             panel3.Location = new Point(4, 103);
             panel3.Name = "panel3";
             panel3.Size = new Size(259, 38);
             panel3.TabIndex = 43;
             // 
-            // textBox1
+            // txt_buscar_sub
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(0, 0);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(228, 36);
-            textBox1.TabIndex = 7;
+            txt_buscar_sub.BorderStyle = BorderStyle.None;
+            txt_buscar_sub.Dock = DockStyle.Fill;
+            txt_buscar_sub.Font = new Font("Segoe UI", 14F);
+            txt_buscar_sub.Location = new Point(0, 0);
+            txt_buscar_sub.Multiline = true;
+            txt_buscar_sub.Name = "txt_buscar_sub";
+            txt_buscar_sub.Size = new Size(228, 36);
+            txt_buscar_sub.TabIndex = 7;
+            txt_buscar_sub.DragEnter += txt_buscar_sub_DragEnter;
+            txt_buscar_sub.KeyDown += txt_buscar_sub_KeyDown;
+            txt_buscar_sub.KeyPress += txt_buscar_KeyPress;
+            txt_buscar_sub.MouseDown += txt_buscar_sub_MouseDown;
             // 
             // button1
             // 
@@ -412,16 +426,18 @@
             button1.Size = new Size(29, 36);
             button1.TabIndex = 6;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            button1.KeyDown += button1_KeyDown;
             // 
             // lbl_total
             // 
             lbl_total.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             lbl_total.AutoSize = true;
-            lbl_total.Location = new Point(346, 549);
+            lbl_total.Location = new Point(346, 561);
             lbl_total.Name = "lbl_total";
-            lbl_total.Size = new Size(50, 40);
+            lbl_total.Size = new Size(50, 20);
             lbl_total.TabIndex = 36;
-            lbl_total.Text = "\r\nlabel1";
+            lbl_total.Text = "label1";
             lbl_total.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btn_siguente
@@ -441,17 +457,18 @@
             btn_siguente.Size = new Size(33, 40);
             btn_siguente.TabIndex = 35;
             btn_siguente.UseVisualStyleBackColor = false;
+            btn_siguente.Click += btn_siguente_Click;
             // 
             // lbl_paginas
             // 
-            lbl_paginas.Anchor = AnchorStyles.None;
+            lbl_paginas.Anchor = AnchorStyles.Bottom;
             lbl_paginas.AutoSize = true;
-            lbl_paginas.Location = new Point(48, 549);
+            lbl_paginas.Location = new Point(52, 561);
             lbl_paginas.Name = "lbl_paginas";
-            lbl_paginas.Size = new Size(50, 40);
+            lbl_paginas.Size = new Size(50, 20);
             lbl_paginas.TabIndex = 34;
-            lbl_paginas.Text = "\r\nlabel1";
-            lbl_paginas.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_paginas.Text = "label1";
+            lbl_paginas.TextAlign = ContentAlignment.BottomCenter;
             // 
             // btn_anterior
             // 
@@ -470,6 +487,7 @@
             btn_anterior.Size = new Size(33, 40);
             btn_anterior.TabIndex = 33;
             btn_anterior.UseVisualStyleBackColor = false;
+            btn_anterior.Click += btn_anterior_Click;
             // 
             // label4
             // 
@@ -576,8 +594,9 @@
             // tabDescuentos
             // 
             tabDescuentos.BackColor = Color.White;
+            tabDescuentos.Controls.Add(txt_descuento);
+            tabDescuentos.Controls.Add(label8);
             tabDescuentos.Controls.Add(label7);
-            tabDescuentos.Controls.Add(textBox2);
             tabDescuentos.Controls.Add(btn_editarDesc);
             tabDescuentos.Controls.Add(lbl_descripcion);
             tabDescuentos.Location = new Point(4, 29);
@@ -586,21 +605,44 @@
             tabDescuentos.Size = new Size(503, 598);
             tabDescuentos.TabIndex = 2;
             tabDescuentos.Text = "Descuentos";
+            tabDescuentos.Click += tabDescuentos_Click;
             // 
-            // errorProvider1
+            // txt_descuento
             // 
-            errorProvider1.ContainerControl = this;
+            txt_descuento.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_descuento.Font = new Font("Segoe UI", 12F);
+            txt_descuento.Location = new Point(194, 83);
+            txt_descuento.MaxLength = 3;
+            txt_descuento.Name = "txt_descuento";
+            txt_descuento.Size = new Size(53, 34);
+            txt_descuento.TabIndex = 29;
+            txt_descuento.Text = "5";
+            txt_descuento.TextAlign = HorizontalAlignment.Center;
+            txt_descuento.DragEnter += txt_buscar_sub_DragEnter;
+            txt_descuento.KeyDown += txt_descuento_KeyDown;
+            txt_descuento.KeyPress += txt_descuento_KeyPress;
             // 
-            // lbl_descripcion
+            // label8
             // 
-            lbl_descripcion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lbl_descripcion.AutoSize = true;
-            lbl_descripcion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            lbl_descripcion.Location = new Point(95, 26);
-            lbl_descripcion.Name = "lbl_descripcion";
-            lbl_descripcion.Size = new Size(273, 28);
-            lbl_descripcion.TabIndex = 0;
-            lbl_descripcion.Text = "Descuento general por socio";
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14F);
+            label8.Location = new Point(244, 85);
+            label8.Name = "label8";
+            label8.Size = new Size(34, 32);
+            label8.TabIndex = 31;
+            label8.Text = "%";
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(92, 123);
+            label7.Name = "label7";
+            label7.Size = new Size(285, 34);
+            label7.TabIndex = 30;
+            label7.Text = "* El descuento se aplicará de forma porcentual.\n  Ejemplo: 5 = 5% de descuento.";
             // 
             // btn_editarDesc
             // 
@@ -614,28 +656,24 @@
             btn_editarDesc.Name = "btn_editarDesc";
             btn_editarDesc.Size = new Size(180, 37);
             btn_editarDesc.TabIndex = 28;
-            btn_editarDesc.Text = "Editar descunto";
+            btn_editarDesc.Text = "Editar descuento";
             btn_editarDesc.UseVisualStyleBackColor = false;
+            btn_editarDesc.Click += btn_editarDesc_Click;
             // 
-            // textBox2
+            // lbl_descripcion
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(92, 86);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(285, 27);
-            textBox2.TabIndex = 29;
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            lbl_descripcion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lbl_descripcion.AutoSize = true;
+            lbl_descripcion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lbl_descripcion.Location = new Point(95, 26);
+            lbl_descripcion.Name = "lbl_descripcion";
+            lbl_descripcion.Size = new Size(273, 28);
+            lbl_descripcion.TabIndex = 0;
+            lbl_descripcion.Text = "Descuento general por socio";
             // 
-            // label7
+            // errorProvider1
             // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(92, 123);
-            label7.Name = "label7";
-            label7.Size = new Size(285, 34);
-            label7.TabIndex = 30;
-            label7.Text = "* El descuento se aplicará de forma porcentual.\n  Ejemplo: 5 = 5% de descuento.";
+            errorProvider1.ContainerControl = this;
             // 
             // Categorias
             // 
@@ -706,13 +744,14 @@
         private Button btn_buscar;
         private Label label6;
         private Panel panel3;
-        private TextBox textBox1;
+        private TextBox txt_buscar_sub;
         private Button button1;
         private DataGridView dtg_Subcate;
         private TabPage tabDescuentos;
-        private TextBox textBox2;
+        private TextBox txt_descuento;
         private Button btn_editarDesc;
         private Label lbl_descripcion;
         private Label label7;
+        private Label label8;
     }
 }

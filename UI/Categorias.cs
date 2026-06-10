@@ -23,12 +23,13 @@ namespace MyM26.screens
         string cod;
         string sub;
         string cte;
+        bool filtroCategorias = false;
+        bool filtroSub = false;
         public Categorias()
         {
             InitializeComponent();
             Conexion.Conectar();
-            llenarCat();
-            CalcularTotalPaginasCategorias();
+            MostrarCategorias();
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -40,43 +41,50 @@ namespace MyM26.screens
         {
 
         }
-        //Para categoria
-        public void llenarCat()
+        //CATEGORIA
+
+        public void MostrarCategorias()
         {
-            Decla.CatTab = CatySubDatos.TraerCat(paginaActual, registrosPorPagina);
-            dtg_Cate.DataSource = Decla.CatTab;
+            CatySubDatos db = new CatySubDatos();
+            var categorias = db.MostrarCategoria(paginaActual, registrosPorPagina);
+            if (categorias == null) return;
+
             dtg_Cate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtg_Cate.DataSource = null;
+            dtg_Cate.DataSource = categorias.Data;
             dtg_Cate.Columns["CodCategoria"].Visible = false;
-            CalcularTotalPaginasCategorias();
+
+            totalPaginas = (int)Math.Ceiling((double)categorias.Total / registrosPorPagina);
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < totalPaginas;
+            lbl_pag_cat.Text = $"{paginaActual} / {totalPaginas}";
+            lbl_total_cat.Text = $"Total: {categorias.Total}";
+            filtroCategorias = false;
         }
-        //Para categoria
-        public void CalcularTotalPaginasCategorias()
+
+        //Para categoria con filtro
+
+        public void MostrarCategoriasFiltro(string filtro)
         {
-            CatySubDatos dta = new CatySubDatos();
-            int totalRegistros = dta.ObtenerTotalCategorias();
-            totalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
+            CatySubDatos db = new CatySubDatos();
+            var categorias = db.MostrarCategoriaFiltro(paginaActual, registrosPorPagina, filtro);
+            if (categorias == null) return;
 
-            if (paginaActual == totalPaginas)
-            {
-                btn_sig_cat.Enabled = false;
-            }
-            else if ( paginaActual< totalRegistros)
-            {
-                btn_sig_cat.Enabled = true;
-            }
+            dtg_Cate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtg_Cate.DataSource = null;
+            dtg_Cate.DataSource = categorias.Data;
+            dtg_Cate.Columns["CodCategoria"].Visible = false;
 
-
-            if (dtg_Cate.Rows.Count == 0 || (dtg_Cate.AllowUserToAddRows && dtg_Cate.Rows.Count == 1))
-            {
-                lbl_pag_cat.Text = $" 0/0";
-            }
-            else
-            {
-                lbl_pag_cat.Text = $"{paginaActual} / {totalPaginas}";
-            }
-            lbl_total_cat.Text = $"Total: {totalRegistros}";
+            totalPaginas = (int)Math.Ceiling((double)categorias.Total / registrosPorPagina);
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < totalPaginas;
+            lbl_pag_cat.Text = $"{paginaActual} / {totalPaginas}";
+            lbl_total_cat.Text = $"Total: {categorias.Total}";
+            filtroCategorias = true;
         }
-        //Para categoria
+
+
+        //SUBCATEGORIA
         private void btn_añadirCate_Click(object sender, EventArgs e)
         {
             VCatySub cat = new VCatySub();
@@ -97,8 +105,7 @@ namespace MyM26.screens
                           " (DNI: " + UsuarioActivo.Datos.DNIAc +
                           " ) ha dado de alta a la categoria: " + cte;
             dta.AltaHistoricoCompleto(cat);
-            llenarCat();
-            CalcularTotalPaginasCategorias();
+            MostrarCategorias();
             txt_cate.Clear();
         }
         //Para categoria
@@ -147,8 +154,9 @@ namespace MyM26.screens
                           " (DNI: " + UsuarioActivo.Datos.DNIAc +
                           " ) ha dado de alta a la Subcategoria: " + cte;
             dt.AltaHistoricoCompleto(sub);
-            llenarSubcat();
-            CalcularTotalPaginasSubcategorias();
+            MostrarSubcategorias();
+            txt_sub.Clear();
+            cmb_cate.SelectedIndex = -1;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -161,69 +169,89 @@ namespace MyM26.screens
             if (paginaActual > 1)
             {
                 paginaActual--;
-                CatySubDatos.TraerCat(paginaActual, registrosPorPagina);
+                if (filtroCategorias == false)
+                {
+                    MostrarCategorias();
+                }
+                else
+                {
+                    MostrarCategoriasFiltro(txt_buscar.Text);
+                }
             }
         }
         //Para categoria
         private void btn_sig_cat_Click(object sender, EventArgs e)
         {
-            paginaActual++;
-            CatySubDatos.TraerCat(paginaActual, registrosPorPagina);
+            if (paginaActual < totalPaginas)
+            {
+                paginaActual++;
+                if (filtroCategorias == false)
+                {
+                    MostrarCategorias();
+                }
+                else
+                {
+                    MostrarCategoriasFiltro(txt_buscar.Text);
+                }
+            }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabcategoria)
             {
-                llenarCat();
-                CalcularTotalPaginasCategorias();
+                MostrarCategorias();
             }
             else if (tabControl1.SelectedTab == tabSub)
             {
-                llenarSubcat();
-                CalcularTotalPaginasSubcategorias();
+                MostrarSubcategorias();
                 cmb_cate.DataSource = CatySubDatos.MostrarCategoriaBox();
                 cmb_cate.DisplayMember = "Categoria";
                 cmb_cate.ValueMember = "CodCategoria";
                 cmb_cate.SelectedIndex = -1;
             }
+            else if (tabControl1.SelectedTab == tabDescuentos)
+            {
+                MostrarDescuentos();
+            }
         }
 
         //PARA SUBCATEGORIA 
-        public void llenarSubcat()
+        public void MostrarSubcategorias()
         {
-            Decla.SubCatTab = CatySubDatos.TraerSubcat(paginaActual, registrosPorPagina);
-            dtg_Subcate.DataSource = Decla.SubCatTab;
+            CatySubDatos db = new CatySubDatos();
+            var subcategorias = db.MostrarSubcategoria(paginaActual, registrosPorPagina);
+            if (subcategorias == null) return;
+
             dtg_Subcate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtg_Subcate.DataSource = null;
+            dtg_Subcate.DataSource = subcategorias.Data;
             dtg_Subcate.Columns["CodSubcategoria"].Visible = false;
-            CalcularTotalPaginasSubcategorias();
+            totalPaginas = (int)Math.Ceiling((double)subcategorias.Total / registrosPorPagina);
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < totalPaginas;
+            lbl_paginas.Text = $"{paginaActual} / {totalPaginas}";
+            lbl_total.Text = $"Total: {subcategorias.Total}";
+            filtroSub = false;
+
         }
 
-        public void CalcularTotalPaginasSubcategorias()
+        //PARA SUBCATEGORIA CON FILTRO
+        public void MostrarSubcategoriasFiltro(string filtro)
         {
-            CatySubDatos dta = new CatySubDatos();
-            int totalRegistros = dta.ObtenerTotalSubcategorias();
-            totalPaginas = (int)Math.Ceiling((double)totalRegistros / registrosPorPagina);
-
-            if (paginaActual == totalPaginas)
-            {
-                btn_siguente.Enabled = false;
-            }
-            else if (paginaActual< totalRegistros)
-            {
-                btn_siguente.Enabled = true;
-            }
-
-
-            if (dtg_Subcate.Rows.Count == 0 || (dtg_Subcate.AllowUserToAddRows && dtg_Subcate.Rows.Count == 1))
-            {
-                lbl_paginas.Text = $"0/0";
-            }
-            else
-            {
-                lbl_paginas.Text = $"{paginaActual} / {totalPaginas}";
-            }
-            lbl_total.Text = $"Total: {totalRegistros}";
+            CatySubDatos db = new CatySubDatos();
+            var subcategorias = db.MostrarSubcategoriaFiltrada(paginaActual, registrosPorPagina, filtro);
+            if (subcategorias == null) return;
+            dtg_Subcate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtg_Subcate.DataSource = null;
+            dtg_Subcate.DataSource = subcategorias.Data;
+            dtg_Subcate.Columns["CodSubcategoria"].Visible = false;
+            totalPaginas = (int)Math.Ceiling((double)subcategorias.Total / registrosPorPagina);
+            btn_anterior.Enabled = paginaActual > 1;
+            btn_siguente.Enabled = paginaActual < totalPaginas;
+            lbl_paginas.Text = $"{paginaActual} / {totalPaginas}";
+            lbl_total.Text = $"Total: {subcategorias.Total}";
+            filtroSub = true;
         }
         public void MostrarErrorSubcat(Resultado resultado)
         {
@@ -273,8 +301,7 @@ namespace MyM26.screens
           datos.AltaHistoricoCompleto(empleado);
           LlenarDtgEmpleado()*/
 
-            llenarSubcat();
-            CalcularTotalPaginasSubcategorias();
+            MostrarSubcategorias();
         }
 
         private void btn_eliminarCate_Click(object sender, EventArgs e)
@@ -302,13 +329,222 @@ namespace MyM26.screens
             dt.AltaHistoricoCompleto(cat);
 
 
-            llenarCat();
-            CalcularTotalPaginasCategorias();
+            MostrarCategorias();
+
         }
 
         private void dtg_Cate_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tabcategoria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_anterior_Click(object sender, EventArgs e)
+        {
+            if (paginaActual > 1)
+            {
+                paginaActual--;
+                if (filtroSub == false)
+                {
+                    MostrarSubcategorias();
+                }
+                else
+                {
+                    MostrarSubcategoriasFiltro(txt_buscar_sub.Text);
+                }
+            }
+        }
+
+        private void btn_siguente_Click(object sender, EventArgs e)
+        {
+            if (paginaActual < totalPaginas)
+            {
+                paginaActual++;
+                if (filtroSub == false)
+                {
+                    MostrarSubcategorias();
+                }
+                else
+                {
+                    MostrarSubcategoriasFiltro(txt_buscar_sub.Text);
+                }
+            }
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            MostrarCategoriasFiltro(txt_buscar.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MostrarSubcategoriasFiltro(txt_buscar_sub.Text);
+        }
+
+        private void btn_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void btn_buscar_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txt_buscar_sub_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool ALTGR = e.Control && e.Alt;
+            if (
+                (e.Control && e.KeyCode == Keys.C) ||
+                (e.Control && e.KeyCode == Keys.V) ||
+                (e.Control && e.KeyCode == Keys.X) ||
+                (e.Shift && e.KeyCode == Keys.C) ||
+                (e.Shift && e.KeyCode == Keys.Insert) ||
+                (e.Control && e.KeyCode == Keys.Insert) ||
+                (e.Shift && e.KeyCode == Keys.Delete)
+                )
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                MostrarSubcategoriasFiltro(txt_buscar_sub.Text);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txt_buscar_sub_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+        }
+
+        private void txt_buscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool ALTGR = e.Control && e.Alt;
+            if (
+                (e.Control && e.KeyCode == Keys.C) ||
+                (e.Control && e.KeyCode == Keys.V) ||
+                (e.Control && e.KeyCode == Keys.X) ||
+                (e.Shift && e.KeyCode == Keys.C) ||
+                (e.Shift && e.KeyCode == Keys.Insert) ||
+                (e.Control && e.KeyCode == Keys.Insert) ||
+                (e.Shift && e.KeyCode == Keys.Delete)
+                )
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                MostrarCategoriasFiltro(txt_buscar.Text);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsAsciiLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_buscar_sub_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                e = null;
+            }
+        }
+
+        private void tabDescuentos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MostrarDescuentos()
+        {
+            CatySubDatos db = new CatySubDatos();
+            var descuentos = db.Descuento();
+            if (descuentos == null) return;
+            txt_descuento.Text = descuentos.ToString();
+        }
+
+        private void btn_editarDesc_Click(object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrWhiteSpace(txt_descuento.Text))
+            {
+                MessageBox.Show("El campo de descuento no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if(!int.TryParse(txt_descuento.Text, out int desc))
+            {
+                MessageBox.Show("El descuento debe ser un número entero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (desc < 0 || desc > 100)
+            {
+                MessageBox.Show("El descuento debe ser un número entre 0 y 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show("¿Esta seguro de editar el descuento?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado != DialogResult.Yes)
+            {
+                return;
+            }
+            CatySubDatos db = new CatySubDatos();
+            db.ModificarDescuento(desc);
+            MostrarDescuentos();
+        }
+
+        private void txt_descuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_descuento_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool ALTGR = e.Control && e.Alt;
+            if (
+                (e.Control && e.KeyCode == Keys.C) ||
+                (e.Control && e.KeyCode == Keys.V) ||
+                (e.Control && e.KeyCode == Keys.X) ||
+                (e.Shift && e.KeyCode == Keys.C) ||
+                (e.Shift && e.KeyCode == Keys.Insert) ||
+                (e.Control && e.KeyCode == Keys.Insert) ||
+                (e.Shift && e.KeyCode == Keys.Delete)
+                )
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+               btn_editarDesc.PerformClick();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

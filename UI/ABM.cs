@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
+using MyM26.UI;
 
 namespace MyM26.screens
 {
@@ -25,6 +26,7 @@ namespace MyM26.screens
         public Articulos ar;
         public string cod;
         string cb;
+        public string cuitProveedor;
         public ABM(Articulos aa)
         {
             InitializeComponent();
@@ -46,7 +48,7 @@ namespace MyM26.screens
 
         private void AVM_Load(object sender, EventArgs e)
         {
-            if(md== "RevCant")
+            if (md == "RevCant")
             {
                 RevCan();
             }
@@ -54,13 +56,13 @@ namespace MyM26.screens
             {
                 label_Title.Text = "Añadir Artículo";
                 btn_añadir.Text = "Añadir Artículo";
-                btn_añadir.BackColor= Color.FromArgb(32,0,130);
+                btn_añadir.BackColor = Color.FromArgb(32, 0, 130);
 
                 Combos();
 
 
             }
-            else if (Modo== "Añadir-Compra")
+            else if (Modo == "Añadir-Compra")
             {
                 label_Title.Text = "Añadir Artículo";
                 btn_añadir.Text = "Añadir Artículo";
@@ -91,7 +93,7 @@ namespace MyM26.screens
 
                 cmb_categoria.DropDownStyle = ComboBoxStyle.DropDown;
                 cmb_Subcate.DropDownStyle = ComboBoxStyle.DropDown;
-                cmb_prov.DropDownStyle = ComboBoxStyle.DropDown;
+               
                 foreach (Control ctrl in this.Controls)
                 {
 
@@ -120,7 +122,7 @@ namespace MyM26.screens
                 }
                 cmb_categoria.DropDownStyle = ComboBoxStyle.DropDown;
                 cmb_Subcate.DropDownStyle = ComboBoxStyle.DropDown;
-                cmb_prov.DropDownStyle = ComboBoxStyle.DropDown;
+              
 
                 BuscarArt();
                 btn_añadir.Visible = false;
@@ -152,11 +154,11 @@ namespace MyM26.screens
 
         private void RevCan()
         {
-            VArticulo art= new VArticulo(); 
+            VArticulo art = new VArticulo();
             ArticuloDatos dt = new ArticuloDatos();
             dt.CantCompleto2(art);
 
-            if(art.CantCategoria==0 && art.CantSub==0)
+            if (art.CantCategoria == 0 && art.CantSub == 0)
             {
                 MessageBox.Show("Para dar de alta a un articulo por lo menos debe haber una categoria y una subcategoria.");
                 this.Close();
@@ -174,10 +176,7 @@ namespace MyM26.screens
 
 
             //Para proveedor
-            cmb_prov.DataSource = ArticuloDatos.MostrarProvBox();
-            cmb_prov.DisplayMember = "NombreCompleto";
-            cmb_prov.ValueMember = "Cuit";
-            cmb_prov.SelectedIndex = -1;
+          
         }
 
         //flujo de cargar de imagen: WEBP -> MagickImage -> PNG (en memoria) -> Image -> picturbox
@@ -188,21 +187,21 @@ namespace MyM26.screens
         {
             //para prevenir errores verificamos si la extecion cargada esta en mayuscaulas lo convertimos a minuscula
             string ext = Path.GetExtension(path).ToLower();
-           if(ext== ".webp")
+            if (ext == ".webp")
             {
                 //cargamos la imagen con magickimage ya que el si soporta .webp
                 using (MagickImage img = new MagickImage(path))
                 {
                     img.Format = MagickFormat.Png; // Convertimos a PNG en memoria
-                    using (MemoryStream ms= new MemoryStream())
+                    using (MemoryStream ms = new MemoryStream())
                     {
                         img.Write(ms); // Escribimos la imagen convertida al MemoryStream
-                       ms.Position = 0; // Volvemos al inicio del stream
+                        ms.Position = 0; // Volvemos al inicio del stream
                         return Image.FromStream(ms); // Cargamos la imagen desde el stream para usarla en el PictureBox
                     }
                 }
             }
-           else
+            else
             {
                 return Image.FromFile(path);
             }
@@ -210,11 +209,11 @@ namespace MyM26.screens
 
         private void btn_buscar_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog abrir = new OpenFileDialog();    
+            OpenFileDialog abrir = new OpenFileDialog();
             abrir.Title = "Seleccione una imagen";
             abrir.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.webp";
 
-            if(abrir.ShowDialog() == DialogResult.OK)
+            if (abrir.ShowDialog() == DialogResult.OK)
             {
                 pic_art.Image = CargarImagen(abrir.FileName);
                 pic_art.BackgroundImage = null;
@@ -242,7 +241,7 @@ namespace MyM26.screens
             txt_cb.Text = art.CodigoBarra;
             cmb_categoria.Text = art.Categoria;
             cmb_Subcate.Text = art.Subcategoria;
-            cmb_prov.Text = art.Prov;
+           txt_proveedor.Text = art.Prov;
             txt_P_U.Text = art.PrecioUnitario.ToString();
             int cantidad = Convert.ToInt32(art.Cantidad);
             int canTM = Convert.ToInt32(art.CantMinMayor);
@@ -267,7 +266,7 @@ namespace MyM26.screens
 
             string cta = cmb_categoria.SelectedValue?.ToString() ?? "";
             string cst = cmb_Subcate.SelectedValue?.ToString() ?? "";
-            string prv = cmb_prov.SelectedValue?.ToString() ?? "";
+            string prv = cuitProveedor;
 
 
             decimal.TryParse(txt_P_M.Text, out decimal pm);
@@ -297,8 +296,8 @@ namespace MyM26.screens
                 Costo = costo,
                 Descuento = desc,
                 PrecioXMayor = pm,
-                Detalle = "Compra" ,
-                Monto =Total,
+                Detalle = "Compra",
+                Monto = Total,
                 Ganancia = (precioUnit - costo),
                 Cantidad = (int)numeric_C_U.Value,
                 CantMinMayor = (int)numeric_C_M.Value
@@ -423,7 +422,7 @@ namespace MyM26.screens
 
 
             }
-            if(Modo == "Añadir-Compra")
+            if (Modo == "Añadir-Compra")
             {
                 VArticulo art = CargarCampos();
                 string cb = txt_cb.Text;
@@ -466,7 +465,7 @@ namespace MyM26.screens
                 ArticuloDatos dat = new ArticuloDatos();
                 dat.AltaCompleto(art);
                 limparCampos();
-                
+
                 dat.AltaHistoricoCompleto(art);
                 AvisosGlobales.AvisarCompraFinalizada();
                 this.Close();
@@ -480,7 +479,7 @@ namespace MyM26.screens
             txt_cb.Clear();
             cmb_categoria.SelectedIndex = -1;
             cmb_Subcate.SelectedIndex = -1;
-            cmb_prov.SelectedIndex = -1;
+          
             txt_P_U.Clear();
             numeric_C_U.Value = 0;
             numeric_C_M.Value = 0;
@@ -508,7 +507,7 @@ namespace MyM26.screens
                         errorProvider1.SetError(cmb_Subcate, error.Mensaje);
                         break;
                     case "Proveedor":
-                        errorProvider1.SetError(cmb_prov, error.Mensaje);
+                        errorProvider1.SetError(txt_proveedor, error.Mensaje);
                         break;
                     case "PU":
                         errorProvider1.SetError(txt_P_U, error.Mensaje);
@@ -629,6 +628,25 @@ namespace MyM26.screens
             {
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_AggCliente_Click(object sender, EventArgs e)
+        {
+           Proveedor pr= new Proveedor();
+            pr.StartPosition = FormStartPosition.CenterParent;
+            if(pr.ShowDialog()==DialogResult.OK)
+            {
+                txt_proveedor.Visible = true;
+                btn_AggCliente.Text = "Cambiar Proveedor";
+                btn_AggCliente.Location = new Point(216,384);
+                txt_proveedor.Text = pr.nombre;
+                cuitProveedor = pr.cuit;
             }
         }
     }

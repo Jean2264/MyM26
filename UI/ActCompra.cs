@@ -50,9 +50,7 @@ namespace MyM26.UI
             if (art == null) return;
 
 
-            cmb_prov.DataSource = ArticuloDatos.MostrarProvBox();
-            cmb_prov.DisplayMember = "NombreCompleto";
-            cmb_prov.ValueMember = "Cuit";
+           
             cdRef = art.CodArt;
             name = art.Nombre;
 

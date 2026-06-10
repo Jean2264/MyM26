@@ -203,28 +203,62 @@ namespace MyM26.DAL
         }
 
         //Metodo que usamos para mostrar el proveedor en el Cmb
-        public static DataTable MostrarProvBox()
+        public  PagedResult<ProvDto> MostrarProvBox(int pagina, int limite, string filtro)
         {
-            string consulta = "select Cuit, Nombre + '-' + Empresa AS NombreCompleto from Proveedor where Estado=1";
-            SqlCommand comando = new SqlCommand(consulta, Decla.cnn);
-            Decla.ProvBox.Clear();
-            try
+            if (pagina < 1) pagina = 1;
+            if (limite <= 0) limite = 10;
+            int total = 0;
+            int offset= (pagina-1)*limite;
+            var list = new List<ProvDto>();
+            using (SqlConnection conn= new SqlConnection(Decla.ConnectionString))
             {
-                Decla.cnn.Open();
-                SqlDataReader reader = comando.ExecuteReader();
-                Decla.ProvBox.Load(reader);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (Decla.cnn.State == ConnectionState.Open)
-                    Decla.cnn.Close();
-            }
-            return Decla.ProvBox;
+                conn.Open();
 
+                string QueryCount= "select COUNT(*) FROM Proveedor WHERE (Cuit LIKE @filtro OR Nombre LIKE @filtro OR Empresa LIKE @filtro) AND Estado=1";
+                using (SqlCommand cmd= new SqlCommand(QueryCount, conn))
+                {
+                   
+                        cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+
+
+                    total = (int)cmd.ExecuteScalar();
+                }
+
+                string QueryData = @"SELECT Cuit, Nombre + '-' + Empresa AS NombreCompleto FROM Proveedor WHERE (Cuit LIKE @filtro OR Nombre LIKE @filtro
+                                        OR Empresa LIKE @filtro) AND Estado=1 ORDER BY Nombre OFFSET @offset ROWS FETCH NEXT @limite ROWS ONLY";
+
+                using (SqlCommand cmd= new SqlCommand(QueryData, conn))
+                {
+                  
+                        cmd.Parameters.AddWithValue("@filtro", "%"+ filtro+"%");
+
+                    
+
+                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@limite", limite);
+                    
+
+                    using (SqlDataReader reader= cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ProvDto
+                            {
+                                Cuit = reader["Cuit"].ToString(),
+                                Nombre= reader["NombreCompleto"].ToString()
+                            });
+                        }
+                    }
+                }
+
+                return new PagedResult<ProvDto>
+                {
+                    Total = total,
+                    Data = list
+                };
+            }
+                                                                                         
+            
 
         }
 
