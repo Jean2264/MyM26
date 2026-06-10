@@ -593,6 +593,7 @@
             txt_cliente.Size = new Size(242, 37);
             txt_cliente.TabIndex = 37;
             txt_cliente.Visible = false;
+            txt_cliente.KeyDown += txt_cliente_KeyDown;
             txt_cliente.MouseEnter += textBox1_MouseEnter;
             // 
             // lbl_cliente

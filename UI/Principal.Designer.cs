@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            btn_mini = new Button();
-            btn_salir = new Button();
-            btn_maxi = new Button();
             btn_cajas = new Button();
             btn_principal = new Button();
             btn_art = new Button();
@@ -45,72 +42,20 @@
             btn_usurios = new Button();
             panel1 = new Panel();
             button1 = new Button();
-            tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             button2 = new Button();
             btn_contables = new Button();
             btn_CS = new Button();
             panelprincipal = new Panel();
+            btn_mini = new Button();
+            btn_maxi = new Button();
+            btn_salir = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
             panel_perfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_perfil).BeginInit();
-            tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // btn_mini
-            // 
-            btn_mini.BackColor = Color.Transparent;
-            btn_mini.BackgroundImage = (Image)resources.GetObject("btn_mini.BackgroundImage");
-            btn_mini.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_mini.Dock = DockStyle.Fill;
-            btn_mini.FlatAppearance.BorderSize = 0;
-            btn_mini.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 30, 130);
-            btn_mini.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 30, 130);
-            btn_mini.FlatStyle = FlatStyle.Flat;
-            btn_mini.ImageAlign = ContentAlignment.BottomCenter;
-            btn_mini.Location = new Point(1458, 4);
-            btn_mini.Margin = new Padding(3, 4, 3, 4);
-            btn_mini.Name = "btn_mini";
-            btn_mini.Size = new Size(14, 35);
-            btn_mini.TabIndex = 3;
-            btn_mini.UseVisualStyleBackColor = false;
-            btn_mini.Click += btn_mini_Click;
-            // 
-            // btn_salir
-            // 
-            btn_salir.BackColor = Color.Transparent;
-            btn_salir.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_salir.Dock = DockStyle.Fill;
-            btn_salir.FlatAppearance.BorderSize = 0;
-            btn_salir.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 0, 0);
-            btn_salir.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 0, 0);
-            btn_salir.FlatStyle = FlatStyle.Flat;
-            btn_salir.Image = (Image)resources.GetObject("btn_salir.Image");
-            btn_salir.Location = new Point(1512, 4);
-            btn_salir.Margin = new Padding(3, 4, 3, 4);
-            btn_salir.Name = "btn_salir";
-            btn_salir.Size = new Size(18, 35);
-            btn_salir.TabIndex = 1;
-            btn_salir.UseVisualStyleBackColor = false;
-            btn_salir.Click += btn_salir_Click;
-            // 
-            // btn_maxi
-            // 
-            btn_maxi.BackColor = Color.Transparent;
-            btn_maxi.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_maxi.Dock = DockStyle.Fill;
-            btn_maxi.FlatAppearance.BorderSize = 0;
-            btn_maxi.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 30, 130);
-            btn_maxi.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 30, 130);
-            btn_maxi.FlatStyle = FlatStyle.Flat;
-            btn_maxi.Image = Properties.Resources.tNormal;
-            btn_maxi.Location = new Point(1478, 4);
-            btn_maxi.Margin = new Padding(3, 4, 3, 4);
-            btn_maxi.Name = "btn_maxi";
-            btn_maxi.Size = new Size(28, 35);
-            btn_maxi.TabIndex = 2;
-            btn_maxi.UseVisualStyleBackColor = false;
-            btn_maxi.Click += btn_maxi_Click;
             // 
             // btn_cajas
             // 
@@ -326,27 +271,6 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(27, 0, 94);
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.35052F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.64948452F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 34F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 24F));
-            tableLayoutPanel1.Controls.Add(btn_salir, 4, 0);
-            tableLayoutPanel1.Controls.Add(btn_maxi, 3, 0);
-            tableLayoutPanel1.Controls.Add(btn_mini, 2, 0);
-            tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1533, 43);
-            tableLayoutPanel1.TabIndex = 24;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = Color.FromArgb(34, 0, 117);
@@ -442,6 +366,82 @@
             panelprincipal.TabIndex = 26;
             panelprincipal.Paint += panelprincipal_Paint;
             // 
+            // btn_mini
+            // 
+            btn_mini.BackColor = Color.Transparent;
+            btn_mini.BackgroundImage = (Image)resources.GetObject("btn_mini.BackgroundImage");
+            btn_mini.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_mini.Dock = DockStyle.Fill;
+            btn_mini.FlatAppearance.BorderSize = 0;
+            btn_mini.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 30, 130);
+            btn_mini.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 30, 130);
+            btn_mini.FlatStyle = FlatStyle.Flat;
+            btn_mini.ImageAlign = ContentAlignment.BottomCenter;
+            btn_mini.Location = new Point(1458, 4);
+            btn_mini.Margin = new Padding(3, 4, 3, 4);
+            btn_mini.Name = "btn_mini";
+            btn_mini.Size = new Size(14, 35);
+            btn_mini.TabIndex = 3;
+            btn_mini.UseVisualStyleBackColor = false;
+            btn_mini.Click += btn_mini_Click;
+            // 
+            // btn_maxi
+            // 
+            btn_maxi.BackColor = Color.Transparent;
+            btn_maxi.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_maxi.Dock = DockStyle.Fill;
+            btn_maxi.FlatAppearance.BorderSize = 0;
+            btn_maxi.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 30, 130);
+            btn_maxi.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 30, 130);
+            btn_maxi.FlatStyle = FlatStyle.Flat;
+            btn_maxi.Image = Properties.Resources.tNormal;
+            btn_maxi.Location = new Point(1478, 4);
+            btn_maxi.Margin = new Padding(3, 4, 3, 4);
+            btn_maxi.Name = "btn_maxi";
+            btn_maxi.Size = new Size(28, 35);
+            btn_maxi.TabIndex = 2;
+            btn_maxi.UseVisualStyleBackColor = false;
+            btn_maxi.Click += btn_maxi_Click;
+            // 
+            // btn_salir
+            // 
+            btn_salir.BackColor = Color.Transparent;
+            btn_salir.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_salir.Dock = DockStyle.Fill;
+            btn_salir.FlatAppearance.BorderSize = 0;
+            btn_salir.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 0, 0);
+            btn_salir.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 0, 0);
+            btn_salir.FlatStyle = FlatStyle.Flat;
+            btn_salir.Image = (Image)resources.GetObject("btn_salir.Image");
+            btn_salir.Location = new Point(1512, 4);
+            btn_salir.Margin = new Padding(3, 4, 3, 4);
+            btn_salir.Name = "btn_salir";
+            btn_salir.Size = new Size(18, 35);
+            btn_salir.TabIndex = 1;
+            btn_salir.UseVisualStyleBackColor = false;
+            btn_salir.Click += btn_salir_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(27, 0, 94);
+            tableLayoutPanel1.ColumnCount = 5;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.35052F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.64948452F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 34F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 24F));
+            tableLayoutPanel1.Controls.Add(btn_salir, 4, 0);
+            tableLayoutPanel1.Controls.Add(btn_maxi, 3, 0);
+            tableLayoutPanel1.Controls.Add(btn_mini, 2, 0);
+            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(1533, 43);
+            tableLayoutPanel1.TabIndex = 24;
+            // 
             // Principal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -461,15 +461,12 @@
             panel_perfil.ResumeLayout(false);
             panel_perfil.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcb_perfil).EndInit();
-            tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private Button btn_mini;
-        private Button btn_salir;
-        private Button btn_maxi;
         private Button btn_cajas;
         private Button btn_principal;
         private Button btn_art;
@@ -480,7 +477,6 @@
         private Button btn_usurios;
         private Panel panel1;
         private Button button1;       
-        private TableLayoutPanel tableLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panelprincipal;
         private Button btn_contables;
@@ -489,5 +485,9 @@
         private Label lbl_name;
         private PictureBox pcb_perfil;
         private Button btn_CS;
+        private Button btn_mini;
+        private Button btn_maxi;
+        private Button btn_salir;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -54,7 +54,7 @@ namespace MyM26.UI
                 button1.Text = "Añadir";
                 label_title.Text = "Alta de Empleado";
                 button1.ForeColor = Color.White;
-                button1.BackgroundImage = Properties.Resources.verde;
+                button1.BackColor = Color.FromArgb(32, 0, 130);
             }
             if (Modo == "Editar")
             {
@@ -67,7 +67,7 @@ namespace MyM26.UI
                 txt_nombre.BackColor = Color.LightGray;
                 label_title.Text = "Edición de Empleado";
                 button1.ForeColor = Color.White;
-                button1.BackgroundImage = Properties.Resources.naranja;
+                button1.BackColor = Color.FromArgb(53, 0, 152);
                 cargarEmpleado();
             }
             if (Modo == "Ver")

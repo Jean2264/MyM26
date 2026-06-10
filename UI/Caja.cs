@@ -592,31 +592,60 @@ namespace MyM26.screens
         private void btn_confiVenta_Click(object sender, EventArgs e)
         {
 
-            if (dtg_caja.Rows.Count == 0)
+            if (dtg_caja.Rows.Count == 0 || dtg_caja.AllowUserToAddRows && dtg_caja.Rows.Count == 0)
             {
-                MessageBox.Show("No hay productos en la venta.");
+                MessageBox.Show("Debe haber al menos un articulo en la grilla para generar la venta");
+                return;
+
+            }
+            else
+            {
+                GenerarVenta();
+            }
+
+
+        }
+
+        public void GenerarVenta()
+        {
+            // Verificar si hay productos cargados en la grilla
+            int cantidadProductos = dtg_caja.Rows
+                .Cast<DataGridViewRow>()
+                .Count(r => !r.IsNewRow);
+
+            if (cantidadProductos == 0)
+            {
+                MessageBox.Show("Debe haber al menos un artículo en la grilla para generar la venta");
                 return;
             }
+
             CalcularTotalGeneral();
+
             //Armamos HVenta
 
-            if (dtg_caja.Rows == null)
-            {
-                MessageBox.Show("Por favor agrega al menos un articulo a la grid");
-                return;
-            }
+
             HVenta venta = new HVenta();
-            venta.Total = Total;
+           
             venta.Descuento = Descuento;
             venta.SubtotalV = subtotal;
             venta.FormaPago = cmb_pago.Text;
             venta.Factura = cmb_factura.Text;
             venta.TipoComprobante = cmb_comprobante.Text;
             venta.Cuit = ClienteSeleccionado;
+            ////////////
+            if(ClienteSeleccionado !="00000000000")
+            {
+                CatySubDatos db = new CatySubDatos();
+
+                var desconto = db.Descuento();
+                venta.Monto =Total- (Total*desconto)/100;
+               Total= venta.Total = Total - (Total * desconto) / 100;
+            }
+            venta.Total = Total;
             venta.Monto = Total;
             venta.TipoMovimiento = "Alta venta";
             venta.DetalleMovimiento = $"el usuario: " + UsuarioActivo.Datos.NombreAc + " (DNI:  " + UsuarioActivo.Datos.DNIAc + ") " + " a generado una venta por un total de" + Total.ToString("N2");
-
+          
 
 
             //Armamos Detalle
@@ -642,16 +671,18 @@ namespace MyM26.screens
             if (cmb_comprobante.Text == "Presupuesto")
             {
 
+
+
                 codRemi = "PRES-" + DateTime.Now.ToString("yyyyMMddHHmmss");
 
-                int cantidadProductos = dtg_caja.Rows
+                int ccantidadProductos = dtg_caja.Rows
                     .Cast<DataGridViewRow>()
                     .Count(r => !r.IsNewRow);
 
                 alto =
                     100 +
                     80 +
-                    (cantidadProductos * 16) +
+                    (ccantidadProductos * 16) +
                     80 +
                     40;
 
@@ -666,6 +697,13 @@ namespace MyM26.screens
             }
             else if (cmb_comprobante.Text == "Remito")
             {
+                if (dtg_caja.Rows.Count == 0 || dtg_caja.AllowUserToAddRows && dtg_caja.Rows.Count == 0)
+                {
+                    MessageBox.Show("Debe haber al menos un articulo en la grilla para generar la venta");
+                    return;
+
+                }
+
                 CajaDatos dt = new CajaDatos();
                 dt.altacompletoVenta(venta, listaDetalle);
                 venta.TipoMovimiento = "Alta remito";
@@ -694,9 +732,7 @@ namespace MyM26.screens
                 MessageBox.Show($"Comprobante guardado");
                 ResetCampos();
             }
-
         }
-
 
 
 
@@ -847,6 +883,7 @@ namespace MyM26.screens
                     HorizontalAlignment = Element.ALIGN_RIGHT
                 });
 
+
                 totales.AddCell(new PdfPCell(new Phrase("DESCUENTO PARCIAL:", fontBold)) { Border = 0 });
                 totales.AddCell(new PdfPCell(new Phrase("$ " + Descuento.ToString("N2"), fontNormal))
                 {
@@ -854,10 +891,13 @@ namespace MyM26.screens
                     HorizontalAlignment = Element.ALIGN_RIGHT
                 });
 
-                if(ClienteSeleccionado != "00000000000")
+              
+                if (ClienteSeleccionado != "00000000000")
                 {
+                    CatySubDatos db = new CatySubDatos();
+                    var res = db.Descuento();
                     totales.AddCell(new PdfPCell(new Phrase("DESCUENTO POR SOCIO:", fontBold)) { Border = 0 });
-                    totales.AddCell(new PdfPCell(new Phrase("$ " + Descuento.ToString("N2"), fontNormal))
+                    totales.AddCell(new PdfPCell(new Phrase(res + "%", fontNormal))
                     {
                         Border = 0,
                         HorizontalAlignment = Element.ALIGN_RIGHT
@@ -991,32 +1031,41 @@ namespace MyM26.screens
         {
             string filtro = txt_cliente.Text;
 
-             if (string.IsNullOrWhiteSpace(filtro))
-             {
-                 MessageBox.Show("EL campo no debe estar vacio al momento de filtrar.");
-                 return;
-             }
-              CajaNegocio ne= new CajaNegocio();
-              ClientCajaDto cli= ne.ObtenerClientePorCuit(filtro);
-
-             if (cli == null)
+            if (string.IsNullOrWhiteSpace(filtro))
             {
-                lbl_error.Visible = true; 
+                MessageBox.Show("EL campo no debe estar vacio al momento de filtrar.");
+                return;
+            }
+            CajaNegocio ne = new CajaNegocio();
+            ClientCajaDto cli = ne.ObtenerClientePorCuit(filtro);
+
+            if (cli == null)
+            {
+                lbl_error.Visible = true;
                 txt_cliente.Clear();
                 txt_cliente.Focus();
                 return;
             }
 
-             lbl_error.Visible = false;
+            lbl_error.Visible = false;
 
             lbl_cliente.Visible = true;
-             lbl_cliente.Text = "Cliente:";
-             ClienteSeleccionado = cli.Cuit;
-             txt_cliente.Text = cli.Nombre;
-             btn_AggCliente.Visible = false;
-             btn_Buscar_cliente.Visible = false;
-            
+            lbl_cliente.Text = "Cliente:";
+            ClienteSeleccionado = cli.Cuit;
+            txt_cliente.Text = cli.Nombre;
+            btn_AggCliente.Visible = false;
+            btn_Buscar_cliente.Visible = false;
 
+
+        }
+
+        private void txt_cliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode== Keys.Enter)
+            {
+                btn_Buscar_cliente.PerformClick();
+
+            }
         }
     }
 }

@@ -77,12 +77,12 @@ namespace MyM26.screens
             if (Modo == "Alta-Cliente")
             {
                 label_title.Text = "Añadir Cliente";
-                btn_alta_modi.Text = "Añadir Cliente";
+                btn_alta_modi.Text = "Añadir";
                 lbl_EM_EN.Text = "Entidad";
                 this.BackgroundImage = Properties.Resources.Rectangle_295;
                 this.Height = 301;
                 cmb_entidad.Visible = true;
-                btn_alta_modi.BackgroundImage = Properties.Resources.verde;
+                btn_alta_modi.BackColor = Color.FromArgb(32, 0, 130);
                 btn_alta_modi.ForeColor = Color.White;
 
 
@@ -90,13 +90,13 @@ namespace MyM26.screens
             else if (Modo == "Alta-Proveedor")
             {
                 label_title.Text = "Añadir Proveedor";
-                btn_alta_modi.Text = "Añadir Proveedor";
+                btn_alta_modi.Text = "Añadir";
                 lbl_EM_EN.Text = "Empresa";
                 this.BackgroundImage = Properties.Resources.Rectangle_295;
                 this.Height = 301;
                 cmb_entidad.Visible = false;
                 txt_entidad.Visible = true;
-                btn_alta_modi.BackgroundImage = Properties.Resources.verde;
+                btn_alta_modi.BackColor = Color.FromArgb(32, 0, 130);
                 btn_alta_modi.ForeColor = Color.White;
             }
             else if (Modo == "Editar-Cliente")
@@ -107,13 +107,13 @@ namespace MyM26.screens
                 txt_nombre.ReadOnly = true;
 
                 label_title.Text = "Editar Cliente";
-                btn_alta_modi.Text = "Editar Cliente";
+                btn_alta_modi.Text = "Editar";
                 this.BackgroundImage = Properties.Resources.Rectangle_295;
 
                 cmb_entidad.Visible = true; cmb_entidad.Enabled = true;
                 lbl_EM_EN.Text = "Entidad";
 
-                btn_alta_modi.BackgroundImage = Properties.Resources.naranja;
+                btn_alta_modi.BackColor = Color.FromArgb(53, 0, 152);
                 btn_alta_modi.ForeColor = Color.White;
                 cargarCliente();
             }
@@ -126,10 +126,10 @@ namespace MyM26.screens
                 txt_nombre.ReadOnly = true;
                 this.Width = 416;
                 label_title.Text = "Editar Proveedor";
-                btn_alta_modi.Text = "Editar Proveedor";
+                btn_alta_modi.Text = "Editar";
                 txt_entidad.Visible = true;
                 cmb_entidad.Visible = false;
-                btn_alta_modi.BackgroundImage = Properties.Resources.naranja;
+                btn_alta_modi.BackColor = Color.FromArgb(53, 0, 152);
                 btn_alta_modi.ForeColor = Color.White;
                 this.BackgroundImage = Properties.Resources.Rectangle_295;
 
