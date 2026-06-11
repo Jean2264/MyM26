@@ -77,7 +77,7 @@ namespace MyM26.DAL
             {
                 conn.Open();
                 //total
-                string sqlCount = "SELECT COUNT(*) FROM HCompra";
+                string sqlCount = "SELECT COUNT(IdHcompra) FROM HCompra";
                 using (SqlCommand cmd = new SqlCommand(sqlCount, conn))
                 {
                     total = (int)cmd.ExecuteScalar();
@@ -131,7 +131,7 @@ namespace MyM26.DAL
             {
                 conn.Open();
                 //total
-                string sqlCount = @"select COUNT(*) from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra  WHERE (cd.Descripcion LIKE @filtro)";
+                string sqlCount = @"select COUNT(IdHcompra) from HCompra h inner join HCompraDetalle cd on h.CodHCompra = cd.CodHCompra  WHERE (cd.Descripcion LIKE @filtro)";
                 using (SqlCommand cmd = new SqlCommand(sqlCount, conn))
                 {
                     if(!string.IsNullOrWhiteSpace(filtro))
@@ -214,7 +214,7 @@ namespace MyM26.DAL
             {
                 conn.Open();
 
-                string QueryCount= "select COUNT(*) FROM Proveedor WHERE (Cuit LIKE @filtro OR Nombre LIKE @filtro OR Empresa LIKE @filtro) AND Estado=1";
+                string QueryCount= "select COUNT(IdProveedor) FROM Proveedor WHERE (Cuit LIKE @filtro OR Nombre LIKE @filtro OR Empresa LIKE @filtro) AND Estado=1";
                 using (SqlCommand cmd= new SqlCommand(QueryCount, conn))
                 {
                    
