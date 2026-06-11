@@ -50,6 +50,7 @@
             label8 = new Label();
             label9 = new Label();
             panel2 = new Panel();
+            btn_cambiar = new Button();
             cmb_tipo = new ComboBox();
             label10 = new Label();
             btn_buscar = new Button();
@@ -66,7 +67,6 @@
             cajas = new CheckBox();
             btn_AM = new Button();
             errorProvider1 = new ErrorProvider(components);
-            btn_cambiar = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_usu).BeginInit();
@@ -313,6 +313,20 @@
             panel2.TabIndex = 17;
             panel2.Paint += panel2_Paint;
             // 
+            // btn_cambiar
+            // 
+            btn_cambiar.BackColor = Color.FromArgb(100, 82, 255);
+            btn_cambiar.FlatStyle = FlatStyle.Flat;
+            btn_cambiar.ForeColor = Color.White;
+            btn_cambiar.Location = new Point(211, 276);
+            btn_cambiar.Name = "btn_cambiar";
+            btn_cambiar.Size = new Size(173, 35);
+            btn_cambiar.TabIndex = 22;
+            btn_cambiar.Text = "Actualizar contraseña";
+            btn_cambiar.UseVisualStyleBackColor = false;
+            btn_cambiar.Visible = false;
+            btn_cambiar.Click += btn_cambiar_Click;
+            // 
             // cmb_tipo
             // 
             cmb_tipo.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -381,6 +395,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(395, 161);
             panel3.TabIndex = 18;
+            panel3.Paint += panel3_Paint;
             // 
             // empleados
             // 
@@ -517,20 +532,6 @@
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
-            // 
-            // btn_cambiar
-            // 
-            btn_cambiar.BackColor = Color.FromArgb(100, 82, 255);
-            btn_cambiar.FlatStyle = FlatStyle.Flat;
-            btn_cambiar.ForeColor = Color.White;
-            btn_cambiar.Location = new Point(211, 276);
-            btn_cambiar.Name = "btn_cambiar";
-            btn_cambiar.Size = new Size(173, 35);
-            btn_cambiar.TabIndex = 22;
-            btn_cambiar.Text = "Actualizar contraseña";
-            btn_cambiar.UseVisualStyleBackColor = false;
-            btn_cambiar.Visible = false;
-            btn_cambiar.Click += btn_cambiar_Click;
             // 
             // AMUser
             // 

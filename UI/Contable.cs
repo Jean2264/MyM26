@@ -737,5 +737,10 @@ namespace MyM26.UI
                 ExportarPDF(dataGridView1);
             }
         }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

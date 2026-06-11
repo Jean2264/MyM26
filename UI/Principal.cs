@@ -239,7 +239,7 @@ namespace MyM26
             if (result == DialogResult.Yes)
             {
                 Login log = new Login();
-                log.StartPosition = FormStartPosition.CenterParent;
+                log.StartPosition = FormStartPosition.CenterScreen;
                 log.Show();
                 this.Close();
             }

@@ -163,7 +163,7 @@ namespace MyM26.UI
             }
 
 
-
+            negocio.PrepararPassword(usuario);
 
             usuarioDatos.AltacompletoUsuario(usuario);
             usuarioDatos.AltaHistoricoCompleto(usuario);
@@ -344,6 +344,25 @@ namespace MyM26.UI
         private void button2_MouseLeave(object sender, EventArgs e)
         {
             button2.Image = Properties.Resources.leave;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (ElegirPerfil elegir = new ElegirPerfil())
+            {
+                elegir.StartPosition = FormStartPosition.CenterParent;
+                if (elegir.ShowDialog() == DialogResult.OK)
+                {
+                    pic_usu.Image = elegir.ImagenSeleccionada;
+                    pic_usu.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                }
+            }
         }
     }
 }

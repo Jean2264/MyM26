@@ -15,7 +15,7 @@ namespace MyM26.screens
     public partial class Articulos : UserControl
     {
         int paginaActual = 1;
-        int registrosPorPagina = 10;
+        int registrosPorPagina = 24;
         int totalPaginas = 0;
         bool modoFiltro = false;
         string filtro;

@@ -111,7 +111,7 @@ namespace MyM26.screens
 
             txt_dni.Text = usuario.Dni;
             txt_nombre.Text = usuario.Nombre;
-            txt_contraseña.Text ="********";
+            txt_contraseña.Text = "********";
             txt_contraseña.ReadOnly = true;
             txt_repit.Text = "";
             txt_fechaAlta.Text = usuario.FechaAlta;
@@ -135,7 +135,7 @@ namespace MyM26.screens
                     pic_usu.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
-          
+
 
         }
         private void btn_buscar_Click(object sender, EventArgs e)
@@ -208,7 +208,7 @@ namespace MyM26.screens
             }
         }
 
-       // string tipoAnterior = "";
+        // string tipoAnterior = "";
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string TipoSeleccionado =
@@ -479,18 +479,18 @@ namespace MyM26.screens
                     }
 
 
-
+                    negocio.PrepararPassword(usuario);
 
                     usuarioDatos.AltacompletoUsuario(usuario);
                     usuarioDatos.AltaHistoricoCompleto(usuario);
-                    usu?.LLenarFlow();
+                    usu.LLenarFlow();
                     this.Close();
                 }
 
             }
             else if (Modo == "Modificar")
             {
-                
+
                 VUser usuario = new VUser();
 
                 usuario.Dni = txt_dni.Text;
@@ -540,10 +540,10 @@ namespace MyM26.screens
                 }
                 if (usuario.cambia)
                 {
-                   usuarioNegocio.PrepararPassword(usuario);
+                    usuarioNegocio.PrepararPassword(usuario);
                 }
                 UsuarioDatos usuarioDatos = new UsuarioDatos();
-                usuarioDatos.ModificacionUsuario(usuario); 
+                usuarioDatos.ModificacionUsuario(usuario);
                 usuarioDatos.AltaHistoricoCompleto(usuario);
                 usu.LLenarFlow();
                 this.DialogResult = DialogResult.OK;
@@ -603,7 +603,12 @@ namespace MyM26.screens
             label3.Visible = true;
             txt_repit.Visible = true;
             txt_contraseña.Text = "";
-            txt_contraseña.ReadOnly=false;
+            txt_contraseña.ReadOnly = false;
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
