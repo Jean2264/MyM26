@@ -296,7 +296,7 @@ namespace MyM26.screens
 
         private void txt_dni_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right || e.Button== MouseButtons.Left)
             {
                 e = null;
             }
