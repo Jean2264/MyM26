@@ -145,30 +145,40 @@ namespace MyM26.DAL
 
         public void cargarDatosHome(VHome hm)
         {
-
+            string consulta = @"
+                SELECT
+                    (SELECT COUNT(IdTipoUsuario) FROM TipoUsuario WHERE Tipo = 'Cajero') AS Caja,
+                    (SELECT COUNT(IdVenta) FROM HVenta) AS Venta,
+                    (SELECT COUNT(IdHcompra) FROM HCompra) AS Compra,
+                    (SELECT COUNT(IdArticulo) FROM Articulo) AS Articulo,
+                    (SELECT COUNT(IdProveedor) FROM Proveedor WHERE Estado = 1) AS Proveedor,
+                    (SELECT COUNT(IdCliente) FROM Cliente WHERE Estado = 1) AS Cliente,
+                    (SELECT COUNT(IdUsuario) FROM Usuario WHERE Estado = 1) AS Usuario,
+                    (SELECT COUNT(IdEmpleado) FROM Empleado WHERE Estado = 1) AS Empleado;";
             try
             {
-                Decla.cnn.Open();
-                SqlTransaction trans = Decla.cnn.BeginTransaction();
-                try
+                using (SqlCommand cmd = new SqlCommand(consulta, Decla.cnn))
                 {
-                    caja(hm, trans);
-                    venta(hm, trans);
-                    compra(hm, trans);
-                    articulo(hm, trans);
-                    proveedor(hm, trans);
-                    cliente(hm, trans);
-                    usuario(hm, trans);
-                    empleado(hm, trans);
-
-                    trans.Commit();
+                    Decla.cnn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            hm.caja = Convert.ToInt32(reader["Caja"]);
+                            hm.venta = Convert.ToInt32(reader["Venta"]);
+                            hm.compra = Convert.ToInt32(reader["Compra"]);
+                            hm.articulo = Convert.ToInt32(reader["Articulo"]);
+                            hm.proveedor = Convert.ToInt32(reader["Proveedor"]);
+                            hm.cliente = Convert.ToInt32(reader["Cliente"]);
+                            hm.usuario = Convert.ToInt32(reader["Usuario"]);
+                            hm.empleado = Convert.ToInt32(reader["Empleado"]);
+                        }
+                    }
                 }
-                catch(Exception ex)
-                {
-                    trans.Rollback();
-                   MessageBox.Show("Error al cargar los datos del Home: " + ex.Message);
-                }
-                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del Home: " + ex.Message);
             }
             finally
             {

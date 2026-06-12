@@ -17,7 +17,8 @@ namespace MyM26.DAL
         {
             string consulta = @"SELECT MONTH(FechaHora) as Mes, SUM(Total) as TotalVenta
                                                 FROM HVenta     
-                                                WHERE YEAR(FechaHora)= YEAR(GETDATE())  
+                                                WHERE FechaHora >= DATEFROMPARTS(YEAR(GETDATE()), 1, 1)
+                                                AND FechaHora < DATEADD(YEAR, 1, DATEFROMPARTS(YEAR(GETDATE()), 1, 1))
                                                 GROUP BY MONTH(FechaHora) ORDER BY Mes";
             DataTable dt= new DataTable();
 
@@ -42,9 +43,10 @@ namespace MyM26.DAL
         //chart1
         public static DataTable ObtenerCantidadVentasPorMes()
         {
-            string consulta = @"SELECT MONTH(FechaHora) as Mes, COUNT(*) as CantVenta
+            string consulta = @"SELECT MONTH(FechaHora) as Mes, COUNT(IdVenta) as CantVenta
                                                 FROM HVenta     
-                                                WHERE YEAR(FechaHora)= YEAR(GETDATE())  
+                                                WHERE FechaHora >= DATEFROMPARTS(YEAR(GETDATE()), 1, 1)
+                                                AND FechaHora < DATEADD(YEAR, 1, DATEFROMPARTS(YEAR(GETDATE()), 1, 1))
                                                 GROUP BY MONTH(FechaHora) ORDER BY Mes";
             DataTable dt = new DataTable();
 
@@ -71,10 +73,10 @@ namespace MyM26.DAL
             string consulta = @"
         SELECT 
             ((DAY(FechaHora)-1)/7)+1 AS SemanaMes,
-            COUNT(*) as CantidadVentas
+            COUNT(IdVenta) as CantidadVentas
         FROM HVenta 
-        WHERE MONTH(FechaHora) = MONTH(GETDATE())
-        AND YEAR(FechaHora) = YEAR(GETDATE())
+        WHERE FechaHora >= DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)
+        AND FechaHora < DATEADD(MONTH, 1, DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1))
         GROUP BY ((DAY(FechaHora)-1)/7)+1
         ORDER BY SemanaMes";
 
@@ -100,8 +102,8 @@ namespace MyM26.DAL
             ((DAY(FechaHora)-1)/7)+1 AS SemanaMes,
             SUM(Total) as TotalVentas
         FROM HVenta
-        WHERE MONTH(FechaHora) = MONTH(GETDATE())
-        AND YEAR(FechaHora) = YEAR(GETDATE())
+        WHERE FechaHora >= DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)
+        AND FechaHora < DATEADD(MONTH, 1, DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1))
         GROUP BY ((DAY(FechaHora)-1)/7)+1
         ORDER BY SemanaMes";
 
@@ -158,7 +160,7 @@ namespace MyM26.DAL
             int total = 0;
 
 
-            string sql = "SELECT COUNT(*) FROM HMovimiento";
+            string sql = "SELECT COUNT(IdHistorico) FROM HMovimiento";
 
             SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
 
@@ -218,7 +220,7 @@ namespace MyM26.DAL
             int total = 0;
 
 
-            string sql = "SELECT COUNT(*) FROM InOutVarios";
+            string sql = "SELECT COUNT(IdMovimiento) FROM InOutVarios";
 
             SqlCommand cmd = new SqlCommand(sql, Decla.cnn);
 
@@ -248,13 +250,13 @@ namespace MyM26.DAL
                                 AND (@categoria= 'Todos' OR TipoMovimiento LIKE '%' + @categoria +'%') 
                                 
                                 AND(@desde IS NULL OR FechaHora >= @desde) 
-                                AND(@hasta IS NULL OR FechaHora >= @hasta)  ORDER BY FechaHora DESC";
+                                AND(@hasta IS NULL OR FechaHora < @hasta)  ORDER BY FechaHora DESC";
             // AND (@texto= '' OR DetalleMovimiento LIKE '%' + @texto + '%' OR DNI LIKE '%' + @texto + '%' )
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@categoria", categoria);
             // cmd.Parameters.AddWithValue("@texto", texto ?? "");
             cmd.Parameters.AddWithValue("@desde", (object)desde ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@hasta", (object)hasta ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@hasta", hasta.HasValue ? hasta.Value.Date.AddDays(1) : DBNull.Value);
             Decla.MovFil.Clear();
             try
             {
@@ -283,12 +285,12 @@ namespace MyM26.DAL
                                  WHERE 1=1 
                                     AND(@categoria= 'Todos' OR Detalle LIKE '%'+ @categoria + '%') 
                                     AND(@desde IS NULL OR Fecha >=@desde) 
-                                     AND(@hasta IS NULL OR Fecha >=@hasta) ORDER BY Fecha DESC";
+                                     AND(@hasta IS NULL OR Fecha < @hasta) ORDER BY Fecha DESC";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@categoria", categoria);
             // cmd.Parameters.AddWithValue("@texto", texto ?? "");
             cmd.Parameters.AddWithValue("@desde", (object)desde ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@hasta", (object)hasta ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@hasta", hasta.HasValue ? hasta.Value.Date.AddDays(1) : DBNull.Value);
             Decla.SalFil.Clear();
 
             try
