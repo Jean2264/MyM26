@@ -79,9 +79,6 @@
     <Compile Update="UI\registroDeUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UI\TarjetaArticulo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="UI\TarjetaUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>

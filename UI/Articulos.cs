@@ -24,7 +24,7 @@ namespace MyM26.screens
             InitializeComponent();
             Conexion.Conectar();
 
-           LLenarFlow();
+          // LLenarFlow();
            
             calculoCantidad();
 
@@ -72,85 +72,7 @@ namespace MyM26.screens
         }
        
 
-       public void LLenarFlow()
-        {
-            flowLayoutPanel1.Controls.Clear();
-
-            ArticuloDatos db = new ArticuloDatos();
-            var result= db.MostrarArticulo(paginaActual, registrosPorPagina);
-            if (result == null) return;
-
-            foreach(var item in result.Data)
-            {
-                TarjetaArticulo ar= new TarjetaArticulo();
-                ar.SetDta(item);
-                ar.EditarArt += AbrirEdicionArt;
-                ar.VistaArt += AbrirVista;
-                ar.DatoEliminado += () =>
-                {
-                    LLenarFlow();
-                };
-                flowLayoutPanel1.Controls.Add(ar);
-            }
-
-            totalPaginas= (int)Math.Ceiling((double)result.Total / registrosPorPagina);
-            lbl_paginas.Text = $"Página {paginaActual} / {totalPaginas}";
-            btn_siguente.Enabled = paginaActual < totalPaginas;
-            btn_anterior.Enabled = paginaActual > 1;
-            label1.Text = $"Total de articulos: " + result.Total.ToString();
-            modoFiltro = false;
-        }
-
-        public void LlenarFlowFiltro(string filtro)
-        {
-            flowLayoutPanel1.Controls.Clear();
-
-            ArticuloDatos db = new ArticuloDatos();
-            var result = db.MostrarArticuloFiltro(paginaActual, registrosPorPagina, filtro);
-            if (result.Total == 0)
-            {
-                LLenarFlow();
-                MessageBox.Show("No se encontraron resultados para la búsqueda.");
-                return;
-            }
-
-            foreach (var item in result.Data)
-            {
-                TarjetaArticulo ar = new TarjetaArticulo();
-                ar.SetDta(item);
-                ar.EditarArt += AbrirEdicionArt;
-                ar.VistaArt += AbrirVista;
-                ar.DatoEliminado += () =>
-                {
-                    LLenarFlow();
-                };
-                flowLayoutPanel1.Controls.Add(ar);
-            }
-
-            totalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
-            lbl_paginas.Text = $"Página {paginaActual} / {totalPaginas}";
-            btn_siguente.Enabled = paginaActual < totalPaginas;
-            btn_anterior.Enabled = paginaActual > 1;
-            label1.Text = $"Total de articulos: " + result.Total.ToString();
-            modoFiltro = true;
-
-        }
-        public void AbrirEdicionArt(string cod)
-        {
-            ArticuloNegocio neg = new ArticuloNegocio();
-            neg.TomarInfo(cod);
-
-            ABM am = new ABM(this);
-            am.cod = cod;
-            am.Modo = "Modificar";
-            am.StartPosition = FormStartPosition.CenterParent;
-
-            if (am.ShowDialog() == DialogResult.OK)
-            {
-                LLenarFlow();
-            }
-        }
-
+      
 
         public void calculoCantidad()
         {
@@ -168,22 +90,7 @@ namespace MyM26.screens
                 return;
             }
         }
-        public void AbrirVista(string cod)
-        {
-            ArticuloNegocio neg = new ArticuloNegocio();
-            neg.TomarInfo(cod);
-
-            ABM am = new ABM(this);
-            am.cod = cod;
-            am.Modo = "Vista Artículo";
-            am.StartPosition = FormStartPosition.CenterParent;
-
-            if (am.ShowDialog() == DialogResult.OK)
-            {
-                LLenarFlow();
-            }
-        }
-
+      
      
 
         private void btn_anterior_Click(object sender, EventArgs e)
@@ -194,11 +101,11 @@ namespace MyM26.screens
                 paginaActual--;
                 if(!modoFiltro)
                 {
-                    LLenarFlow();
+                   // LLenarFlow();
                 }
                 else
                 {
-                    LlenarFlowFiltro(filtro);
+                   // LlenarFlowFiltro(filtro);
                 }
             }
         }
@@ -212,11 +119,11 @@ namespace MyM26.screens
                 paginaActual++;
                 if (!modoFiltro)
                 {
-                    LLenarFlow();
+                   // LLenarFlow();
                 }
                 else
                 {
-                    LlenarFlowFiltro(filtro);
+                    //LlenarFlowFiltro(filtro);
                 }
             }
         }
@@ -238,7 +145,7 @@ namespace MyM26.screens
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string cod = txt_buscar.Text;
-            LlenarFlowFiltro(cod);
+          //  LlenarFlowFiltro(cod);
         }
 
         private void txt_buscar_DragEnter(object sender, DragEventArgs e)
