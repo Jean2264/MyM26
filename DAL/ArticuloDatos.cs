@@ -276,34 +276,34 @@ namespace MyM26.DAL
             int total = 0;
             using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
             {
-                conn.Open();
-                //total
-                string sqlCount = "SELECT COUNT(*) FROM Articulo WHERE Estado=1";
-                using (SqlCommand cmd = new SqlCommand(sqlCount, conn))
+                 
+                using (SqlCommand cmd = new SqlCommand("dbo.sp_ListarArticulos", conn))
                 {
-                    total = (int)cmd.ExecuteScalar();
-                }
-                //data
-                string sqlData = @"SELECT a.CodigoArticulo, a.Nombre, a.PrecioUnitario, a.PrecioXMayor, a.Imagen, s.Cantidad FROM Articulo a 
-                 INNER JOIN Stock s ON a.CodigoArticulo= s.CodigoArticulo WHERE a.Estado=1 ORDER BY a.Nombre OFFSET @offset ROWS
-                    FETCH NEXT @limite ROWS ONLY";
-                using (SqlCommand cmd = new SqlCommand(sqlData, conn))
-                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@offset", offset);
                     cmd.Parameters.AddWithValue("@limite", limite);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        list.Add(new ArticuloDto
+                        while (reader.Read())
                         {
-                            CodigoArticulo = reader["CodigoArticulo"].ToString(),
-                            Nombre = reader["Nombre"].ToString(),
-                            PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
-                            PrecioXMayor = Convert.ToDecimal(reader["PrecioXMayor"]),
-                            Imagen = reader["Imagen"] != DBNull.Value ? (byte[])reader["Imagen"] : null,
-                            Cantidad = Convert.ToInt32(reader["Cantidad"])
-                        });
+                            if (total == 0)
+                                total = Convert.ToInt32(reader["TotalRegistros"]);
+
+                            list.Add(new ArticuloDto
+                            {
+                                CodigoArticulo = reader["CodigoArticulo"].ToString(),
+                                Nombre = reader["Nombre"].ToString(),
+                                PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
+                                PrecioXMayor = Convert.ToDecimal(reader["PrecioXMayor"]),
+                                Cantidad = Convert.ToInt32(reader["Cantidad"])
+                            });
+                        }
                     }
+                   
                 }
             }
             return new PagedResult<ArticuloDto>
