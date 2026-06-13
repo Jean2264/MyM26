@@ -416,12 +416,8 @@ namespace MyM26.screens
 
 
 
-                MessageBox.Show(
-     $"PU Texto: [{txt_P_U.Text}]\n" +
-     $"PM Texto: [{txt_P_M.Text}]\n" +
-     $"Costo Texto: [{txt_P_P.Text}]\n" +
-     $"Ganancia Texto: [{txt_ganancia.Text}]"
- );
+               
+ 
 
                 ArticuloNegocio neg = new ArticuloNegocio();
                 Resultado resultado = neg.validarModi(art);

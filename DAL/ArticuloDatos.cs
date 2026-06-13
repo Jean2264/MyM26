@@ -381,6 +381,11 @@ namespace MyM26.DAL
             cmd.Parameters.AddWithValue("@Imagen", art.Imagen ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("@PM", art.PrecioXMayor);
             cmd.Parameters.AddWithValue("@CM", art.CantMinMayor);
+            MessageBox.Show(
+    $"@PU={art.PrecioUnitario}\n" +
+    $"@PM={art.PrecioXMayor}\n" +
+    $"@CD={art.codArtRef}"
+);
 
             cmd.ExecuteNonQuery();
         }
