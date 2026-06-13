@@ -264,6 +264,7 @@ AS
 SELECT
  a.CodigoArticulo,
  a.CodigoBarra,
+ a.Imagen,
  a.Nombre,
  a.CantMinMayorista,
  a.PrecioUnitario,
