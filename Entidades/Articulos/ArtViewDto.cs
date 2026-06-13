@@ -10,7 +10,7 @@ namespace MyM26.Entidades.Articulos
         public string Nombre { get; set; }
         public decimal PrecioUnitario { get; set; }
         public decimal PrecioXMayor { get; set; }
-       
+        public decimal Ganancia { get; set; }
         public int Cantidad { get; set; }
     }
 }

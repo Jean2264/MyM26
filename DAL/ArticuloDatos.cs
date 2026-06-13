@@ -300,7 +300,8 @@ namespace MyM26.DAL
                                 Nombre = reader["Nombre"].ToString(),
                                 PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
                                 PrecioXMayor = Convert.ToDecimal(reader["PrecioXMayor"]),
-                                Cantidad = Convert.ToInt32(reader["Cantidad"])
+                                Cantidad = Convert.ToInt32(reader["Cantidad"]),
+                                Ganancia= Convert.ToDecimal(reader["Ganancia"])
                             });
                         }
                     }

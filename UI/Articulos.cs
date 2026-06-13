@@ -39,6 +39,7 @@ namespace MyM26.screens
             aVM.ShowDialog();
         }
 
+       
 
         public void AggColumnasAccion()
         {
@@ -110,11 +111,13 @@ namespace MyM26.screens
             dtg_art.Columns["btnEditar"].DisplayIndex = ultimo - 1;
             dtg_art.Columns["btnVer"].DisplayIndex = ultimo - 2;
 
-            dtg_art.Columns["PrecioUnitario"].DefaultCellStyle.FormatProvider =
-             new CultureInfo("es-AR");
+       
 
-            dtg_art.Columns["PrecioXCantidad"].DefaultCellStyle.FormatProvider =
-                new CultureInfo("es-AR");
+            dtg_art.Columns["PrecioUnitario"].DefaultCellStyle.Format = "N2";
+            dtg_art.Columns["PrecioUnitario"].DefaultCellStyle.FormatProvider = new CultureInfo("es-AR");
+
+            dtg_art.Columns["PrecioXMayor"].DefaultCellStyle.Format = "N2";
+            dtg_art.Columns["PrecioXMayor"].DefaultCellStyle.FormatProvider = new CultureInfo("es-AR");
 
             dtg_art.Columns["CodigoArticulo"].Visible = false;
             totalPaginas = (int)Math.Ceiling((double)result.Total / limite);
@@ -304,7 +307,7 @@ namespace MyM26.screens
 
             if(e.ColumnIndex== dtg_art.Columns["btnEditar"].Index)
             {
-                ABM ab= new ABM();
+                ABM ab= new ABM(this);
                 ab.cod = dtg_art.CurrentRow.Cells["CodigoArticulo"].Value.ToString();
                 ab.Modo = "Modificar";
                 ab.ShowDialog();

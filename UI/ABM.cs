@@ -103,8 +103,7 @@ namespace MyM26.screens
                         ((ComboBox)ctrl).ForeColor = Color.Black;
                     }
                 }
-                txt_P_P.ReadOnly = true;
-                txt_P_P.BackColor = Color.Gainsboro;
+               
                 txt_D_P.ReadOnly = true;
                 txt_D_P.BackColor = Color.Gainsboro;
 
@@ -244,11 +243,10 @@ namespace MyM26.screens
             txt_P_U.Text = art.PrecioUnitario.ToString("N2", new CultureInfo("es-AR")); ;
             int cantidad = Convert.ToInt32(art.Cantidad);
             int canTM = Convert.ToInt32(art.CantMinMayor);
-
+            txt_ganancia.Text = art.Ganancia.ToString("N2", new CultureInfo("es-AR"));
             numeric_C_U.Value = Math.Min(numeric_C_U.Maximum, Math.Max(numeric_C_U.Minimum, cantidad));
             numeric_C_M.Value = Math.Min(numeric_C_M.Maximum, Math.Max(numeric_C_M.Minimum, canTM));
-            txt_P_M.Text = art.PrecioXMayor.ToString("N2", new CultureInfo("es-AR")); 
-            txt_P_P.Text = art.Costo.ToString("N2", new CultureInfo("es-AR")); 
+            txt_P_P.Text = art.Costo.ToString("N2", new CultureInfo("es-AR"));
             txt_D_P.Text = art.Descuento.ToString("N2", new CultureInfo("es-AR"));
 
             if (art.Imagen != null)
@@ -260,6 +258,7 @@ namespace MyM26.screens
                 }
             }
         }
+        /// jj/////
         public static decimal ObtenerDecimal(string texto)
         {
             return decimal.Parse(
@@ -322,14 +321,16 @@ namespace MyM26.screens
             decimal.TryParse(txt_P_M.Text, out decimal pm);
             decimal.TryParse(txt_P_U.Text, out decimal precioUnit);
             decimal.TryParse(txt_P_P.Text, out decimal costo);
-
+            decimal.TryParse(txt_ganancia.Text, out decimal ganancia);
             VArticulo art = new VArticulo
             {
+                codArtRef = CodigoArticulo,
                 PrecioXMayor = pm,
                 Costo = costo,
                 PrecioUnitario = precioUnit,
                 Cantidad = (int)numeric_C_U.Value,
                 CantMinMayor = (int)numeric_C_M.Value,
+                Ganancia= ganancia,
                 TipoMovimiento = "modificación de articulo",
 
                 DetalleMovimiento = "el usuario " + UsuarioActivo.Datos.NombreAc +
@@ -378,7 +379,7 @@ namespace MyM26.screens
                     {
                         dt.ReactivarArt(cb);
                         MessageBox.Show("Articulo reactivado correctamente.");
-                        // ar.LLenarFlow();
+                        ar.LlenarDtg();
                         this.Close();
                         return;
                     }
@@ -400,16 +401,27 @@ namespace MyM26.screens
                 ArticuloDatos dat = new ArticuloDatos();
                 dat.AltaCompleto(art);
                 limparCampos();
-                // ar.LLenarFlow();
+                ar.LlenarDtg();
                 dat.AltaHistoricoCompleto(art);
                 dat.ALtaCompletoIntOutVarios(art);
 
-                //Hola ola 
+
             }
 
             if (Modo == "Modificar")
             {
+                //aca puse el messange 
+               
                 VArticulo art = CargarCampoModi();
+
+
+
+                MessageBox.Show(
+     $"PU Texto: [{txt_P_U.Text}]\n" +
+     $"PM Texto: [{txt_P_M.Text}]\n" +
+     $"Costo Texto: [{txt_P_P.Text}]\n" +
+     $"Ganancia Texto: [{txt_ganancia.Text}]"
+ );
 
                 ArticuloNegocio neg = new ArticuloNegocio();
                 Resultado resultado = neg.validarModi(art);
@@ -421,7 +433,7 @@ namespace MyM26.screens
                 ArticuloDatos dt = new ArticuloDatos();
                 dt.ModiCompleto(art);
                 limparCampos();
-                // ar.LLenarFlow();
+                ar.LlenarDtg();
                 dt.AltaHistoricoCompleto(art);
                 this.Close();
 
@@ -448,7 +460,7 @@ namespace MyM26.screens
                     {
                         dt.ReactivarArt(cb);
                         MessageBox.Show("Articulo reactivado correctamente.");
-                        // ar.LLenarFlow();
+                        ar.LlenarDtg();
                         this.Close();
                         return;
                     }
@@ -594,7 +606,7 @@ namespace MyM26.screens
 
         private void txt_nombre_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right || e.Button== MouseButtons.Left)
+            if (e.Button == MouseButtons.Right || e.Button == MouseButtons.Left)
             {
                 e = null;
             }
@@ -659,7 +671,48 @@ namespace MyM26.screens
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
-               
+
+            }
+        }
+
+        public void ObtenerPrecio()
+        {
+            if (decimal.TryParse(
+                txt_P_P.Text,
+                NumberStyles.Number,
+                new CultureInfo("es-AR"),
+                out decimal costo
+            )&&
+                decimal.TryParse(
+                txt_ganancia.Text,
+                NumberStyles.Number,
+                new CultureInfo("es-AR"),
+                out decimal ganancia
+            ))
+            {
+                
+
+                decimal p_u = costo + (costo * ganancia / 100);
+
+                txt_P_U.Text = p_u.ToString("N2", new CultureInfo("es-AR"));
+            }
+        }
+
+        private void txt_P_P_TextChanged(object sender, EventArgs e)
+        {
+            ObtenerPrecio();
+        }
+
+        private void txt_ganancia_TextChanged(object sender, EventArgs e)
+        {
+            ObtenerPrecio();
+        }
+
+        private void txt_P_P_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar !='.')
+            {
+                e.Handled = true;
             }
         }
     }

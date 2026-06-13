@@ -314,9 +314,10 @@
             txt_P_P.Name = "txt_P_P";
             txt_P_P.Size = new Size(205, 35);
             txt_P_P.TabIndex = 40;
+            txt_P_P.TextChanged += txt_P_P_TextChanged;
             txt_P_P.DragEnter += txt_nombre_DragEnter;
             txt_P_P.KeyDown += txt_cb_KeyDown;
-            txt_P_P.KeyPress += txt_cb_KeyPress;
+            txt_P_P.KeyPress += txt_P_P_KeyPress;
             txt_P_P.MouseDown += txt_nombre_MouseDown;
             // 
             // label12
@@ -447,6 +448,7 @@
             txt_ganancia.Name = "txt_ganancia";
             txt_ganancia.Size = new Size(205, 35);
             txt_ganancia.TabIndex = 49;
+            txt_ganancia.TextChanged += txt_ganancia_TextChanged;
             txt_ganancia.KeyDown += txt_nombre_KeyDown;
             txt_ganancia.KeyPress += textBox1_KeyPress;
             txt_ganancia.MouseDown += txt_nombre_MouseDown;
