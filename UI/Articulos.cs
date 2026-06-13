@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,8 +15,8 @@ namespace MyM26.screens
 {
     public partial class Articulos : UserControl
     {
-        int paginaActual = 1;
-        int registrosPorPagina = 24;
+        int pagina = 1;
+        int limite = 50;
         int totalPaginas = 0;
         bool modoFiltro = false;
         string filtro;
@@ -24,8 +25,8 @@ namespace MyM26.screens
             InitializeComponent();
             Conexion.Conectar();
 
-          // LLenarFlow();
-           
+
+
             calculoCantidad();
 
         }
@@ -38,6 +39,93 @@ namespace MyM26.screens
             aVM.ShowDialog();
         }
 
+
+        public void AggColumnasAccion()
+        {
+            if (!dtg_art.Columns.Contains("btnVer"))
+            {
+                DataGridViewButtonColumn btnVer = new DataGridViewButtonColumn();
+                btnVer.Name = "btnVer";
+                btnVer.HeaderText = "";
+                btnVer.Text = "Ver";
+                btnVer.FlatStyle = FlatStyle.Flat;
+                btnVer.Width = 150;
+                btnVer.UseColumnTextForButtonValue = true;
+                btnVer.DefaultCellStyle.BackColor = Color.FromArgb(100, 82, 255);
+                btnVer.DefaultCellStyle.ForeColor = Color.White;
+                dtg_art.Columns.Add(btnVer);
+            }
+
+            if (!dtg_art.Columns.Contains("btnEditar"))
+            {
+                DataGridViewButtonColumn btnEditar = new DataGridViewButtonColumn();
+                btnEditar.Name = "btnEditar";
+                btnEditar.HeaderText = "";
+                btnEditar.Text = "Editar";
+                btnEditar.FlatStyle = FlatStyle.Flat;
+                btnEditar.Width = 150;
+                btnEditar.UseColumnTextForButtonValue = true;
+                btnEditar.DefaultCellStyle.BackColor = Color.FromArgb(87, 0, 238);
+                btnEditar.DefaultCellStyle.ForeColor = Color.White;
+                dtg_art.Columns.Add(btnEditar);
+            }
+
+            if (!dtg_art.Columns.Contains("btnEliminar"))
+            {
+                DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+                btnEliminar.Name = "btnEliminar";
+                btnEliminar.HeaderText = "";
+                btnEliminar.Text = "Eliminar";
+                btnEliminar.FlatStyle = FlatStyle.Flat;
+                btnEliminar.Width = 150;
+                btnEliminar.UseColumnTextForButtonValue = true;
+                btnEliminar.DefaultCellStyle.BackColor = Color.FromArgb(53, 0, 152);
+                btnEliminar.DefaultCellStyle.ForeColor = Color.White;
+                dtg_art.Columns.Add(btnEliminar);
+            }
+        }
+        public void LlenarDtg()
+        {
+            ArticuloDatos dt = new ArticuloDatos();
+
+            var result = dt.MostrarArticulo(pagina, limite);
+
+            if (result == null) return;
+
+            dtg_art.DataSource = null;
+            dtg_art.DataSource = result.Data;
+
+            int ultimo = dtg_art.Columns.Count - 1;
+
+            dtg_art.Columns["btnVer"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dtg_art.Columns["btnVer"].Width = 80;
+
+            dtg_art.Columns["btnEditar"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dtg_art.Columns["btnEditar"].Width = 80;
+
+            dtg_art.Columns["btnEliminar"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dtg_art.Columns["btnEliminar"].Width = 90;
+
+            dtg_art.Columns["btnEliminar"].DisplayIndex = ultimo;
+            dtg_art.Columns["btnEditar"].DisplayIndex = ultimo - 1;
+            dtg_art.Columns["btnVer"].DisplayIndex = ultimo - 2;
+
+            dtg_art.Columns["PrecioUnitario"].DefaultCellStyle.FormatProvider =
+             new CultureInfo("es-AR");
+
+            dtg_art.Columns["PrecioXCantidad"].DefaultCellStyle.FormatProvider =
+                new CultureInfo("es-AR");
+
+            dtg_art.Columns["CodigoArticulo"].Visible = false;
+            totalPaginas = (int)Math.Ceiling((double)result.Total / limite);
+            lbl_paginas.Text = $"Pagina {pagina}/{totalPaginas}";
+            label1.Text = $"Total registros: {result.Total}";
+            btn_anterior.Enabled = pagina > 1;
+            btn_siguente.Enabled = pagina < totalPaginas;
+
+            modoFiltro = false;
+
+        }
         private void btn_editar_Click(object sender, EventArgs e)
         {
             ABM aVM = new ABM(this);
@@ -70,9 +158,9 @@ namespace MyM26.screens
         {
 
         }
-       
 
-      
+
+
 
         public void calculoCantidad()
         {
@@ -90,22 +178,23 @@ namespace MyM26.screens
                 return;
             }
         }
-      
-     
+
+
 
         private void btn_anterior_Click(object sender, EventArgs e)
-        { filtro= txt_buscar.Text;
+        {
+            filtro = txt_buscar.Text;
 
-            if (paginaActual > 1)
+            if (pagina > 1)
             {
-                paginaActual--;
-                if(!modoFiltro)
+                pagina--;
+                if (!modoFiltro)
                 {
-                   // LLenarFlow();
+                    LlenarDtg();
                 }
                 else
                 {
-                   // LlenarFlowFiltro(filtro);
+                    // LlenarFlowFiltro(filtro);
                 }
             }
         }
@@ -114,12 +203,12 @@ namespace MyM26.screens
         {
             filtro = txt_buscar.Text;
 
-            if (paginaActual < totalPaginas)
+            if (pagina < totalPaginas)
             {
-                paginaActual++;
+                pagina++;
                 if (!modoFiltro)
                 {
-                   // LLenarFlow();
+                    LlenarDtg();
                 }
                 else
                 {
@@ -141,11 +230,11 @@ namespace MyM26.screens
             bj.ShowDialog();
         }
 
-      
+
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string cod = txt_buscar.Text;
-          //  LlenarFlowFiltro(cod);
+            //  LlenarFlowFiltro(cod);
         }
 
         private void txt_buscar_DragEnter(object sender, DragEventArgs e)
@@ -176,7 +265,7 @@ namespace MyM26.screens
 
             if (e.KeyCode == Keys.Enter)
             {
-               btn_buscar.PerformClick();
+                btn_buscar.PerformClick();
             }
         }
 
@@ -198,14 +287,42 @@ namespace MyM26.screens
 
         private void Articulos_Load(object sender, EventArgs e)
         {
-            // Supongamos que ya agregaste las columnas Editar y Ver en el diseñador
-          /*  foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                row.Cells["Editar"].Value = Properties.Resources.edit;
-                row.Cells["Ver"].Value = Properties.Resources.ver;
-                row.Cells["Eliminar"].Value = Properties.Resources.eliminar;
-            }*/
+            AggColumnasAccion();
+            LlenarDtg();
 
+        }
+
+        private void dtg_art_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex== dtg_art.Columns["btnVer"].Index)
+            {
+                ABM ab = new ABM();
+                ab.cod = dtg_art.CurrentRow.Cells["CodigoArticulo"].Value.ToString();
+                ab.Modo = "Ver";
+                ab.ShowDialog();
+            }
+
+            if(e.ColumnIndex== dtg_art.Columns["btnEditar"].Index)
+            {
+                ABM ab= new ABM();
+                ab.cod = dtg_art.CurrentRow.Cells["CodigoArticulo"].Value.ToString();
+                ab.Modo = "Modificar";
+                ab.ShowDialog();
+            }
+
+            if(e.ColumnIndex== dtg_art.Columns["btnEliminar"].Index)
+            {
+                string cod= dtg_art.CurrentRow.Cells["CodigoArticulo"].Value.ToString();
+
+                DialogResult r = MessageBox.Show("Estas seguro de eliminar este articulo?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(r== DialogResult.Yes)
+                {
+                    ArticuloNegocio neg = new ArticuloNegocio();
+                    neg.EliminarArt(cod);
+
+                    LlenarDtg();
+                }
+            }
         }
     }
 }

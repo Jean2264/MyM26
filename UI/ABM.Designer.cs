@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABM));
             btn_salir = new Button();
             pic_art = new PictureBox();
-            label2 = new Label();
-            txt_CodArt = new TextBox();
             label1 = new Label();
             txt_nombre = new TextBox();
             label3 = new Label();
@@ -62,6 +60,8 @@
             errorProvider1 = new ErrorProvider(components);
             btn_AggCliente = new Button();
             txt_proveedor = new TextBox();
+            label2 = new Label();
+            txt_ganancia = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pic_art).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numeric_C_U).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numeric_C_M).BeginInit();
@@ -77,7 +77,7 @@
             btn_salir.FlatAppearance.MouseDownBackColor = Color.FromArgb(215, 10, 60);
             btn_salir.FlatAppearance.MouseOverBackColor = Color.FromArgb(215, 10, 60);
             btn_salir.FlatStyle = FlatStyle.Flat;
-            btn_salir.Location = new Point(387, 4);
+            btn_salir.Location = new Point(447, 4);
             btn_salir.Margin = new Padding(3, 4, 3, 4);
             btn_salir.Name = "btn_salir";
             btn_salir.Size = new Size(17, 21);
@@ -97,37 +97,11 @@
             pic_art.TabStop = false;
             pic_art.DragEnter += txt_nombre_DragEnter;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(14, 176);
-            label2.Name = "label2";
-            label2.Size = new Size(116, 20);
-            label2.TabIndex = 21;
-            label2.Text = "Codigo Articulo";
-            // 
-            // txt_CodArt
-            // 
-            txt_CodArt.BackColor = Color.White;
-            txt_CodArt.Location = new Point(14, 200);
-            txt_CodArt.Margin = new Padding(3, 4, 3, 4);
-            txt_CodArt.MaxLength = 100;
-            txt_CodArt.Multiline = true;
-            txt_CodArt.Name = "txt_CodArt";
-            txt_CodArt.ReadOnly = true;
-            txt_CodArt.Size = new Size(174, 35);
-            txt_CodArt.TabIndex = 20;
-            txt_CodArt.DragEnter += txt_nombre_DragEnter;
-            txt_CodArt.KeyDown += txt_nombre_KeyDown;
-            txt_CodArt.KeyPress += txt_nombre_KeyPress;
-            txt_CodArt.MouseDown += txt_nombre_MouseDown;
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(216, 176);
+            label1.Location = new Point(14, 174);
             label1.Name = "label1";
             label1.Size = new Size(66, 20);
             label1.TabIndex = 23;
@@ -136,12 +110,12 @@
             // txt_nombre
             // 
             txt_nombre.BackColor = Color.White;
-            txt_nombre.Location = new Point(216, 200);
+            txt_nombre.Location = new Point(14, 198);
             txt_nombre.Margin = new Padding(3, 4, 3, 4);
             txt_nombre.MaxLength = 100;
             txt_nombre.Multiline = true;
             txt_nombre.Name = "txt_nombre";
-            txt_nombre.Size = new Size(174, 35);
+            txt_nombre.Size = new Size(205, 35);
             txt_nombre.TabIndex = 22;
             txt_nombre.DragEnter += txt_nombre_DragEnter;
             txt_nombre.KeyDown += txt_nombre_KeyDown;
@@ -152,7 +126,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(14, 253);
+            label3.Location = new Point(244, 174);
             label3.Name = "label3";
             label3.Size = new Size(120, 20);
             label3.TabIndex = 25;
@@ -161,12 +135,12 @@
             // txt_cb
             // 
             txt_cb.BackColor = Color.White;
-            txt_cb.Location = new Point(14, 277);
+            txt_cb.Location = new Point(244, 198);
             txt_cb.Margin = new Padding(3, 4, 3, 4);
             txt_cb.MaxLength = 15;
             txt_cb.Multiline = true;
             txt_cb.Name = "txt_cb";
-            txt_cb.Size = new Size(174, 35);
+            txt_cb.Size = new Size(205, 35);
             txt_cb.TabIndex = 24;
             txt_cb.DragEnter += txt_nombre_DragEnter;
             txt_cb.KeyDown += txt_cb_KeyDown;
@@ -179,10 +153,10 @@
             cmb_categoria.BackColor = Color.WhiteSmoke;
             cmb_categoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_categoria.FormattingEnabled = true;
-            cmb_categoria.Location = new Point(216, 277);
+            cmb_categoria.Location = new Point(14, 272);
             cmb_categoria.Margin = new Padding(3, 4, 3, 4);
             cmb_categoria.Name = "cmb_categoria";
-            cmb_categoria.Size = new Size(174, 28);
+            cmb_categoria.Size = new Size(205, 28);
             cmb_categoria.TabIndex = 26;
             cmb_categoria.SelectedIndexChanged += cmb_categoria_SelectedIndexChanged;
             // 
@@ -190,7 +164,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(216, 253);
+            label4.Location = new Point(14, 248);
             label4.Name = "label4";
             label4.Size = new Size(75, 20);
             label4.TabIndex = 27;
@@ -200,7 +174,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(14, 323);
+            label5.Location = new Point(245, 248);
             label5.Name = "label5";
             label5.Size = new Size(103, 20);
             label5.TabIndex = 29;
@@ -211,17 +185,17 @@
             cmb_Subcate.BackColor = Color.WhiteSmoke;
             cmb_Subcate.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_Subcate.FormattingEnabled = true;
-            cmb_Subcate.Location = new Point(14, 347);
+            cmb_Subcate.Location = new Point(245, 272);
             cmb_Subcate.Margin = new Padding(3, 4, 3, 4);
             cmb_Subcate.Name = "cmb_Subcate";
-            cmb_Subcate.Size = new Size(174, 28);
+            cmb_Subcate.Size = new Size(205, 28);
             cmb_Subcate.TabIndex = 28;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(216, 323);
+            label6.Location = new Point(244, 406);
             label6.Name = "label6";
             label6.Size = new Size(81, 20);
             label6.TabIndex = 31;
@@ -231,7 +205,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(14, 426);
+            label7.Location = new Point(15, 399);
             label7.Name = "label7";
             label7.Size = new Size(110, 20);
             label7.TabIndex = 33;
@@ -240,12 +214,13 @@
             // txt_P_U
             // 
             txt_P_U.BackColor = Color.White;
-            txt_P_U.Location = new Point(14, 450);
+            txt_P_U.Location = new Point(15, 423);
             txt_P_U.Margin = new Padding(3, 4, 3, 4);
             txt_P_U.MaxLength = 12;
             txt_P_U.Multiline = true;
             txt_P_U.Name = "txt_P_U";
-            txt_P_U.Size = new Size(174, 35);
+            txt_P_U.ReadOnly = true;
+            txt_P_U.Size = new Size(205, 35);
             txt_P_U.TabIndex = 32;
             txt_P_U.DragEnter += txt_nombre_DragEnter;
             txt_P_U.KeyDown += txt_cb_KeyDown;
@@ -255,10 +230,11 @@
             // numeric_C_U
             // 
             numeric_C_U.BackColor = Color.White;
-            numeric_C_U.Location = new Point(216, 450);
+            numeric_C_U.Location = new Point(14, 534);
             numeric_C_U.Margin = new Padding(3, 4, 3, 4);
+            numeric_C_U.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             numeric_C_U.Name = "numeric_C_U";
-            numeric_C_U.Size = new Size(175, 27);
+            numeric_C_U.Size = new Size(205, 27);
             numeric_C_U.TabIndex = 34;
             numeric_C_U.DragEnter += txt_nombre_DragEnter;
             // 
@@ -266,7 +242,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(216, 426);
+            label8.Location = new Point(12, 510);
             label8.Name = "label8";
             label8.Size = new Size(70, 20);
             label8.TabIndex = 35;
@@ -276,7 +252,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(14, 509);
+            label9.Location = new Point(12, 604);
             label9.Name = "label9";
             label9.Size = new Size(196, 20);
             label9.TabIndex = 37;
@@ -285,10 +261,11 @@
             // numeric_C_M
             // 
             numeric_C_M.BackColor = Color.White;
-            numeric_C_M.Location = new Point(14, 533);
+            numeric_C_M.Location = new Point(14, 628);
             numeric_C_M.Margin = new Padding(3, 4, 3, 4);
+            numeric_C_M.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             numeric_C_M.Name = "numeric_C_M";
-            numeric_C_M.Size = new Size(175, 27);
+            numeric_C_M.Size = new Size(205, 27);
             numeric_C_M.TabIndex = 36;
             numeric_C_M.DragEnter += txt_nombre_DragEnter;
             // 
@@ -296,7 +273,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(216, 509);
+            label10.Location = new Point(244, 596);
             label10.Name = "label10";
             label10.Size = new Size(123, 20);
             label10.TabIndex = 39;
@@ -305,12 +282,12 @@
             // txt_P_M
             // 
             txt_P_M.BackColor = Color.White;
-            txt_P_M.Location = new Point(216, 533);
+            txt_P_M.Location = new Point(244, 620);
             txt_P_M.Margin = new Padding(3, 4, 3, 4);
             txt_P_M.MaxLength = 12;
             txt_P_M.Multiline = true;
             txt_P_M.Name = "txt_P_M";
-            txt_P_M.Size = new Size(174, 35);
+            txt_P_M.Size = new Size(205, 35);
             txt_P_M.TabIndex = 38;
             txt_P_M.DragEnter += txt_nombre_DragEnter;
             txt_P_M.KeyDown += txt_cb_KeyDown;
@@ -321,7 +298,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(14, 585);
+            label11.Location = new Point(15, 322);
             label11.Name = "label11";
             label11.Size = new Size(186, 20);
             label11.TabIndex = 41;
@@ -330,12 +307,12 @@
             // txt_P_P
             // 
             txt_P_P.BackColor = Color.White;
-            txt_P_P.Location = new Point(14, 609);
+            txt_P_P.Location = new Point(15, 346);
             txt_P_P.Margin = new Padding(3, 4, 3, 4);
             txt_P_P.MaxLength = 12;
             txt_P_P.Multiline = true;
             txt_P_P.Name = "txt_P_P";
-            txt_P_P.Size = new Size(174, 35);
+            txt_P_P.Size = new Size(205, 35);
             txt_P_P.TabIndex = 40;
             txt_P_P.DragEnter += txt_nombre_DragEnter;
             txt_P_P.KeyDown += txt_cb_KeyDown;
@@ -346,7 +323,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(216, 585);
+            label12.Location = new Point(245, 510);
             label12.Name = "label12";
             label12.Size = new Size(157, 20);
             label12.TabIndex = 43;
@@ -355,12 +332,12 @@
             // txt_D_P
             // 
             txt_D_P.BackColor = Color.White;
-            txt_D_P.Location = new Point(216, 609);
+            txt_D_P.Location = new Point(245, 534);
             txt_D_P.Margin = new Padding(3, 4, 3, 4);
             txt_D_P.MaxLength = 12;
             txt_D_P.Multiline = true;
             txt_D_P.Name = "txt_D_P";
-            txt_D_P.Size = new Size(174, 35);
+            txt_D_P.Size = new Size(205, 35);
             txt_D_P.TabIndex = 42;
             txt_D_P.DragEnter += txt_nombre_DragEnter;
             txt_D_P.KeyDown += txt_cb_KeyDown;
@@ -373,7 +350,7 @@
             btn_añadir.FlatStyle = FlatStyle.Flat;
             btn_añadir.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_añadir.ForeColor = Color.White;
-            btn_añadir.Location = new Point(126, 692);
+            btn_añadir.Location = new Point(146, 708);
             btn_añadir.Margin = new Padding(3, 4, 3, 4);
             btn_añadir.Name = "btn_añadir";
             btn_añadir.Size = new Size(150, 49);
@@ -405,7 +382,7 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(409, 31);
+            panel2.Size = new Size(470, 31);
             panel2.TabIndex = 46;
             // 
             // label_Title
@@ -429,9 +406,9 @@
             btn_AggCliente.FlatStyle = FlatStyle.Flat;
             btn_AggCliente.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btn_AggCliente.ForeColor = Color.White;
-            btn_AggCliente.Location = new Point(216, 346);
+            btn_AggCliente.Location = new Point(244, 429);
             btn_AggCliente.Name = "btn_AggCliente";
-            btn_AggCliente.Size = new Size(174, 29);
+            btn_AggCliente.Size = new Size(205, 35);
             btn_AggCliente.TabIndex = 47;
             btn_AggCliente.Text = "Buscar proveedor";
             btn_AggCliente.UseVisualStyleBackColor = false;
@@ -440,15 +417,39 @@
             // txt_proveedor
             // 
             txt_proveedor.BackColor = Color.White;
-            txt_proveedor.Location = new Point(216, 345);
+            txt_proveedor.Location = new Point(244, 428);
             txt_proveedor.Margin = new Padding(3, 4, 3, 4);
             txt_proveedor.MaxLength = 12;
             txt_proveedor.Multiline = true;
             txt_proveedor.Name = "txt_proveedor";
             txt_proveedor.ReadOnly = true;
-            txt_proveedor.Size = new Size(174, 35);
+            txt_proveedor.Size = new Size(205, 35);
             txt_proveedor.TabIndex = 48;
             txt_proveedor.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(245, 322);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 20);
+            label2.TabIndex = 50;
+            label2.Text = "Ganancia % deseada";
+            // 
+            // txt_ganancia
+            // 
+            txt_ganancia.BackColor = Color.White;
+            txt_ganancia.Location = new Point(245, 346);
+            txt_ganancia.Margin = new Padding(3, 4, 3, 4);
+            txt_ganancia.MaxLength = 3;
+            txt_ganancia.Multiline = true;
+            txt_ganancia.Name = "txt_ganancia";
+            txt_ganancia.Size = new Size(205, 35);
+            txt_ganancia.TabIndex = 49;
+            txt_ganancia.KeyDown += txt_nombre_KeyDown;
+            txt_ganancia.KeyPress += textBox1_KeyPress;
+            txt_ganancia.MouseDown += txt_nombre_MouseDown;
             // 
             // ABM
             // 
@@ -457,7 +458,9 @@
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(409, 759);
+            ClientSize = new Size(470, 770);
+            Controls.Add(label2);
+            Controls.Add(txt_ganancia);
             Controls.Add(btn_AggCliente);
             Controls.Add(txt_proveedor);
             Controls.Add(panel2);
@@ -484,8 +487,6 @@
             Controls.Add(txt_cb);
             Controls.Add(label1);
             Controls.Add(txt_nombre);
-            Controls.Add(label2);
-            Controls.Add(txt_CodArt);
             Controls.Add(pic_art);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
@@ -507,8 +508,6 @@
         #endregion
         private Button btn_salir;
         private PictureBox pic_art;
-        private Label label2;
-        private TextBox txt_CodArt;
         private Label label1;
         private TextBox txt_nombre;
         private Label label3;
@@ -537,5 +536,7 @@
         private ErrorProvider errorProvider1;
         private Button btn_AggCliente;
         private TextBox txt_proveedor;
+        private Label label2;
+        private TextBox txt_ganancia;
     }
 }

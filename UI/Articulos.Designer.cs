@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Articulos));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             btn_menu = new Button();
             btn_bajas = new Button();
@@ -41,10 +43,11 @@
             btn_siguente = new Button();
             lbl_paginas = new Label();
             label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            dtg_art = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtg_art).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -250,23 +253,48 @@
             label1.TabIndex = 4;
             label1.Text = "\r\nlabel1";
             // 
-            // flowLayoutPanel1
+            // dtg_art
             // 
-            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 53);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1312, 819);
-            flowLayoutPanel1.TabIndex = 4;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint_1;
+            dtg_art.AllowUserToResizeColumns = false;
+            dtg_art.AllowUserToResizeRows = false;
+            dtg_art.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtg_art.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(61, 100, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtg_art.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dtg_art.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtg_art.Dock = DockStyle.Fill;
+            dtg_art.EnableHeadersVisualStyles = false;
+            dtg_art.ImeMode = ImeMode.On;
+            dtg_art.Location = new Point(0, 53);
+            dtg_art.Margin = new Padding(3, 4, 3, 4);
+            dtg_art.Name = "dtg_art";
+            dtg_art.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 125, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dtg_art.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dtg_art.RowHeadersVisible = false;
+            dtg_art.RowHeadersWidth = 51;
+            dtg_art.Size = new Size(1312, 819);
+            dtg_art.TabIndex = 6;
+            dtg_art.CellContentClick += dtg_art_CellContentClick;
             // 
             // Articulos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(dtg_art);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 4, 3, 4);
@@ -278,6 +306,7 @@
             panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtg_art).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,9 +323,9 @@
         private Button btn_anterior;
         private Button btn_siguente;
         private Label lbl_paginas;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
         private Panel panel1;
         private TextBox txt_buscar;
+        private DataGridView dtg_art;
     }
 }

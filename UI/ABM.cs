@@ -1,26 +1,27 @@
-﻿using MyM26.Entidades.Articulos;
+﻿using ImageMagick;
+using MyM26.BLL;
+using MyM26.DAL;
+using MyM26.Entidades.Articulos;
+using MyM26.Entidades.Comun;
+using MyM26.Entidades.Usuario;
+using MyM26.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
-using ImageMagick;
 using System.Data;
-using System.Drawing;
-using MyM26.Entidades.Comun;
-
-using MyM26.Entidades.Usuario;
-using MyM26.DAL;
-using MyM26.BLL;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using MyM26.UI;
 
 namespace MyM26.screens
 {
     public partial class ABM : Form
     {
+        private string CodigoArticulo;
         public string Modo;
         public string md;
         public Articulos ar;
@@ -83,8 +84,6 @@ namespace MyM26.screens
 
 
                 btn_buscar.Visible = true;
-                txt_CodArt.ReadOnly = true;
-                txt_CodArt.BackColor = Color.Gainsboro;
                 txt_nombre.ReadOnly = true;
                 txt_nombre.BackColor = Color.Gainsboro;
                 txt_cb.ReadOnly = true;
@@ -93,7 +92,7 @@ namespace MyM26.screens
 
                 cmb_categoria.DropDownStyle = ComboBoxStyle.DropDown;
                 cmb_Subcate.DropDownStyle = ComboBoxStyle.DropDown;
-               
+
                 foreach (Control ctrl in this.Controls)
                 {
 
@@ -111,7 +110,7 @@ namespace MyM26.screens
 
                 BuscarArt();
             }
-            else
+            else if (Modo == "Ver")
             {
                 label_Title.Text = "Vista Artículo";
                 pic_art.BackgroundImageLayout = ImageLayout.None;
@@ -122,7 +121,7 @@ namespace MyM26.screens
                 }
                 cmb_categoria.DropDownStyle = ComboBoxStyle.DropDown;
                 cmb_Subcate.DropDownStyle = ComboBoxStyle.DropDown;
-              
+                btn_AggCliente.Visible = false;
 
                 BuscarArt();
                 btn_añadir.Visible = false;
@@ -176,7 +175,7 @@ namespace MyM26.screens
 
 
             //Para proveedor
-          
+
         }
 
         //flujo de cargar de imagen: WEBP -> MagickImage -> PNG (en memoria) -> Image -> picturbox
@@ -236,21 +235,21 @@ namespace MyM26.screens
             }
 
 
-            txt_CodArt.Text = art.CodArt;
+            CodigoArticulo = art.CodArt;
             txt_nombre.Text = art.Nombre;
             txt_cb.Text = art.CodigoBarra;
             cmb_categoria.Text = art.Categoria;
             cmb_Subcate.Text = art.Subcategoria;
-           txt_proveedor.Text = art.Prov;
-            txt_P_U.Text = art.PrecioUnitario.ToString();
+            txt_proveedor.Text = art.Prov;
+            txt_P_U.Text = art.PrecioUnitario.ToString("N2", new CultureInfo("es-AR")); ;
             int cantidad = Convert.ToInt32(art.Cantidad);
             int canTM = Convert.ToInt32(art.CantMinMayor);
 
             numeric_C_U.Value = Math.Min(numeric_C_U.Maximum, Math.Max(numeric_C_U.Minimum, cantidad));
             numeric_C_M.Value = Math.Min(numeric_C_M.Maximum, Math.Max(numeric_C_M.Minimum, canTM));
-            txt_P_M.Text = art.PrecioXMayor.ToString();
-            txt_P_P.Text = art.Costo.ToString();
-            txt_D_P.Text = art.Descuento.ToString();
+            txt_P_M.Text = art.PrecioXMayor.ToString("N2", new CultureInfo("es-AR")); 
+            txt_P_P.Text = art.Costo.ToString("N2", new CultureInfo("es-AR")); 
+            txt_D_P.Text = art.Descuento.ToString("N2", new CultureInfo("es-AR"));
 
             if (art.Imagen != null)
             {
@@ -260,6 +259,13 @@ namespace MyM26.screens
                     pic_art.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
+        }
+        public static decimal ObtenerDecimal(string texto)
+        {
+            return decimal.Parse(
+                texto,
+                NumberStyles.Number,
+                new CultureInfo("es-AR"));
         }
         private VArticulo CargarCampos()
         {
@@ -274,7 +280,7 @@ namespace MyM26.screens
             decimal.TryParse(txt_D_P.Text, out decimal desc);
             decimal.TryParse(txt_P_U.Text, out decimal precioUnit);
 
-            decimal costoParcial = (costo - desc);
+            decimal costoParcial = (ObtenerDecimal(txt_P_P.Text) - desc);
             decimal Total = costoParcial * (int)numeric_C_U.Value;
 
             cb = txt_cb.Text;
@@ -292,13 +298,13 @@ namespace MyM26.screens
                                 ") ha dado de alta al articulo: " + txt_nombre.Text + ")",
 
 
-                PrecioUnitario = precioUnit,
-                Costo = costo,
-                Descuento = desc,
-                PrecioXMayor = pm,
+                PrecioUnitario = ObtenerDecimal(txt_P_U.Text),
+                Costo = ObtenerDecimal(txt_P_P.Text),
+                Descuento = ObtenerDecimal(txt_D_P.Text),
+                PrecioXMayor = ObtenerDecimal(txt_P_M.Text),
                 Detalle = "Compra",
                 Monto = Total,
-                Ganancia = (precioUnit - costo),
+                Ganancia = Convert.ToDecimal(txt_ganancia.Text),
                 Cantidad = (int)numeric_C_U.Value,
                 CantMinMayor = (int)numeric_C_M.Value
             };
@@ -322,7 +328,6 @@ namespace MyM26.screens
                 PrecioXMayor = pm,
                 Costo = costo,
                 PrecioUnitario = precioUnit,
-                codArtRef = txt_CodArt.Text,
                 Cantidad = (int)numeric_C_U.Value,
                 CantMinMayor = (int)numeric_C_M.Value,
                 TipoMovimiento = "modificación de articulo",
@@ -373,7 +378,7 @@ namespace MyM26.screens
                     {
                         dt.ReactivarArt(cb);
                         MessageBox.Show("Articulo reactivado correctamente.");
-                       // ar.LLenarFlow();
+                        // ar.LLenarFlow();
                         this.Close();
                         return;
                     }
@@ -395,7 +400,7 @@ namespace MyM26.screens
                 ArticuloDatos dat = new ArticuloDatos();
                 dat.AltaCompleto(art);
                 limparCampos();
-               // ar.LLenarFlow();
+                // ar.LLenarFlow();
                 dat.AltaHistoricoCompleto(art);
                 dat.ALtaCompletoIntOutVarios(art);
 
@@ -416,7 +421,7 @@ namespace MyM26.screens
                 ArticuloDatos dt = new ArticuloDatos();
                 dt.ModiCompleto(art);
                 limparCampos();
-               // ar.LLenarFlow();
+                // ar.LLenarFlow();
                 dt.AltaHistoricoCompleto(art);
                 this.Close();
 
@@ -443,7 +448,7 @@ namespace MyM26.screens
                     {
                         dt.ReactivarArt(cb);
                         MessageBox.Show("Articulo reactivado correctamente.");
-                       // ar.LLenarFlow();
+                        // ar.LLenarFlow();
                         this.Close();
                         return;
                     }
@@ -474,12 +479,11 @@ namespace MyM26.screens
 
         public void limparCampos()
         {
-            txt_CodArt.Clear();
             txt_nombre.Clear();
             txt_cb.Clear();
             cmb_categoria.SelectedIndex = -1;
             cmb_Subcate.SelectedIndex = -1;
-          
+
             txt_P_U.Clear();
             numeric_C_U.Value = 0;
             numeric_C_M.Value = 0;
@@ -590,7 +594,7 @@ namespace MyM26.screens
 
         private void txt_nombre_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right || e.Button== MouseButtons.Left)
             {
                 e = null;
             }
@@ -638,15 +642,24 @@ namespace MyM26.screens
 
         private void btn_AggCliente_Click(object sender, EventArgs e)
         {
-           Proveedor pr= new Proveedor();
+            Proveedor pr = new Proveedor();
             pr.StartPosition = FormStartPosition.CenterParent;
-            if(pr.ShowDialog()==DialogResult.OK)
+            if (pr.ShowDialog() == DialogResult.OK)
             {
                 txt_proveedor.Visible = true;
                 btn_AggCliente.Text = "Cambiar Proveedor";
-                btn_AggCliente.Location = new Point(216,384);
+                btn_AggCliente.Location = new Point(244, 470);
                 txt_proveedor.Text = pr.nombre;
                 cuitProveedor = pr.cuit;
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+               
             }
         }
     }

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Globalization;
 
 namespace MyM26.DAL
 {
@@ -266,13 +267,13 @@ namespace MyM26.DAL
 
         //Mostramos articulos
        
-        public PagedResult<ArticuloDto> MostrarArticulo(int pagina, int limite)
+        public PagedResult<ArtViewDto> MostrarArticulo(int pagina, int limite)
         {
             if (pagina < 1)
                 pagina = 1;
             if (limite <= 0) limite = 1;
-            int offset = (pagina - 1) * limite;
-            var list = new List<ArticuloDto>();
+           
+            var list = new List<ArtViewDto>();
             int total = 0;
             using (SqlConnection conn = new SqlConnection(Decla.ConnectionString))
             {
@@ -282,7 +283,7 @@ namespace MyM26.DAL
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@offset", offset);
+                    cmd.Parameters.AddWithValue("@pagina", pagina);
                     cmd.Parameters.AddWithValue("@limite", limite);
 
                     conn.Open();
@@ -293,7 +294,7 @@ namespace MyM26.DAL
                             if (total == 0)
                                 total = Convert.ToInt32(reader["TotalRegistros"]);
 
-                            list.Add(new ArticuloDto
+                            list.Add(new ArtViewDto
                             {
                                 CodigoArticulo = reader["CodigoArticulo"].ToString(),
                                 Nombre = reader["Nombre"].ToString(),
@@ -306,7 +307,7 @@ namespace MyM26.DAL
                    
                 }
             }
-            return new PagedResult<ArticuloDto>
+            return new PagedResult<ArtViewDto>
             {
                 Data = list,
                 Total = total
