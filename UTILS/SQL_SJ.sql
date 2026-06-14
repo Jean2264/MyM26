@@ -390,7 +390,8 @@ BEGIN
         ProveedorEmpresa,
         PrecioUnitario,
         PrecioXMayor,
-        Cantidad
+        Cantidad,
+        Ganancia
 FROM dbo.vw_ArticuloStockActivo
 
   
