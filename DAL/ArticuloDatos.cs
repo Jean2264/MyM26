@@ -392,12 +392,12 @@ namespace MyM26.DAL
 
         public void ModiStock(VArticulo art, SqlTransaction trans)
         {
-            decimal ganancia = Convert.ToDecimal(art.PrecioUnitario - art.Costo);
+          
             string consulta = @"UPDATE Stock SET Cantidad=@cant,  Ganancia=@gan WHERE CodigoArticulo=@cd";
             SqlCommand cmd = new SqlCommand(consulta, Decla.cnn, trans);
             cmd.Parameters.AddWithValue("@cd", art.codArtRef);
             cmd.Parameters.AddWithValue("@cant", art.Cantidad);
-            cmd.Parameters.AddWithValue("@gan", ganancia);
+            cmd.Parameters.AddWithValue("@gan", art.Ganancia);
             cmd.ExecuteNonQuery();
         }
         
@@ -683,27 +683,26 @@ namespace MyM26.DAL
             VArticulo art = null;
 
 
-            string Consulta = @"SELECT a.CodigoArticulo, 
-                          a.Nombre,
-                          a.CodigoBarra,
-                          a.Imagen,
-                          c.Categoria,
-                          sb.Subcategoria,
-                          (p.Nombre + ' - ' + p.Empresa) AS ProveedorInfo,
-                          a.PrecioUnitario,
-                          s.Cantidad,
-                          a.CantMinMayorista,
-                          a.PrecioXMayor,
-                          s.Costo,
-                          hc.Descuento 
-                     FROM Articulo a 
-                      INNER JOIN Stock s ON a.CodigoArticulo = s.CodigoArticulo        
-                      INNER JOIN Categoria c ON a.CodCategoria = c.CodCategoria    
-                      INNER JOIN Subcategoria sb ON a.CodSubcategoria = sb.CodSubcategoria 
-                      INNER JOIN Proveedor p ON a.Cuit = p.Cuit     
-                      INNER JOIN HCompra hc ON p.Cuit = hc.Cuit 
-                     WHERE a.CodigoArticulo = @cod";
-            SqlCommand cmd = new SqlCommand(Consulta, Decla.cnn);
+           string consulta = @"
+                              SELECT
+                                  CodigoArticulo,
+                                  CodigoBarra,
+                                  Imagen,
+                                  Nombre,
+                                  Categoria,
+                                  Subcategoria,
+                                  ProveedorNombre,
+                                  ProveedorEmpresa,
+                                  PrecioUnitario,
+                                  CantMinMayorista,
+                                  PrecioXMayor,
+                                  Cantidad,
+                                  Costo,
+                                  Ganancia
+                              FROM dbo.vw_ArticuloStockActivo
+                              WHERE CodigoArticulo = @cod";
+
+            SqlCommand cmd = new SqlCommand(consulta, Decla.cnn);
             cmd.Parameters.AddWithValue("@cod", cod);
 
             try
@@ -727,13 +726,14 @@ namespace MyM26.DAL
 
                     art.Categoria = reader["Categoria"].ToString();
                     art.Subcategoria = reader["Subcategoria"].ToString();
-                    art.Prov = reader["ProveedorInfo"].ToString();
+                    art.Prov = $"{reader["ProveedorNombre"]}- {reader["ProveedorEmpresa"]}";
                     art.PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]);
                     art.Cantidad = Convert.ToInt32(reader["Cantidad"]);
                     art.CantMinMayor = Convert.ToInt32(reader["CantMinMayorista"]);
                     art.PrecioXMayor = Convert.ToDecimal(reader["PrecioXMayor"]);
                     art.Costo = Convert.ToDecimal(reader["Costo"]);
-                    art.Descuento = Convert.ToDecimal(reader["Descuento"]);
+                   
+                    art.Ganancia = Convert.ToDecimal(reader["Ganancia"]);
                 }
                 ;
 

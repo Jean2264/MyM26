@@ -226,6 +226,12 @@ namespace MyM26.screens
 
             ArticuloNegocio neg = new ArticuloNegocio();
             VArticulo art = neg.TomarInfo(cod);
+            MessageBox.Show(
+    $"COD={cod}\n" +
+    $"PrecioUnitario={art.PrecioUnitario}"
+);
+
+
 
             if (art == null)
             {
@@ -673,22 +679,15 @@ namespace MyM26.screens
 
         public void ObtenerPrecio()
         {
-            if (decimal.TryParse(
-                txt_P_P.Text,
-                NumberStyles.Number,
-                new CultureInfo("es-AR"),
-                out decimal costo
-            )&&
-                decimal.TryParse(
-                txt_ganancia.Text,
-                NumberStyles.Number,
-                new CultureInfo("es-AR"),
-                out decimal ganancia
-            ))
+           
+            if (decimal.TryParse(txt_P_P.Text, out decimal costo) &&
+                decimal.TryParse(txt_ganancia.Text, out decimal ganancia))
             {
-                
+               
 
                 decimal p_u = costo + (costo * ganancia / 100);
+
+               
 
                 txt_P_U.Text = p_u.ToString("N2", new CultureInfo("es-AR"));
             }
