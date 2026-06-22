@@ -161,42 +161,57 @@ namespace MyM26.DAL
             return empleado;
         }
 
+        // Método: GetEmpleado
+        // Devuelve un PagedResult (datos paginados) de EmpleadoDto según la página y el límite indicados.
         public PagedResult<EmpleadoDto> GetEmpleado(int pagina, int limite)
         {
+            // Si la página es menor que 1, forzar a 1
             if (pagina < 1) pagina = 1;
+            // Si el límite es menor o igual a 0, usar 10 como valor por defecto
             if(limite<=0) limite = 10;
 
+            // Lista que contendrá los registros leídos
             var lis = new List<EmpleadoDto>();
+            // Variable para almacenar el total de registros disponibles
             int total = 0;
+            // Calcula el desplazamiento (offset) de la paginación: (pagina - 1) * limite
             int offset= (pagina-1)*limite;
+            // Abrir una conexión usando la cadena de conexión centralizada
             using(SqlConnection conn= new SqlConnection(Decla.ConnectionString))
             {
+                // Abrir la conexión a la base de datos
                 conn.Open();
 
-                //TOTAL
-
+                // TOTAL: consulta para contar cuántos empleados activos existen
                 string queryTotal = "SELECT COUNT(*) FROM Empleado WHERE Estado=1";
 
+                // Ejecuta la consulta de total y asigna el resultado a 'total'
                 using(SqlCommand cmd= new SqlCommand(queryTotal, conn))
                 {
                     total= (int)cmd.ExecuteScalar();
                 }
 
-                //Data
-
+                // DATA: consulta para obtener los datos de la página solicitada
                 string queryData = @"select  DNI, Apellido, Nombre,
                                    Telefono, Mail, Sector from Empleado
                                     where Estado=1 ORDER BY Apellido OFFSET 
                                       @offset ROWS FETCH NEXT @limite ROWS ONLY";
+
+                // Prepara el comando con la consulta de datos
                 using(SqlCommand cmd= new SqlCommand(queryData, conn))
                 {
+                    // Añade el parámetro @offset con el valor calculado
                     cmd.Parameters.Add("@offset", SqlDbType.Int).Value = offset;
+                    // Añade el parámetro @limite con el número de filas a obtener
                     cmd.Parameters.Add("@limite", SqlDbType.Int).Value = limite;
 
+                    // Ejecuta el reader para leer fila por fila
                     using(SqlDataReader  reader = cmd.ExecuteReader())
                     {
+                        // Itera mientras haya filas disponibles
                         while (reader.Read())
                         {
+                            // Por cada fila crea un EmpleadoDto y lo añade a la lista
                             lis.Add(new EmpleadoDto
                             {
                               DNI= reader["DNI"].ToString(),
@@ -211,6 +226,7 @@ namespace MyM26.DAL
                 }
             }
 
+            // Devuelve el resultado paginado con la lista de datos y el total
             return new PagedResult<EmpleadoDto>
             {
                 Data = lis,

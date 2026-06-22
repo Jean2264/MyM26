@@ -256,33 +256,46 @@ namespace MyM26.UI
 
         }
 
+        // Método mostrar: carga y muestra la página actual de empleados en el DataGridView
         public void mostrar()
         {
 
             try
             {
+                // Crea una instancia de la capa de datos para empleados
                 EmpleadoDatos dt = new EmpleadoDatos();
+                // Llama a GetEmpleado pasando la página actual y el número de registros por página
                 var result = dt.GetEmpleado(paginaActual, registrosPorPagina);
 
+                // Si no hay resultado, salir del método
                 if (result == null) return;
 
+                // Limpia el origen de datos del DataGridView antes de asignar uno nuevo
                 dataGridView1.DataSource = null;
+                // Asigna la lista de datos obtenida al DataSource del DataGridView
                 dataGridView1.DataSource = result.Data;
 
+                // Calcula el número total de páginas redondeando hacia arriba
                 TotalPaginas = (int)Math.Ceiling((double)result.Total / registrosPorPagina);
 
+                // Actualiza la etiqueta que muestra la página actual y el total de páginas
                 lbl_paginas.Text = $"Página  {paginaActual} / {TotalPaginas}";
 
+                // Habilita o deshabilita el botón anterior dependiendo si no estamos en la primera página
                 btn_anterior.Enabled = paginaActual > 1;
+                // Habilita o deshabilita el botón siguiente dependiendo si no estamos en la última página
                 btn_siguente.Enabled = paginaActual < TotalPaginas;
 
+                // Actualiza la etiqueta que muestra el total de registros devueltos
                 label1.Text = $"Total registros: {result.Total}";
+                // Marca que actualmente no se está usando un filtro (modo lista completa)
                 modoFiltro = false;
 
 
             }
             catch (Exception ex)
             {
+                // Muestra un mensaje con el error en caso de excepción
                 MessageBox.Show(ex.Message);
                 return;
             }
